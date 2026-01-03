@@ -1,0 +1,819 @@
+5739	ASTALDI	parma	P	P		1							
+353	AUDERO	cremonese	P	P		9	6	5,75	5,5	6,5	6,25	-4,5	-3,5
+483	BOER		P	P	*	1							
+421	BORBEI		P	P	*	1							
+532	BREZZO		P	P	*	1							
+355	BUTEZ	como	P	P		19	10	5,65	5,9	6,25	6,3	-6	-2
+69	CAPRILE	cagliari	P	P		15	10	5	4,5	6,45	6,4	-14,5	-9,5
+1	CARNESECCHI	atalanta	P	P		21	10	6,05	5,4	6,55	6,2	-5	-4
+4370	CAVLINA	como	P	P		1							
+283	CHICHIZOLA		P	P	*	1							
+4305	CHIESA	verona	P	P		1							
+104	CHRISTENSEN		P	P	*	1							
+70	CIOCCI	cagliari	P	P		1							
+530	CONTINI	napoli	P	P		1							
+284	CORVI	parma	P	P		1							
+206	DAFFARA		P	P	*	1							
+105	DE GEA	fiorentina	P	P		16	10	4,8	4,3	6,3	6,1	-15	-9
+458	DEVIS VASQUEZ	roma	P	P		1							
+165	DI GENNARO	inter	P	P		1							
+207	DI GREGORIO	juventus	P	P		18	9	5,22	5,13	6,28	6,25	-9,5	-5,5
+533	DONNARUMMA		P	P	*	1							
+422	FALCONE	lecce	P	P		14	10	4,85	5,3	6,3	6,2	-14,5	-4,5
+5771	FERRANTE	napoli	P	P		1							
+423	FRUCHTL	lecce	P	P		1							
+528	FULIGNATI		P	P	*	9							
+417	FURLANETTO	lazio	P	P		1							
+208	GAROFANI		P	P	*	1							
+315	GOLLINI	roma	P	P		1							
+567	GUADAGNO		P	P	*	1							
+1676	ISRAEL	torino	P	P		11	7	4,29	4,75	6,21	6,5	-13,5	-8,5
+139	LEALI	genoa	P	P		14	10	4,8	4,9	6,25	6,4	-14,5	-7,5
+3965	LEZZERINI	fiorentina	P	P		1							
+568	LIVIERI		P	P	*	1							
+569	LORIA		P	P	*	1							
+348	MAGRO		P	P	*	1							
+459	MAIGNAN	milan	P	P		21	9	5,89	6,2	6,33	6,4	-4	-1
+418	MANDAS	lazio	P	P		1							
+285	MARCONE		P	P	*	1							
+106	MARTINELLI	fiorentina	P	P		1							
+166	MARTINEZ JO.	inter	P	P		4	2	5,75		6,25	-1	-1	-1
+4263	MENKE	como	P	P		1							
+245	MERET	napoli	P	P		17	4	5,13		6,13	-1	-4	-4
+1091	MILINKOVIC SAVIC	napoli	P	P		18	6	6,75	7	6,42	6,4	2	3
+604	MOLDOVAN		P	P	*	1							
+349	MONTIPO	verona	P	P		13	10	4,7	5,1	6	6,1	-13	-5
+286	MORETTA		P	P	*	1							
+4144	MURIC	sassuolo	P	P		11	9	5,33	5,7	6,5	6,6	-10,5	-4,5
+763	NAVA	cremonese	P	P		1							
+1082	NICOLAS	pisa	P	P		1							
+4013	NUNZIANTE	udinese	P	P		1							
+653	OKOYE	udinese	P	P		9	4	4,63	4,63	6,13	6,13	-6	-6
+654	PADELLI	udinese	P	P		1							
+1083	PALEARI	torino	P	P		4	3	5,33	5,33	6,33	6,33	-3	-3
+534	PASSADOR		P	P	*	1							
+4012	PENEV	lecce	P	P		1							
+350	PERILLI	verona	P	P		1							
+209	PERIN	juventus	P	P		2	1	5	5	6	6	-1	-1
+4261	PESSINA	bologna	P	P		1							
+655	PIANA		P	P	*	1							
+210	PINSOGLIO	juventus	P	P		1							
+535	POPA	torino	P	P		1							
+419	PROVEDEL	lazio	P	P		20	10	5,85	6	6,55	6,6	-7	-3
+753	RADUNOVIC	cagliari	P	P		1							
+167	RAIMONDI		P	P	*	1							
+32	RAVAGLIA	bologna	P	P		2	1	6,5	6,5	6,5	6,5	0	0
+420	RENZETTI		P	P	*	1							
+1081	RINALDI	parma	P	P		1							
+2	ROSSI	atalanta	P	P		1							
+605	RUSSO		P	P	*	1							
+424	SAMOOJA	lecce	P	P		1							
+487	SARO		P	P	*	1							
+606	SATALINO	sassuolo	P	P		1							
+656	SAVA	udinese	P	P		8	6	4,67	5	6,25	6	-9,5	-8,5
+1092	SCUFFET	pisa	P	P		5							
+1089	SEMPER	pisa	P	P		9	10	4,85	4,7	6,25	6,3	-14	-8
+140	SIEGRIST	genoa	P	P		1							
+4143	SILVESTRI	cremonese	P	P		4	4	4,5	4,17	6,25	6,17	-7	-7
+33	SKORUPSKI	bologna	P	P		16	9	5,17	5,25	6,11	6	-8,5	-5
+1058	SOMMARIVA	genoa	P	P		1							
+168	SOMMER	inter	P	P		18	8	4,88	5,4	6,25	6,4	-11	-5
+3	SPORTIELLO	atalanta	P	P		1							
+287	SUZUKI	parma	P	P		15	10	5,4	6,1	6,35	6,7	-9,5	-3
+4262	SVETOZAROV ILIEV		P	P	*	1							
+318	SVILAR	roma	P	P		23	10	5,9	5,5	6,4	6,3	-5	-4
+1072	TERRACCIANO PI.	milan	P	P		4	2	6,25		6,25	-1	0	0
+749	THOMAS GILLIER		P	P	*	1							
+489	TOMMASI		P	P	*	1							
+351	TONIOLO	verona	P	P		1							
+460	TORRIANI	milan	P	P		1							
+607	TURATI	sassuolo	P	P		7	1	4		6	-1	-2	-2
+531	TURI		P	P	*	1							
+357	VIGORITO	como	P	P		1							
+570	VUKOVIC	pisa	P	P		1							
+608	ZACCHI	sassuolo	P	P		1							
+1469	ZELEZNY	roma	P	P		1							
+657	ABANKWAH		D	D	*	3							
+319	ABDUL HAMID		D	E	*	8							
+169	ACERBI	inter	D	D		11	6	5,83	6	5,92	6	-0,5	-0,5
+425	ADDO		D	D	*	1							
+4	AHANOR	atalanta	D	E		9	5	5,9	5,67	5,9	5,67	0	0
+4463	AKANJI	inter	D	D		12	8	6,06	6,2	6,06	6,2	0	0
+4487	ALBIOL	pisa	D	D		6	2	6	6	6	6	0	0
+1090	AMORAN		D	D	*	1							
+320	ANGELINO	roma	D	E		8	5	5,6		5,7	-1	-0,5	-0,5
+571	ANGORI	pisa	D	E		8	8	5,81	5,75	5,69	5,75	1	1
+727	ANTOLINI		D	D	*	1							
+4110	ATHEKAME	milan	D	E		9	4	6,38	6,75	5,88	5,75	2	2
+81	AZZI		D	E	*	4							
+5	BAKKER	atalanta	D	E		3							
+288	BALOGH		D	D	*	5							
+141	BANI		D	D	*	7							
+490	BARBIERI	cremonese	D	E		8	5	5,9	5,9	6	6	-0,5	-0,5
+1073	BARTESAGHI	milan	D	E		6	6	5,83	5,9	5,92	6	-0,5	-0,5
+426	BASCHIROTTO	cremonese	D	D		15	10	6,75	5,9	6,2	5,9	5,5	0
+170	BASTONI	inter	D	D		18	9	6,78	6,1	6,28	6,2	4,5	-0,5
+4224	BELGHALI	verona	D	E		7	10	5,6	5,6	5,8	5,8	-2	-1
+4332	BELLA-KOTCHAP	verona	D	D		5	5	5,6	5,5	5,7	5,67	-0,5	-0,5
+13	BELLANOVA	atalanta	D	E		9	8	5,88	5,67	5,88	5,67	0	0
+4281	BERNASCONI	atalanta	D	E		3	3	5,83	5,83	5,83	5,83	0	0
+658	BERTOLA	udinese	D	D		9	6	5,92	6,17	6,08	6,17	-1	-0,5
+572	BERUATTO		D	E	*	3							
+34	BEUKEMA	napoli	D	D		13	4	6,88	6	6,13	6	3	3
+728	BIANAY BALCOT		D	D	*	1							
+491	BIANCHETTI	cremonese	D	D		9	10	5,9	5,9	5,85	5,8	0,5	0,5
+536	BIRAGHI	torino	D	E		7	8	5,56	5,67	5,56	5,67	0	0
+171	BISSECK	inter	D	D		7	3	5,83	6	6	6,25	-0,5	-0,5
+6	BONFANTI GI.	pisa	D	D		5	6	5,5	5,33	5,5	5,33	0	0
+750	BONIFAZI	bologna	D	D		1							
+3896	BRADARIC	verona	D	E		8	9	5,72	5,88	5,72	5,88	0	0
+211	BREMER	juventus	D	D		14	4	6,63		6,13	-1	2	2
+4316	BRITSCHGI	parma	D	E		6	6	5,67	5,6	5,75	5,7	-0,5	-0,5
+246	BUONGIORNO	napoli	D	D		14	7	6,21	6	6,07	6	1	0
+217	CABAL	juventus	D	E		11	2	7,75		6,25	-1	3	3
+352	CALABRESE		D	D	*	2							
+573	CALABRESI	pisa	D	E		8	6	5,83	5,88	5,83	5,88	0	0
+35	CALABRIA		D	E	*	8							
+212	CAMBIASO	juventus	D	E		11	8	6,25	6,9	5,88	6,1	3	4
+3985	CANDE	sassuolo	D	D		6	4	5,75	5,83	5,75	5,83	0	0
+574	CANESTRELLI	pisa	D	D		8	10	5,75	5,7	5,8	5,8	-0,5	-0,5
+575	CARACCIOLO	pisa	D	D		7	10	5,7	5,8	5,8	5,8	-1	0
+172	CARLOS AUGUSTO	inter	D	E		9	7	5,79	5,67	5,71	5,67	0,5	-0,5
+36	CASALE	bologna	D	D		4	1	5,5		5,5	-1	0	0
+360	CASSANDRO		D	E	*	3							
+492	CECCHERINI	cremonese	D	D		4	2	5,5	5	5,5	5	0	0
+322	CELIK	roma	D	D		9	8	6	5,7	5,94	5,8	0,5	-0,5
+4319	CHAM	verona	D	E		3	3	5,67	6	5,67	6	0	0
+609	CINQUEGRANO		D	D	*	1							
+289	CIRCATI	parma	D	D		12	10	6,35	6,8	6,05	6,2	3	3
+543	COCO	torino	D	D		13	10	6,4	6,9	6	6,3	4	3
+107	COMUZZO	fiorentina	D	D		5	6	5,33	5,33	5,33	5,33	0	0
+576	COPPOLA	pisa	D	D		3							
+37	CORAZZA		D	E	*	6							
+213	COSTA		D	E	*	10							
+290	COULIBALY WO.	sassuolo	D	E		7	5	5,8	5,75	5,8	5,75	0	0
+760	CURTO		D	D	*	2							
+214	DANILO		D	D	*	1							
+173	DARMIAN	inter	D	E		5	1	5,5		5,5	-1	0	0
+38	DE SILVESTRI	bologna	D	E		3	2	5,5		5,5	-1	0	0
+174	DE VRIJ	inter	D	D		9	2	6,5	6,5	6,5	6,5	0	0
+142	DE WINTER	milan	D	D		10	5	5,9	5,75	5,9	5,75	0	0
+291	DEL PRATO	parma	D	E		8	10	5,7	5,7	5,8	5,8	-1	-0,5
+537	DELLAVALLE		D	D	*	2							
+1461	DENOON	pisa	D	D		3	2	5,25	5	5,5	5,5	-0,5	-0,5
+292	DI CHIARA		D	E	*	2							
+248	DI LORENZO	napoli	D	E		12	10	5,95	6	6	6,1	-0,5	-0,5
+76	DI PARDO	cagliari	D	E		4	1	5,5	5,5	5,5	5,5	0	0
+4458	DIEGO CARLOS	como	D	D		8	7	5,79	5,7	5,93	5,9	-1	-1
+175	DIMARCO	inter	D	E		20	10	7,1	7,1	6,25	6,3	8,5	4
+1069	DJALO		D	D	*	4							
+7	DJIMSITI	atalanta	D	D		10	9	5,94	5,8	6	5,9	-0,5	-0,5
+108	DODO	fiorentina	D	E		8	10	5,65	5,7	5,7	5,7	-0,5	0
+610	DOIG	sassuolo	D	E		7	9	5,56	5,63	5,78	5,88	-2	-1
+362	DOSSENA	como	D	E		3							
+176	DUMFRIES	inter	D	E		14	10	6,1	5,8	5,8	5,8	3	0
+687	EBOSSE	verona	D	D		2	1	4,5		4,5	-1	0	0
+659	EHIZIBUE	udinese	D	E		7	7	5,64	5,75	5,71	5,75	-0,5	-0,5
+462	EMERSON ROYAL		D	E	*	7							
+39	ERLIC		D	D	*	5							
+389	ERRORE		D	D	*	1							
+427	ESPOSITO		D	D	*	3							
+580	ESTEVES TO.	pisa	D	E		3							
+1860	ESTUPINAN	milan	D	E		9	5	5,7		5,8	-1	-0,5	-0,5
+388	FARES		D	E	*	2							
+4459	FAYE	cremonese	D	D		7	4	5,75	5,75	5,75	5,75	0	0
+363	FELLIPE JACK		D	D	*	6							
+764	FLORIANI	cremonese	D	E		5	6	5,42	5,5	5,58	5,63	-1	-1
+493	FOLINO	cremonese	D	D		5	1	6	6	6	6	0	0
+177	FONTANAROSA		D	D	*	1							
+109	FORTINI	fiorentina	D	E		5	4	5,88	5,83	5,88	5,83	0	0
+688	FRESE	verona	D	E		6	9	5,44	5,13	5,72	5,75	-2,5	-2,5
+463	GABBIA	milan	D	D		12	10	6,1	5,9	6,15	6	-0,5	-0,5
+428	GALLO	lecce	D	E		9	10	5,8	6,2	5,75	6	0,5	1
+429	GASPAR	lecce	D	D		7	10	5,65	5,9	5,85	6,1	-2	-1
+215	GATTI	juventus	D	D		11	9	6,17	6,63	6	6	1,5	2,5
+689	GHILARDI	roma	D	D		4							
+660	GIANETTI		D	D	*	7							
+390	GIGOT	lazio	D	D		3							
+216	GIL PUCHE		D	D	*	1							
+1458	GILA	lazio	D	D		13	10	6,1	6,3	6,15	6,3	-0,5	0
+8	GODFREY		D	D	*	6							
+3949	GOGLICHIDZE	udinese	D	D		7	6	5,67	5,5	5,83	5,75	-1	-1
+364	GOLDANIGA	como	D	D		2							
+1068	GONZALEZ FA.		D	D	*	6							
+110	GOSENS	fiorentina	D	E		10	9	5,89	6,25	5,61	5,63	2,5	2,5
+430	GUILBERT	lecce	D	E		4							
+4222	GUTIERREZ	napoli	D	E		7	2	5,75	6	5,75	6	0	0
+293	HAINAUT		D	E	*	6							
+538	HAVERI		D	D	*	2							
+4109	HEGGEM	bologna	D	D		11	8	6,19	6,38	6,19	6,38	0	0
+324	HERMOSO	roma	D	D		8	8	6,13	6,38	5,94	6	1,5	1,5
+9	HIEN	atalanta	D	D		9	9	5,61	5,9	5,94	6	-3	-0,5
+40	HOLM	bologna	D	E		12	4	7,63	7,83	6,38	6,5	5	5
+391	HYSAJ	lazio	D	E		5	2	5,75	5,5	5,75	5,5	0	0
+757	IDRISSI	cagliari	D	E		8	5	6,4	6,67	5,9	5,83	2,5	2,5
+3986	IDZES	sassuolo	D	D		9	9	5,89	5,8	5,89	5,8	0	0
+41	ILIC		D	D	*	3							
+539	ISMAJLI	torino	D	D		7	6	5,5	5,67	5,67	5,83	-1	-0,5
+431	JEAN	lecce	D	D		4							
+461	JIMENEZ		D	E	*	8	1	5		5,5	-1	-0,5	-0,5
+1460	JOAO MARIO	juventus	D	E		8	6	5,83	6	5,92	6	-0,5	-0,5
+249	JUAN JESUS	napoli	D	D		8	7	5,79	5,75	5,93	5,88	-1	-0,5
+1074	KABASELE	udinese	D	D		11	5	6,6	6,6	6,1	6,1	2,5	2,5
+218	KALULU	juventus	D	D		10	10	5,9	5,8	5,9	5,8	0	0
+661	KAMARA	udinese	D	E		10	7	6	6,1	6	6	0	0,5
+392	KAMENOVIC	lazio	D	E		3							
+219	KELLY	juventus	D	D		10	9	6,17	5,38	6	5,63	1,5	-1
+365	KEMPF	como	D	D		13	8	6,88	7,5	6,19	6,5	5,5	5,5
+10	KOLASINAC	atalanta	D	D		7							
+4272	KOSPO	fiorentina	D	D		1							
+11	KOSSOUNOU	atalanta	D	D		8	5	5,9	5,75	5,9	5,75	0	0
+4299	KOUADIO	fiorentina	D	D		2	1	5,5		5,5	-1	0	0
+434	KOUASSI	lecce	D	D		4	4	5,38		5,38	-1	0	0
+761	KOVACIK		D	E	*	5							
+662	KRISTENSEN	udinese	D	D		10	5	6,6		6	-1	3	3
+484	KUMBULLA		D	D	*	2							
+4404	LAMPTEY	fiorentina	D	E		5	1	5,5		5,5	-1	0	0
+405	LAZZARI	lazio	D	E		7	4	5,75	5,83	5,88	6	-0,5	-0,5
+294	LEONI		D	D	*	10							
+295	LOVIK	parma	D	E		5	4	5,63	5,5	5,63	5,5	0	0
+42	LUCUMI	bologna	D	D		10	8	5,81	6,25	5,94	6,38	-1	-0,5
+78	LUPERTO	cagliari	D	D		11	7	6,36	5,5	5,93	5,5	3	0
+577	LUSUARDI	pisa	D	D		3	3	5,33		5,5	-1	-0,5	-0,5
+43	LYKOGIANNIS	bologna	D	E		6	5	5,6	5,5	5,8	6	-1	-1
+326	MANCINI	roma	D	D		11	10	5,95	5,8	6,1	6	-1,5	-1
+485	MANNINI		D	E	*	1							
+1059	MARCANDALLI	genoa	D	D		2	4	5,38	5	5,63	5,5	-1	-1
+112	MARI	fiorentina	D	D		4	6	5,42	5,38	5,58	5,5	-1	-0,5
+250	MARIANUCCI	napoli	D	D		4	1	5,5		5,5	-1	0	0
+540	MARIPAN	torino	D	D		12	9	6,33	6,7	6,06	6,2	2,5	2,5
+143	MARTIN	genoa	D	E		8	7	5,86	6,5	5,79	6	0,5	1
+393	MARUSIC	lazio	D	E		12	9	6,06	6,13	6	6,13	0,5	1
+541	MASINA	torino	D	D		4	2	5,5	7	5	6	1	1
+251	MAZZOCCHI	napoli	D	E		3							
+4929	MBAMBI	pisa	D	D		1							
+84	MINA	cagliari	D	D		11	8	6,31	5,5	5,94	5,5	3	0
+44	MIRANDA	bologna	D	E		11	7	6,36	7	6,07	6,38	2	2,5
+611	MIRANDA KE.		D	D	*	4							
+612	MISSORI		D	E	*	6							
+220	MONTERO		D	D	*	2							
+367	MORENO	como	D	E		7	2	5,75	5,75	6	6	-0,5	-0,5
+496	MORETTI		D	D	*	2							
+613	MUHAREMOVIC	sassuolo	D	D		7	7	5,64	5,75	6	6	-2,5	-2,5
+1084	MULLEN		D	D	*	3							
+327	N'DICKA	roma	D	D		9	10	5,8	5,7	5,9	5,8	-1	-0,5
+542	N'GUESSAN		D	D	*	1							
+1674	NDABA	lecce	D	E		5	2	5,75		5,75	-1	0	0
+497	NDIAYE		D	D	*	5							
+3894	NDIAYE NI.	parma	D	D		4	6	5,33	5	5,67	5,5	-2	-2
+4304	NELSSON	verona	D	D		7	10	5,7	5,7	5,8	5,9	-1	-1
+4409	NKOUNKOU	torino	D	E		10	3	6,33	7	6,17	6,5	0,5	0,5
+144	NORTON-CUFFY	genoa	D	D		9	10	5,85	6,2	5,85	6	0	1
+1464	NUNEZ	verona	D	D		7	8	5,75	5,83	5,88	6	-1	-1
+395	NUNO TAVARES	lazio	D	E		9	7	5,71	6	5,71	6	0	0
+252	OBARETIN		D	D	*	1							
+79	OBERT	cagliari	D	D		7	9	5,72	5,63	5,89	5,75	-1,5	-0,5
+614	ODENTHAL	sassuolo	D	D		3							
+4466	ODOGU	milan	D	D		5							
+253	OLIVERA	napoli	D	E		7	6	5,5	5,25	5,58	5,38	-0,5	-0,5
+300	OSORIO		D	D	*	7							
+1859	OSTIGARD	genoa	D	D		9	8	5,94	6,88	5,81	6,13	1	2,5
+145	OTOA	genoa	D	D		1	1	5	5	5,5	5,5	-0,5	-0,5
+690	OYEGOKE	verona	D	E		2							
+178	PALACIOS	inter	D	D		1							
+663	PALMA	udinese	D	D		2	2	5,5	6	5,5	6	0	0
+113	PARISI	fiorentina	D	E		5	2	5,25	5	5,5	5,5	-0,5	-0,5
+396	PATRIC	lazio	D	D		4							
+179	PAVARD		D	D	*	11	1	6,5		6,5	-1	0	0
+464	PAVLOVIC	milan	D	D		18	10	6,95	7,2	6,25	6,4	7	4
+615	PAZ YE.	sassuolo	D	E		2							
+397	PELLEGRINI LU.	lazio	D	E		9	7	5,79	5,67	5,79	5,67	0	0
+432	PEREZ MA.	lecce	D	E		4							
+1459	PEZZELLA	cremonese	D	E		8	7	5,93	5,25	5,93	5,5	0	-1
+616	PIERAGNOLO	sassuolo	D	E		3							
+82	PINTUS	cagliari	D	D		1							
+114	PONGRACIC	fiorentina	D	D		8	9	5,61	5,63	5,78	5,63	-1,5	0
+664	PONTES ESTEVES		D	D	*	3							
+45	POSCH	como	D	D		9	3	7,17	7,75	6,17	6,25	3	3
+578	PRIMASSO		D	D	*	1							
+394	PROVSTGAARD	lazio	D	D		6	4	6	6	6	6	0	0
+499	QUAGLIATA		D	E	*	6							
+3846	RAMON	como	D	D		7	8	5,63	6	5,88	6	-2	-0,5
+115	RANIERI	fiorentina	D	D		8	9	5,89	5,38	5,72	5,63	1,5	-1
+500	RAVANELLI		D	D	*	6							
+330	RENSCH	roma	D	E		7	2	6,25	6	6,25	6	0	0
+691	RIGO		D	D	*	1							
+221	RIZZO		D	D	*	1							
+765	ROCCHETTI		D	E	*	6							
+4402	RODRIGUEZ JU.	cagliari	D	D		4							
+617	ROMAGNA	sassuolo	D	D		5	3	5,67	5,75	5,67	5,75	0	0
+398	ROMAGNOLI	lazio	D	D		10	8	5,81	5,8	5,88	5,9	-0,5	-0,5
+222	ROUHI	juventus	D	D		1							
+254	RRAHMANI	napoli	D	D		12	3	6,5	6,5	6,5	6,5	0	0
+618	RUAN		D	D	*	6							
+223	RUGANI	juventus	D	D		4	2	5,5	5,5	5,5	5,5	0	0
+399	RUGGERI		D	D	*	1							
+579	RUS		D	D	*	6							
+146	SABELLI	genoa	D	E		1	4	4,88	4,67	5,38	5,33	-2	-2
+368	SALA MA.	como	D	E		1							
+603	SALAH-EDDINE		D	E	*	8							
+321	SANGARE	roma	D	D		4							
+224	SAVONA		D	E	*	6							
+729	SAZONOV	torino	D	D		1							
+12	SCALVINI	atalanta	D	D		12	4	6,88	6	6,13	6	3	3
+544	SCHUURS	torino	D	D		4							
+435	SCOTT		D	D	*	6							
+4301	SIEBERT	lecce	D	D		1	1	4,5		4,5	-1	0	0
+692	SLOTSAGER	verona	D	D		2							
+369	SMOLCIC	como	D	E		7	7	5,64	5,63	5,93	6	-2	-1,5
+665	SOLET	udinese	D	D		12	10	6,05	6,2	5,95	6	1	1
+255	SPINAZZOLA	napoli	D	E		15	8	6,75	6,2	6,19	6	4,5	1
+180	STABILE		D	D	*	1							
+181	STANTE		D	D	*	1							
+693	TCHATCHOUA		D	E	*	9							
+465	TERRACCIANO FI.	cremonese	D	E		14	9	6,78	6,75	6,17	6	5,5	3
+466	THIAW		D	D	*	10							
+436	TIAGO GABRIEL	lecce	D	D		11	10	6,15	6,1	5,9	6,1	2,5	0
+467	TOMORI	milan	D	D		11	8	5,94	5,83	6,06	6	-1	-0,5
+296	TRABUCCHI	parma	D	D		1							
+4302	TROILO	parma	D	D		3							
+4373	TSIMIKAS	roma	D	E		7	3	5,5	5,25	5,67	5,5	-0,5	-0,5
+225	TURRICCHIA		D	D	*	1							
+1077	UBANI		D	E	*	5							
+1075	ULINEIA BUTA		D	E	*	2							
+297	VALENTI	parma	D	D		5	6	5,58	5,63	5,75	5,75	-1	-1
+1076	VALENTINI	verona	D	D		5	3	5,83	5,83	5,83	5,83	0	0
+298	VALERI	parma	D	E		10	6	6	5,5	5,83	5,5	1	1
+370	VALLE	como	D	E		12	9	6,06	6,25	6	6	0,5	1
+359	VAN DER BREMPT	como	D	E		4	2	5,5		5,75	-1	-0,5	-0,5
+182	VANHEUSDEN		D	D	*	2							
+147	VASQUEZ	genoa	D	D		9	10	5,8	5,9	5,85	5,9	-0,5	0
+433	VEIGA	lecce	D	D		7	9	5,67	5,8	5,72	6	-0,5	-1
+758	VEROLI		D	D	*	4							
+117	VITI	fiorentina	D	D		2	3	4,83	3,5	5,17	4,5	-1	-1
+751	VITIK	bologna	D	D		9	5	5,9	6,25	6	6,25	-0,5	-0,5
+299	VOGLIACCO		D	D	*	6							
+372	VOJVODA	como	D	E		9	8	6,19	6,75	5,94	6	2	2,5
+545	WALUKIEWICZ	sassuolo	D	D		7	9	5,78	5,7	5,83	5,8	-0,5	-0,5
+1675	WESLEY	roma	D	E		11	9	6,17	5,8	6	6	1,5	-1
+83	WIETESKA		D	D	*	6							
+148	ZANOLI	udinese	D	E		9	7	6	6,2	5,86	6	1	1
+85	ZAPPA	cagliari	D	E		7	8	5,63	5,63	5,75	5,63	-1	0
+23	ZAPPACOSTA	atalanta	D	E		11	7	6,07	6	6	6	0,5	-0,5
+4457	ZE PEDRO	cagliari	D	D		5	5	5,5	5,63	5,5	5,63	0	0
+666	ZEMURA	udinese	D	E		5	5	5,5		5,6	-1	-0,5	-0,5
+4408	ZIOLKOWSKI	roma	D	D		5	2	5,5	5	5,75	5,5	-0,5	-0,5
+95	ZORTEA	bologna	D	E		11	6	6	6,25	6	6,25	0	0
+732	ABILDGAARD		C	C	*	2							
+619	ABUBAKAR		C	C	*	2							
+772	ADDAI	como	C	T		9	5	6,4	5,5	5,9	5,75	2,5	2,5
+468	ADLI		C	C	*	10							
+86	ADOPO	cagliari	C	C		9	10	5,95	5,9	5,85	5,7	1	1
+227	ADZIC	juventus	C	T		6	4	6,88	6	6,13	6	3	3
+46	AEBISCHER	pisa	C	C		10	9	5,89	5,88	5,94	6	-0,5	-0,5
+767	AFENA-GYAN		C	T	*	8							
+183	AKINSANMIRO	pisa	C	C		9	9	6,11	6,1	6,06	6	0,5	0,5
+5369	AKPA AKPRO	verona	C	C		6	7	5,57	5,75	5,79	5,88	-1,5	-1
+4374	AL-MUSRATI	verona	C	C		6	1	6		6	-1	0	0
+373	ALLI		C	T	*	8							
+268	ANGUISSA	napoli	C	C		22	10	7,75	8,4	6,5	6,7	12,5	8,5
+546	ANJORIN	torino	C	C		5	1	5,5		5,5	-1	0	0
+1060	ARAMU		C	T	*	1							
+1070	ARTHUR MELO		C	C	*	3							
+184	ASLLANI	torino	C	C		8	8	5,81	5,88	5,94	6	-1	-0,5
+667	ATTA	udinese	C	C		15	10	6,75	6,6	6,3	6,2	4,5	2
+4223	BAILEY	roma	C	T		10	4	5,5	5,5	5,5	5,5	0	0
+332	BALDANZI	roma	C	T		7	4	5,38	5,25	5,5	5,5	-0,5	-0,5
+668	BALLARINI		C	C	*	1							
+773	BALLET		C	T	*	11							
+119	BARAK		C	T	*	8							
+185	BARELLA	inter	C	C		19	10	6,8	7,6	6,25	6,6	5,5	5
+400	BASIC	lazio	C	C		10	6	6,83	6,9	6,17	6,1	4	4
+770	BATURINA	como	C	T		13	2	5,5	5,5	5,5	5,5	0	0
+547	BAYEYE		C	C	*	1							
+401	BELAHYANE	lazio	C	C		5	4	5,38	5,5	5,5	5,5	-0,5	-0,5
+469	BENNACER		C	C	*	11							
+437	BERISHA	lecce	C	C		15	8	7,13	7,7	6,25	6,5	7	6
+301	BERNABE	parma	C	C		13	10	6,35	6,6	6,05	6	3	3
+694	BERNEDE	verona	C	C		7	10	5,65	5,6	5,7	5,6	-0,5	0
+121	BIANCO		C	C	*	9							
+1061	BOHINEN		C	C	*	5							
+620	BOLOCA	sassuolo	C	C		4	2	5,25		5,25	-1	0	0
+470	BONDO	cremonese	C	C		9	9	5,83	5,88	5,89	5,88	-0,5	0
+333	BOVE	roma	C	C		1							
+766	BRAMBILLA		C	C	*	2							
+733	BRAUNODER		C	C	*	6							
+14	BRESCIANINI	atalanta	C	C		11	4	6,75	7	6,13	6,17	2,5	2,5
+186	BUCHANAN		C	C	*	6							
+256	CAJUSTE		C	C	*	2							
+187	CALHANOGLU	inter	C	C		24	8	8,44	9,25	6,5	6,75	15,5	10
+621	CALIGARA		C	C	*	2							
+302	CAMARA		C	C	*	9							
+4273	CAMARA AB.	udinese	C	C		1							
+376	CAQUERET	como	C	C		12	8	6,06	6,2	5,94	6	1	1
+149	CARBONI	genoa	C	T		7	8	5,56	5,67	5,69	5,83	-1	-1
+548	CASADEI	torino	C	C		9	10	5,75	5,8	5,9	6,1	-1,5	-1,5
+503	CASTAGNETTI		C	C	*	9							
+402	CATALDI	lazio	C	C		14	9	6,44	7	6,11	6,3	3	3,5
+759	CAVUOTI	cagliari	C	T		1							
+695	CHARLYS		C	C	*	1							
+549	CIAMMAGLICHELLA		C	C	*	1							
+696	CISSE		C	T	*	2							
+505	COLLOCOLO	cremonese	C	C		10	4	6,13		6,25	-1	-0,5	-0,5
+637	CONCEICAO	juventus	C	T		16	7	6,64	6	6,21	6	3	3
+4462	CORNET	genoa	C	T		8	3	4,17	4,17	5,17	5,17	-3	-3
+438	COULIBALY LA.	lecce	C	C		10	9	6,17	5,88	5,89	5,88	2,5	3
+4486	CREMASCHI	parma	C	C		4	1	5,5	5,5	5,5	5,5	0	0
+334	CRISTANTE	roma	C	C		13	10	6,4	6,7	6,15	6,2	2,5	2,5
+3948	CUADRADO	pisa	C	C		11	8	6,31	6,63	6,06	6,13	2	2
+150	CUENCA	genoa	C	T		4							
+303	CYPRIEN		C	C	*	2							
+377	DA CUNHA	como	C	C		12	9	6	6,2	6,06	6,2	-0,5	0
+598	DARBOE		C	C	*	2							
+257	DE BRUYNE	napoli	C	T		28	8	7,75	7,17	6,31	6,17	11,5	6
+15	DE KETELAERE	atalanta	C	T		17	8	6,75	5,5	6,13	5,75	5	-1
+16	DE ROON	atalanta	C	C		10	8	5,81	5,83	6	5,83	-1,5	-1
+87	DEIOLA	cagliari	C	C		7	6	5,75	6	5,83	6	-0,5	-0,5
+403	DELE-BASHIRU	lazio	C	T		8	3	5,67		5,67	-1	0	0
+550	DEMBELE	torino	C	C		7	1	6	6	6	6	0	0
+188	DI MAGGIO		C	C	*	1							
+551	DI MARCO		C	C	*	1							
+4300	DIOUF	inter	C	C		7	2	6	6	6	6	0	0
+228	DOUGLAS LUIZ		C	C	*	16							
+581	DURMUSH		C	C	*	1							
+17	EDERSON	atalanta	C	C		10	6	5,75	5,8	5,83	5,9	-0,5	-0,5
+669	EKKELENKAMP	udinese	C	C		9	6	5,58	5,67	5,58	5,67	0	0
+599	EL AYNAOUI	roma	C	C		9	5	5,4	5,33	5,5	5,5	-0,5	-0,5
+49	EL AZZOUZI		C	C	*	4							
+1062	ELLERTSSON	genoa	C	C		8	10	6	5,6	5,7	5,6	3	0
+4406	ELMAS	napoli	C	T		8	5	5,7	5,75	5,8	6	-0,5	-0,5
+734	ENGELHARDT		C	C	*	9							
+198	ESPOSITO SE.	cagliari	C	T		8	9	6	6,5	5,83	5,88	1,5	2,5
+304	ESTEVEZ	parma	C	C		5	5	5,6	5,63	5,7	5,75	-0,5	-0,5
+50	FABBIAN	bologna	C	C		9	7	5,71	6	5,71	6	0	0
+122	FAGIOLI	fiorentina	C	C		8	8	5,56	5,38	5,63	5,5	-0,5	-0,5
+439	FATICANTI	juventus	C	C		1							
+123	FAVASULI		C	C	*	1							
+124	FAZZINI	fiorentina	C	C		9	8	5,75	5,75	5,75	5,75	0	0
+51	FERGUSON LE.	bologna	C	C		11	6	5,83	5,83	5,92	6	-0,5	-0,5
+471	FOFANA	milan	C	C		12	10	6,3	5,5	6,05	5,8	2,5	-1,5
+258	FOLORUNSHO	cagliari	C	T		8	10	5,75	5,5	5,8	5,6	-0,5	-0,5
+189	FRATTESI	inter	C	C		12	5	6	6	6	6	0	0
+152	FRENDRUP	genoa	C	C		8	10	5,7	5,7	5,75	5,8	-0,5	-0,5
+52	FREULER	bologna	C	C		10	9	5,89	5,9	6	6	-1	-0,5
+88	GAETANO	cagliari	C	T		9	9	5,89	5,63	5,83	5,75	0,5	-0,5
+5711	GAGLIARDINI	verona	C	C		8	7	6,21	6,5	6	6,1	1,5	2
+622	GHION		C	C	*	2							
+259	GILMOUR	napoli	C	C		12	7	6,57	6	6,21	6,1	2,5	-0,5
+552	GINEITIS	torino	C	C		8	7	5,71	5,9	5,71	5,9	0	0
+1078	GORTER	lecce	C	C		2							
+507	GRASSI	cremonese	C	C		6	6	5,58	5,5	5,75	5,5	-1	-0,5
+151	GRONBAEK	genoa	C	C		2	1	5,5		5,5	-1	0	0
+404	GUENDOUZI	lazio	C	C		13	8	6,38	6,25	6,19	6,25	1,5	-1
+697	HARROUI	verona	C	C		6	3	5,67	6	5,67	6	0	0
+261	HASA		C	C	*	2							
+440	HELGASON	lecce	C	C		6	2	5,5	5,5	5,5	5,5	0	0
+305	HERNANI	parma	C	C		7	2	5,75	5,75	5,75	5,75	0	0
+582	HOJHOLT	pisa	C	C		4	2	5,5	5	5,75	5,5	-0,5	-0,5
+623	IANNONI	sassuolo	C	C		4	2	7,75	6	6,25	6	3	3
+133	IKONE NA.		C	T	*	13							
+553	ILIC IV.	torino	C	C		7	5	5,7	5,75	5,8	6	-0,5	-0,5
+64	ILING		C	T	*	11							
+554	ILKHAN	torino	C	C		1	1	5		5	-1	0	0
+125	INFANTINO	fiorentina	C	C		3							
+3947	JASHARI	milan	C	C		9	1	5,5		5,5	-1	0	0
+583	JEVSENAK		C	C	*	4							
+441	KABA	lecce	C	C		6	3	5,67		5,67	-1	0	0
+65	KARLSSON		C	T	*	10							
+670	KARLSTROM	udinese	C	C		12	10	6,3	6,8	6,05	6,2	2,5	3
+698	KASTANOS	verona	C	T		5	1	6		6	-1	0	0
+306	KEITA	parma	C	C		11	8	6,06	6	6,06	6	0	0
+378	KONE		C	T	*	8							
+1861	KONE IS.	sassuolo	C	C		9	8	6,13	5,75	5,88	5,75	2	3
+336	KONE KO.	roma	C	C		12	10	6,1	6	6,1	6	0	0
+229	KOOPMEINERS	juventus	C	T		9	8	5,56	5,33	5,81	5,5	-2	-1
+230	KOSTIC	juventus	C	T		13	4	7,5	7,5	6,5	6,5	4	4
+1093	KOUDA		C	C	*	5							
+1079	KOVAC	lecce	C	C		3							
+555	LAZARO	torino	C	C		10	9	5,89	6,25	5,83	6	0,5	1
+584	LEONCINI		C	C	*	1							
+624	LIPANI	sassuolo	C	C		4	2	5,5		5,5	-1	0	0
+5773	LITETA	cagliari	C	C		1							
+263	LOBOTKA	napoli	C	C		13	6	6,42	6	6,25	6	1	1
+231	LOCATELLI	juventus	C	C		10	9	5,89	5,9	6,06	6,1	-1,5	-1
+472	LOFTUS-CHEEK	milan	C	C		14	7	6,43	6	6	6	3	0
+508	LORDKIPANIDZE	cremonese	C	C		3	1	6	6	6	6	0	0
+4407	LORRAN	pisa	C	T		9	1	9,5		6,5	-1	3	3
+671	LOVRIC	udinese	C	C		10	3	5,83	5	5,67	5,5	0,5	0,5
+190	LUIS HENRIQUE	inter	C	C		11	5	5,8	5,83	5,8	5,83	0	0
+18	MALDINI	atalanta	C	T		7	4	5,63	6	5,75	6	-0,5	-0,5
+1080	MALEH	lecce	C	C		5	3	5,67	5,67	5,67	5,67	0	0
+154	MALINOVSKYI	genoa	C	T		12	9	6,06	6,4	5,89	6,1	1,5	1,5
+649	MAN		C	T	*	16							
+126	MANDRAGORA	fiorentina	C	C		13	10	6,55	5,6	5,95	5,6	6	0
+442	MARCHWINSKI	lecce	C	C		4							
+91	MARIN		C	C	*	8							
+585	MARIN MA.	pisa	C	C		6	7	5,5	5,33	5,57	5,33	-0,5	0
+155	MASINI	genoa	C	C		8	10	5,7	5,8	5,85	5,9	-1,5	-0,5
+4317	MATIC	sassuolo	C	C		11	9	6,06	6,1	6,11	6,1	-0,5	0
+4930	MAUCCI	pisa	C	T		1							
+736	MAZZAGLIA		C	C	*	1							
+379	MAZZITELLI	cagliari	C	C		2	1	5,5		6	-1	-0,5	-0,5
+443	MCJANNETT		C	C	*	7							
+232	MCKENNIE	juventus	C	C		11	7	5,93	6	6	6,1	-0,5	-0,5
+265	MCTOMINAY	napoli	C	C		22	9	7,11	7	6,33	6,25	7	3
+510	MILANESE		C	C	*	2							
+4014	MILLER	udinese	C	C		5	2	5,25	5	5,5	5,5	-0,5	-0,5
+156	MIRETTI	juventus	C	C		6							
+191	MKHITARYAN	inter	C	C		11	7	5,86	5,83	6	6	-1	-1
+473	MODRIC	milan	C	C		20	10	7	6,5	6,55	6,4	4,5	0,5
+53	MORO NI.	bologna	C	C		11	6	6,83	7,67	6,33	6,67	3	3
+406	MUNOZ LOPEZ		C	T	*	1							
+474	MUSAH	atalanta	C	C		10	4	6,13	6	6,13	6	0	0
+127	NDOUR	fiorentina	C	C		5	6	5,5	5,5	5,5	5,5	0	0
+699	NIASSE	verona	C	C		8	6	5,83	5,83	5,83	5,83	0	0
+380	NICO PAZ	como	C	T		28	10	8,05	7	6,55	6,3	15	3,5
+4371	NICOLUSSI CAVIGLIA	fiorentina	C	C		7	7	5,79	5,63	5,79	5,63	0	0
+4405	ONANA JE.	genoa	C	C		4	1	5,5	5,5	5,5	5,5	0	0
+1094	ORDONEZ	parma	C	C		3	6	5,17	5,25	5,5	5,63	-2	-2
+4358	ORISTANIO	parma	C	T		8	4	5,75		5,88	-1	-0,5	-0,5
+444	OUDIN		C	C	*	11							
+233	OWUSU		C	C	*	1							
+672	PAFUNDI		C	T	*	5							
+234	PAGNUCCO		C	C	*	1							
+19	PALESTRA	cagliari	C	C		9	9	6	5,8	5,89	5,8	1	0
+235	PAPADOPOULOS		C	T	*	2							
+20	PASALIC	atalanta	C	T		14	10	6,4	5,7	5,95	5,6	4,5	0,5
+700	PATANE		C	C	*	1							
+673	PAYERO	cremonese	C	C		9	7	5,71	5,88	5,93	6	-1,5	-1
+556	PEDERSEN	torino	C	C		8	7	5,86	5,9	5,93	6	-0,5	-0,5
+674	PEJICIC		C	C	*	1							
+339	PELLEGRINI LO.	roma	C	T		15	6	6,75	6	6,25	6	3	0
+1085	PERCIUN	torino	C	T		2							
+737	PERRONE	como	C	C		14	9	6,44	7,25	6,17	6,38	2,5	3
+586	PICCININI	pisa	C	C		6	2	5,75	5,5	6	6	-0,5	-0,5
+511	PICKEL		C	C	*	10							
+445	PIERRET	lecce	C	C		5	1	6	6	6	6	0	0
+3895	PIOTROWSKI	udinese	C	C		8	9	5,61	5,6	5,72	5,7	-1	-0,5
+340	PISILLI	roma	C	C		7	2	5,75		5,75	-1	0	0
+731	PLICCO	parma	C	T		1							
+55	POBEGA	bologna	C	C		8	6	5,83	6	5,92	6	-0,5	-0,5
+93	PRATI	cagliari	C	C		6	10	5,6	5,5	5,65	5,5	-0,5	0
+643	PULISIC	milan	C	T		28	6	8,42	2	6,58	5	11	11
+4467	RABIOT	milan	C	C		16	4	6,63	6	6,5	6	0,5	0,5
+446	RAFIA	lecce	C	C		5							
+447	RAMADANI	lecce	C	C		10	10	5,85	6,1	5,95	6,2	-1	-0,5
+738	RAZI		C	T	*	8							
+475	RICCI	milan	C	C		15	7	6,79	7,38	6,21	6,38	4	4
+128	RICHARDSON	fiorentina	C	C		4							
+754	ROG	cagliari	C	C		1							
+407	ROVELLA	lazio	C	C		10	4	6		5,88	-1	0,5	0,5
+4314	ROWE	bologna	C	T		11	5	5,7	5,83	5,8	6	-0,5	-0,5
+675	RUI MODESTO	udinese	C	C		6	2	6		6	-1	0	0
+129	SABIRI	fiorentina	C	T		4	1	6	6	6	6	0	0
+266	SACO		C	C	*	1							
+481	SAELEMAEKERS	milan	C	T		16	10	6,75	6,3	6,4	6,3	3,5	0
+4315	SALA ÁL.	lecce	C	C		5	3	5,83	7	5,5	6	1	1
+587	SALA MAT.		C	C	*	5							
+21	SAMARDZIC	atalanta	C	T		14	6	6,75	6,83	6,08	5,83	4	4
+1465	SANTIAGO	verona	C	C		3							
+4460	SARMIENTO	cremonese	C	T		11	4	5,88	5,83	5,88	5,83	0	0
+701	SERDAR	verona	C	C		12	9	6,56	6,63	6	6	5	2,5
+739	SERGI ROBERTO	como	C	C		6	5	5,6		5,8	-1	-1	-1
+512	SERNICOLA	cremonese	C	C		5							
+307	SOHM	fiorentina	C	C		7	7	5,43	5,5	5,57	5,5	-1	-0,5
+4111	SORENSEN	parma	C	C		8	9	5,72	5,8	5,78	5,8	-0,5	0
+137	SOTTIL	lecce	C	T		12	5	6,7	10	5,9	7	4	4
+416	STANCIU	genoa	C	C		7	3	5,83		5,83	-1	0	0
+192	STANKOVIC		C	C	*	2							
+4359	STENGS	pisa	C	T		7							
+745	STREFEZZA		C	T	*	21							
+193	SUCIC	inter	C	C		14	8	6,75	6,6	6,25	6,2	4	2
+22	SULEMANA IB.	bologna	C	C		4							
+702	SUSLOV	verona	C	T		6							
+557	TAMEZE	torino	C	C		8	9	5,67	5,9	5,72	6	-0,5	-0,5
+158	THORSBY	genoa	C	C		10	4	6,63	7	5,88	6	3	3
+625	THORSTVEDT	sassuolo	C	T		8	7	5,64	5,6	5,79	5,8	-1	-1
+236	THURAM KHE.	juventus	C	C		15	9	6,56	5,88	6,11	5,88	4	0
+588	TOURE ID.	pisa	C	C		8	8	5,56	5,13	5,69	5,38	-1	-1
+720	TRDAN		C	C	*	1							
+56	URBANSKI		C	C	*	2							
+513	VALOTI	cremonese	C	C		3							
+523	VANDEPUTTE	cremonese	C	T		14	10	6,3	6,5	5,95	6	3,5	2,5
+514	VAZQUEZ	cremonese	C	T		13	8	6,38	5,63	5,88	5,63	4	1
+408	VECINO	lazio	C	C		8	4	5,75	5,75	5,75	5,75	0	0
+5710	VERDI	como	C	T		1							
+267	VERGARA	napoli	C	C		1							
+597	VIGNATO		C	T	*	11							
+94	VIOLA		C	T	*	12							
+558	VLASIC	torino	C	T		11	10	5,8	5,9	5,9	6	-1	-0,5
+626	VOLPATO	sassuolo	C	T		10	6	6,08	6,17	5,92	6	1	0
+4303	VRANCKX	sassuolo	C	C		7	9	5,61	5,7	5,67	5,7	-0,5	0
+721	VURAL	pisa	C	C		6	4	5,63	5,5	5,75	5,67	-0,5	-0,5
+639	WEAH		C	T	*	15							
+194	ZALEWSKI	atalanta	C	C		12	5	7	5,75	6,2	5,75	4	4
+524	ZANIMACCHIA		C	T	*	12							
+4469	ZANIOLO	udinese	C	T		17	8	7,25	8,3	6,25	6,6	8	8,5
+676	ZARRAGA	udinese	C	C		7	4	5,75		5,88	-1	-0,5	-0,5
+647	ZERBIN	cremonese	C	T		10	7	6	5,5	5,93	5,75	0,5	-0,5
+476	ZEROLI		C	C	*	2							
+4465	ZHEGROVA	juventus	C	T		12	1	6		6	-1	0	0
+195	ZIELINSKI	inter	C	C		12	5	6,7	7,75	5,9	6,25	4	4
+1862	ABOUKHLAL	torino	A	T		7	3	5,17		5,33	-1	-0,5	-0,5
+559	ADAMS	torino	A	A		18	10	6,5	7,4	5,9	6,2	6	6
+703	AJAYI	verona	A	A		1							
+741	ALI JASIM		A	T	*	7							
+648	ALMQVIST	parma	A	T		12	7	5,57	5,5	5,57	5,5	0	0
+627	ALVAREZ		A	A	*	10							
+269	AMBROSINO	napoli	A	A		4	2	5,5	5,5	5,5	5,5	0	0
+237	ANGHELE		A	A	*	2							
+1063	ANKEYE		A	A	*	6							
+722	ARENA		A	T	*	6							
+747	AZON		A	A	*	2							
+5709	BALENTIEN	milan	A	T		1							
+448	BANDA	lecce	A	T		12	7	5,5	5,5	5,64	5,6	-1	-0,5
+678	BAYO	udinese	A	A		12	7	5,93	6	5,79	5,8	1	1
+1086	BEGIC	parma	A	T		1							
+742	BELOTTI	cagliari	A	A		18	3	8,17		6,17	-1	6	6
+120	BELTRAN		A	A	*	17							
+308	BENEDYCZAK	parma	A	T		13	6	5,83	6	5,67	5,75	1	1
+628	BERARDI	sassuolo	A	T		23	8	7	6,83	6,13	6	7	4,5
+57	BERNARDESCHI	bologna	A	T		13	8	5,56	5,75	5,69	5,75	-1	-0,5
+4221	BOLZAN		A	A	*	1							
+515	BONAZZOLI	cremonese	A	A		21	7	8,07	8,63	6,36	6,38	12	9
+589	BONFANTI NI.		A	A	*	6							
+196	BONNY	inter	A	A		21	8	7,69	8,1	6,19	6,3	12	9
+755	BORRELLI	cagliari	A	A		12	9	5,94	6,2	5,72	5,7	2	2,5
+704	BRAAF		A	A	*	4							
+679	BRAVO	udinese	A	A		11	3	6,67		5,83	-1	2,5	2,5
+130	BREKALO		A	T	*	11							
+680	BRENNER		A	A	*	15							
+4282	BUFFON LOUIS	pisa	A	T		2	1	5,5	5,5	5,5	5,5	0	0
+4318	BUKSA	udinese	A	A		14	7	6,07	6,38	5,71	5,75	2,5	2,5
+449	BURNETE		A	A	*	9							
+705	CAIA		A	A	*	1							
+450	CAMARDA	lecce	A	A		11	9	5,44	4,5	5,5	5,25	-0,5	-0,5
+58	CAMBIAGHI	bologna	A	T		19	10	7	8	6,2	6,5	8	7,5
+409	CANCELLIERI	lazio	A	T		16	6	7,67	9,5	6,17	6,5	9	9
+410	CASTELLANOS	lazio	A	A		25	6	7,5	5	6,17	5,5	8	8,5
+59	CASTRO	bologna	A	A		23	9	7,56	8,63	6,17	6,5	12,5	8,5
+706	CAZZADORI		A	A	*	1							
+743	CERRI	como	A	A		1							
+309	CHARPENTIER		A	A	*	10							
+270	CHEDDIRA	sassuolo	A	A		9	3	6,83	5,5	5,83	5,5	3	3
+600	CHERUBINI		A	T	*	1							
+642	CHUKWUEZE		A	T	*	11	1	5,5		5,5	-1	0	0
+629	CIERVO		A	T	*	2							
+477	COLOMBO	genoa	A	A		10	9	5,39	5,38	5,44	5,5	-0,5	-0,5
+707	CRUZ		A	A	*	2							
+381	CUTRONE	parma	A	A		15	9	6,06	5,7	5,72	5,7	3	0
+60	DALLINGA	bologna	A	A		17	7	6,29	6,63	6,07	6,13	1,5	1,5
+1071	DAVID	juventus	A	A		22	8	6,13	5,25	5,63	5,25	4	0
+681	DAVIS	udinese	A	A		18	9	6,94	6,63	5,94	6	9	5,5
+517	DE LUCA	cremonese	A	A		15	1	10		7	-1	3	3
+1064	DEBENEDETTI		A	A	*	1							
+411	DIA	lazio	A	A		15	10	5,85	5,4	5,55	5,4	3	0
+382	DIAO	como	A	T		15	3	5,67	5,67	5,67	5,67	0	0
+682	DIAWARA		A	A	*	2							
+310	DJURIC	parma	A	A		10	2	5,5	5,5	5,5	5,5	0	0
+61	DOMINGUEZ	bologna	A	T		15	4	6	6,17	5,75	5,83	1	1
+383	DOUVIKAS	como	A	A		17	9	6,5	6,63	5,83	5,88	6	3
+342	DOVBYK	roma	A	A		24	9	6,83	6,8	6,06	6	7	4
+590	DUBICKAS		A	A	*	8							
+344	DYBALA	roma	A	T		20	8	5,94	6,1	5,81	5,9	1	1
+131	DZEKO	fiorentina	A	A		16	7	5,36	5,25	5,43	5,38	-0,5	-0,5
+752	EBONE		A	A	*	1							
+160	EKHATOR	genoa	A	A		11	8	5,88	6,38	5,63	5,75	2	2,5
+161	EKUBAN	genoa	A	A		14	9	6,11	5,6	5,78	5,6	3	0
+343	EL SHAARAWY	roma	A	T		10	3	5,5		5,5	-1	0	0
+197	ESPOSITO PIO	inter	A	A		15	8	6,13	5,6	5,81	5,7	2,5	-0,5
+384	FADERA	sassuolo	A	T		14	9	6,33	5,75	5,94	5,88	3,5	0,5
+97	FELICI	cagliari	A	T		14	8	6,63	6,3	5,88	5,7	6	3
+1463	FERGUSON EV.	roma	A	A		14	6	5,83	5,5	5,75	5,5	0,5	0,5
+412	FERNANDES		A	T	*	1							
+1065	FINI	genoa	A	T		1							
+4112	FRIGAN	parma	A	A		4							
+385	GABRIELLONI		A	A	*	6							
+591	GIANI		A	A	*	2							
+478	GIMENEZ	milan	A	A		17	9	5,78	5,75	5,83	5,88	-0,5	-0,5
+709	GIOVANE	verona	A	A		16	10	6,5	7,1	5,95	6,1	5,5	5
+638	GONZALEZ NI.		A	T	*	18	1	6		6	-1	0	0
+132	GUDMUNDSSON	fiorentina	A	T		16	8	5,94	5,9	5,56	5,5	3	2
+4470	GUEYE	udinese	A	A		8	1	5,5		5,5	-1	0	0
+717	HAJ MOHAMED		A	T	*	11							
+4468	HOJLUND	napoli	A	A		26	6	7,08	7,17	6,08	6,17	6	3
+769	IMMOBILE	bologna	A	A		18	1	5,5		5,5	-1	0	0
+640	ISAKSEN	lazio	A	T		16	6	6,5	6,7	6	6,1	3	3
+519	JOHNSEN	cremonese	A	T		12	4	5,63	5,75	5,38	5,25	1	1
+1087	JOUJOU		A	T	*	2							
+710	KALLON		A	A	*	1							
+199	KAMATE		A	A	*	2							
+134	KEAN	fiorentina	A	A		25	10	6,4	7,3	5,9	6,2	5	5,5
+774	KERRIGAN		A	T	*	8							
+3963	KILICSOY	cagliari	A	A		12	3	5,67	5,5	5,67	5,5	0	0
+683	KJERRUMGAARD		A	A	*	1							
+238	KOLO MUANI		A	A	*	22							
+135	KOUAME	fiorentina	A	A		5							
+718	KOWALSKI		A	A	*	1							
+452	KRSTOVIC	atalanta	A	A		20	9	6,94	5,38	6	5,5	8,5	-0,5
+762	KUHN	como	A	T		13	6	5,67	5,75	5,67	5,75	0	0
+711	LAMBOURDE		A	A	*	7							
+644	LANG	napoli	A	T		14	5	5,5	5,5	5,6	5,67	-0,5	-0,5
+712	LASAGNA		A	A	*	1							
+630	LAURIENTE	sassuolo	A	T		18	9	6,61	6,63	5,83	5,88	7	7
+480	LEAO	milan	A	T		26	6	8	8,5	6,33	6,5	10	10
+592	LERIS	pisa	A	T		13	7	5,79	5,88	5,64	5,63	1	1
+725	LIND		A	T	*	14							
+273	LINDSTROM		A	A	*	1							
+24	LOOKMAN	atalanta	A	A		21	5	6,5	6,5	5,9	5,9	3	3
+274	LUCCA	napoli	A	A		16	7	6,14	5,25	5,79	5,25	2,5	3
+275	LUKAKU	napoli	A	A		21							
+5584	LUNA	verona	A	A		1							
+102	LUVUMBO	cagliari	A	A		12	6	5,58	5,5	5,58	5,5	0	0
+200	MARTINEZ LA.	inter	A	A		31	10	7,1	6,7	6,1	6	10	3,5
+239	MBANGULA		A	A	*	13							
+723	MEISTER	pisa	A	A		10	8	5,44	5,5	5,5	5,5	-0,5	0
+1066	MESSIAS	genoa	A	T		10	3	5,83	6	5,83	6	0	0
+719	MIKOLAJEWSKI		A	A	*	2							
+240	MILIK	juventus	A	A		5							
+713	MITROVIC		A	A	*	6							
+593	MLAKAR		A	T	*	10							
+4011	MORATA	como	A	A		17	8	5,56	5,13	5,81	5,88	-2	-3
+455	MORENTE TE.	lecce	A	T		12	9	5,56	5,63	5,61	5,63	-0,5	0
+724	MOREO	pisa	A	A		13	8	6,5	7,63	5,75	6,13	6	6
+631	MORO LU.	sassuolo	A	A		6	1	6	6	6	6	0	0
+708	MOSQUERA	verona	A	A		8	4	5,5	5,75	5,5	5,75	0	0
+4403	MOUMBAGNA	cremonese	A	A		6	1	5,5		5,5	-1	0	0
+632	MULATTIERI		A	A	*	11							
+451	N'DRI	lecce	A	T		13	4	7,5	7,25	6,13	6	5,5	5,5
+136	N'ZOLA	pisa	A	A		14	10	6,25	6,2	5,7	5,7	5,5	2,5
+520	NASTI		A	A	*	12							
+635	NDOYE		A	T	*	20							
+645	NERES	napoli	A	T		18	8	6,19	6,3	6	6	1,5	1,5
+276	NGONGE	torino	A	T		17	9	6,33	5,8	5,94	5,8	3,5	0
+561	NJIE	torino	A	T		7							
+4372	NKUNKU	milan	A	A		18	5	5,7	5,63	5,7	5,63	0	0
+413	NOSLIN	lazio	A	T		9	1	5,5		5,5	-1	0	0
+54	ODGAARD	bologna	A	T		19	8	6,88	7	6,06	6,13	6,5	6,5
+479	OKAFOR		A	A	*	14							
+768	OKEREKE	cremonese	A	A		8	2	5,75		5,75	-1	0	0
+756	OKWONKWO		A	T	*	4							
+650	ONDREJKA	parma	A	T		9							
+4464	OPENDA	juventus	A	A		17	7	5,57	5,63	5,57	5,63	0	0
+4333	ORBAN	verona	A	A		17	8	6,56	6,4	5,88	5,8	5,5	3
+636	ORSOLINI	bologna	A	T		30	10	7,85	7,6	6,35	6,4	15	6
+1673	OSIMHEN		A	A	*	27							
+562	PADULA		A	A	*	1							
+311	PARTIPILO		A	T	*	1							
+594	PAVANELLO		A	A	*	1							
+99	PAVOLETTI	cagliari	A	A		10	3	5,83	5,83	5,67	5,67	0,5	0,5
+414	PEDRO	lazio	A	T		14	7	5,79	6	5,71	5,83	0,5	0,5
+563	PELLEGRI		A	A	*	10							
+312	PELLEGRINO	parma	A	A		16	10	6,35	5,6	5,85	5,7	5	-0,5
+100	PICCOLI	fiorentina	A	A		13	7	5,57	5,67	5,57	5,67	0	0
+633	PIERINI	sassuolo	A	T		7	2	5,5	5,5	5,75	5,75	-0,5	-0,5
+453	PIEROTTI	lecce	A	T		13	9	5,67	5,7	5,67	5,7	0	0
+241	PIETRELLI		A	T	*	1							
+162	PINAMONTI	sassuolo	A	A		17	10	6,45	6,5	5,9	5,9	5,5	3
+684	PIZARRO		A	A	*	2							
+646	POLITANO	napoli	A	T		16	10	6,1	5,8	6,05	5,9	0,5	-0,5
+771	PRELEC		A	A	*	1							
+242	PUGNO		A	A	*	1							
+277	RASPADORI		A	A	*	16							
+564	RAUTI		A	A	*	1							
+726	RAYCHEV		A	A	*	1							
+714	ROCHA LIVRAMENTO		A	A	*	9							
+775	RODRIGUEZ JE.	como	A	T		14	6	6,17	7	6	6	1	1
+454	SALOMAA		A	A	*	8							
+565	SANABRIA	cremonese	A	A		12	7	5,57	5	5,57	5	0	-0,5
+677	SANCHEZ		A	A	*	14							
+201	SARR		A	A	*	1							
+715	SARR AM.	verona	A	A		13	10	5,7	5,8	5,7	5,8	0	0
+566	SAVVA	torino	A	T		1							
+26	SCAMACCA	atalanta	A	A		16	4	6,38	5	5,75	5,25	2,5	2,5
+278	SGARBI		A	A	*	1							
+730	SIMEONE	torino	A	A		23	10	7,35	8,2	6,15	6,4	12	9
+1088	SITS		A	A	*	1							
+651	SKJELLERUP	sassuolo	A	A		3							
+602	SOLBAKKEN		A	T	*	8							
+601	SOULE	roma	A	T		23	10	7,25	6,6	6,15	5,8	11	4
+521	STUCKLER		A	A	*	1							
+4331	STULIC	lecce	A	A		11	9	5,39	5,4	5,44	5,5	-0,5	-0,5
+27	SULEMANA KA.	atalanta	A	T		15	8	6,75	5,17	6	5,33	6	6,5
+202	TAREMI		A	A	*	12							
+685	THAUVIN		A	T	*	18							
+203	THURAM MA.	inter	A	A		30	5	8,3		6,3	-1	10	10
+28	TOURE		A	A	*	11							
+595	TRAMONI L.		A	A	*	8							
+596	TRAMONI MA.	pisa	A	T		11	9	5,33	5,13	5,39	5,25	-0,5	-0,5
+522	TSADJOUT		A	A	*	10							
+4461	VARDY	cremonese	A	A		18	6	6,67	6,9	5,83	5,9	5	5
+1067	VENTURINO	genoa	A	T		4	2	6	6	6	6	0	0
+101	VINCIGUERRA		A	T	*	1							
+163	VITINHA	genoa	A	A		11	7	5,29	5,5	5,43	5,63	-1	-0,5
+243	VLAHOVIC	juventus	A	A		22	10	6,85	6,5	5,95	5,9	9	3
+456	VOELKERLING PERSSON		A	A	*	8							
+244	YILDIZ	juventus	A	T		24	9	7,22	6,63	6,22	5,88	9	3
+641	ZACCAGNI	lazio	A	T		23	9	7,06	6,88	6,11	6,13	8,5	6
+560	ZAPATA	torino	A	A		14	2	3,5	5,5	5	5,5	-3	-3
+204	ZUBEREK		A	A	*	1							`

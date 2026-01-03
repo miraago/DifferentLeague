@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  position: relative;
+}
+#navbar {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: green;
+  color: white;
+  z-index: 1000;
+}
+ul {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+ul li {
+  text-align: center;
+  margin-left: 0;
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+  min-width: 100px;
+}
+ul li:hover {
+  background-color: greenyellow;
+  color: rgb(0, 63, 0);
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#container-giornate {
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#container-giornate div {
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  gap: 5px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  line-height: 20px;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+}
+#container-giornate div:hover {
+  border: 2px solid green;
+  font-weight: bold;
+}
+
+.icona-ricerca-possessi {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.icona-ricerca-possessi:hover {
+  width: 15px;
+  height: 15px;
+  transform: scale(1.2);
+}
+
+/* STILI PER LA TABELLA */
+
+#container-table {
+  display: flex;
+  align-content: center;
+  width: 80%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+}
+
+table {
+  width: 65%;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid lightgray;
+  border-spacing: 10px 15px;
+  border-collapse: collapse;
+}
+
+table thead {
+  font-weight: bold;
+  height: 40px;
+  max-height: 40px;
+  text-align: left;
+  font-size: 18px;
+  background-color: rgb(16, 121, 3);
+  color: white;
+}
+
+table tbody tr {
+  font-size: 15px;
+  background-color: hsl(0, 0%, 100%);
+  color: rgb(35, 36, 39);
+}
+table tbody tr td,
+table thead tr th {
+  padding: 10px;
+}
+table tbody tr:hover td {
+  background-color: rgb(236, 243, 253);
+  cursor: pointer;
+}
+table tr:nth-child(even) td {
+  background-color: rgb(245, 247, 250);
+}
+
+#container-filtri {
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  background-color: rgb(236, 243, 253);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin: auto;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+#container-filtri label {
+  margin: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+#container-filtri select {
+  padding-left: 10px;
+}

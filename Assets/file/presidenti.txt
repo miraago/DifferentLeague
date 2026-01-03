@@ -1,0 +1,100 @@
+ARSENAL	Ignazio Consentino	Premier League	2
+ASTON VILLA	Raffaele e Antonio	Premier League	10
+BOURNEMOUTH	Pasquale Ambrosio	Premier League	2
+BRENTFORD	Raffaele & Eugenio	Premier League	26
+BRIGHTON	Salvatore Miranda (ottav)	Premier League	1
+BURNLEY	Luciano e Antonio	Premier League	1
+CHELSEA	Agostino Miranda	Premier League	0
+CRYSTAL PALACE	Antonio & Salvatore	Premier League	0
+EVERTON	Davide Migliore	Premier League	10
+FULHAM	Francesco Somma	Premier League	16
+LEEDS	Antonio Tramontano	Premier League	1
+LIVERPOOL	Giuseppe Sicignano	Premier League	0
+MAN UNITED	Francesco Annunziata	Premier League	32
+MANCHESTER CITY	Emanuele Forte	Premier League	0
+NEWCASTLE	Vincenzo Miranda	Premier League	0
+NOTTINGHAM	Giuseppe Boccia	Premier League	46
+SUNDERLAND	Francesco Miranda Pic.	Premier League	10
+TOTTENHAM	Giuliano Boccia	Premier League	3
+WEST HAM	Francesco Miranda Gra.	Premier League	9
+WOLVERHAMPTON	Marco Franzese	Premier League	3
+ALAVES	Giuseppe Luongo	Liga Spagnola	0
+ATLETICO MADRID	Alessandro Boccia	Liga Spagnola	0
+ATLETICO BILBAO	Salvatore Ambrosio	Liga Spagnola	0
+BARCELLONA	Salvator Miranda	Liga Spagnola	0
+BETIS	Salvatore Ambrosio	Liga Spagnola	0
+CELTA VIGO	Francesco Raggio	Liga Spagnola	0
+ELCHE	Aniello D'ascoli	Liga Spagnola	0
+ESPANYOL	Antonio Miranda	Liga Spagnola	0
+GETAFE	Francesco DeVito	Liga Spagnola	0
+GIRONA	Umberto Di Mauro	Liga Spagnola	0
+LEVANTE	Renato e Daniele	Liga Spagnola	0
+MAIORCA	Luigi Duraccio	Liga Spagnola	0
+OSASUNA	Claudio Ambrosio	Liga Spagnola	0
+OVIEDO	Guglielmo e Aldo	Liga Spagnola	0
+REAL MADRID	Ettore Boccia	Liga Spagnola	0
+REAL SOCIETAD	Antonio Pagano	Liga Spagnola	0
+REAL VALLECANO	Saverio e francesco	Liga Spagnola	0
+SIVIGLIA	Giuseppe Miranda	Liga Spagnola	0
+VALENCIA	Gianluca Miranda	Liga Spagnola	0
+VILLAREAL	Giuseppe Miranda	Liga Spagnola	0
+AUGSBURG	Giuseppe Innusa	Bundesliga	0
+BAYERN MONACO	Eddy Brachini	Bundesliga	0
+BOCHUM	Gabriele Mingotti	Bundesliga	0
+COLONIA	Aliperti Umberto	Bundesliga	0
+DORTMUND	Giuseppe Annunziata	Bundesliga	0
+EINTRACHT	Luciano D'avino	Bundesliga	0
+FRIBURGO	Giuseppe Ambrosio	Bundesliga	0
+HEIDENHEIM	Angelo Caldarelli	Bundesliga	0
+HOFFENHEIM	Rito napolitano  	Bundesliga	0
+HOLSTEL KIEL	Gaetano e Giovanni	Bundesliga	0
+LEVERKUSEN	Vincenzo Carotenuto	Bundesliga	0
+LIPSIA	Marco Russo	Bundesliga	0
+MAINZ	Alessio Dilisio	Bundesliga	0
+MONCHENGLADBACH	Luigi Pizzella	Bundesliga	0
+NORIMBERGA	Carlo D’alpa	Bundesliga	0
+ST PAULI	Guido e Nicola	Bundesliga	0
+STOCCARDA	Daniele Coppola	Bundesliga	0
+UNION BERLINO	Daniele Olmetto	Bundesliga	0
+WERDER BREMA	Salvo Innusa	Bundesliga	0
+WOLFSBURG	Giuseppe Ianni 	Bundesliga	0
+ANGERS	Alessandro e Antonio	Ligue 1	0
+AUXERRE	Angelo & Giuseppe	Ligue 1	0
+BREST	Luca Battello	Ligue 1	0
+LE HAVRE	Annibale Mazzeo	Ligue 1	0
+LENS	Alessandro Amato	Ligue 1	0
+LILLE	Leonardo e Andrea	Ligue 1	0
+LIONE	Gabriele Micali	Ligue 1	0
+LORIENT	Omer Feldi	Ligue 1	0
+MARSIGLIA	Luca Matera 	Ligue 1	0
+METZ	Salvatore Franzese	Ligue 1	0
+MONACO	Claudio Ambrosio	Ligue 1	0
+NANTES	Antonio Langella	Ligue 1	0
+NIZZA	Maurizio Beghi	Ligue 1	0
+PARIS FC	Davide Ricciutelli	Ligue 1	0
+PSG	Benito Marino	Ligue 1	0
+REIMS	Stefano Delli Castelli	Ligue 1	0
+RENNES	Alessandro Nicolosi	Ligue 1	0
+SAINT ETIENNE	Roberto Saverino	Ligue 1	0
+STRASBURGO	Manuel Massaro	Ligue 1	0
+TOLOSA	Giampaolo Rizzuti	Ligue 1	0
+ATALANTA	Antonio Seggioli	Serie A	0
+BOLOGNA	Gabriele e Michele	Serie A	0
+CAGLIARI	Mattia Danesin	Serie A	0
+COMO	Carmine Altilio	Serie A	0
+CREMONESE	Daniele Salsi	Serie A	0
+FIORENTINA	Alberto Pisano	Serie A	0
+GENOA	Vincenzo e Miky	Serie A	0
+INTER	Angelo Catrini	Serie A	0
+JUVENTUS	Massimo Bufano	Serie A	0
+LAZIO	Marco Cesareo	Serie A	0
+LECCE	Flavio Del Monego	Serie A	0
+MILAN	Nello e Donato	Serie A	0
+NAPOLI	Luciano Modugno	Serie A	0
+PARMA	Fabrizio Amati	Serie A	0
+PISA	Matteo Profeti	Serie A	0
+ROMA	Fabio e Francesco	Serie A	0
+SASSUOLO	Damiano Andalò	Serie A	0
+TORINO	Gianluca Ristallo	Serie A	0
+UDINESE	Michele Cotugno	Serie A	0
+VERONA	Marco Ettore E Salvatore	Serie A	0
