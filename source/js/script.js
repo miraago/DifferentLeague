@@ -77,7 +77,7 @@ async function caricaGiocatori() {
   console.log("Caricamento giocatori in corso...");
   //let datiGiocatori = get_file_giocatori();
 
-  const response = await fetch("Assets/file/quotazioni_gg15.txt");
+  const response = await fetch("Assets/file/quotazioni_gg17.txt");
   if (!response.ok) {
     throw new Error("Network response was not ok " + response.statusText);
   }

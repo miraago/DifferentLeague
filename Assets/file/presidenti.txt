@@ -18,47 +18,47 @@ SUNDERLAND	Francesco Miranda Pic.	Premier League	10
 TOTTENHAM	Giuliano Boccia	Premier League	3
 WEST HAM	Francesco Miranda Gra.	Premier League	9
 WOLVERHAMPTON	Marco Franzese	Premier League	3
-ALAVES	Giuseppe Luongo	Liga Spagnola	0
-ATLETICO MADRID	Alessandro Boccia	Liga Spagnola	0
+ALAVES	Giuseppe Luongo	Liga Spagnola	26
+ATLETICO MADRID	Alessandro Boccia	Liga Spagnola	2
 ATLETICO BILBAO	Salvatore Ambrosio	Liga Spagnola	0
 BARCELLONA	Salvator Miranda	Liga Spagnola	0
 BETIS	Salvatore Ambrosio	Liga Spagnola	0
-CELTA VIGO	Francesco Raggio	Liga Spagnola	0
-ELCHE	Aniello D'ascoli	Liga Spagnola	0
-ESPANYOL	Antonio Miranda	Liga Spagnola	0
-GETAFE	Francesco DeVito	Liga Spagnola	0
+CELTA VIGO	Francesco Raggio	Liga Spagnola	5
+ELCHE	Aniello D'ascoli	Liga Spagnola	12
+ESPANYOL	Antonio Miranda	Liga Spagnola	19
+GETAFE	Francesco DeVito	Liga Spagnola	19
 GIRONA	Umberto Di Mauro	Liga Spagnola	0
-LEVANTE	Renato e Daniele	Liga Spagnola	0
+LEVANTE	Renato e Daniele	Liga Spagnola	97
 MAIORCA	Luigi Duraccio	Liga Spagnola	0
 OSASUNA	Claudio Ambrosio	Liga Spagnola	0
-OVIEDO	Guglielmo e Aldo	Liga Spagnola	0
-REAL MADRID	Ettore Boccia	Liga Spagnola	0
+OVIEDO	Guglielmo e Aldo	Liga Spagnola	23
+REAL MADRID	Ettore Boccia	Liga Spagnola	5
 REAL SOCIETAD	Antonio Pagano	Liga Spagnola	0
-REAL VALLECANO	Saverio e francesco	Liga Spagnola	0
+REAL VALLECANO	Saverio e francesco	Liga Spagnola	26
 SIVIGLIA	Giuseppe Miranda	Liga Spagnola	0
-VALENCIA	Gianluca Miranda	Liga Spagnola	0
-VILLAREAL	Giuseppe Miranda	Liga Spagnola	0
-AUGSBURG	Giuseppe Innusa	Bundesliga	0
+VALENCIA	Gianluca Miranda	Liga Spagnola	7
+VILLAREAL	Giuseppe Miranda	Liga Spagnola	6
+AUGSBURG	Giuseppe Innusa	Bundesliga	1
 BAYERN MONACO	Eddy Brachini	Bundesliga	0
-BOCHUM	Gabriele Mingotti	Bundesliga	0
-COLONIA	Aliperti Umberto	Bundesliga	0
+BOCHUM	Gabriele Mingotti	Bundesliga	1
+COLONIA	Aliperti Umberto	Bundesliga	16
 DORTMUND	Giuseppe Annunziata	Bundesliga	0
-EINTRACHT	Luciano D'avino	Bundesliga	0
+EINTRACHT	Luciano D'avino	Bundesliga	2
 FRIBURGO	Giuseppe Ambrosio	Bundesliga	0
-HEIDENHEIM	Angelo Caldarelli	Bundesliga	0
-HOFFENHEIM	Rito napolitano  	Bundesliga	0
-HOLSTEL KIEL	Gaetano e Giovanni	Bundesliga	0
+HEIDENHEIM	Angelo Caldarelli	Bundesliga	20
+HOFFENHEIM	Rito napolitano  	Bundesliga	10
+HOLSTEL KIEL	Gaetano e Giovanni	Bundesliga	64
 LEVERKUSEN	Vincenzo Carotenuto	Bundesliga	0
-LIPSIA	Marco Russo	Bundesliga	0
+LIPSIA	Marco Russo	Bundesliga	1
 MAINZ	Alessio Dilisio	Bundesliga	0
-MONCHENGLADBACH	Luigi Pizzella	Bundesliga	0
+MONCHENGLADBACH	Luigi Pizzella	Bundesliga	27
 NORIMBERGA	Carlo D’alpa	Bundesliga	0
-ST PAULI	Guido e Nicola	Bundesliga	0
-STOCCARDA	Daniele Coppola	Bundesliga	0
+ST PAULI	Guido e Nicola	Bundesliga	20
+STOCCARDA	Daniele Coppola	Bundesliga	28
 UNION BERLINO	Daniele Olmetto	Bundesliga	0
-WERDER BREMA	Salvo Innusa	Bundesliga	0
-WOLFSBURG	Giuseppe Ianni 	Bundesliga	0
-ANGERS	Alessandro e Antonio	Ligue 1	0
+WERDER BREMA	Salvo Innusa	Bundesliga	2
+WOLFSBURG	Giuseppe Ianni 	Bundesliga	10
+ANGERS	Alessandro e Antonio	Ligue 1	4
 AUXERRE	Angelo & Giuseppe	Ligue 1	0
 BREST	Luca Battello	Ligue 1	0
 LE HAVRE	Annibale Mazzeo	Ligue 1	0

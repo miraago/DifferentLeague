@@ -1,0 +1,12 @@
+Come lavorare da domani
+Ora che il collegamento è impostato, non dovrai più ripetere tutti quei comandi. Quando farai delle modifiche al codice e vorrai caricarle, dovrai solo fare questi 3 passaggi veloci nel terminale di VS Code:
+
+git add . (per dire a Git quali modifiche vuoi salvare).
+
+git commit -m "Descrizione di cosa hai cambiato" (per dare un nome al salvataggio).
+
+git push (per inviare i cambiamenti su GitHub).
+
+git add .
+git commit -m "Inserimento gg17"
+git push
