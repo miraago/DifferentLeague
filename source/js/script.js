@@ -185,7 +185,8 @@ async function caricaAcquisti() {
 
 //pagine azionabili al click sul menu
 function paginaPresidenti() {
-  let filtroCampionato = "TUTTI";
+  filtroCampionato = "TUTTI";
+  TAG_H2.textContent = "LISTA PRESIDENTI";
   azzeraTabelle();
   azzeraFiltri();
   creaFiltroSelezionaCampionato();
@@ -193,30 +194,30 @@ function paginaPresidenti() {
 }
 
 function paginaRoseComplete() {
-  let filtroCampionato = "TUTTI";
+  filtroCampionato = "TUTTI";
   TAG_H2.textContent = "ROSE COMPLETE";
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroSelezionaCampionato();
   stampaRoseComplete();
 }
-function paginaGiocatori() {
-  console.log("Pagina giocatori in corso...");
-  azzeraFiltri();
-  azzeraTabelle();
+function paginaGiocatori() {  
   TAG_H2.textContent = "PAGINA GIOCATORI";
+  azzeraFiltri();
+  azzeraTabelle();  
   stampaListaGiocatori();
-  console.log("Pagina giocatori completata.");
 }
 
 function paginaAppartenenze() {
+  filtroCampionato = "TUTTI";
+  TAG_H2.textContent = "LISTA APPARTENENZE";
   azzeraFiltri();
   azzeraTabelle();
   stampaListaAppartenenze();
 }
 
 function paginaSvincolati() {
-  let filtroCampionato = "TUTTI";
+  
   TAG_H2.textContent = "LISTA SVINCOLATI";
   azzeraFiltri();
   azzeraTabelle();
@@ -225,7 +226,7 @@ function paginaSvincolati() {
 }
 
 function paginaCreditiResidui() {
-  let filtroCampionato = "TUTTI";
+  filtroCampionato = "TUTTI";
   TAG_H2.textContent = "LISTA CREDITI RESIDUI";
   azzeraFiltri();
   azzeraTabelle();
@@ -234,7 +235,7 @@ function paginaCreditiResidui() {
 }
 
 function paginaMercato() {
-  let filtroCampionato = "TUTTI";
+  filtroCampionato = "TUTTI";
   console.log("Pagina mercato in corso...");
   TAG_H2.textContent = "PAGINA MERCATO";
   azzeraTabelle();
@@ -428,25 +429,97 @@ function stampaListaGiocatori() {
 function stampaListaAppartenenze() {
   console.log("Stampa lista Appartenenze in corso...");
 
-  TAG_H2.textContent = "LISTA APPARTENENZE";
-  azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
-  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-  player.forEach((p) => {
-    let rigaSquadre = "";
-    //per ogni giocatore andiamo a controllare le squadre che lo posseggono
-    acquisti.forEach((record) => {
-      if (record.getRifNomeGiocatore == p.getNome) {
-        rigaSquadre += `<td> ${record.getRifNomeRosa} (${record.getCostoDiAcquisto})</td>`;
-      }
+
+  
+
+const ruoli = ["P","D","C","A"];
+
+
+  //scorriamo per ruolo
+  ruoli.forEach(ruoloCorrente=>{
+    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
+
+    //per ogni ruolo creiamo una tabella
+    const TAG_TABLE = document.createElement("table");
+    const TAG_THEAD=document.createElement("thead");
+    const TAG_TBODY=document.createElement("tbody")
+   
+    //inseriamo l'intestazione della tabella
+    TAG_THEAD.innerHTML=
+    `<tr >
+      <th colspan="5">
+      ${ruoloCorrente}
+      </th>
+      </tr>
+      <tr>
+        <th>
+          Ruolo
+        </th>
+        <th>
+          Nome
+        </th>
+        <th>
+        Squadra
+        </th>
+        <th>
+        Numero Appartenenze
+        </th>
+        <th>
+        Squadre che lo possegono
+        </th>
+    </tr>`;
+
+    //adesso scorriamo la lista dei giocatori, e per ogni giocatore preleviamo le squadre che lo posseggono
+    let playerRuoloCorrente = player.filter(p=>{
+      return p.getRuolo == ruoloCorrente;
+    });//playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
+
+
+    
+    //scorriamo il nuovo array filtrato per ruolo e lo inseriamo nella riga che andremo ad inserire nel tbody
+    playerRuoloCorrente.forEach(playerCorrente=>{
+      
+      let tdSquadre="";
+      playerCorrente.getPossessi.forEach((sqPos)=>{
+        let squadraCapitalize = sqPos.getNomeRosa.toLowerCase();
+        squadraCapitalize=squadraCapitalize.charAt(0).toUpperCase() + squadraCapitalize.slice(1);
+        tdSquadre+=squadraCapitalize +  " | ";
+      });
+      
+      rigaHTML+=
+      `
+      <tr>
+        <td>
+          ${playerCorrente.getRuolo}
+        </td>
+        <td>
+          ${playerCorrente.getNome}
+        </td>
+        <td>
+          ${playerCorrente.getSquadraDiAppartenenza}
+        </td>
+        <td>
+          ${playerCorrente.getCopieOccupate}
+        </td>
+        <td>
+         ${tdSquadre}
+        </td>
+        
+      </tr>
+      `
+
+
     });
-    rigaHTML += `<tr>
-    <td>${p.getRuolo}</td>
-    <td>${p.getNome}</td>
-    <td>${p.getSquadraDiAppartenenza}</td>
-    <td>${p.getQuotazione}</td>
-    ${rigaSquadre}
-  </tr>`;
+
+
+
+    TAG_TBODY.innerHTML=rigaHTML;
+    TAG_TABLE.append(TAG_THEAD,TAG_TBODY);
+    containerTable.appendChild(TAG_TABLE);
   });
+
+
+ 
 }
 function stampaListaSvincolati() {
   console.log("Stampa lista Svincolati in corso...");
