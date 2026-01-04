@@ -387,8 +387,17 @@ function stampaListaGiocatori() {
       <th>Nome</th>
       <th>Squadra</th>
       <th>Quotazione</th>
+      <th>Presenze</th>
+      <th>MediaVoto</th>
+      <th>FantaMedia</th>
+      <th>Somma Bonus/Malus </th>
+      <th>MediaVoto Recente</th>
+      <th>FantaMedia Recente</th>
+      <th>Bonus Malus ultime 5 </th>
       </tr>`;
 
+ 
+ 
   const ruoli = ["P", "D", "C", "A"];
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
@@ -416,6 +425,13 @@ function stampaListaGiocatori() {
     <td>${toCapitalize(p.getNome)}</td>
     <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
     <td>${p.getQuotazione}</td>
+    <td>${p.getPresenze}</td>
+    <td>${p.getMv}</td>
+    <td>${p.getFvm}</td>
+    <td>${p.getSommaBonusMalus}</td>
+    <td>${p.getMvUltime5}</td>
+    <td>${p.getFvmUltime5}</td>
+    <td>${p.getSommaBonusMalusUltime5}</td>
     ${rigaSquadre}
   </tr>`;
     });
@@ -611,8 +627,8 @@ function stampaListaCreditiResidui() {
         squadreFiltrate.forEach((sqAttuale) => {
           TAG_TBODY.innerHTML += `
         <tr>
-        <td>${sqAttuale.getNomeRosa}</td>
-        <td>${sqAttuale.getNomePresidente}</td>
+        <td>${toCapitalize(sqAttuale.getNomeRosa)}</td>
+        <td>${toCapitalize(sqAttuale.getNomePresidente)}</td>
         <td>${sqAttuale.getCreditiResidui}</td>
         </tr>
         `;
