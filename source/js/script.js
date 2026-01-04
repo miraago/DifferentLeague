@@ -7,6 +7,8 @@ import {
 
 import { IMPOSTAZIONI } from "./impostazioni.js";
 
+import { toCapitalize } from "./funzioniAgo.js";
+
 let player = [];
 let acquisti = [];
 let presidenti = [];
@@ -262,7 +264,7 @@ function stampaListaPresidenti() {
       const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
       let rigaHTML = "";
       // inizializziamo la riga di intestazione delle tabella
-      TAG_THEAD.innerHTML = `<tr> <th colspan="2">${camp}</th></tr> 
+      TAG_THEAD.innerHTML = `<tr> <th colspan="2">${toCapitalize(camp)}</th></tr> 
                             <tr>
                             <th> Squadra </th> 
                             <th> Presidente </th>                           
@@ -276,8 +278,8 @@ function stampaListaPresidenti() {
       //scorri la lista presidenti ed inserisci ogni presidente nella tabella
       presidentiFiltrati.forEach((presidente) => {
         rigaHTML += `<tr>
-                      <td> ${presidente.getNomeRosa} </td>
-                      <td> ${presidente.getNomePresidente} </td>                      
+                      <td> ${toCapitalize(presidente.getNomeRosa)} </td>
+                      <td> ${toCapitalize(presidente.getNomePresidente)} </td>                      
                     </tr>`;
       });
       containerTable.appendChild(TAG_TABLE);
@@ -315,13 +317,13 @@ function stampaRoseComplete() {
       // il nome del campionato di appartenenza
 
       TAG_THEAD.innerHTML = `<tr>
-      <th colspan="6"> ${presidenti.getNomeRosa} </th>
+      <th colspan="6"> ${toCapitalize(presidenti.getNomeRosa)} </th>
     </tr>
     <tr>
-      <th colspan="6"> ${presidenti.getNomePresidente} </th>
+      <th colspan="6"> ${toCapitalize(presidenti.getNomePresidente)} </th>
     </tr>
     <tr>
-      <th colspan="6"> ${presidenti.getCampionatoDiAppartenenza} </th>
+      <th colspan="6"> ${toCapitalize(presidenti.getCampionatoDiAppartenenza)} </th>
     </tr>
     <tr>
       <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
@@ -339,8 +341,8 @@ function stampaRoseComplete() {
           rigaHtml += `
               <tr>
                 <td>${rec.getDatiGiocatore.getRuolo}</td>
-                <td>${rec.getDatiGiocatore.getNome}</td>
-                <td>${rec.getDatiGiocatore.getSquadraDiAppartenenza}</td>
+                <td>${toCapitalize(rec.getDatiGiocatore.getNome)}</td>
+                <td>${toCapitalize(rec.getDatiGiocatore.getSquadraDiAppartenenza)}</td>
                 <td>${rec.getDatiGiocatore.getQuotazione}</td>
                 <td>${rec.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
@@ -406,13 +408,13 @@ function stampaListaGiocatori() {
       //per ogni giocatore andiamo a controllare le squadre che lo posseggono
       acquisti.forEach((record) => {
         if (record.getRifNomeGiocatore == p.getNome) {
-          rigaSquadre += `<td> ${record.getRifNomeRosa} (${record.getCostoDiAcquisto})</td>`;
+          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${record.getCostoDiAcquisto})</td>`;
         }
       });
       rigaHTML += `<tr>
     <td>${p.getRuolo}</td>
-    <td>${p.getNome}</td>
-    <td>${p.getSquadraDiAppartenenza}</td>
+    <td>${toCapitalize(p.getNome)}</td>
+    <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
     <td>${p.getQuotazione}</td>
     ${rigaSquadre}
   </tr>`;
@@ -427,10 +429,7 @@ function stampaListaGiocatori() {
 }
 
 function stampaListaAppartenenze() {
-  console.log("Stampa lista Appartenenze in corso...");
-
-
-  
+  console.log("Stampa lista Appartenenze in corso...");  
 
 const ruoli = ["P","D","C","A"];
 
@@ -481,9 +480,8 @@ const ruoli = ["P","D","C","A"];
       
       let tdSquadre="";
       playerCorrente.getPossessi.forEach((sqPos)=>{
-        let squadraCapitalize = sqPos.getNomeRosa.toLowerCase();
-        squadraCapitalize=squadraCapitalize.charAt(0).toUpperCase() + squadraCapitalize.slice(1);
-        tdSquadre+=squadraCapitalize +  " | ";
+        tdSquadre+=toCapitalize(sqPos.getNomeRosa)+ ", ";
+        
       });
       
       rigaHTML+=
@@ -493,10 +491,10 @@ const ruoli = ["P","D","C","A"];
           ${playerCorrente.getRuolo}
         </td>
         <td>
-          ${playerCorrente.getNome}
+          ${toCapitalize(playerCorrente.getNome)}
         </td>
         <td>
-          ${playerCorrente.getSquadraDiAppartenenza}
+          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
         </td>
         <td>
           ${playerCorrente.getCopieOccupate}
