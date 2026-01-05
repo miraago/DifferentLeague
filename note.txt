@@ -7,6 +7,11 @@ git commit -m "Descrizione di cosa hai cambiato" (per dare un nome al salvataggi
 
 git push (per inviare i cambiamenti su GitHub).
 
+
+
+
+https://miraago.github.io/DifferentLeague/
+
 git add .
 git commit -m "Inserimento gg17"
 git push

@@ -1,3 +1,7 @@
+:root {
+  --background_primario: rgb(2, 87, 156);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,9 +14,13 @@ main {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: green;
+  background-color: var(--background_primario);
   color: white;
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 ul {
   margin: 0;
@@ -104,7 +112,7 @@ table thead {
   max-height: 40px;
   text-align: left;
   font-size: 18px;
-  background-color: rgb(16, 121, 3);
+  background-color: rgb(2, 87, 156);
   color: white;
 }
 
@@ -119,7 +127,6 @@ table thead tr th {
 }
 table tbody tr:hover td {
   background-color: rgb(236, 243, 253);
-  cursor: pointer;
 }
 table tr:nth-child(even) td {
   background-color: rgb(245, 247, 250);
@@ -133,7 +140,7 @@ table tr:nth-child(even) td {
   flex-wrap: wrap;
   width: 80%;
   background-color: rgb(236, 243, 253);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 10px rgba(22, 25, 44, 0.2);
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -152,4 +159,26 @@ table tr:nth-child(even) td {
 }
 #container-filtri select {
   padding-left: 10px;
+}
+.logo-menu {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table thead th:hover {
+  color: rgb(131, 220, 255);
+}
+
+#container-table th {
+  cursor: pointer;
+  user-select: none;
+}
+
+#container-table th[data-order="asc"]::after {
+  content: " ↑";
+}
+#container-table th[data-order="desc"]::after {
+  content: " ↓";
 }

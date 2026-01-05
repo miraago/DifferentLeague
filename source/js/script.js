@@ -29,6 +29,7 @@ LI_TAG[5].addEventListener("click", paginaCreditiResidui);
 LI_TAG[6].addEventListener("click", paginaMercato);
 
 const containerTable = document.getElementById("container-table");
+containerTable.addEventListener("click", (e) => ordinaTabella(e));
 
 function logicaPrincipale() {
   console.log("Logica principale iniziata.");
@@ -203,10 +204,10 @@ function paginaRoseComplete() {
   creaFiltroSelezionaCampionato();
   stampaRoseComplete();
 }
-function paginaGiocatori() {  
+function paginaGiocatori() {
   TAG_H2.textContent = "PAGINA GIOCATORI";
   azzeraFiltri();
-  azzeraTabelle();  
+  azzeraTabelle();
   stampaListaGiocatori();
 }
 
@@ -219,7 +220,6 @@ function paginaAppartenenze() {
 }
 
 function paginaSvincolati() {
-  
   TAG_H2.textContent = "LISTA SVINCOLATI";
   azzeraFiltri();
   azzeraTabelle();
@@ -264,7 +264,9 @@ function stampaListaPresidenti() {
       const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
       let rigaHTML = "";
       // inizializziamo la riga di intestazione delle tabella
-      TAG_THEAD.innerHTML = `<tr> <th colspan="2">${toCapitalize(camp)}</th></tr> 
+      TAG_THEAD.innerHTML = `<tr> <th colspan="2">${toCapitalize(
+        camp
+      )}</th></tr> 
                             <tr>
                             <th> Squadra </th> 
                             <th> Presidente </th>                           
@@ -279,7 +281,9 @@ function stampaListaPresidenti() {
       presidentiFiltrati.forEach((presidente) => {
         rigaHTML += `<tr>
                       <td> ${toCapitalize(presidente.getNomeRosa)} </td>
-                      <td> ${toCapitalize(presidente.getNomePresidente)} </td>                      
+                      <td> ${toCapitalize(
+                        presidente.getNomePresidente
+                      )} </td>                      
                     </tr>`;
       });
       containerTable.appendChild(TAG_TABLE);
@@ -323,7 +327,9 @@ function stampaRoseComplete() {
       <th colspan="6"> ${toCapitalize(presidenti.getNomePresidente)} </th>
     </tr>
     <tr>
-      <th colspan="6"> ${toCapitalize(presidenti.getCampionatoDiAppartenenza)} </th>
+      <th colspan="6"> ${toCapitalize(
+        presidenti.getCampionatoDiAppartenenza
+      )} </th>
     </tr>
     <tr>
       <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
@@ -342,7 +348,9 @@ function stampaRoseComplete() {
               <tr>
                 <td>${rec.getDatiGiocatore.getRuolo}</td>
                 <td>${toCapitalize(rec.getDatiGiocatore.getNome)}</td>
-                <td>${toCapitalize(rec.getDatiGiocatore.getSquadraDiAppartenenza)}</td>
+                <td>${toCapitalize(
+                  rec.getDatiGiocatore.getSquadraDiAppartenenza
+                )}</td>
                 <td>${rec.getDatiGiocatore.getQuotazione}</td>
                 <td>${rec.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
@@ -396,8 +404,6 @@ function stampaListaGiocatori() {
       <th>Bonus Malus ultime 5 </th>
       </tr>`;
 
- 
- 
   const ruoli = ["P", "D", "C", "A"];
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
@@ -417,7 +423,9 @@ function stampaListaGiocatori() {
       //per ogni giocatore andiamo a controllare le squadre che lo posseggono
       acquisti.forEach((record) => {
         if (record.getRifNomeGiocatore == p.getNome) {
-          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${record.getCostoDiAcquisto})</td>`;
+          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${
+            record.getCostoDiAcquisto
+          })</td>`;
         }
       });
       rigaHTML += `<tr>
@@ -445,23 +453,21 @@ function stampaListaGiocatori() {
 }
 
 function stampaListaAppartenenze() {
-  console.log("Stampa lista Appartenenze in corso...");  
+  console.log("Stampa lista Appartenenze in corso...");
 
-const ruoli = ["P","D","C","A"];
-
+  const ruoli = ["P", "D", "C", "A"];
 
   //scorriamo per ruolo
-  ruoli.forEach(ruoloCorrente=>{
+  ruoli.forEach((ruoloCorrente) => {
     let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
     //per ogni ruolo creiamo una tabella
     const TAG_TABLE = document.createElement("table");
-    const TAG_THEAD=document.createElement("thead");
-    const TAG_TBODY=document.createElement("tbody")
-   
+    const TAG_THEAD = document.createElement("thead");
+    const TAG_TBODY = document.createElement("tbody");
+
     //inseriamo l'intestazione della tabella
-    TAG_THEAD.innerHTML=
-    `<tr >
+    TAG_THEAD.innerHTML = `<tr >
       <th colspan="5">
       ${ruoloCorrente}
       </th>
@@ -485,23 +491,18 @@ const ruoli = ["P","D","C","A"];
     </tr>`;
 
     //adesso scorriamo la lista dei giocatori, e per ogni giocatore preleviamo le squadre che lo posseggono
-    let playerRuoloCorrente = player.filter(p=>{
+    let playerRuoloCorrente = player.filter((p) => {
       return p.getRuolo == ruoloCorrente;
-    });//playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
+    }); //playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
 
-
-    
     //scorriamo il nuovo array filtrato per ruolo e lo inseriamo nella riga che andremo ad inserire nel tbody
-    playerRuoloCorrente.forEach(playerCorrente=>{
-      
-      let tdSquadre="";
-      playerCorrente.getPossessi.forEach((sqPos)=>{
-        tdSquadre+=toCapitalize(sqPos.getNomeRosa)+ ", ";
-        
+    playerRuoloCorrente.forEach((playerCorrente) => {
+      let tdSquadre = "";
+      playerCorrente.getPossessi.forEach((sqPos) => {
+        tdSquadre += toCapitalize(sqPos.getNomeRosa) + ", ";
       });
-      
-      rigaHTML+=
-      `
+
+      rigaHTML += `
       <tr>
         <td>
           ${playerCorrente.getRuolo}
@@ -520,20 +521,13 @@ const ruoli = ["P","D","C","A"];
         </td>
         
       </tr>
-      `
-
-
+      `;
     });
 
-
-
-    TAG_TBODY.innerHTML=rigaHTML;
-    TAG_TABLE.append(TAG_THEAD,TAG_TBODY);
+    TAG_TBODY.innerHTML = rigaHTML;
+    TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
     containerTable.appendChild(TAG_TABLE);
   });
-
-
- 
 }
 function stampaListaSvincolati() {
   console.log("Stampa lista Svincolati in corso...");
@@ -729,4 +723,48 @@ function azzeraFiltri() {
   console.log("Azzero tutti i filtri precedenti...");
   containerFiltri.innerHTML = "";
   console.log("Filtri azzerati.");
+}
+
+//ORDINAMENTO TABELLE
+function ordinaTabella(evento) {
+  const th = evento.target.closest("th");
+
+  // Se il click non è avvenuto su un'intestazione, interrompi
+  if (!th) return;
+
+  // 2. Trova la tabella e il corpo (tbody)
+  const table = th.closest("table");
+  const tbody = table.tBodies[0];
+  const colIndex = th.cellIndex; // Indice della colonna (0, 1, 2...)
+
+  // 3. Determina la direzione (asc/desc)
+  const currentOrder = th.getAttribute("data-order") === "asc" ? "desc" : "asc";
+
+  // Reset degli attributi su tutti i TH della tabella (opzionale, per pulizia)
+  table
+    .querySelectorAll("th")
+    .forEach((header) => header.removeAttribute("data-order"));
+  th.setAttribute("data-order", currentOrder);
+
+  // 4. Logica di ordinamento
+  const rows = Array.from(tbody.rows);
+
+  rows.sort((rowA, rowB) => {
+    const valA = rowA.cells[colIndex].textContent.trim();
+    const valB = rowB.cells[colIndex].textContent.trim();
+
+    // Ordinamento naturale (gestisce stringhe e numeri correttamente)
+    return currentOrder === "asc"
+      ? valA.localeCompare(valB, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        })
+      : valB.localeCompare(valA, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        });
+  });
+
+  // 5. Aggiorna il DOM con le righe ordinate
+  tbody.append(...rows);
 }
