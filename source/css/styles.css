@@ -5,6 +5,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 main {
@@ -37,8 +38,19 @@ ul li {
   min-width: 100px;
 }
 ul li:hover {
-  background-color: greenyellow;
-  color: rgb(0, 63, 0);
+  background-color: rgb(47, 241, 255);
+  color: rgb(0, 14, 36);
+  scale: 1.2;
+  font-weight: bold;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+h1 {
+  text-align: left;
+  font-size: 30px;
 }
 
 h2 {
@@ -71,7 +83,7 @@ h2 {
   cursor: pointer;
 }
 #container-giornate div:hover {
-  border: 2px solid green;
+  border: 2px solid rgb(108, 215, 223);
   font-weight: bold;
 }
 
@@ -83,7 +95,7 @@ h2 {
 .icona-ricerca-possessi:hover {
   width: 15px;
   height: 15px;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* STILI PER LA TABELLA */
@@ -150,6 +162,7 @@ table tr:nth-child(even) td {
   margin-bottom: 10px;
   justify-content: flex-start;
   margin-bottom: 20px;
+  gap: 10px;
 }
 
 #container-filtri label {
@@ -163,6 +176,12 @@ table tr:nth-child(even) td {
 .logo-menu {
   width: 100px;
   height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo-menu-index {
+  width: auto;
+  height: 60vh;
   margin: 0 auto;
   text-align: center;
 }
@@ -181,4 +200,55 @@ table thead th:hover {
 }
 #container-table th[data-order="desc"]::after {
   content: " ↓";
+}
+
+.filtro-ruolo {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  color: rgb(0, 4, 43);
+  border: 1px solid rgb(170, 200, 255);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filtro-ruolo:hover {
+  border-color: 2px solid var(--background_primario);
+  font-weight: bold;
+  scale: 1.2;
+}
+
+#container-filtro-ruolo {
+  display: flex;
+  width: 160px;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid rgb(197, 209, 223);
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+#container-filtro-ruolo p {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: x-small;
+  font-style: italic;
+}
+
+#popup-caricamento {
+  background-color: var(--background_primario);
+  color: white;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#popup-caricamento h3 {
+  text-align: center;
+  line-height: 50vh;
 }

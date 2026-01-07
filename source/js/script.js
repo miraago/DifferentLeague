@@ -15,9 +15,18 @@ let presidenti = [];
 logicaPrincipale();
 const TAG_H2 = document.querySelector("h2");
 
+//FILTRI
 const containerFiltri = document.getElementById("container-filtri");
 let filtroCampionato = "TUTTI";
 containerFiltri.addEventListener("change", gestisciFiltroCampionato);
+
+let filtroRuolo = {
+  //qui memorizzeremo i cambi stati deli ruoli
+  P: true,
+  D: true,
+  C: true,
+  A: true,
+};
 
 const LI_TAG = document.querySelectorAll("li");
 LI_TAG[0].addEventListener("click", paginaPresidenti);
@@ -31,19 +40,27 @@ LI_TAG[6].addEventListener("click", paginaMercato);
 const containerTable = document.getElementById("container-table");
 containerTable.addEventListener("click", (e) => ordinaTabella(e));
 
-function logicaPrincipale() {
-  console.log("Logica principale iniziata.");
-  //Logica principale da implementare
-  //caricamento dati presidenti
-  caricaPresidenti();
+async function logicaPrincipale() {
+  const popup = document.getElementById("popup-caricamento");
+  const TAG_H3 = popup.querySelector("h3");
 
-  //caricamento dati giocatori
-  caricaGiocatori();
+  popup.style.display = "visible"; //popup attesa caricamento dati
 
-  //caricamento record acquisti
-  caricaAcquisti();
-
-  //caricaGiornateinHTML();
+  try {
+    await Promise.all([
+      //caricamento dati presidenti
+      caricaPresidenti(),
+      //caricamento dati giocatori
+      caricaGiocatori(),
+    ]);
+    //gli acquisti vanno caricati solo dopo aver caricato presidenti e giocatori
+    await caricaAcquisti();
+    popup.style.display = "none";
+  } catch (err) {
+    TAG_H3.innerText =
+      "Errore Caricamento Dati, Ricaricare la pagina ... se il problema persiste contattare l'admin. " +
+      err;
+  }
 
   console.log("Logica principale completata.");
 }
@@ -202,12 +219,14 @@ function paginaRoseComplete() {
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroSelezionaCampionato();
+  creaFiltroRuolo();
   stampaRoseComplete();
 }
 function paginaGiocatori() {
   TAG_H2.textContent = "PAGINA GIOCATORI";
   azzeraFiltri();
   azzeraTabelle();
+  creaFiltroRuolo();
   stampaListaGiocatori();
 }
 
@@ -216,6 +235,7 @@ function paginaAppartenenze() {
   TAG_H2.textContent = "LISTA APPARTENENZE";
   azzeraFiltri();
   azzeraTabelle();
+  creaFiltroRuolo();
   stampaListaAppartenenze();
 }
 
@@ -224,6 +244,7 @@ function paginaSvincolati() {
   azzeraFiltri();
   azzeraTabelle();
   azzeraFiltri();
+  creaFiltroRuolo();
   stampaListaSvincolati();
 }
 
@@ -676,6 +697,7 @@ function creaFiltroSelezionaCampionato() {
 
   console.log("creazione filtro seleziona campionato completata.");
 }
+
 function gestisciFiltroCampionato(event) {
   console.log("Gestione filtro campionato in corso...");
   const elementoSelezionato = event.target;
@@ -697,6 +719,22 @@ function gestisciFiltroCampionato(event) {
         break;
     }
   }
+}
+
+function creaFiltroRuolo() {
+  containerFiltri.innerHTML += `
+  <div id="container-filtro-ruolo">
+    <p>Filtra per ruolo</p>
+      <div class="filtro-ruolo">P</div>
+      <div class="filtro-ruolo">D</div>
+      <div class="filtro-ruolo">C</div>
+      <div class="filtro-ruolo">A</div>
+    </div>
+  `;
+}
+
+function gestisciFiltroRuolo(event) {
+  console.log("Filtro ruolo gestito");
 }
 
 function caricaGiornateinHTML() {
