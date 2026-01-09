@@ -19,6 +19,7 @@ const TAG_H2 = document.querySelector("h2");
 const containerFiltri = document.getElementById("container-filtri");
 let filtroCampionato = "TUTTI";
 containerFiltri.addEventListener("change", gestisciFiltroCampionato);
+containerFiltri.addEventListener("click", gestisciFiltroRuolo);
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
@@ -57,17 +58,18 @@ async function logicaPrincipale() {
     await caricaAcquisti();
     popup.style.display = "none";
   } catch (err) {
+    console.error(err);
     TAG_H3.innerText =
       "Errore Caricamento Dati, Ricaricare la pagina ... se il problema persiste contattare l'admin. " +
       err;
   }
 
-  console.log("Logica principale completata.");
+  //console.log("Logica principale completata.");
 }
 
 // caricamento file --------------------------------
 async function caricaPresidenti() {
-  console.log("Caricamento presidenti in corso...");
+  //console.log("Caricamento presidenti in corso...");
   //let datiPresidenti = get_file_presidenti(); //ottengo il contenuto del file presidenti
 
   const response = await fetch("Assets/file/presidenti.txt");
@@ -90,14 +92,14 @@ async function caricaPresidenti() {
       }
     }
   }
-  console.log("Caricamento presidenti completato.");
+  //console.log("Caricamento presidenti completato.");
 }
 
 async function caricaGiocatori() {
-  console.log("Caricamento giocatori in corso...");
+  //console.log("Caricamento giocatori in corso...");
   //let datiGiocatori = get_file_giocatori();
 
-  const response = await fetch("Assets/file/quotazioni_gg17.txt");
+  const response = await fetch("Assets/file/quotazioni_gg19.txt");
   if (!response.ok) {
     throw new Error("Network response was not ok " + response.statusText);
   }
@@ -105,14 +107,12 @@ async function caricaGiocatori() {
     .replaceAll("\t", "|")
     .toUpperCase();
 
-  const isFuoriLista = IMPOSTAZIONI.OPZIONI_LEGHE.CARICAMENTO_FUORI_LISTA;
-  let fuoriLista = false;
   let temp = [];
   let arrayGiocatori = datiGiocatori.split("\n");
   for (let i = 1; i < arrayGiocatori.length; i++) {
     temp = arrayGiocatori[i].split("|");
-    fuoriLista = temp[5] == "*" ? true : false;
-    if (temp.length > 1 && isFuoriLista == fuoriLista) {
+
+    if (temp.length > 1) {
       //temp.length > 1 il record non è vuoto
 
       player.push(
@@ -135,11 +135,12 @@ async function caricaGiocatori() {
       );
     }
   }
-  console.log("Caricamento giocatori completato.");
+  //console.log("Caricamento giocatori completato.");
+  
 }
 
 async function caricaAcquisti() {
-  console.log("Caricamento acquisti in corso...");
+  //console.log("Caricamento acquisti in corso...");
 
   const response = await fetch("Assets/file/file_rose.txt");
   if (!response.ok) {
@@ -199,7 +200,7 @@ async function caricaAcquisti() {
       }
     } //ora ogni rosa in presidenti ha i suoi giocatori aggiunti ed ogni giocatore ha le sue appartenenze aggiornate
   }
-  console.log("Caricamento acquisti completato.");
+  //console.log("Caricamento acquisti completato.");
 }
 //---------------------------------------------------------------------------
 
@@ -259,17 +260,17 @@ function paginaCreditiResidui() {
 
 function paginaMercato() {
   filtroCampionato = "TUTTI";
-  console.log("Pagina mercato in corso...");
+  //console.log("Pagina mercato in corso...");
   TAG_H2.textContent = "PAGINA MERCATO";
   azzeraTabelle();
-  console.log("Pagina mercato completata.");
+  //console.log("Pagina mercato completata.");
 }
 // fine menu
 
 //STAMPE TABELLE
 
 function stampaListaPresidenti() {
-  console.log("Stampa lista presidenti in corso...");
+  //console.log("Stampa lista presidenti in corso...");
   TAG_H2.textContent = "LISTA PRESIDENTI";
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
 
@@ -313,10 +314,10 @@ function stampaListaPresidenti() {
     }
   });
 
-  console.log("Stampa lista presidenti completata.");
+ // console.log("Stampa lista presidenti completata.");
 }
 function stampaRoseComplete() {
-  console.log("Stampa rose complete in corso...");
+ // console.log("Stampa rose complete in corso...");
 
   TAG_H2.textContent = "ROSE COMPLETE";
   azzeraTabelle();
@@ -365,8 +366,13 @@ function stampaRoseComplete() {
         if (rec == null) {
           rigaHtml += "<tr><tr>";
         } else {
+          // se il giocatore ha come fuorilista true, significa che non gioca più in serie a lo flaggo con la classe fuorilista
+          // questo permette di farlo diventare in grigio durante la visualizzazione
+          const fuorilista = rec.getDatiGiocatore.getFuoriLista
+            ? "class='fuorilista'"
+            : "";
           rigaHtml += `
-              <tr>
+              <tr ${fuorilista}>
                 <td>${rec.getDatiGiocatore.getRuolo}</td>
                 <td>${toCapitalize(rec.getDatiGiocatore.getNome)}</td>
                 <td>${toCapitalize(
@@ -400,11 +406,11 @@ function stampaRoseComplete() {
       <tr><td colspan="6"> ValoreRosa : ${presidenti.getValoreRosa}</td></tr>
     `;
   });
-  console.log("Stampa rose complete completata.");
+  //console.log("Stampa rose complete completata.");
 }
 
 function stampaListaGiocatori() {
-  console.log("Stampa lista giocatori in corso...");
+ // console.log("Stampa lista giocatori in corso...");
   azzeraTabelle();
 
   TAG_H2.textContent = "LISTA GIOCATORI";
@@ -441,6 +447,7 @@ function stampaListaGiocatori() {
     //FOREACH PLAYER INIZIATA
     giocatoriFiltratiDalRuolo.forEach((p) => {
       let rigaSquadre = "";
+
       //per ogni giocatore andiamo a controllare le squadre che lo posseggono
       acquisti.forEach((record) => {
         if (record.getRifNomeGiocatore == p.getNome) {
@@ -449,32 +456,69 @@ function stampaListaGiocatori() {
           })</td>`;
         }
       });
-      rigaHTML += `<tr>
-    <td>${p.getRuolo}</td>
-    <td>${toCapitalize(p.getNome)}</td>
-    <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
-    <td>${p.getQuotazione}</td>
-    <td>${p.getPresenze}</td>
-    <td>${p.getMv}</td>
-    <td>${p.getFvm}</td>
-    <td>${p.getSommaBonusMalus}</td>
-    <td>${p.getMvUltime5}</td>
-    <td>${p.getFvmUltime5}</td>
-    <td>${p.getSommaBonusMalusUltime5}</td>
-    ${rigaSquadre}
-  </tr>`;
+
+      const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
+      let riganuova="";
+      const caricoFuoriLista =
+      IMPOSTAZIONI.OPZIONI_LEGHE.CARICAMENTO_FUORI_LISTA; //true carica , false non caricare
+
+      
+      
+      riganuova = `<tr ${classefuorilista}>
+        <td>${p.getRuolo}</td>
+        <td>${toCapitalize(p.getNome)}</td>
+        <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
+        <td>${p.getQuotazione}</td>
+        <td>${p.getPresenze}</td>
+        <td>${p.getMv}</td>
+        <td>${p.getFvm}</td>
+        <td>${p.getSommaBonusMalus}</td>
+        <td>${p.getMvUltime5}</td>
+        <td>${p.getFvmUltime5}</td>
+        <td>${p.getSommaBonusMalusUltime5}</td>
+        ${rigaSquadre}
+      </tr>`;
+
+      //test1
+      //caricoFuoriLista = true
+      //p.getFuoriLista = false
+
+      //test2
+      //caricoFuoriLista = true
+      //p.getFuoriLista = true
+
+      //test3
+      //caricoFuoriLista = false
+      //p.getFuoriLista = false
+
+      //test4
+      //caricoFuoriLista = false
+      //p.getFuoriLista = true
+
+      //true- false
+      if((p.getFuoriLista && caricoFuoriLista)||(!p.getFuoriLista )) //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
+      {
+          rigaHTML+=riganuova; //caso2 ok
+      }      
+      else if(!caricoFuoriLista && p.getFuoriLista)  //se nelle impostazioni c'è false in caricafuorilista
+      {
+          rigaHTML+=""; //caso 3 ok
+      }
+      
     });
+
     //FOREACH PLAYER TERMINATA
   });
+
   containerTable.appendChild(TAG_TABLE);
   TAG_TBODY.innerHTML = rigaHTML;
   TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
 
-  console.log("Stampa lista giocatori completata.");
+  //console.log("Stampa lista giocatori completata.");
 }
 
 function stampaListaAppartenenze() {
-  console.log("Stampa lista Appartenenze in corso...");
+  //console.log("Stampa lista Appartenenze in corso...");
 
   const ruoli = ["P", "D", "C", "A"];
 
@@ -551,7 +595,7 @@ function stampaListaAppartenenze() {
   });
 }
 function stampaListaSvincolati() {
-  console.log("Stampa lista Svincolati in corso...");
+  //console.log("Stampa lista Svincolati in corso...");
 
   TAG_H2.textContent = "LISTA SVINCOLATI";
 
@@ -599,10 +643,10 @@ function stampaListaSvincolati() {
     TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
   });
 
-  console.log("Stampa lista svincolaticompletata.");
+  //console.log("Stampa lista svincolaticompletata.");
 }
 function stampaListaCreditiResidui() {
-  console.log("Stampa lista crediti residui in corso...");
+  //console.log("Stampa lista crediti residui in corso...");
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
   IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
     if (camp) {
@@ -657,7 +701,7 @@ function stampaListaCreditiResidui() {
     }
   });
 
-  console.log("Stampa lista crediti residui Terminata");
+  //console.log("Stampa lista crediti residui Terminata");
 }
 
 //FINE STAMPA TABELLE
@@ -666,11 +710,12 @@ function stampaListaCreditiResidui() {
 //---------------------------------- FILTRI ------------------------------------------------
 
 function creaFiltroSelezionaCampionato() {
-  console.log("creazione filtro seleziona campionato in corso...");
+  //console.log("creazione filtro seleziona campionato in corso...");
 
   const containerFiltri = document.getElementById("container-filtri");
 
-  containerFiltri.innerHTML = ""; //azzero il contenuto precedente
+  const TAG_SECTION = document.createElement("section");
+  TAG_SECTION.classList.add("box-filtro"); //ogni filtro va in una section
 
   const SELECT_ELEMENT = document.createElement("select"); //creo l'elemento select
   SELECT_ELEMENT.id = "select-campionato-filter"; //assegno un id all'elemento select
@@ -689,56 +734,54 @@ function creaFiltroSelezionaCampionato() {
 
   const LABEL_ELEMENT = document.createElement("label");
   LABEL_ELEMENT.htmlFor = "select-campionato-filter";
-  LABEL_ELEMENT.textContent = "Filtra per Campionato: ";
-  containerFiltri.appendChild(LABEL_ELEMENT);
+  LABEL_ELEMENT.textContent = "Lega";
+  containerFiltri.append(TAG_SECTION);
+  TAG_SECTION.appendChild(LABEL_ELEMENT);
   SELECT_ELEMENT.value = filtroCampionato;
 
-  containerFiltri.appendChild(SELECT_ELEMENT);
+  TAG_SECTION.appendChild(SELECT_ELEMENT);
 
-  console.log("creazione filtro seleziona campionato completata.");
+  //console.log("creazione filtro seleziona campionato completata.");
 }
 
-function gestisciFiltroCampionato(event) {
-  console.log("Gestione filtro campionato in corso...");
-  const elementoSelezionato = event.target;
+function gestisciFiltroCampionato(evento) {
+  const elementoSelezionato = evento.target;
   if (elementoSelezionato.id === "select-campionato-filter") {
     const valoreSelezionato = elementoSelezionato.value;
     filtroCampionato = valoreSelezionato;
 
-    switch (TAG_H2.textContent) {
-      case "LISTA PRESIDENTI":
-        stampaListaPresidenti();
-        break;
-      case "ROSE COMPLETE":
-        stampaRoseComplete();
-        break;
-      case "LISTA CREDITI RESIDUI":
-        stampaListaCreditiResidui();
-        break;
-      default:
-        break;
-    }
+    chiamaPaginaCliccata();
   }
 }
 
 function creaFiltroRuolo() {
   containerFiltri.innerHTML += `
-  <div id="container-filtro-ruolo">
-    <p>Filtra per ruolo</p>
-      <div class="filtro-ruolo">P</div>
-      <div class="filtro-ruolo">D</div>
-      <div class="filtro-ruolo">C</div>
-      <div class="filtro-ruolo">A</div>
-    </div>
+  <section class="box-filtro" id="filtro-ruolo">
+    <label>Ruolo</label>
+      <div class="ruolo selected" >P</div>
+      <div class="ruolo" >D</div>
+      <div class="ruolo" >C</div>
+      <div class="ruolo" >A</div>
+    </section>
   `;
 }
 
-function gestisciFiltroRuolo(event) {
-  console.log("Filtro ruolo gestito");
+function gestisciFiltroRuolo(evento) {
+  //capiamo da dove viene il click e gestiamo solo se proviene da un elemento con classe ruolo
+
+  if (evento.target.className == "ruolo") {
+    evento.target.classList.forEach((classe) => {
+      if (classe == "selected") {
+        classe.classList.remove("selected");
+      }
+    });
+  }
+
+  //console.log(evento.target.classList[1]);
 }
 
 function caricaGiornateinHTML() {
-  console.log("Caricamento giornate in HTML in corso...");
+  //console.log("Caricamento giornate in HTML in corso...");
 
   const CONTAINER_GIORNATE = document.getElementById("container-giornate");
 
@@ -748,19 +791,19 @@ function caricaGiornateinHTML() {
     DIV_GIORNATA.innerHTML = i;
   }
 
-  console.log("Caricamento giornate in HTML completato.");
+  //console.log("Caricamento giornate in HTML completato.");
 }
 
 function azzeraTabelle() {
-  console.log("Azzero tutte le tabelle precedenti...");
+  //console.log("Azzero tutte le tabelle precedenti...");
   containerTable.innerHTML = "";
-  console.log("Tabelle azzerate.");
+  //console.log("Tabelle azzerate.");
 }
 
 function azzeraFiltri() {
-  console.log("Azzero tutti i filtri precedenti...");
+  //console.log("Azzero tutti i filtri precedenti...");
   containerFiltri.innerHTML = "";
-  console.log("Filtri azzerati.");
+  //console.log("Filtri azzerati.");
 }
 
 //ORDINAMENTO TABELLE
@@ -805,4 +848,20 @@ function ordinaTabella(evento) {
 
   // 5. Aggiorna il DOM con le righe ordinate
   tbody.append(...rows);
+}
+
+function chiamaPaginaCliccata() {
+  switch (TAG_H2.textContent) {
+    case "LISTA PRESIDENTI":
+      stampaListaPresidenti();
+      break;
+    case "ROSE COMPLETE":
+      stampaRoseComplete();
+      break;
+    case "LISTA CREDITI RESIDUI":
+      stampaListaCreditiResidui();
+      break;
+    default:
+      break;
+  }
 }

@@ -144,27 +144,6 @@ table tr:nth-child(even) td {
   background-color: rgb(245, 247, 250);
 }
 
-#container-filtri {
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  background-color: rgb(236, 243, 253);
-  box-shadow: 3px 3px 10px rgba(22, 25, 44, 0.2);
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  margin: auto;
-  margin-bottom: 10px;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-  gap: 10px;
-}
-
 #container-filtri label {
   margin: 10px;
   font-size: 14px;
@@ -202,9 +181,75 @@ table thead th:hover {
   content: " ↓";
 }
 
-.filtro-ruolo {
+#popup-caricamento {
+  background-color: var(--background_primario);
+  color: white;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#popup-caricamento h3 {
+  text-align: center;
+  line-height: 50vh;
+}
+
+/* ---------------- F I L T R I --------------------------
+
+
+/* contenitore che contiene tutti i box filtro */
+#container-filtri {
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  background-color: rgb(236, 243, 253);
+  box-shadow: 3px 3px 10px rgba(22, 25, 44, 0.2);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin: auto;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+/* Contenitore singolo, ogni .box-filtro va nel contenitore principale */
+.box-filtro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid rgb(197, 209, 223);
+  gap: 7px;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+/* label dentro il box filtro */
+.box-filtro label {
+  position: absolute;
+  top: -20px;
+  left: 3px;
+  font-size: xx-small;
+  font-style: italic;
+  background-color: rgb(236, 243, 253);
+  padding: 0 3px;
+  white-space: nowrap;
+}
+
+.ruolo {
   width: 30px;
   height: 30px;
+
   line-height: 30px;
   border-radius: 50%;
   color: rgb(0, 4, 43);
@@ -219,36 +264,10 @@ table thead th:hover {
   scale: 1.2;
 }
 
-#container-filtro-ruolo {
-  display: flex;
-  width: 160px;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid rgb(197, 209, 223);
-  flex-direction: row;
-  border-radius: 10px;
-  padding: 10px;
-  position: relative;
-}
-#container-filtro-ruolo p {
-  position: absolute;
-  top: -15px;
-  left: 10px;
-  font-size: x-small;
-  font-style: italic;
+.selected {
+  background-color: black;
 }
 
-#popup-caricamento {
-  background-color: var(--background_primario);
-  color: white;
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-#popup-caricamento h3 {
-  text-align: center;
-  line-height: 50vh;
+.fuorilista {
+  color: gray;
 }

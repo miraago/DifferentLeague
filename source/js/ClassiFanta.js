@@ -115,37 +115,35 @@ class Giocatore {
         : undefined;
   }
   set setSquadraDiAppartenenza(team) {
-    if (typeof team != "string" || team.trim().length <= 3) {
-      return undefined;
+    const stringa = typeof team;
+    if (stringa != "string" || team.trim().length <= 3) {
+      this.#squadraDiAppartenenza = "";
     } else {
       team = team.trim().toUpperCase();
+      const squadreValide = [
+        "ATALANTA",
+        "BOLOGNA",
+        "CAGLIARI",
+        "COMO",
+        "CREMONESE",
+        "FIORENTINA",
+        "GENOA",
+        "INTER",
+        "JUVENTUS",
+        "LAZIO",
+        "LECCE",
+        "MILAN",
+        "NAPOLI",
+        "PARMA",
+        "PISA",
+        "ROMA",
+        "SASSUOLO",
+        "TORINO",
+        "UDINESE",
+        "VERONA",
+      ];
+      this.#squadraDiAppartenenza = squadreValide.includes(team) ? team : "";
     }
-
-    const squadreValide = [
-      "ATALANTA",
-      "BOLOGNA",
-      "CAGLIARI",
-      "COMO",
-      "CREMONESE",
-      "FIORENTINA",
-      "GENOA",
-      "INTER",
-      "JUVENTUS",
-      "LAZIO",
-      "LECCE",
-      "MILAN",
-      "NAPOLI",
-      "PARMA",
-      "PISA",
-      "ROMA",
-      "SASSUOLO",
-      "TORINO",
-      "UDINESE",
-      "VERONA",
-    ];
-    this.#squadraDiAppartenenza = squadreValide.includes(team)
-      ? team
-      : undefined;
   }
   set setRuolo(ruolo) {
     const ruoliValidi = ["P", "D", "C", "A"];
