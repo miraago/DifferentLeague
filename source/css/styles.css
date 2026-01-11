@@ -265,7 +265,7 @@ table thead th:hover {
 }
 
 .selected {
-  background-color: black;
+  border:2px solid var(--background_primario);
 }
 
 .fuorilista {

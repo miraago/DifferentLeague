@@ -20,14 +20,16 @@ const containerFiltri = document.getElementById("container-filtri");
 let filtroCampionato = "TUTTI";
 containerFiltri.addEventListener("change", gestisciFiltroCampionato);
 containerFiltri.addEventListener("click", gestisciFiltroRuolo);
+containerFiltri.addEventListener("change", gestisciFiltroSvincolati);
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
-  P: true,
-  D: true,
-  C: true,
-  A: true,
+  P: false,
+  D: false,
+  C: false,
+  A: false,
 };
+let filtroCaricaSvincolati = false; 
 
 const LI_TAG = document.querySelectorAll("li");
 LI_TAG[0].addEventListener("click", paginaPresidenti);
@@ -228,6 +230,7 @@ function paginaGiocatori() {
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroRuolo();
+  creaFiltroSvincolati();
   stampaListaGiocatori();
 }
 
@@ -431,18 +434,38 @@ function stampaListaGiocatori() {
       <th>Bonus Malus ultime 5 </th>
       </tr>`;
 
-  const ruoli = ["P", "D", "C", "A"];
+  let ruoli = [];
+  
+  let contatoreFiltroRuoloAttivi=0;
+  for(let key in filtroRuolo)
+  {
+    if(filtroRuolo[key])
+    {
+      ruoli.push(key);
+      contatoreFiltroRuoloAttivi++;   
+    }
+    
+    
+  }
+  if(contatoreFiltroRuoloAttivi==0)
+    {
+      ruoli=["P","D","C","A"];
+    }
+
+
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
   ruoli.forEach((ruoloCorrente) => {
+
     //scorriamo la lista dei ruoli
-
-    // inizializziamo la riga di intestazione delle tabella
-
+    
     const giocatoriFiltratiDalRuolo = player.filter((giocatoriFiltrati) => {
       return giocatoriFiltrati.getRuolo == ruoloCorrente;
+      
     });
+ 
 
+    
     //scorri la lista giocatori ed inserisci ogni giocatore nella tabella
     //FOREACH PLAYER INIZIATA
     giocatoriFiltratiDalRuolo.forEach((p) => {
@@ -456,11 +479,11 @@ function stampaListaGiocatori() {
           })</td>`;
         }
       });
+    
 
       const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
       let riganuova="";
-      const caricoFuoriLista =
-      IMPOSTAZIONI.OPZIONI_LEGHE.CARICAMENTO_FUORI_LISTA; //true carica , false non caricare
+      
 
       
       
@@ -479,33 +502,20 @@ function stampaListaGiocatori() {
         ${rigaSquadre}
       </tr>`;
 
-      //test1
-      //caricoFuoriLista = true
-      //p.getFuoriLista = false
-
-      //test2
-      //caricoFuoriLista = true
-      //p.getFuoriLista = true
-
-      //test3
-      //caricoFuoriLista = false
-      //p.getFuoriLista = false
-
-      //test4
-      //caricoFuoriLista = false
-      //p.getFuoriLista = true
+      
 
       //true- false
-      if((p.getFuoriLista && caricoFuoriLista)||(!p.getFuoriLista )) //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
+      if((p.getFuoriLista && filtroCaricaSvincolati)||(!p.getFuoriLista )) //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
       {
           rigaHTML+=riganuova; //caso2 ok
       }      
-      else if(!caricoFuoriLista && p.getFuoriLista)  //se nelle impostazioni c'è false in caricafuorilista
+      else if(!filtroCaricaSvincolati && p.getFuoriLista)  //se nelle impostazioni c'è false in caricafuorilista
       {
           rigaHTML+=""; //caso 3 ok
       }
       
     });
+  
 
     //FOREACH PLAYER TERMINATA
   });
@@ -758,26 +768,52 @@ function creaFiltroRuolo() {
   containerFiltri.innerHTML += `
   <section class="box-filtro" id="filtro-ruolo">
     <label>Ruolo</label>
-      <div class="ruolo selected" >P</div>
-      <div class="ruolo" >D</div>
-      <div class="ruolo" >C</div>
-      <div class="ruolo" >A</div>
+      <div class="ruolo ${filtroRuolo.P ? 'selected' : '' }">P</div>
+      <div class="ruolo ${filtroRuolo.D ? 'selected' : '' }">D</div>
+      <div class="ruolo ${filtroRuolo.C ? 'selected' : '' }">C</div>
+      <div class="ruolo ${filtroRuolo.A ? 'selected' : '' }">A</div>
     </section>
   `;
 }
 
+function creaFiltroSvincolati ()
+{
+  containerFiltri.innerHTML += `
+  <section class="box-filtro" id="container-filtro-svincolati"> 
+          <label>Svincolati</label>
+          <input type="radio" name="carica-svincolati" value="si"  ${filtroCaricaSvincolati ? 'checked' : ''}> si
+          <input type="radio" name="carica-svincolati" value="no"  ${filtroCaricaSvincolati ? '' : 'checked'}> no 
+        </section>
+        `;
+}
+
 function gestisciFiltroRuolo(evento) {
   //capiamo da dove viene il click e gestiamo solo se proviene da un elemento con classe ruolo
+  const elemento_cliccato = evento.target;
 
-  if (evento.target.className == "ruolo") {
-    evento.target.classList.forEach((classe) => {
-      if (classe == "selected") {
-        classe.classList.remove("selected");
-      }
-    });
+  if (elemento_cliccato.className == "ruolo" || elemento_cliccato.classList.contains("ruolo")) { //verifichiamo che l'elemento cliccato sia quello del filtro ruolo
+    const ruolo_cliccato = elemento_cliccato.textContent.trim(); //ci memorizziamo il ruolo
+    
+    filtroRuolo[ruolo_cliccato]==true ? filtroRuolo[ruolo_cliccato]=false : filtroRuolo[ruolo_cliccato]=true; // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true   
+    elemento_cliccato.classList.contains("selected") ? elemento_cliccato.classList.remove("selected") : elemento_cliccato.classList.add("selected"); // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
   }
 
-  //console.log(evento.target.classList[1]);
+  chiamaPaginaCliccata();
+}
+function gestisciFiltroSvincolati(evento) {
+  //capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal radiobutton con nome carica-svincolati
+  
+if(evento.target.name=="carica-svincolati") // se e si controlliamo il valore se e si o se e no, e ne cambiamo lo stato
+{
+  if (evento.target.value== "si") {
+    filtroCaricaSvincolati = true;
+  }
+  else
+  {
+    filtroCaricaSvincolati=false;
+  }  
+  chiamaPaginaCliccata();
+}
 }
 
 function caricaGiornateinHTML() {
@@ -861,6 +897,8 @@ function chiamaPaginaCliccata() {
     case "LISTA CREDITI RESIDUI":
       stampaListaCreditiResidui();
       break;
+    case "LISTA GIOCATORI":
+      stampaListaGiocatori();
     default:
       break;
   }
