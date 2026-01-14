@@ -18,9 +18,10 @@ const TAG_H2 = document.querySelector("h2");
 //FILTRI
 const containerFiltri = document.getElementById("container-filtri");
 let filtroCampionato = "TUTTI";
-containerFiltri.addEventListener("change", gestisciFiltroCampionato);
+containerFiltri.addEventListener("change", gestisciFiltroSelezionaCampionato);
 containerFiltri.addEventListener("click", gestisciFiltroRuolo);
-containerFiltri.addEventListener("change", gestisciFiltroSvincolati);
+containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
+containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
@@ -29,7 +30,15 @@ let filtroRuolo = {
   C: false,
   A: false,
 };
-let filtroCaricaSvincolati = false; 
+
+let filtroMinEMax = {
+  filtroMin: 0,
+  filtroMax: 0,
+  filtroMinSelezionato: 0,
+  filtroMaxSelezionato: 0,
+};
+
+let filtroCaricaFuoriLista = false;
 
 const LI_TAG = document.querySelectorAll("li");
 LI_TAG[0].addEventListener("click", paginaPresidenti);
@@ -138,7 +147,6 @@ async function caricaGiocatori() {
     }
   }
   //console.log("Caricamento giocatori completato.");
-  
 }
 
 async function caricaAcquisti() {
@@ -223,14 +231,18 @@ function paginaRoseComplete() {
   azzeraTabelle();
   creaFiltroSelezionaCampionato();
   creaFiltroRuolo();
+  creaFiltroQuotazioneMinEMax();
+  creaFiltroFuoriLista();
   stampaRoseComplete();
 }
 function paginaGiocatori() {
-  TAG_H2.textContent = "PAGINA GIOCATORI";
+  TAG_H2.textContent = "LISTA GIOCATORI";
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroRuolo();
-  creaFiltroSvincolati();
+  creaFiltroQuotazioneMinEMax();
+  creaFiltroFuoriLista();
+
   stampaListaGiocatori();
 }
 
@@ -240,6 +252,8 @@ function paginaAppartenenze() {
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroRuolo();
+  creaFiltroQuotazioneMinEMax();
+  creaFiltroFuoriLista();
   stampaListaAppartenenze();
 }
 
@@ -249,6 +263,8 @@ function paginaSvincolati() {
   azzeraTabelle();
   azzeraFiltri();
   creaFiltroRuolo();
+  creaFiltroQuotazioneMinEMax();
+  creaFiltroFuoriLista();
   stampaListaSvincolati();
 }
 
@@ -317,10 +333,10 @@ function stampaListaPresidenti() {
     }
   });
 
- // console.log("Stampa lista presidenti completata.");
+  // console.log("Stampa lista presidenti completata.");
 }
 function stampaRoseComplete() {
- // console.log("Stampa rose complete in corso...");
+  // console.log("Stampa rose complete in corso...");
 
   TAG_H2.textContent = "ROSE COMPLETE";
   azzeraTabelle();
@@ -365,10 +381,14 @@ function stampaRoseComplete() {
       //PASSO 2
 
       //per ogni rosa dobbiamo stampare i record di acquisto e aggiungerli alla rigahtml
+      const ruoliSelezionatiDallUtente = ruoliFiltrati();
+
       presidenti.getTuttiGliSlot.forEach((rec) => {
         if (rec == null) {
           rigaHtml += "<tr><tr>";
-        } else {
+        } else if (
+          ruoliSelezionatiDallUtente.includes(rec.getDatiGiocatore.getRuolo)
+        ) {
           // se il giocatore ha come fuorilista true, significa che non gioca più in serie a lo flaggo con la classe fuorilista
           // questo permette di farlo diventare in grigio durante la visualizzazione
           const fuorilista = rec.getDatiGiocatore.getFuoriLista
@@ -413,7 +433,7 @@ function stampaRoseComplete() {
 }
 
 function stampaListaGiocatori() {
- // console.log("Stampa lista giocatori in corso...");
+  // console.log("Stampa lista giocatori in corso...");
   azzeraTabelle();
 
   TAG_H2.textContent = "LISTA GIOCATORI";
@@ -434,38 +454,17 @@ function stampaListaGiocatori() {
       <th>Bonus Malus ultime 5 </th>
       </tr>`;
 
-  let ruoli = [];
-  
-  let contatoreFiltroRuoloAttivi=0;
-  for(let key in filtroRuolo)
-  {
-    if(filtroRuolo[key])
-    {
-      ruoli.push(key);
-      contatoreFiltroRuoloAttivi++;   
-    }
-    
-    
-  }
-  if(contatoreFiltroRuoloAttivi==0)
-    {
-      ruoli=["P","D","C","A"];
-    }
-
+  const ruoli = ruoliFiltrati(); //chiama la funzione che restituisce un array con i ruoli filtrati dall'utente
 
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
   ruoli.forEach((ruoloCorrente) => {
-
     //scorriamo la lista dei ruoli
-    
+
     const giocatoriFiltratiDalRuolo = player.filter((giocatoriFiltrati) => {
       return giocatoriFiltrati.getRuolo == ruoloCorrente;
-      
     });
- 
 
-    
     //scorri la lista giocatori ed inserisci ogni giocatore nella tabella
     //FOREACH PLAYER INIZIATA
     giocatoriFiltratiDalRuolo.forEach((p) => {
@@ -479,14 +478,10 @@ function stampaListaGiocatori() {
           })</td>`;
         }
       });
-    
 
       const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
-      let riganuova="";
-      
+      let riganuova = "";
 
-      
-      
       riganuova = `<tr ${classefuorilista}>
         <td>${p.getRuolo}</td>
         <td>${toCapitalize(p.getNome)}</td>
@@ -502,20 +497,15 @@ function stampaListaGiocatori() {
         ${rigaSquadre}
       </tr>`;
 
-      
-
       //true- false
-      if((p.getFuoriLista && filtroCaricaSvincolati)||(!p.getFuoriLista )) //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
-      {
-          rigaHTML+=riganuova; //caso2 ok
-      }      
-      else if(!filtroCaricaSvincolati && p.getFuoriLista)  //se nelle impostazioni c'è false in caricafuorilista
-      {
-          rigaHTML+=""; //caso 3 ok
+      if ((p.getFuoriLista && filtroCaricaFuoriLista) || !p.getFuoriLista) {
+        //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
+        rigaHTML += riganuova; //caso2 ok
+      } else if (!filtroCaricaFuoriLista && p.getFuoriLista) {
+        //se nelle impostazioni c'è false in caricafuorilista
+        rigaHTML += ""; //caso 3 ok
       }
-      
     });
-  
 
     //FOREACH PLAYER TERMINATA
   });
@@ -529,10 +519,10 @@ function stampaListaGiocatori() {
 
 function stampaListaAppartenenze() {
   //console.log("Stampa lista Appartenenze in corso...");
+  azzeraTabelle();
+  const ruoli = ruoliFiltrati(); //preleva i ruoli dal filtro
 
-  const ruoli = ["P", "D", "C", "A"];
-
-  //scorriamo per ruolo
+  //scorriamo per ogni ruolo
   ruoli.forEach((ruoloCorrente) => {
     let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
@@ -543,31 +533,28 @@ function stampaListaAppartenenze() {
 
     //inseriamo l'intestazione della tabella
     TAG_THEAD.innerHTML = `<tr >
-      <th colspan="5">
+      <th colspan="6">
       ${ruoloCorrente}
       </th>
       </tr>
       <tr>
-        <th>
-          Ruolo
-        </th>
-        <th>
-          Nome
-        </th>
-        <th>
-        Squadra
-        </th>
-        <th>
-        Numero Appartenenze
-        </th>
-        <th>
-        Squadre che lo possegono
-        </th>
+        <th> Ruolo </th>
+        <th> Nome  </th>
+        <th> Squadra </th>
+        <th> Quotazione </th>
+        <th> Numero Appartenenze </th>
+        <th> In possesso da: </th>
     </tr>`;
 
     //adesso scorriamo la lista dei giocatori, e per ogni giocatore preleviamo le squadre che lo posseggono
     let playerRuoloCorrente = player.filter((p) => {
-      return p.getRuolo == ruoloCorrente;
+      if (filtroCaricaFuoriLista) {
+        //se è true carica tutto
+        return p.getRuolo == ruoloCorrente;
+      } //se è false significa che dobbiamo scartare i fuorilista
+      else {
+        if (!p.getFuoriLista) return p.getRuolo == ruoloCorrente;
+      }
     }); //playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
 
     //scorriamo il nuovo array filtrato per ruolo e lo inseriamo nella riga che andremo ad inserire nel tbody
@@ -578,7 +565,7 @@ function stampaListaAppartenenze() {
       });
 
       rigaHTML += `
-      <tr>
+      <tr ${playerCorrente.getFuoriLista ? 'class="fuorilista"' : ""}>
         <td>
           ${playerCorrente.getRuolo}
         </td>
@@ -587,6 +574,9 @@ function stampaListaAppartenenze() {
         </td>
         <td>
           ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
+        </td>
+        <td>
+         ${playerCorrente.getQuotazione}
         </td>
         <td>
           ${playerCorrente.getCopieOccupate}
@@ -611,10 +601,11 @@ function stampaListaSvincolati() {
 
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
 
-  const ruoli = ["P", "D", "C", "A"];
+  const ruoli = ruoliFiltrati();
 
   ruoli.forEach((ruoloCorrente) => {
     //scorriamo la lista dei ruoli
+
     const theadTemp = `<tr><th colspan="6">${ruoloCorrente}</tr>
     <tr>
     <th>Ruolo</th>
@@ -631,13 +622,20 @@ function stampaListaSvincolati() {
     const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
     let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
-    const giocatoriFiltratiDalRuolo = player.filter((giocatoriFiltrati) => {
-      return giocatoriFiltrati.getRuolo == ruoloCorrente;
+    const giocatoriFiltratiDalRuolo = player.filter((giocatoreCorrente) => {
+      if (filtroCaricaFuoriLista) {
+        return giocatoreCorrente.getRuolo == ruoloCorrente;
+      } else {
+        if (!giocatoreCorrente.getFuoriLista) {
+          return giocatoreCorrente.getRuolo == ruoloCorrente;
+        }
+      }
     });
 
     giocatoriFiltratiDalRuolo.forEach((pl) => {
+      const classefuorilista = pl.getFuoriLista ? "class='fuorilista'" : "";
       if (pl.getCopieDisponibili > 0 && pl.getRuolo == ruoloCorrente) {
-        rigaHTML += `<tr>
+        rigaHTML += `<tr ${classefuorilista}>
           <td>${pl.getRuolo}</td>
           <td>${pl.getNome}</td>
           <td>${pl.getSquadraDiAppartenenza}</td>
@@ -754,7 +752,7 @@ function creaFiltroSelezionaCampionato() {
   //console.log("creazione filtro seleziona campionato completata.");
 }
 
-function gestisciFiltroCampionato(evento) {
+function gestisciFiltroSelezionaCampionato(evento) {
   const elementoSelezionato = evento.target;
   if (elementoSelezionato.id === "select-campionato-filter") {
     const valoreSelezionato = elementoSelezionato.value;
@@ -765,69 +763,71 @@ function gestisciFiltroCampionato(evento) {
 }
 
 function creaFiltroRuolo() {
-  containerFiltri.innerHTML += `
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `
   <section class="box-filtro" id="filtro-ruolo">
     <label>Ruolo</label>
-      <div class="ruolo ${filtroRuolo.P ? 'selected' : '' }">P</div>
-      <div class="ruolo ${filtroRuolo.D ? 'selected' : '' }">D</div>
-      <div class="ruolo ${filtroRuolo.C ? 'selected' : '' }">C</div>
-      <div class="ruolo ${filtroRuolo.A ? 'selected' : '' }">A</div>
+      <div class="ruolo ${filtroRuolo.P ? "selected" : ""}">P</div>
+      <div class="ruolo ${filtroRuolo.D ? "selected" : ""}">D</div>
+      <div class="ruolo ${filtroRuolo.C ? "selected" : ""}">C</div>
+      <div class="ruolo ${filtroRuolo.A ? "selected" : ""}">A</div>
     </section>
-  `;
+  `
+  );
 }
-
-function creaFiltroSvincolati ()
-{
-  containerFiltri.innerHTML += `
-  <section class="box-filtro" id="container-filtro-svincolati"> 
-          <label>Svincolati</label>
-          <input type="radio" name="carica-svincolati" value="si"  ${filtroCaricaSvincolati ? 'checked' : ''}> si
-          <input type="radio" name="carica-svincolati" value="no"  ${filtroCaricaSvincolati ? '' : 'checked'}> no 
-        </section>
-        `;
-}
-
 function gestisciFiltroRuolo(evento) {
   //capiamo da dove viene il click e gestiamo solo se proviene da un elemento con classe ruolo
   const elemento_cliccato = evento.target;
 
-  if (elemento_cliccato.className == "ruolo" || elemento_cliccato.classList.contains("ruolo")) { //verifichiamo che l'elemento cliccato sia quello del filtro ruolo
+  if (
+    elemento_cliccato.className == "ruolo" ||
+    elemento_cliccato.classList.contains("ruolo")
+  ) {
+    //verifichiamo che l'elemento cliccato sia quello del filtro ruolo
     const ruolo_cliccato = elemento_cliccato.textContent.trim(); //ci memorizziamo il ruolo
-    
-    filtroRuolo[ruolo_cliccato]==true ? filtroRuolo[ruolo_cliccato]=false : filtroRuolo[ruolo_cliccato]=true; // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true   
-    elemento_cliccato.classList.contains("selected") ? elemento_cliccato.classList.remove("selected") : elemento_cliccato.classList.add("selected"); // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
+
+    filtroRuolo[ruolo_cliccato] == true
+      ? (filtroRuolo[ruolo_cliccato] = false)
+      : (filtroRuolo[ruolo_cliccato] = true); // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true
+    elemento_cliccato.classList.contains("selected")
+      ? elemento_cliccato.classList.remove("selected")
+      : elemento_cliccato.classList.add("selected"); // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
   }
 
   chiamaPaginaCliccata();
 }
-function gestisciFiltroSvincolati(evento) {
-  //capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal radiobutton con nome carica-svincolati
-  
-if(evento.target.name=="carica-svincolati") // se e si controlliamo il valore se e si o se e no, e ne cambiamo lo stato
-{
-  if (evento.target.value== "si") {
-    filtroCaricaSvincolati = true;
-  }
-  else
-  {
-    filtroCaricaSvincolati=false;
-  }  
-  chiamaPaginaCliccata();
+
+function creaFiltroFuoriLista() {
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `
+        <section class="box-filtro" id="container-filtro-fuoriLista"> 
+          <label>Fuori Lista</label>
+          <input type="radio" name="carica-FuoriLista" value="si"  ${
+            filtroCaricaFuoriLista ? "checked" : ""
+          }> si
+          <input type="radio" name="carica-FuoriLista" value="no"  ${
+            filtroCaricaFuoriLista ? "" : "checked"
+          }> no 
+        </section>
+        `
+  );
+  // filtro fuori lista aggiunto senza ricreare il contenuto esistente
 }
-}
 
-function caricaGiornateinHTML() {
-  //console.log("Caricamento giornate in HTML in corso...");
+function gestisciFiltroFuoriLista(evento) {
+  //capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal radiobutton con nome carica-FuoriLista
 
-  const CONTAINER_GIORNATE = document.getElementById("container-giornate");
-
-  for (let i = 1; i <= IMPOSTAZIONI.OPZIONI_LEGHE.NUMERO_GIORNATE; i++) {
-    const DIV_GIORNATA = document.createElement("div");
-    CONTAINER_GIORNATE.appendChild(DIV_GIORNATA);
-    DIV_GIORNATA.innerHTML = i;
+  if (evento.target.name == "carica-FuoriLista") {
+    // se e si controlliamo il valore se e si o se e no, e ne cambiamo lo stato
+    if (evento.target.value == "si") {
+      filtroCaricaFuoriLista = true;
+    } else {
+      filtroCaricaFuoriLista = false;
+    }
+    chiamaPaginaCliccata();
   }
-
-  //console.log("Caricamento giornate in HTML completato.");
 }
 
 function azzeraTabelle() {
@@ -837,6 +837,8 @@ function azzeraTabelle() {
 }
 
 function azzeraFiltri() {
+  filtroRuolo.P = filtroRuolo.D = filtroRuolo.C = filtroRuolo.A = false; //azzero i filtri selezionati
+  filtroMinEMax.filtroMaxSelezionato = filtroMinEMax.filtroMinSelezionato = 0;
   //console.log("Azzero tutti i filtri precedenti...");
   containerFiltri.innerHTML = "";
   //console.log("Filtri azzerati.");
@@ -899,7 +901,112 @@ function chiamaPaginaCliccata() {
       break;
     case "LISTA GIOCATORI":
       stampaListaGiocatori();
+    case "LISTA APPARTENENZE":
+      stampaListaAppartenenze();
+    case "LISTA SVINCOLATI":
+      stampaListaSvincolati();
     default:
       break;
+  }
+}
+
+function ruoliFiltrati() {
+  let ruoli = [];
+  let contatoreFiltroRuoloAttivi = 0;
+  for (let key in filtroRuolo) {
+    if (filtroRuolo[key]) {
+      ruoli.push(key);
+      contatoreFiltroRuoloAttivi++;
+    }
+  }
+  if (contatoreFiltroRuoloAttivi == 0) {
+    ruoli = ["P", "D", "C", "A"];
+  }
+  return ruoli;
+}
+
+function creaFiltroQuotazioneMinEMax() {
+  if (filtroMinEMax.filtroMax == 0) {
+    let set_quotazioni = new Set();
+    // se FiltroMax è = a 0 significa che non è  stato popolato
+    player.forEach((playerCorrente) => {
+      set_quotazioni.add(playerCorrente.getQuotazione);
+    });
+
+    let arrayOrdinato = Array.from(set_quotazioni).sort(
+      (qtCorrente, qtProssima) => {
+        return qtCorrente > qtProssima;
+      }
+    );
+    filtroMinEMax.filtroMinSelezionato = filtroMinEMax.filtroMin =
+      arrayOrdinato[0];
+    filtroMinEMax.filtroMaxSelezionato = filtroMinEMax.filtroMax =
+      arrayOrdinato[arrayOrdinato.length - 1];
+  }
+
+  //riempiamo i due select in base ai giocatori attualment in memoria
+  let popolaMinEMaxHTML = 1; //partiamo da 1 fino al maxQuotazione
+  for (let i = 1; i < filtroMinEMax.filtroMax + 1; i++) {
+    popolaMinEMaxHTML += "<option>" + i + "</option>";
+  }
+
+  //inseriamo il filtro nel box (inserimento senza riconstruire tutto il contenuto precedente)
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `<section class="box-filtro">
+    <label>Qt Min e Max</label>
+    <select id="select-qt-min">
+      ${popolaMinEMaxHTML}      
+    </select>    
+    <select id="select-qt-max">
+      ${popolaMinEMaxHTML}  
+    </select>
+    </section>`
+  );
+
+  //selezionamo il min ed il max nel filtro
+
+  const TagSelectMin = document.getElementById("select-qt-min");
+  const OPTIONMIN = TagSelectMin.options;
+  const TagSelectMax = document.getElementById("select-qt-max");
+  const OPTIONMAX = TagSelectMax.options;
+
+  //imposta il valore minimo selezionato (se non presente usa il primo)
+  if (filtroMinEMax.filtroMinSelezionato == 0) {
+    TagSelectMin.value = filtroMinEMax.filtroMinSelezionato =
+      OPTIONMIN[0].value;
+  } else {
+    TagSelectMin.value = filtroMinEMax.filtroMinSelezionato.toString();
+  }
+
+  //se è la prima volta che lo crea inseriamo nel valore massimo il valore massimo
+  //altrimenti inseriamo il valore max selezionato
+  if (filtroMinEMax.filtroMaxSelezionato == 0) {
+    TagSelectMax.value = filtroMinEMax.filtroMaxSelezionato =
+      OPTIONMAX[OPTIONMAX.length - 1].value;
+  } else {
+    TagSelectMax.value = filtroMinEMax.filtroMaxSelezionato.toString();
+  }
+}
+
+function gestisciFiltroQuotazioneMinEMax(event) {
+  //capiamo se il change proviene dal select min o max
+
+  const TAG = event.target;
+  const TAGMAX = document.getElementById("select-qt-max");
+  const TAGMIN = document.getElementById("select-qt-min");
+
+  if (TAG.id == "select-qt-max" || TAG.id == "select-qt-min") {
+    if (TAG.id == "select-qt-max") {
+      //se è stato cambiato il val max
+      TAGMAX.value=filtroMinEMax.filtroMaxSelezionato = parseInt(TAG.value);
+    } //se è stato cambiato il val min
+    else {
+      TAGMIN.value=filtroMinEMax.filtroMinSelezionato = parseInt(TAG.value);
+    }
+  }
+
+  if (filtroMinEMax.filtroMinSelezionato > filtroMinEMax.filtroMaxSelezionato || filtroMinEMax.filtroMaxSelezionato < filtroMinEMax.filtroMinSelezionato) {    
+    TAGMAX.value=filtroMinEMax.filtroMaxSelezionato=filtroMinEMax.filtroMax;
   }
 }
