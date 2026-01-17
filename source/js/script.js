@@ -226,7 +226,7 @@ function paginaPresidenti() {
 
 function paginaRoseComplete() {
   filtroCampionato = "TUTTI";
-  TAG_H2.textContent = "ROSE COMPLETE";
+  TAG_H2.textContent = "LISTA ROSE";
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroSelezionaCampionato();
@@ -335,33 +335,81 @@ function stampaListaPresidenti() {
 
   // console.log("Stampa lista presidenti completata.");
 }
-function stampaRoseComplete() {
-  // console.log("Stampa rose complete in corso...");
 
-  TAG_H2.textContent = "ROSE COMPLETE";
+function stampaRoseComplete() {
+  // console.log("Stampa LISTA ROSE in corso...");
+
+  TAG_H2.textContent = "LISTA ROSE";
   azzeraTabelle();
 
-  //scorriamo la lista dei presodenti e per ogni presidente verifichiamo tutti gli acquisti
-  presidenti.forEach((presidenti) => {
-    const TAG_TABLE = document.createElement("table"); //creazione tabella
-    const TAG_TBODY = document.createElement("tbody"); //creazione tbody
-    const TAG_THEAD = document.createElement("thead"); //creazione thead
-    const TAG_TFOOT = document.createElement("tfoot"); //creazione thead
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY, TAG_TFOOT);
-    let rigaHtml = "";
-    //per ogni presidente mi creo una tabella
-    //verifica dei presidenti
+  //andiamo a prelevare tutti i presidenti delle squadre selezionate in filtrocampionato
+  const presidentiFiltratiDalCampionato = presidenti.filter((pres) => {
     if (
       filtroCampionato == "TUTTI" ||
-      presidenti.getCampionatoDiAppartenenza == filtroCampionato
+      pres.getCampionatoDiAppartenenza == filtroCampionato
     ) {
-      //aggiungo fli elementi thead e tbody e tfoot all'interno della tabella
+      return true;
+    } else {
+      return false;
+    }
+  });
 
-      //in thead ci vado a mettere il nome della squadra
-      // il nome del presidente
-      // il nome del campionato di appartenenza
+  //scorriamo la lista dei presodenti filtrati dal campionato selezionato  e per ogni presidente verifichiamo tutti gli acquisti
+  presidentiFiltratiDalCampionato.forEach((presidenti) => {
+    let rigaHtml = "";
+    let contaGiocatori = 0;
 
-      TAG_THEAD.innerHTML = `<tr>
+    //per ogni rosa dobbiamo stampare i record di acquisto e aggiungerli alla rigahtml
+
+    const ruoliSelezionatiDallUtente = ruoliFiltrati(); //prelevo solo i ruoli necessari
+
+    presidenti.getTuttiGliSlot.forEach((rec) => {
+      //per ogni presidente mi faccio dare tutti gli slot
+      if (rec != null) {
+        if (
+          ruoliSelezionatiDallUtente.includes(rec.getDatiGiocatore.getRuolo) &&
+          checkQuotazione(rec.getDatiGiocatore.getQuotazione) &&
+          !(rec.getDatiGiocatore.getFuoriLista && !filtroCaricaFuoriLista)
+        ) {
+          // se il giocatore ha come fuorilista true, significa che non gioca più in serie a lo flaggo con la classe fuorilista
+          // questo permette di farlo diventare in grigio durante la visualizzazione
+          const classfuoriLista = rec.getDatiGiocatore.getFuoriLista
+            ? "class='fuorilista'"
+            : "";
+          const asterisco = classfuoriLista.length > 1 ? " (*)" : "";
+
+          rigaHtml += `
+              <tr ${classfuoriLista}>
+                <td>${rec.getDatiGiocatore.getRuolo}</td>
+                <td>${toCapitalize(
+                  rec.getDatiGiocatore.getNome
+                )}${asterisco}</td>
+                <td>${toCapitalize(
+                  rec.getDatiGiocatore.getSquadraDiAppartenenza
+                )}</td>
+                <td>${rec.getDatiGiocatore.getQuotazione}</td>
+                <td>${rec.getCostoDiAcquisto}</td>
+                <td>${Math.ceil(
+                  (rec.getCostoDiAcquisto +
+                    rec.getDatiGiocatore.getQuotazione) /
+                    2
+                )}</td>
+              </tr>`;
+          contaGiocatori++;
+        }
+      }
+    });
+
+    // FINE FOREACH SUGLI ACQUISTI
+    //se la tabella contiene almeno un giocatore la fai vedere altrimenti no
+    if (contaGiocatori > 0) {
+      //CREAZIONI ELEMENTI TABELLA
+      //per ogni presifente con almeno un giocatore creiamo una tabella
+      const TAG_TABLE = document.createElement("table"); //creazione tabella
+      const TAG_TBODY = document.createElement("tbody"); //creazione tbody
+      const TAG_THEAD = document.createElement("thead"); //creazione thead
+      const TAG_TFOOT = document.createElement("tfoot"); //creazione thead
+      TAG_THEAD.innerHTML += `<tr>
       <th colspan="6"> ${toCapitalize(presidenti.getNomeRosa)} </th>
     </tr>
     <tr>
@@ -375,61 +423,27 @@ function stampaRoseComplete() {
     <tr>
       <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
     </tr>`;
-      //aggiungo la tabella al nodo passato
-      containerTable.appendChild(TAG_TABLE);
-
-      //PASSO 2
-
-      //per ogni rosa dobbiamo stampare i record di acquisto e aggiungerli alla rigahtml
-      const ruoliSelezionatiDallUtente = ruoliFiltrati();
-
-      presidenti.getTuttiGliSlot.forEach((rec) => {
-        if (rec == null) {
-          rigaHtml += "<tr><tr>";
-        } else if (
-          ruoliSelezionatiDallUtente.includes(rec.getDatiGiocatore.getRuolo)
-        ) {
-          // se il giocatore ha come fuorilista true, significa che non gioca più in serie a lo flaggo con la classe fuorilista
-          // questo permette di farlo diventare in grigio durante la visualizzazione
-          const fuorilista = rec.getDatiGiocatore.getFuoriLista
-            ? "class='fuorilista'"
-            : "";
-          rigaHtml += `
-              <tr ${fuorilista}>
-                <td>${rec.getDatiGiocatore.getRuolo}</td>
-                <td>${toCapitalize(rec.getDatiGiocatore.getNome)}</td>
-                <td>${toCapitalize(
-                  rec.getDatiGiocatore.getSquadraDiAppartenenza
-                )}</td>
-                <td>${rec.getDatiGiocatore.getQuotazione}</td>
-                <td>${rec.getCostoDiAcquisto}</td>
-                <td>${Math.ceil(
-                  (rec.getCostoDiAcquisto +
-                    rec.getDatiGiocatore.getQuotazione) /
-                    2
-                )}</td>
-              </tr>`;
-        }
-      });
-    }
-
-    // FINE FOREACH SUGLI ACQUISTI
-
-    TAG_TBODY.innerHTML = rigaHtml;
-    TAG_TFOOT.innerHTML = `<tr>
+      TAG_TFOOT.innerHTML = `<tr>
       <td colspan="6">Crediti residui : ${presidenti.getCreditiResidui}</td>
     </tr>
     <tr>
       <td colspan="6"> Giocatori in rosa:${presidenti.contaSlotPieni()}/${
-      IMPOSTAZIONI.REGOLE.MAX_NUMERO_GIOCATORI_PER_SQUADRA
-    } </td></tr>
+        IMPOSTAZIONI.REGOLE.MAX_NUMERO_GIOCATORI_PER_SQUADRA
+      } </td></tr>
       <tr><td colspan="6"> Crediti spesi : ${
         presidenti.getCreditiSpesi
       }</td></tr>
       <tr><td colspan="6"> ValoreRosa : ${presidenti.getValoreRosa}</td></tr>
+      <tr><td colspan="6"> Giocatori Caricati : ${contaGiocatori}</td></tr>
     `;
+      //INSERIMENTO TABELLA
+      TAG_TBODY.innerHTML = rigaHtml;
+      TAG_TABLE.append(TAG_THEAD, TAG_TBODY, TAG_TFOOT);
+      containerTable.appendChild(TAG_TABLE);
+    }
   });
-  //console.log("Stampa rose complete completata.");
+
+  //console.log("Stampa LISTA ROSE completata.");
 }
 
 function stampaListaGiocatori() {
@@ -480,11 +494,12 @@ function stampaListaGiocatori() {
       });
 
       const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
+      const asterisco = classefuorilista.length > 1 ? "(*)" : "";
       let riganuova = "";
 
       riganuova = `<tr ${classefuorilista}>
         <td>${p.getRuolo}</td>
-        <td>${toCapitalize(p.getNome)}</td>
+        <td>${toCapitalize(p.getNome)}${asterisco}</td>
         <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
         <td>${p.getQuotazione}</td>
         <td>${p.getPresenze}</td>
@@ -497,13 +512,15 @@ function stampaListaGiocatori() {
         ${rigaSquadre}
       </tr>`;
 
-      //true- false
-      if ((p.getFuoriLista && filtroCaricaFuoriLista) || !p.getFuoriLista) {
+      if (
+        ((p.getFuoriLista && filtroCaricaFuoriLista) || !p.getFuoriLista) &&
+        checkQuotazione(p.getQuotazione)
+      ) {
         //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
         rigaHTML += riganuova; //caso2 ok
       } else if (!filtroCaricaFuoriLista && p.getFuoriLista) {
         //se nelle impostazioni c'è false in caricafuorilista
-        rigaHTML += ""; //caso 3 ok
+        rigaHTML += "";
       }
     });
 
@@ -524,9 +541,67 @@ function stampaListaAppartenenze() {
 
   //scorriamo per ogni ruolo
   ruoli.forEach((ruoloCorrente) => {
+    // adesso se vengono rispettati i filtri si stampa altrimenti no
+
     let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
-    //per ogni ruolo creiamo una tabella
+    let playerRuoloCorrente = player.filter((p) => {
+      return p.getRuolo == ruoloCorrente;
+    }); //playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
+
+    playerRuoloCorrente = playerRuoloCorrente.filter((p) => {
+      if (filtroCaricaFuoriLista) {
+        //se filtro caricafuolista è true puoi caricare
+        return true;
+      } else {
+        //se filtro caricafuolista è true puoi caricare carica solo quelli con fuorilsta false
+        return !p.getFuoriLista;
+      }
+    });
+
+    playerRuoloCorrente = playerRuoloCorrente.filter((pl) => {
+      return checkQuotazione(pl.getQuotazione);
+    }); // adesso è ulteriormente filtrato per la quotazione in filtro
+
+    //scorriamo il nuovo array filtrato per ruolo e per quotazione e lo inseriamo nella riga che andremo ad inserire nel tbody
+    playerRuoloCorrente.forEach((playerCorrente) => {
+      let tdSquadre = "";
+      playerCorrente.getPossessi.forEach((sqPos) => {
+        tdSquadre += toCapitalize(sqPos.getNomeRosa) + ", ";
+      });
+
+      // se è fuori lista aggiungo la classe alla riga
+      const classFuoriLista = playerCorrente.getFuoriLista
+        ? 'class="fuorilista"'
+        : "";
+      const asterisco = classFuoriLista.length > 1 ? "(*)" : "";
+
+      rigaHTML += `
+      <tr ${classFuoriLista}>
+        <td>
+          ${playerCorrente.getRuolo}
+        </td>
+        <td>
+          ${toCapitalize(playerCorrente.getNome)}${asterisco}
+        </td>
+        <td>
+          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
+        </td>
+        <td>
+         ${playerCorrente.getQuotazione}
+        </td>
+        <td>
+          ${playerCorrente.getCopieOccupate}
+        </td>
+        <td>
+         ${tdSquadre}
+        </td>
+        
+      </tr>
+      `;
+    });
+
+    //per ogni ruolo con almeno un giocatore creiamo una tabella
     const TAG_TABLE = document.createElement("table");
     const TAG_THEAD = document.createElement("thead");
     const TAG_TBODY = document.createElement("tbody");
@@ -545,49 +620,6 @@ function stampaListaAppartenenze() {
         <th> Numero Appartenenze </th>
         <th> In possesso da: </th>
     </tr>`;
-
-    //adesso scorriamo la lista dei giocatori, e per ogni giocatore preleviamo le squadre che lo posseggono
-    let playerRuoloCorrente = player.filter((p) => {
-      if (filtroCaricaFuoriLista) {
-        //se è true carica tutto
-        return p.getRuolo == ruoloCorrente;
-      } //se è false significa che dobbiamo scartare i fuorilista
-      else {
-        if (!p.getFuoriLista) return p.getRuolo == ruoloCorrente;
-      }
-    }); //playerRuoloCorrente è un array con tutti i giocatori del ruolo corrente
-
-    //scorriamo il nuovo array filtrato per ruolo e lo inseriamo nella riga che andremo ad inserire nel tbody
-    playerRuoloCorrente.forEach((playerCorrente) => {
-      let tdSquadre = "";
-      playerCorrente.getPossessi.forEach((sqPos) => {
-        tdSquadre += toCapitalize(sqPos.getNomeRosa) + ", ";
-      });
-
-      rigaHTML += `
-      <tr ${playerCorrente.getFuoriLista ? 'class="fuorilista"' : ""}>
-        <td>
-          ${playerCorrente.getRuolo}
-        </td>
-        <td>
-          ${toCapitalize(playerCorrente.getNome)}
-        </td>
-        <td>
-          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
-        </td>
-        <td>
-         ${playerCorrente.getQuotazione}
-        </td>
-        <td>
-          ${playerCorrente.getCopieOccupate}
-        </td>
-        <td>
-         ${tdSquadre}
-        </td>
-        
-      </tr>
-      `;
-    });
 
     TAG_TBODY.innerHTML = rigaHTML;
     TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
@@ -793,9 +825,9 @@ function gestisciFiltroRuolo(evento) {
     elemento_cliccato.classList.contains("selected")
       ? elemento_cliccato.classList.remove("selected")
       : elemento_cliccato.classList.add("selected"); // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
-  }
 
-  chiamaPaginaCliccata();
+    chiamaPaginaCliccata();
+  }
 }
 
 function creaFiltroFuoriLista() {
@@ -842,6 +874,7 @@ function azzeraFiltri() {
   //console.log("Azzero tutti i filtri precedenti...");
   containerFiltri.innerHTML = "";
   //console.log("Filtri azzerati.");
+  filtroCaricaFuoriLista = false;
 }
 
 //ORDINAMENTO TABELLE
@@ -893,7 +926,7 @@ function chiamaPaginaCliccata() {
     case "LISTA PRESIDENTI":
       stampaListaPresidenti();
       break;
-    case "ROSE COMPLETE":
+    case "LISTA ROSE":
       stampaRoseComplete();
       break;
     case "LISTA CREDITI RESIDUI":
@@ -901,10 +934,13 @@ function chiamaPaginaCliccata() {
       break;
     case "LISTA GIOCATORI":
       stampaListaGiocatori();
+      break;
     case "LISTA APPARTENENZE":
       stampaListaAppartenenze();
+      break;
     case "LISTA SVINCOLATI":
       stampaListaSvincolati();
+      break;
     default:
       break;
   }
@@ -999,14 +1035,33 @@ function gestisciFiltroQuotazioneMinEMax(event) {
   if (TAG.id == "select-qt-max" || TAG.id == "select-qt-min") {
     if (TAG.id == "select-qt-max") {
       //se è stato cambiato il val max
-      TAGMAX.value=filtroMinEMax.filtroMaxSelezionato = parseInt(TAG.value);
+      TAGMAX.value = filtroMinEMax.filtroMaxSelezionato = parseInt(TAG.value);
     } //se è stato cambiato il val min
     else {
-      TAGMIN.value=filtroMinEMax.filtroMinSelezionato = parseInt(TAG.value);
+      TAGMIN.value = filtroMinEMax.filtroMinSelezionato = parseInt(TAG.value);
     }
-  }
 
-  if (filtroMinEMax.filtroMinSelezionato > filtroMinEMax.filtroMaxSelezionato || filtroMinEMax.filtroMaxSelezionato < filtroMinEMax.filtroMinSelezionato) {    
-    TAGMAX.value=filtroMinEMax.filtroMaxSelezionato=filtroMinEMax.filtroMax;
+    if (
+      filtroMinEMax.filtroMinSelezionato > filtroMinEMax.filtroMaxSelezionato ||
+      filtroMinEMax.filtroMaxSelezionato < filtroMinEMax.filtroMinSelezionato
+    ) {
+      TAGMAX.value = filtroMinEMax.filtroMaxSelezionato =
+        filtroMinEMax.filtroMax;
+    }
+
+    chiamaPaginaCliccata();
   }
 }
+
+function checkQuotazione(quotazione = 0) {
+  if (
+    quotazione >= filtroMinEMax.filtroMinSelezionato &&
+    quotazione <= filtroMinEMax.filtroMaxSelezionato
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function creaFiltroNumeroAppartenenze() {}
