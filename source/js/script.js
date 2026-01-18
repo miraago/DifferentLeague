@@ -22,6 +22,7 @@ containerFiltri.addEventListener("change", gestisciFiltroSelezionaCampionato);
 containerFiltri.addEventListener("click", gestisciFiltroRuolo);
 containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
 containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
+//containerFiltri.addEventListener("change", gestisciFiltroAppartenenze);
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
@@ -39,6 +40,8 @@ let filtroMinEMax = {
 };
 
 let filtroCaricaFuoriLista = false;
+
+//let filtroAppartenenzeMax = 9;
 
 const LI_TAG = document.querySelectorAll("li");
 LI_TAG[0].addEventListener("click", paginaPresidenti);
@@ -141,8 +144,8 @@ async function caricaGiocatori() {
           temp[10],
           temp[11],
           temp[12],
-          temp[13]
-        )
+          temp[13],
+        ),
       );
     }
   }
@@ -187,7 +190,7 @@ async function caricaAcquisti() {
         }),
         11,
         "",
-        tempPrezzoAcquisto
+        tempPrezzoAcquisto,
       );
 
       //record ora contiene il record di acquisto del giocatore
@@ -253,6 +256,7 @@ function paginaAppartenenze() {
   azzeraTabelle();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
+  //creaFiltroAppartenenzeMax();
   creaFiltroFuoriLista();
   stampaListaAppartenenze();
 }
@@ -306,8 +310,8 @@ function stampaListaPresidenti() {
       let rigaHTML = "";
       // inizializziamo la riga di intestazione delle tabella
       TAG_THEAD.innerHTML = `<tr> <th colspan="2">${toCapitalize(
-        camp
-      )}</th></tr> 
+        camp,
+      )}</th></tr class="intestazione-colonne"> 
                             <tr>
                             <th> Squadra </th> 
                             <th> Presidente </th>                           
@@ -315,7 +319,7 @@ function stampaListaPresidenti() {
 
       //ricaviamoci solo i presidenti del campionato attuale
       const presidentiFiltrati = presidenti.filter(
-        (item) => item.getCampionatoDiAppartenenza == camp
+        (item) => item.getCampionatoDiAppartenenza == camp,
       );
 
       //scorri la lista presidenti ed inserisci ogni presidente nella tabella
@@ -323,7 +327,7 @@ function stampaListaPresidenti() {
         rigaHTML += `<tr>
                       <td> ${toCapitalize(presidente.getNomeRosa)} </td>
                       <td> ${toCapitalize(
-                        presidente.getNomePresidente
+                        presidente.getNomePresidente,
                       )} </td>                      
                     </tr>`;
       });
@@ -380,19 +384,19 @@ function stampaRoseComplete() {
 
           rigaHtml += `
               <tr ${classfuoriLista}>
-                <td>${rec.getDatiGiocatore.getRuolo}</td>
+                <td><span class="${rec.getDatiGiocatore.getRuolo}">${rec.getDatiGiocatore.getRuolo}</span></td>
                 <td>${toCapitalize(
-                  rec.getDatiGiocatore.getNome
+                  rec.getDatiGiocatore.getNome,
                 )}${asterisco}</td>
                 <td>${toCapitalize(
-                  rec.getDatiGiocatore.getSquadraDiAppartenenza
+                  rec.getDatiGiocatore.getSquadraDiAppartenenza,
                 )}</td>
                 <td>${rec.getDatiGiocatore.getQuotazione}</td>
                 <td>${rec.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
                   (rec.getCostoDiAcquisto +
                     rec.getDatiGiocatore.getQuotazione) /
-                    2
+                    2,
                 )}</td>
               </tr>`;
           contaGiocatori++;
@@ -417,10 +421,10 @@ function stampaRoseComplete() {
     </tr>
     <tr>
       <th colspan="6"> ${toCapitalize(
-        presidenti.getCampionatoDiAppartenenza
+        presidenti.getCampionatoDiAppartenenza,
       )} </th>
     </tr>
-    <tr>
+    <tr class="intestazione-colonne">
       <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
     </tr>`;
       TAG_TFOOT.innerHTML = `<tr>
@@ -454,7 +458,7 @@ function stampaListaGiocatori() {
   const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
   const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
   const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-  TAG_THEAD.innerHTML = `<tr>
+  TAG_THEAD.innerHTML = `<tr class="intestazione-colonne">
       <th>Ruolo</th>
       <th>Nome</th>
       <th>Squadra</th>
@@ -498,7 +502,7 @@ function stampaListaGiocatori() {
       let riganuova = "";
 
       riganuova = `<tr ${classefuorilista}>
-        <td>${p.getRuolo}</td>
+        <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
         <td>${toCapitalize(p.getNome)}${asterisco}</td>
         <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
         <td>${p.getQuotazione}</td>
@@ -578,7 +582,7 @@ function stampaListaAppartenenze() {
 
       rigaHTML += `
       <tr ${classFuoriLista}>
-        <td>
+        <td><span class="${playerCorrente.getRuolo}"</span>
           ${playerCorrente.getRuolo}
         </td>
         <td>
@@ -612,7 +616,7 @@ function stampaListaAppartenenze() {
       ${ruoloCorrente}
       </th>
       </tr>
-      <tr>
+      <tr  class="intestazione-colonne">
         <th> Ruolo </th>
         <th> Nome  </th>
         <th> Squadra </th>
@@ -638,53 +642,71 @@ function stampaListaSvincolati() {
   ruoli.forEach((ruoloCorrente) => {
     //scorriamo la lista dei ruoli
 
-    const theadTemp = `<tr><th colspan="6">${ruoloCorrente}</tr>
-    <tr>
-    <th>Ruolo</th>
-    <th>Nome</th>
-    <th>Squadra</th>
-    <th>Quotazione</th>
-    <th>Posseduto</th>
-    <th>Info</th>
-    </tr>`;
-    //per ogni ruolo creiamo una tabella
-    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-    TAG_THEAD.innerHTML = theadTemp;
-    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-
-    const giocatoriFiltratiDalRuolo = player.filter((giocatoreCorrente) => {
-      if (filtroCaricaFuoriLista) {
+    
+    //filtriamo per ruolo,  prendiamo solo i giocatori del ruolo corrente
+    let giocatoriFiltrati = player.filter((giocatoreCorrente) => {
         return giocatoreCorrente.getRuolo == ruoloCorrente;
-      } else {
-        if (!giocatoreCorrente.getFuoriLista) {
-          return giocatoreCorrente.getRuolo == ruoloCorrente;
-        }
-      }
     });
 
-    giocatoriFiltratiDalRuolo.forEach((pl) => {
+    //filtriamo per quotazione, filtriamo ancora per quotazione
+    giocatoriFiltrati= giocatoriFiltrati.filter((giocatoreCorrente)=>{
+        return checkQuotazione(giocatoreCorrente.getQuotazione);
+    });
+
+    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
+
+    let contaGiocatori=0;
+    giocatoriFiltrati.forEach((pl) => {
       const classefuorilista = pl.getFuoriLista ? "class='fuorilista'" : "";
-      if (pl.getCopieDisponibili > 0 && pl.getRuolo == ruoloCorrente) {
+      const asterisco = classefuorilista.length>1 ? "(*)" : "";
+      
+      
+      //true - true  - stampa
+      //true - false - non stampare
+      //false - true   - non stampare
+      // false - false  - non stampare
+      
+      if((pl.getFuoriLista && filtroCaricaFuoriLista) || (!pl.getFuoriLista))
+      {
+      if (pl.getCopieDisponibili > 0) {
         rigaHTML += `<tr ${classefuorilista}>
-          <td>${pl.getRuolo}</td>
-          <td>${pl.getNome}</td>
+          <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
+          <td>${pl.getNome}${asterisco}</td>
           <td>${pl.getSquadraDiAppartenenza}</td>
           <td>${pl.getQuotazione}</td>
           <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
           <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
         </tr>`;
+        contaGiocatori++;
+      }
       }
     });
+    if(contaGiocatori>0)
+    {
+      const theadTemp = `<tr><th colspan="6">${ruoloCorrente}</tr>
+      <tr class="intestazione-colonne">
+      <th>Ruolo</th>
+      <th>Nome</th>
+      <th>Squadra</th>
+      <th>Quotazione</th>
+      <th>Posseduto</th>
+      <th>Info</th>
+      </tr>`;
+      //per ogni ruolo creiamo una tabella
+      const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+      const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
+      TAG_THEAD.innerHTML = theadTemp;
+      const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody    
 
-    containerTable.appendChild(TAG_TABLE); //aggiungiamo la tabella nel contenitore passato
-    TAG_TBODY.innerHTML = rigaHTML; //inseriamo il contenuto del tbody
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
+      containerTable.appendChild(TAG_TABLE); //aggiungiamo la tabella nel contenitore passato
+      TAG_TBODY.innerHTML = rigaHTML; //inseriamo il contenuto del tbody
+      TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
+    }
   });
 
   //console.log("Stampa lista svincolaticompletata.");
 }
+
 function stampaListaCreditiResidui() {
   //console.log("Stampa lista crediti residui in corso...");
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
@@ -703,7 +725,7 @@ function stampaListaCreditiResidui() {
         TAG_THEAD.innerHTML = `<tr>
         <th colspan="3">${camp}</th>
       </tr>
-      <tr>
+      <tr class="intestazione-colonne">
         <th>Squadra</th>
         <th>Nome Presidente</th>
         <th>Crediti Residui</th>
@@ -713,7 +735,7 @@ function stampaListaCreditiResidui() {
         //camp contiene il nome del campionato di riferimento
 
         const squadreFiltrate = presidenti.filter(
-          (item) => item.getCampionatoDiAppartenenza == camp
+          (item) => item.getCampionatoDiAppartenenza == camp,
         );
         // a questo punto squadreFiltrate è un array con le squadre del campionato di riferimento
 
@@ -800,12 +822,12 @@ function creaFiltroRuolo() {
     `
   <section class="box-filtro" id="filtro-ruolo">
     <label>Ruolo</label>
-      <div class="ruolo ${filtroRuolo.P ? "selected" : ""}">P</div>
-      <div class="ruolo ${filtroRuolo.D ? "selected" : ""}">D</div>
-      <div class="ruolo ${filtroRuolo.C ? "selected" : ""}">C</div>
-      <div class="ruolo ${filtroRuolo.A ? "selected" : ""}">A</div>
+      <div class="ruolo P ${filtroRuolo.P ? "selected" : ""}">P</div>
+      <div class="ruolo D ${filtroRuolo.D ? "selected" : ""}">D</div>
+      <div class="ruolo C ${filtroRuolo.C ? "selected" : ""}">C</div>
+      <div class="ruolo A ${filtroRuolo.A ? "selected" : ""}">A</div>
     </section>
-  `
+  `,
   );
 }
 function gestisciFiltroRuolo(evento) {
@@ -843,7 +865,7 @@ function creaFiltroFuoriLista() {
             filtroCaricaFuoriLista ? "" : "checked"
           }> no 
         </section>
-        `
+        `,
   );
   // filtro fuori lista aggiunto senza ricreare il contenuto esistente
 }
@@ -972,7 +994,7 @@ function creaFiltroQuotazioneMinEMax() {
     let arrayOrdinato = Array.from(set_quotazioni).sort(
       (qtCorrente, qtProssima) => {
         return qtCorrente > qtProssima;
-      }
+      },
     );
     filtroMinEMax.filtroMinSelezionato = filtroMinEMax.filtroMin =
       arrayOrdinato[0];
@@ -997,7 +1019,7 @@ function creaFiltroQuotazioneMinEMax() {
     <select id="select-qt-max">
       ${popolaMinEMaxHTML}  
     </select>
-    </section>`
+    </section>`,
   );
 
   //selezionamo il min ed il max nel filtro
@@ -1064,4 +1086,34 @@ function checkQuotazione(quotazione = 0) {
   }
 }
 
-function creaFiltroNumeroAppartenenze() {}
+// function creaFiltroAppartenenzeMax() {
+//   let options = "";
+//   for (let i = 0; i < IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO + 1; i++) {
+//     options += `<option value="${i}"> ${i} </option>`;
+//   }
+
+//   containerFiltri.innerHTML += `
+//   <section class="box-filtro">
+//     <label>Appartenenze Max</label>
+//     <select id="select-appartenenze">
+//       ${options} 
+//     </select>
+//   </section>`;
+//   document.getElementById("select-appartenenze").value=filtroAppartenenzeMax;
+// }
+// function gestisciFiltroAppartenenze(event) {
+
+//   //capiamo se il change proviene dal select min o max
+
+//   const TAG = event.target;
+
+//   if(TAG.id == "select-appartenenze")
+//   {
+//     filtroAppartenenzeMax = TAG.value;
+//   }
+//   console.log(filtroAppartenenzeMax);
+
+// }
+
+
+
