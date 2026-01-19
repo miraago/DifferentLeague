@@ -128,11 +128,24 @@ async function caricaGiocatori() {
     datiGiocatori.length,
   );
 
+  let recordInvalidi = 0;
+
   for (let i = 1; i < arrayGiocatori.length; i++) {
     temp = arrayGiocatori[i].split("|");
 
     if (temp.length > 1) {
       //temp.length > 1 il record non è vuoto
+
+      // Verifica se il record ha almeno 14 campi
+      if (temp.length < 14) {
+        console.warn(
+          `Record ${i} ha solo ${temp.length} campi:`,
+          temp[0],
+          temp[1],
+        );
+        recordInvalidi++;
+        continue;
+      }
 
       player.push(
         new Giocatore(
@@ -154,7 +167,12 @@ async function caricaGiocatori() {
       );
     }
   }
-  console.log("✅ Giocatori caricati:", player.length);
+  console.log(
+    "✅ Giocatori caricati:",
+    player.length,
+    "| Record invalidi:",
+    recordInvalidi,
+  );
   //console.log("Caricamento giocatori completato.");
 }
 
@@ -1028,10 +1046,26 @@ function ruoliFiltrati() {
 function creaFiltroQuotazioneMinEMax() {
   if (filtroMinEMax.filtroMax == 0) {
     let set_quotazioni = new Set();
+    let giocatoriInvalidi = [];
+
     // se FiltroMax è = a 0 significa che non è  stato popolato
     player.forEach((playerCorrente) => {
-      set_quotazioni.add(playerCorrente.getQuotazione);
+      const qt = playerCorrente.getQuotazione;
+      // Filtra i giocatori con quotazione invalida (NaN)
+      if (isNaN(qt)) {
+        giocatoriInvalidi.push(playerCorrente.getNome);
+      } else {
+        set_quotazioni.add(qt);
+      }
     });
+
+    if (giocatoriInvalidi.length > 0) {
+      console.warn(
+        "⚠️ Giocatori con quotazione invalida:",
+        giocatoriInvalidi.length,
+      );
+      console.warn("Primi 10:", giocatoriInvalidi.slice(0, 10));
+    }
 
     let arrayOrdinato = Array.from(set_quotazioni).sort(
       (qtCorrente, qtProssima) => {
@@ -1042,6 +1076,10 @@ function creaFiltroQuotazioneMinEMax() {
       arrayOrdinato[0];
     filtroMinEMax.filtroMaxSelezionato = filtroMinEMax.filtroMax =
       arrayOrdinato[arrayOrdinato.length - 1];
+
+    console.log(
+      `✅ Quotazione Min: ${filtroMinEMax.filtroMin}, Max: ${filtroMinEMax.filtroMax}, Giocatori validi: ${set_quotazioni.size}`,
+    );
   }
 
   //riempiamo i due select in base ai giocatori attualment in memoria
