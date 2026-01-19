@@ -17,9 +17,9 @@ const TAG_H2 = document.querySelector("h2");
 
 //FILTRI
 const containerFiltri = document.getElementById("container-filtri");
-let filtroCampionato = "TUTTI";
-containerFiltri.addEventListener("change", gestisciFiltroSelezionaCampionato);
+// containerFiltri.addEventListener("change", gestisciFiltroSelezionaCampionato);
 containerFiltri.addEventListener("click", gestisciFiltroRuolo);
+containerFiltri.addEventListener("click", gestisciFiltroSelezionaCampionato2);
 containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
 containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
 //containerFiltri.addEventListener("change", gestisciFiltroAppartenenze);
@@ -38,6 +38,7 @@ let filtroMinEMax = {
   filtroMinSelezionato: 0,
   filtroMaxSelezionato: 0,
 };
+let filtroSelezionaCampionato = [];
 
 let filtroCaricaFuoriLista = false;
 
@@ -219,20 +220,20 @@ async function caricaAcquisti() {
 
 //pagine azionabili al click sul menu
 function paginaPresidenti() {
-  filtroCampionato = "TUTTI";
   TAG_H2.textContent = "LISTA PRESIDENTI";
   azzeraTabelle();
   azzeraFiltri();
-  creaFiltroSelezionaCampionato();
+  // creaFiltroSelezionaCampionato();
+  creaFiltroSelezionaCampionato2();
   stampaListaPresidenti();
 }
 
 function paginaRoseComplete() {
-  filtroCampionato = "TUTTI";
-  TAG_H2.textContent = "LISTA ROSE";
+  TAG_H2.textContent = "LISTA SQUADRE";
   azzeraFiltri();
   azzeraTabelle();
-  creaFiltroSelezionaCampionato();
+  // creaFiltroSelezionaCampionato();
+  creaFiltroSelezionaCampionato2();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroFuoriLista();
@@ -250,7 +251,6 @@ function paginaGiocatori() {
 }
 
 function paginaAppartenenze() {
-  filtroCampionato = "TUTTI";
   TAG_H2.textContent = "LISTA APPARTENENZE";
   azzeraFiltri();
   azzeraTabelle();
@@ -273,16 +273,15 @@ function paginaSvincolati() {
 }
 
 function paginaCreditiResidui() {
-  filtroCampionato = "TUTTI";
   TAG_H2.textContent = "LISTA CREDITI RESIDUI";
   azzeraFiltri();
   azzeraTabelle();
   creaFiltroSelezionaCampionato();
+  creaFiltroSelezionaCampionato2();
   stampaListaCreditiResidui();
 }
 
 function paginaMercato() {
-  filtroCampionato = "TUTTI";
   //console.log("Pagina mercato in corso...");
   TAG_H2.textContent = "PAGINA MERCATO";
   azzeraTabelle();
@@ -301,7 +300,10 @@ function stampaListaPresidenti() {
     //scorri la lista dei campionati
 
     //se è stato selezionato un filtro controlliamo che il campionato corrente sia uguale al filtro
-    if (filtroCampionato == "TUTTI" || filtroCampionato == camp) {
+    if (
+      filtroSelezionaCampionato.includes(camp) ||
+      filtroSelezionaCampionato.length == 0
+    ) {
       //se il filtro è tutti oppure il campionato corrente è uguale al filtro procedi
 
       const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
@@ -343,14 +345,14 @@ function stampaListaPresidenti() {
 function stampaRoseComplete() {
   // console.log("Stampa LISTA ROSE in corso...");
 
-  TAG_H2.textContent = "LISTA ROSE";
+  TAG_H2.textContent = "LISTA SQUADRE";
   azzeraTabelle();
 
   //andiamo a prelevare tutti i presidenti delle squadre selezionate in filtrocampionato
   const presidentiFiltratiDalCampionato = presidenti.filter((pres) => {
     if (
-      filtroCampionato == "TUTTI" ||
-      pres.getCampionatoDiAppartenenza == filtroCampionato
+      filtroSelezionaCampionato.includes(pres.getCampionatoDiAppartenenza) ||
+      filtroSelezionaCampionato.length == 0
     ) {
       return true;
     } else {
@@ -642,34 +644,31 @@ function stampaListaSvincolati() {
   ruoli.forEach((ruoloCorrente) => {
     //scorriamo la lista dei ruoli
 
-    
     //filtriamo per ruolo,  prendiamo solo i giocatori del ruolo corrente
     let giocatoriFiltrati = player.filter((giocatoreCorrente) => {
-        return giocatoreCorrente.getRuolo == ruoloCorrente;
+      return giocatoreCorrente.getRuolo == ruoloCorrente;
     });
 
     //filtriamo per quotazione, filtriamo ancora per quotazione
-    giocatoriFiltrati= giocatoriFiltrati.filter((giocatoreCorrente)=>{
-        return checkQuotazione(giocatoreCorrente.getQuotazione);
+    giocatoriFiltrati = giocatoriFiltrati.filter((giocatoreCorrente) => {
+      return checkQuotazione(giocatoreCorrente.getQuotazione);
     });
 
     let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
-    let contaGiocatori=0;
+    let contaGiocatori = 0;
     giocatoriFiltrati.forEach((pl) => {
       const classefuorilista = pl.getFuoriLista ? "class='fuorilista'" : "";
-      const asterisco = classefuorilista.length>1 ? "(*)" : "";
-      
-      
+      const asterisco = classefuorilista.length > 1 ? "(*)" : "";
+
       //true - true  - stampa
       //true - false - non stampare
       //false - true   - non stampare
       // false - false  - non stampare
-      
-      if((pl.getFuoriLista && filtroCaricaFuoriLista) || (!pl.getFuoriLista))
-      {
-      if (pl.getCopieDisponibili > 0) {
-        rigaHTML += `<tr ${classefuorilista}>
+
+      if ((pl.getFuoriLista && filtroCaricaFuoriLista) || !pl.getFuoriLista) {
+        if (pl.getCopieDisponibili > 0) {
+          rigaHTML += `<tr ${classefuorilista}>
           <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
           <td>${pl.getNome}${asterisco}</td>
           <td>${pl.getSquadraDiAppartenenza}</td>
@@ -677,12 +676,11 @@ function stampaListaSvincolati() {
           <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
           <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
         </tr>`;
-        contaGiocatori++;
-      }
+          contaGiocatori++;
+        }
       }
     });
-    if(contaGiocatori>0)
-    {
+    if (contaGiocatori > 0) {
       const theadTemp = `<tr><th colspan="6">${ruoloCorrente}</tr>
       <tr class="intestazione-colonne">
       <th>Ruolo</th>
@@ -696,7 +694,7 @@ function stampaListaSvincolati() {
       const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
       const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
       TAG_THEAD.innerHTML = theadTemp;
-      const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody    
+      const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
 
       containerTable.appendChild(TAG_TABLE); //aggiungiamo la tabella nel contenitore passato
       TAG_TBODY.innerHTML = rigaHTML; //inseriamo il contenuto del tbody
@@ -712,7 +710,10 @@ function stampaListaCreditiResidui() {
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
   IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
     if (camp) {
-      if (filtroCampionato == "TUTTI" || filtroCampionato == camp) {
+      if (
+        filtroSelezionaCampionato.includes(camp) ||
+        filtroSelezionaCampionato.length == 0
+      ) {
         //scorri la lista dei campionati
 
         //controlliamo che non sia null
@@ -771,50 +772,86 @@ function stampaListaCreditiResidui() {
 //FILTRI----------------------------------------------------------------------------------------
 //---------------------------------- FILTRI ------------------------------------------------
 
-function creaFiltroSelezionaCampionato() {
+// function creaFiltroSelezionaCampionato() {
+//   //console.log("creazione filtro seleziona campionato in corso...");
+
+//   const containerFiltri = document.getElementById("container-filtri");
+
+//   const TAG_SECTION = document.createElement("section");
+//   TAG_SECTION.classList.add("box-filtro"); //ogni filtro va in una section
+
+//   const SELECT_ELEMENT = document.createElement("select"); //creo l'elemento select
+//   SELECT_ELEMENT.id = "select-campionato-filter"; //assegno un id all'elemento select
+
+//   const OPTION_ELEMENT = document.createElement("option"); //creo l'opzione
+//   OPTION_ELEMENT.value = "TUTTI"; //creo l'opzione tutti
+//   OPTION_ELEMENT.textContent = "TUTTI"; //inserisco il testo tutti
+//   SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
+
+//   IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
+//     const OPTION_ELEMENT = document.createElement("option");
+//     OPTION_ELEMENT.value = camp;
+//     OPTION_ELEMENT.textContent = camp;
+//     SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
+//   });
+
+//   const LABEL_ELEMENT = document.createElement("label");
+//   LABEL_ELEMENT.htmlFor = "select-campionato-filter";
+//   LABEL_ELEMENT.textContent = "Lega";
+//   containerFiltri.append(TAG_SECTION);
+//   TAG_SECTION.appendChild(LABEL_ELEMENT);
+//   SELECT_ELEMENT.value = filtroCampionato;
+
+//   TAG_SECTION.appendChild(SELECT_ELEMENT);
+
+//console.log("creazione filtro seleziona campionato completata.");
+//}
+function creaFiltroSelezionaCampionato2() {
   //console.log("creazione filtro seleziona campionato in corso...");
 
-  const containerFiltri = document.getElementById("container-filtri");
-
-  const TAG_SECTION = document.createElement("section");
-  TAG_SECTION.classList.add("box-filtro"); //ogni filtro va in una section
-
-  const SELECT_ELEMENT = document.createElement("select"); //creo l'elemento select
-  SELECT_ELEMENT.id = "select-campionato-filter"; //assegno un id all'elemento select
-
-  const OPTION_ELEMENT = document.createElement("option"); //creo l'opzione
-  OPTION_ELEMENT.value = "TUTTI"; //creo l'opzione tutti
-  OPTION_ELEMENT.textContent = "TUTTI"; //inserisco il testo tutti
-  SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
-
-  IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
-    const OPTION_ELEMENT = document.createElement("option");
-    OPTION_ELEMENT.value = camp;
-    OPTION_ELEMENT.textContent = camp;
-    SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
-  });
-
-  const LABEL_ELEMENT = document.createElement("label");
-  LABEL_ELEMENT.htmlFor = "select-campionato-filter";
-  LABEL_ELEMENT.textContent = "Lega";
-  containerFiltri.append(TAG_SECTION);
-  TAG_SECTION.appendChild(LABEL_ELEMENT);
-  SELECT_ELEMENT.value = filtroCampionato;
-
-  TAG_SECTION.appendChild(SELECT_ELEMENT);
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `<section class="box-filtro">
+          <label>Lega</label>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR1}"id="logo-premier" class="logo-campionato" src="./Assets/image/logo_leghe/Logo_premier.png" title="Premier League" alt="Premier League" ></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR2}"id="logo-liga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_liga.png" title="Liga Spagnola" alt="Liga Spagnola"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR3}"id="logo-bundesliga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_Bundesliga.png" title="Bundesliga" alt="Bundesliga"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR4}"id="logo-ligue1"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_ligue1.png" title="Ligue 1" alt="Ligue 1"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR5}"id="logo-seriea"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_SerieA.png" title="Serie A" alt="Serie A"></div>
+    </section>`,
+  );
 
   //console.log("creazione filtro seleziona campionato completata.");
 }
-
-function gestisciFiltroSelezionaCampionato(evento) {
-  const elementoSelezionato = evento.target;
-  if (elementoSelezionato.id === "select-campionato-filter") {
-    const valoreSelezionato = elementoSelezionato.value;
-    filtroCampionato = valoreSelezionato;
-
+function gestisciFiltroSelezionaCampionato2(evento) {
+  const elemento_cliccato = evento.target;
+  if (elemento_cliccato.className.includes("logo-campionato")) {
+    {
+      if (filtroSelezionaCampionato.includes(elemento_cliccato.name)) {
+        const indice = filtroSelezionaCampionato.indexOf(
+          elemento_cliccato.name,
+        );
+        filtroSelezionaCampionato.splice(indice, 1);
+        elemento_cliccato.classList.remove("selected");
+      } else {
+        filtroSelezionaCampionato.push(elemento_cliccato.name);
+        elemento_cliccato.classList.add("selected");
+      }
+    }
     chiamaPaginaCliccata();
   }
+  console.log(filtroSelezionaCampionato);
 }
+
+// function gestisciFiltroSelezionaCampionato(evento) {
+//   const elementoSelezionato = evento.target;
+//   if (elementoSelezionato.id === "select-campionato-filter") {
+//     const valoreSelezionato = elementoSelezionato.value;
+//     filtroCampionato = valoreSelezionato;
+
+//     chiamaPaginaCliccata();
+//   }
+// }
 
 function creaFiltroRuolo() {
   containerFiltri.insertAdjacentHTML(
@@ -897,6 +934,7 @@ function azzeraFiltri() {
   containerFiltri.innerHTML = "";
   //console.log("Filtri azzerati.");
   filtroCaricaFuoriLista = false;
+  filtroSelezionaCampionato = [];
 }
 
 //ORDINAMENTO TABELLE
@@ -948,7 +986,7 @@ function chiamaPaginaCliccata() {
     case "LISTA PRESIDENTI":
       stampaListaPresidenti();
       break;
-    case "LISTA ROSE":
+    case "LISTA SQUADRE":
       stampaRoseComplete();
       break;
     case "LISTA CREDITI RESIDUI":
@@ -1096,7 +1134,7 @@ function checkQuotazione(quotazione = 0) {
 //   <section class="box-filtro">
 //     <label>Appartenenze Max</label>
 //     <select id="select-appartenenze">
-//       ${options} 
+//       ${options}
 //     </select>
 //   </section>`;
 //   document.getElementById("select-appartenenze").value=filtroAppartenenzeMax;
@@ -1114,6 +1152,3 @@ function checkQuotazione(quotazione = 0) {
 //   console.log(filtroAppartenenzeMax);
 
 // }
-
-
-

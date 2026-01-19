@@ -306,12 +306,27 @@ table thead tr.intestazione-colonne th:hover{
   
   text-decoration: underline;
   color: aqua;
- 
-  
-  
 }
 
 
 input{
-  height: 80%;
+  height: 90%;
+}
+.logo-campionato
+{
+  height:40px;
+  cursor:pointer;
+  
+  box-sizing: border-box;
+}
+.logo-campionato:hover{
+  scale:1.2;
+  
+  border: 2px solid var(--background_primario);
+}
+
+.logo-campionato.selected{
+  background-color: white;
+  border: 2px solid var(--background_primario);
+  scale:1.2;
 }
