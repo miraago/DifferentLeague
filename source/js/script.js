@@ -17,12 +17,10 @@ const TAG_H2 = document.querySelector("h2");
 
 //FILTRI
 const containerFiltri = document.getElementById("container-filtri");
-// containerFiltri.addEventListener("change", gestisciFiltroSelezionaCampionato);
 containerFiltri.addEventListener("click", gestisciFiltroRuolo);
 containerFiltri.addEventListener("click", gestisciFiltroSelezionaCampionato2);
 containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
 containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
-//containerFiltri.addEventListener("change", gestisciFiltroAppartenenze);
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
@@ -41,8 +39,6 @@ let filtroMinEMax = {
 let filtroSelezionaCampionato = [];
 
 let filtroCaricaFuoriLista = false;
-
-//let filtroAppartenenzeMax = 9;
 
 const LI_TAG = document.querySelectorAll("li");
 LI_TAG[0].addEventListener("click", paginaPresidenti);
@@ -114,7 +110,7 @@ async function caricaGiocatori() {
   //console.log("Caricamento giocatori in corso...");
   //let datiGiocatori = get_file_giocatori();
 
-  const response = await fetch("Assets/file/quotazioni_gg19.txt");
+  const response = await fetch("Assets/file/quotazioni_gg20.txt");
   if (!response.ok) {
     throw new Error("Network response was not ok " + response.statusText);
   }
@@ -276,7 +272,6 @@ function paginaCreditiResidui() {
   TAG_H2.textContent = "LISTA CREDITI RESIDUI";
   azzeraFiltri();
   azzeraTabelle();
-  creaFiltroSelezionaCampionato();
   creaFiltroSelezionaCampionato2();
   stampaListaCreditiResidui();
 }

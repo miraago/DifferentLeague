@@ -61,40 +61,40 @@ WOLFSBURG	Giuseppe Ianni 	Bundesliga	10
 ANGERS	Alessandro e Antonio	Ligue 1	4
 AUXERRE	Angelo & Giuseppe	Ligue 1	0
 BREST	Luca Battello	Ligue 1	0
-LE HAVRE	Annibale Mazzeo	Ligue 1	0
-LENS	Alessandro Amato	Ligue 1	0
-LILLE	Leonardo e Andrea	Ligue 1	0
-LIONE	Gabriele Micali	Ligue 1	0
-LORIENT	Omer Feldi	Ligue 1	0
-MARSIGLIA	Luca Matera 	Ligue 1	0
-METZ	Salvatore Franzese	Ligue 1	0
+LE HAVRE	Annibale Mazzeo	Ligue 1	3
+LENS	Alessandro Amato	Ligue 1	8
+LILLE	Leonardo e Andrea	Ligue 1	26
+LIONE	Gabriele Micali	Ligue 1	12
+LORIENT	Omer Feldi	Ligue 1	21
+MARSIGLIA	Luca Matera 	Ligue 1	4
+METZ	Salvatore Franzese	Ligue 1	16
 MONACO	Claudio Ambrosio	Ligue 1	0
-NANTES	Antonio Langella	Ligue 1	0
-NIZZA	Maurizio Beghi	Ligue 1	0
-PARIS FC	Davide Ricciutelli	Ligue 1	0
+NANTES	Antonio Langella	Ligue 1	26
+NIZZA	Maurizio Beghi	Ligue 1	11
+PARIS FC	Davide Ricciutelli	Ligue 1	6
 PSG	Benito Marino	Ligue 1	0
-REIMS	Stefano Delli Castelli	Ligue 1	0
-RENNES	Alessandro Nicolosi	Ligue 1	0
-SAINT ETIENNE	Roberto Saverino	Ligue 1	0
-STRASBURGO	Manuel Massaro	Ligue 1	0
-TOLOSA	Giampaolo Rizzuti	Ligue 1	0
-ATALANTA	Antonio Seggioli	Serie A	0
+REIMS	Stefano Delli Castelli	Ligue 1	13
+RENNES	Alessandro Nicolosi	Ligue 1	26
+SAINT ETIENNE	Roberto Saverino	Ligue 1	15
+STRASBURGO	Manuel Massaro	Ligue 1	9
+TOLOSA	Giampaolo Rizzuti	Ligue 1	2
+ATALANTA	Antonio Seggioli	Serie A	10
 BOLOGNA	Gabriele e Michele	Serie A	0
-CAGLIARI	Mattia Danesin	Serie A	0
-COMO	Carmine Altilio	Serie A	0
+CAGLIARI	Mattia Danesin	Serie A	9
+COMO	Carmine Altilio	Serie A	11
 CREMONESE	Daniele Salsi	Serie A	0
-FIORENTINA	Alberto Pisano	Serie A	0
-GENOA	Vincenzo e Miky	Serie A	0
-INTER	Angelo Catrini	Serie A	0
-JUVENTUS	Massimo Bufano	Serie A	0
+FIORENTINA	Alberto Pisano	Serie A	22
+GENOA	Vincenzo e Miky	Serie A	184
+INTER	Angelo Catrini	Serie A	7
+JUVENTUS	Massimo Bufano	Serie A	4
 LAZIO	Marco Cesareo	Serie A	0
 LECCE	Flavio Del Monego	Serie A	0
-MILAN	Nello e Donato	Serie A	0
+MILAN	Nello e Donato	Serie A	4
 NAPOLI	Luciano Modugno	Serie A	0
-PARMA	Fabrizio Amati	Serie A	0
-PISA	Matteo Profeti	Serie A	0
+PARMA	Fabrizio Amati	Serie A	21
+PISA	Matteo Profeti	Serie A	4
 ROMA	Fabio e Francesco	Serie A	0
-SASSUOLO	Damiano Andalò	Serie A	0
-TORINO	Gianluca Ristallo	Serie A	0
-UDINESE	Michele Cotugno	Serie A	0
-VERONA	Marco Ettore E Salvatore	Serie A	0
+SASSUOLO	Damiano Andalò	Serie A	15
+TORINO	Gianluca Ristallo	Serie A	15
+UDINESE	Michele Cotugno	Serie A	10
+VERONA	Marco Ettore E Salvatore	Serie A	20
