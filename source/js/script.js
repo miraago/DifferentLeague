@@ -120,6 +120,14 @@ async function caricaGiocatori() {
 
   let temp = [];
   let arrayGiocatori = datiGiocatori.split("\n");
+
+  console.log(
+    "📥 File caricato - Righe totali:",
+    arrayGiocatori.length,
+    "Bytes:",
+    datiGiocatori.length,
+  );
+
   for (let i = 1; i < arrayGiocatori.length; i++) {
     temp = arrayGiocatori[i].split("|");
 
@@ -146,6 +154,7 @@ async function caricaGiocatori() {
       );
     }
   }
+  console.log("✅ Giocatori caricati:", player.length);
   //console.log("Caricamento giocatori completato.");
 }
 
