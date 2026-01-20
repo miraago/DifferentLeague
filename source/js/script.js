@@ -412,10 +412,10 @@ function stampaRoseComplete() {
                 <td>${toCapitalize(
                   rec.getDatiGiocatore.getNome,
                 )}${asterisco}</td>
-                <td>${toCapitalize(
+                <td  class="squadra-di-appartenenza">${toCapitalize(
                   rec.getDatiGiocatore.getSquadraDiAppartenenza,
                 )}</td>
-                <td>${rec.getDatiGiocatore.getQuotazione}</td>
+                <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${rec.getDatiGiocatore.getQuotazione}</td>
                 <td>${rec.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
                   (rec.getCostoDiAcquisto +
@@ -528,8 +528,8 @@ function stampaListaGiocatori() {
       riganuova = `<tr ${classefuorilista}>
         <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
         <td>${toCapitalize(p.getNome)}${asterisco}</td>
-        <td>${toCapitalize(p.getSquadraDiAppartenenza)}</td>
-        <td>${p.getQuotazione}</td>
+        <td class="squadra-di-appartenenza">${toCapitalize(p.getSquadraDiAppartenenza)}</td>
+        <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
         <td>${p.getPresenze}</td>
         <td>${p.getMv}</td>
         <td>${p.getFvm}</td>
@@ -592,10 +592,33 @@ function stampaListaAppartenenze() {
     }); // adesso è ulteriormente filtrato per la quotazione in filtro
 
     //scorriamo il nuovo array filtrato per ruolo e per quotazione e lo inseriamo nella riga che andremo ad inserire nel tbody
+
     playerRuoloCorrente.forEach((playerCorrente) => {
-      let tdSquadre = "";
+      let tdSquadre1 = "";
+      let tdSquadre2 = "";
+      let tdSquadre3 = "";
+      let tdSquadre4 = "";
+      let tdSquadre5 = "";
+
       playerCorrente.getPossessi.forEach((sqPos) => {
-        tdSquadre += toCapitalize(sqPos.getNomeRosa) + ", ";
+        const campionato = sqPos.getCampionatoDiAppartenenza;
+        switch (campionato) {
+          case IMPOSTAZIONI.CAMPIONATI.GIR1:
+            tdSquadre1 += sqPos.getNomeRosa + " ";
+            break;
+          case IMPOSTAZIONI.CAMPIONATI.GIR2:
+            tdSquadre2 += sqPos.getNomeRosa + " ";
+            break;
+          case IMPOSTAZIONI.CAMPIONATI.GIR3:
+            tdSquadre3 += sqPos.getNomeRosa + " ";
+            break;
+          case IMPOSTAZIONI.CAMPIONATI.GIR4:
+            tdSquadre4 += sqPos.getNomeRosa + " ";
+            break;
+          case IMPOSTAZIONI.CAMPIONATI.GIR5:
+            tdSquadre5 += sqPos.getNomeRosa + " ";
+            break;
+        }
       });
 
       // se è fuori lista aggiungo la classe alla riga
@@ -612,17 +635,29 @@ function stampaListaAppartenenze() {
         <td>
           ${toCapitalize(playerCorrente.getNome)}${asterisco}
         </td>
-        <td>
+        <td  class="squadra-di-appartenenza">
           ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
         </td>
-        <td>
+        <td  class="cella-quotazione"><img src="Assets/icone/soldi.png"/>
          ${playerCorrente.getQuotazione}
         </td>
         <td>
           ${playerCorrente.getCopieOccupate}
         </td>
         <td>
-         ${tdSquadre}
+         ${toCapitalize(tdSquadre1)}
+        </td>
+        <td>
+         ${toCapitalize(tdSquadre2)}
+        </td>
+        <td>
+         ${toCapitalize(tdSquadre3)}
+        </td>
+        <td>
+         ${toCapitalize(tdSquadre4)}
+        </td>
+        <td>
+         ${toCapitalize(tdSquadre5)}
         </td>
         
       </tr>
@@ -636,7 +671,7 @@ function stampaListaAppartenenze() {
 
     //inseriamo l'intestazione della tabella
     TAG_THEAD.innerHTML = `<tr >
-      <th colspan="6">
+      <th colspan="11">
       ${ruoloCorrente}
       </th>
       </tr>
@@ -646,7 +681,11 @@ function stampaListaAppartenenze() {
         <th> Squadra </th>
         <th> Quotazione </th>
         <th> Numero Appartenenze </th>
-        <th> In possesso da: </th>
+        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR1)} </th>
+        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR2)} </th>
+        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR3)} </th>
+        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR4)} </th>
+        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR5)} </th>
     </tr>`;
 
     TAG_TBODY.innerHTML = rigaHTML;
@@ -693,8 +732,8 @@ function stampaListaSvincolati() {
           rigaHTML += `<tr ${classefuorilista}>
           <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
           <td>${pl.getNome}${asterisco}</td>
-          <td>${pl.getSquadraDiAppartenenza}</td>
-          <td>${pl.getQuotazione}</td>
+          <td class="squadra-di-appartenenza">${pl.getSquadraDiAppartenenza}</td>
+          <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${pl.getQuotazione}</td>
           <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
           <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
         </tr>`;
@@ -794,40 +833,6 @@ function stampaListaCreditiResidui() {
 //FILTRI----------------------------------------------------------------------------------------
 //---------------------------------- FILTRI ------------------------------------------------
 
-// function creaFiltroSelezionaCampionato() {
-//   //console.log("creazione filtro seleziona campionato in corso...");
-
-//   const containerFiltri = document.getElementById("container-filtri");
-
-//   const TAG_SECTION = document.createElement("section");
-//   TAG_SECTION.classList.add("box-filtro"); //ogni filtro va in una section
-
-//   const SELECT_ELEMENT = document.createElement("select"); //creo l'elemento select
-//   SELECT_ELEMENT.id = "select-campionato-filter"; //assegno un id all'elemento select
-
-//   const OPTION_ELEMENT = document.createElement("option"); //creo l'opzione
-//   OPTION_ELEMENT.value = "TUTTI"; //creo l'opzione tutti
-//   OPTION_ELEMENT.textContent = "TUTTI"; //inserisco il testo tutti
-//   SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
-
-//   IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
-//     const OPTION_ELEMENT = document.createElement("option");
-//     OPTION_ELEMENT.value = camp;
-//     OPTION_ELEMENT.textContent = camp;
-//     SELECT_ELEMENT.appendChild(OPTION_ELEMENT);
-//   });
-
-//   const LABEL_ELEMENT = document.createElement("label");
-//   LABEL_ELEMENT.htmlFor = "select-campionato-filter";
-//   LABEL_ELEMENT.textContent = "Lega";
-//   containerFiltri.append(TAG_SECTION);
-//   TAG_SECTION.appendChild(LABEL_ELEMENT);
-//   SELECT_ELEMENT.value = filtroCampionato;
-
-//   TAG_SECTION.appendChild(SELECT_ELEMENT);
-
-//console.log("creazione filtro seleziona campionato completata.");
-//}
 function creaFiltroSelezionaCampionato2() {
   //console.log("creazione filtro seleziona campionato in corso...");
 
@@ -1165,32 +1170,3 @@ function checkQuotazione(quotazione = 0) {
     return false;
   }
 }
-
-// function creaFiltroAppartenenzeMax() {
-//   let options = "";
-//   for (let i = 0; i < IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO + 1; i++) {
-//     options += `<option value="${i}"> ${i} </option>`;
-//   }
-
-//   containerFiltri.innerHTML += `
-//   <section class="box-filtro">
-//     <label>Appartenenze Max</label>
-//     <select id="select-appartenenze">
-//       ${options}
-//     </select>
-//   </section>`;
-//   document.getElementById("select-appartenenze").value=filtroAppartenenzeMax;
-// }
-// function gestisciFiltroAppartenenze(event) {
-
-//   //capiamo se il change proviene dal select min o max
-
-//   const TAG = event.target;
-
-//   if(TAG.id == "select-appartenenze")
-//   {
-//     filtroAppartenenzeMax = TAG.value;
-//   }
-//   console.log(filtroAppartenenzeMax);
-
-// }
