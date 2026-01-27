@@ -112,7 +112,7 @@ async function caricaGiocatori() {
   //console.log("Caricamento giocatori in corso...");
   //let datiGiocatori = get_file_giocatori();
 
-  const response = await fetch("Assets/file/quotazioni_gg20.txt");
+  const response = await fetch("Assets/file/quotazioni_gg22.txt");
   if (!response.ok) {
     throw new Error("Network response was not ok " + response.statusText);
   }
@@ -1001,7 +1001,10 @@ function creaFiltroTeam() {
   }
   rigadicostruzionefiltrisquadre += "</section>";
 
-  containerFiltri.insertAdjacentHTML("beforeend", rigadicostruzionefiltrisquadre);
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    rigadicostruzionefiltrisquadre,
+  );
 }
 function gestisciFiltroTeam(evento) {
   const elemento_cliccato = evento.target;
@@ -1028,7 +1031,7 @@ function creaFiltroQuotazioneMinEMax() {
   console.log(filtroMinEMax);
 
   //riempiamo i due select in base ai giocatori attualment in memoria
-  let popolaMinEMaxHTML=""; //partiamo da 1 fino al maxQuotazione
+  let popolaMinEMaxHTML = ""; //partiamo da 1 fino al maxQuotazione
   for (let i = 0; i < parseInt(filtroMinEMax.filtroMax); i++) {
     popolaMinEMaxHTML += "<option>" + (i + 1) + "</option>";
   }
@@ -1052,12 +1055,10 @@ function creaFiltroQuotazioneMinEMax() {
   const TagSelectMin = document.getElementById("select-qt-min");
   const TagSelectMax = document.getElementById("select-qt-max");
 
-
   //imposta il valore minimo selezionato (se non presente usa il primo)
- 
-    TagSelectMin.value = filtroMinEMax.filtroMinSelezionato;
-    TagSelectMax.value = filtroMinEMax.filtroMaxSelezionato;
-  
+
+  TagSelectMin.value = filtroMinEMax.filtroMinSelezionato;
+  TagSelectMax.value = filtroMinEMax.filtroMaxSelezionato;
 }
 
 function gestisciFiltroQuotazioneMinEMax(event) {

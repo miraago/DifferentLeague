@@ -13,5 +13,5 @@ git push (per inviare i cambiamenti su GitHub).
 https://miraago.github.io/DifferentLeague/
 
 git add .
-git commit -m "Inserimento ordinamento"
+git commit -m "Inserimento Filtro squadre"
 git push
