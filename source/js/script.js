@@ -22,6 +22,11 @@ containerFiltri.addEventListener("click", gestisciFiltroSelezionaCampionato2);
 containerFiltri.addEventListener("click", gestisciFiltroTeam);
 containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
 containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
+containerFiltri.addEventListener("input", (event) => {
+  if (event.target.id == "input-ricerca-giocatore") {
+    chiamaPaginaCliccata();
+  }
+});
 
 let filtroRuolo = {
   //qui memorizzeremo i cambi stati deli ruoli
@@ -254,7 +259,6 @@ function paginaPresidenti() {
   TAG_H2.textContent = "LISTA PRESIDENTI";
   azzeraTabelle();
   azzeraFiltri();
-  // creaFiltroSelezionaCampionato();
   creaFiltroSelezionaCampionato2();
   stampaListaPresidenti();
 }
@@ -263,7 +267,7 @@ function paginaRoseComplete() {
   TAG_H2.textContent = "LISTA SQUADRE";
   azzeraFiltri();
   azzeraTabelle();
-  // creaFiltroSelezionaCampionato();
+  creaFiltroRicercaGiocatore();
   creaFiltroSelezionaCampionato2();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
@@ -275,6 +279,7 @@ function paginaGiocatori() {
   TAG_H2.textContent = "LISTA GIOCATORI";
   azzeraFiltri();
   azzeraTabelle();
+  creaFiltroRicercaGiocatore();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
@@ -286,6 +291,7 @@ function paginaAppartenenze() {
   TAG_H2.textContent = "LISTA APPARTENENZE";
   azzeraFiltri();
   azzeraTabelle();
+  creaFiltroRicercaGiocatore();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
@@ -297,6 +303,7 @@ function paginaSvincolati() {
   TAG_H2.textContent = "LISTA SVINCOLATI";
   azzeraFiltri();
   azzeraTabelle();
+  creaFiltroRicercaGiocatore();
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
@@ -472,6 +479,7 @@ function stampaRoseComplete() {
 
 function stampaListaGiocatori() {
   // console.log("Stampa lista giocatori in corso...");
+
   const arrayFiltrato = applicaFiltriGiocatori();
 
   //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
@@ -1028,8 +1036,6 @@ function gestisciFiltroTeam(evento) {
 }
 
 function creaFiltroQuotazioneMinEMax() {
-  console.log(filtroMinEMax);
-
   //riempiamo i due select in base ai giocatori attualment in memoria
   let popolaMinEMaxHTML = ""; //partiamo da 1 fino al maxQuotazione
   for (let i = 0; i < parseInt(filtroMinEMax.filtroMax); i++) {
@@ -1059,6 +1065,17 @@ function creaFiltroQuotazioneMinEMax() {
 
   TagSelectMin.value = filtroMinEMax.filtroMinSelezionato;
   TagSelectMax.value = filtroMinEMax.filtroMaxSelezionato;
+}
+
+function creaFiltroRicercaGiocatore() {
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `
+  <section class="box-filtro">
+          <input type="search" id="input-ricerca-giocatore" placeholder="Cerca Giocatore" />
+          <label>Ricerca Giocatore</label>
+        </section>`,
+  );
 }
 
 function gestisciFiltroQuotazioneMinEMax(event) {
@@ -1107,21 +1124,28 @@ function applicaFiltriGiocatori() {
 
   //APPLICAZIONE FILTRI
 
+  //filtro ricerca giocatore
+
+  const TAG_RICERCA = document.getElementById("input-ricerca-giocatore");
+  const regex = new RegExp(TAG_RICERCA.value.trim(), "i");
+
+  //filtra per ruolo
   arrayFiltrato = player.filter((giocatoreCorrente) => {
     return ruoliFiltrati().includes(giocatoreCorrente.getRuolo);
   });
 
-  //filtra per ruolo
-  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-    return ruoliFiltrati().includes(giocatoreCorrente.getRuolo);
-  });
+  if (TAG_RICERCA.value != "") {
+    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+      return regex.test(giocatoreCorrente.getNome);
+    });
+  }
 
   //filtro per quotazione
   arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
     return checkQuotazione(giocatoreCorrente.getQuotazione);
   });
 
-  //filtro per squadra
+  //filtro per squadra (100)
   arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
     if (filtroSelezionaSquadra.length == 0) {
       return true;
