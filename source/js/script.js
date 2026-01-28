@@ -22,6 +22,7 @@ containerFiltri.addEventListener("click", gestisciFiltroSelezionaCampionato2);
 containerFiltri.addEventListener("click", gestisciFiltroTeam);
 containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
 containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
+containerFiltri.addEventListener("change", gestisciFiltroPresenzeMinime);
 containerFiltri.addEventListener("input", (event) => {
   if (event.target.id == "input-ricerca-giocatore") {
     chiamaPaginaCliccata();
@@ -44,6 +45,8 @@ let filtroMinEMax = {
 };
 let filtroSelezionaCampionato = [];
 let filtroSelezionaSquadra = [];
+let filtroPresenzeMinimo = 0;
+let filtroPresenzeMinimaSelezionato = 0;
 
 let filtroCaricaFuoriLista = false;
 
@@ -163,7 +166,7 @@ async function caricaGiocatori() {
           temp[4], //ruolo mantra
           temp[5], //fuorilista
           temp[6], //quotazione
-          temp[7],
+          temp[7], //presenze
           temp[8],
           temp[9],
           temp[10],
@@ -177,6 +180,10 @@ async function caricaGiocatori() {
       if (filtroMinEMax.filtroMax < qtPlayerAttuale) {
         filtroMinEMax.filtroMaxSelezionato = filtroMinEMax.filtroMax =
           qtPlayerAttuale;
+      }
+      //popoliamo le presenze minime
+      if (filtroPresenzeMinimo < parseInt(temp[7])) {
+        filtroPresenzeMinimo = parseInt(temp[7]);
       }
     }
   }
@@ -283,6 +290,7 @@ function paginaGiocatori() {
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
+  creaFiltroPresenzeMinime();
   creaFiltroFuoriLista();
   stampaListaGiocatori();
 }
@@ -295,6 +303,7 @@ function paginaAppartenenze() {
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
+  creaFiltroPresenzeMinime();
   creaFiltroFuoriLista();
   stampaListaAppartenenze();
 }
@@ -307,6 +316,7 @@ function paginaSvincolati() {
   creaFiltroRuolo();
   creaFiltroQuotazioneMinEMax();
   creaFiltroTeam();
+  creaFiltroPresenzeMinime();
   creaFiltroFuoriLista();
   stampaListaSvincolati();
 }
@@ -696,9 +706,13 @@ function stampaListaSvincolati() {
       rigaHTML +=
         pl.getSquadraDiAppartenenza == ""
           ? "<td></td>"
-          : `<td class="squadra-di-appartenenza">${pl.getSquadraDiAppartenenza}</td>`;
+          : `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${pl.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(pl.getSquadraDiAppartenenza.slice(0, 3))}</td>`;
       rigaHTML += `          
           <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${pl.getQuotazione}</td>
+          <td>${pl.getPresenze}</td>
+          <td>${pl.getMv}</td>
+          <td>${pl.getFvm}</td>
+          <td>${pl.getSommaBonusMalus}</td>
           <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
           <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
         </tr>`;
@@ -706,12 +720,16 @@ function stampaListaSvincolati() {
     }
   });
   if (contaGiocatori > 0) {
-    const theadTemp = `<tr><th colspan="6">LISTA GIOCATORI SVINCOLATI</tr>
+    const theadTemp = `<tr><th colspan="10">LISTA GIOCATORI SVINCOLATI</tr>
       <tr class="intestazione-colonne">
       <th>Ruolo</th>
       <th>Nome</th>
       <th>Squadra</th>
       <th>Quotazione</th>
+      <th>Presenze</th>
+      <th>MV</th>
+      <th>FVM</th>
+      <th>Somma Bonus/Malus</th>
       <th>Posseduto</th>
       <th>Info</th>
       </tr>`;
@@ -1156,6 +1174,11 @@ function applicaFiltriGiocatori() {
     }
   });
 
+  //filtro per presenze minime
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    return giocatoreCorrente.getPresenze >= filtroPresenzeMinimaSelezionato;
+  });
+
   //filto per escludere o meno i fuorilista, se il filtro fuorilista è false applichiamo il filtro escludendo i fuorilista
   if (!filtroCaricaFuoriLista) {
     //escludi i fuorilista
@@ -1182,4 +1205,28 @@ function applicaFiltroTeams() {
   }
 
   return arraySquadre;
+}
+
+function creaFiltroPresenzeMinime() {
+  let selectPresenzeHTML = "";
+  for (let i = 0; i <= filtroPresenzeMinimo; i++) {
+    selectPresenzeHTML += `<option>${i}</option>`;
+  }
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `  <section class="box-filtro">
+    <label title="Presenze Minime">Pres. Min.</label>
+    <select id="select-presenze-minime">
+      ${selectPresenzeHTML}
+    </select>          
+  </section>`,
+  );
+}
+
+function gestisciFiltroPresenzeMinime(event) {
+  const TAG = event.target;
+  if (TAG.id == "select-presenze-minime") {
+    filtroPresenzeMinimaSelezionato = parseInt(TAG.value);
+    chiamaPaginaCliccata();
+  }
 }
