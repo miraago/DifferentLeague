@@ -1,100 +1,100 @@
-ARSENAL	Ignazio Consentino	Premier League	2
-ASTON VILLA	Raffaele e Antonio	Premier League	10
-BOURNEMOUTH	Pasquale Ambrosio	Premier League	2
-BRENTFORD	Raffaele & Eugenio	Premier League	26
-BRIGHTON	Salvatore Miranda (ottav)	Premier League	1
-BURNLEY	Luciano e Antonio	Premier League	1
-CHELSEA	Agostino Miranda	Premier League	0
-CRYSTAL PALACE	Antonio & Salvatore	Premier League	0
-EVERTON	Davide Migliore	Premier League	10
-FULHAM	Francesco Somma	Premier League	16
-LEEDS	Antonio Tramontano	Premier League	1
-LIVERPOOL	Giuseppe Sicignano	Premier League	0
-MAN UNITED	Francesco Annunziata	Premier League	32
-MANCHESTER CITY	Emanuele Forte	Premier League	0
-NEWCASTLE	Vincenzo Miranda	Premier League	0
-NOTTINGHAM	Giuseppe Boccia	Premier League	46
-SUNDERLAND	Francesco Miranda Pic.	Premier League	10
-TOTTENHAM	Giuliano Boccia	Premier League	3
-WEST HAM	Francesco Miranda Gra.	Premier League	9
-WOLVERHAMPTON	Marco Franzese	Premier League	3
-ALAVES	Giuseppe Luongo	Liga Spagnola	26
-ATLETICO MADRID	Alessandro Boccia	Liga Spagnola	2
-ATLETICO BILBAO	Salvatore Ambrosio	Liga Spagnola	0
-BARCELLONA	Salvator Miranda	Liga Spagnola	0
-BETIS	Salvatore Ambrosio	Liga Spagnola	0
-CELTA VIGO	Francesco Raggio	Liga Spagnola	5
-ELCHE	Aniello D'ascoli	Liga Spagnola	12
-ESPANYOL	Antonio Miranda	Liga Spagnola	19
-GETAFE	Francesco DeVito	Liga Spagnola	19
-GIRONA	Umberto Di Mauro	Liga Spagnola	0
-LEVANTE	Renato e Daniele	Liga Spagnola	97
-MAIORCA	Luigi Duraccio	Liga Spagnola	0
-OSASUNA	Claudio Ambrosio	Liga Spagnola	0
-OVIEDO	Guglielmo e Aldo	Liga Spagnola	23
-REAL MADRID	Ettore Boccia	Liga Spagnola	5
-REAL SOCIETAD	Antonio Pagano	Liga Spagnola	0
-REAL VALLECANO	Saverio e francesco	Liga Spagnola	26
-SIVIGLIA	Giuseppe Miranda	Liga Spagnola	0
-VALENCIA	Gianluca Miranda	Liga Spagnola	7
-VILLAREAL	Giuseppe Miranda	Liga Spagnola	6
-AUGSBURG	Giuseppe Innusa	Bundesliga	1
-BAYERN MONACO	Eddy Brachini	Bundesliga	0
-BOCHUM	Gabriele Mingotti	Bundesliga	1
-COLONIA	Aliperti Umberto	Bundesliga	16
-DORTMUND	Giuseppe Annunziata	Bundesliga	0
-EINTRACHT	Luciano D'avino	Bundesliga	2
-FRIBURGO	Giuseppe Ambrosio	Bundesliga	0
-HEIDENHEIM	Angelo Caldarelli	Bundesliga	20
-HOFFENHEIM	Rito napolitano  	Bundesliga	10
-HOLSTEL KIEL	Gaetano e Giovanni	Bundesliga	64
-LEVERKUSEN	Vincenzo Carotenuto	Bundesliga	0
-LIPSIA	Marco Russo	Bundesliga	1
-MAINZ	Alessio Dilisio	Bundesliga	0
-MONCHENGLADBACH	Luigi Pizzella	Bundesliga	27
-NORIMBERGA	Carlo D’alpa	Bundesliga	0
-ST PAULI	Guido e Nicola	Bundesliga	20
-STOCCARDA	Daniele Coppola	Bundesliga	28
-UNION BERLINO	Daniele Olmetto	Bundesliga	0
-WERDER BREMA	Salvo Innusa	Bundesliga	2
-WOLFSBURG	Giuseppe Ianni 	Bundesliga	10
-ANGERS	Alessandro e Antonio	Ligue 1	4
-AUXERRE	Angelo & Giuseppe	Ligue 1	0
-BREST	Luca Battello	Ligue 1	0
-LE HAVRE	Annibale Mazzeo	Ligue 1	3
-LENS	Alessandro Amato	Ligue 1	8
-LILLE	Leonardo e Andrea	Ligue 1	26
-LIONE	Gabriele Micali	Ligue 1	12
-LORIENT	Omer Feldi	Ligue 1	21
-MARSIGLIA	Luca Matera 	Ligue 1	4
-METZ	Salvatore Franzese	Ligue 1	16
-MONACO	Claudio Ambrosio	Ligue 1	0
-NANTES	Antonio Langella	Ligue 1	26
-NIZZA	Maurizio Beghi	Ligue 1	11
-PARIS FC	Davide Ricciutelli	Ligue 1	6
-PSG	Benito Marino	Ligue 1	0
-REIMS	Stefano Delli Castelli	Ligue 1	13
-RENNES	Alessandro Nicolosi	Ligue 1	26
-SAINT ETIENNE	Roberto Saverino	Ligue 1	15
-STRASBURGO	Manuel Massaro	Ligue 1	9
-TOLOSA	Giampaolo Rizzuti	Ligue 1	2
-ATALANTA	Antonio Seggioli	Serie A	10
-BOLOGNA	Gabriele e Michele	Serie A	0
-CAGLIARI	Mattia Danesin	Serie A	9
-COMO	Carmine Altilio	Serie A	11
-CREMONESE	Daniele Salsi	Serie A	0
-FIORENTINA	Alberto Pisano	Serie A	22
-GENOA	Vincenzo e Miky	Serie A	184
-INTER	Angelo Catrini	Serie A	7
-JUVENTUS	Massimo Bufano	Serie A	4
-LAZIO	Marco Cesareo	Serie A	0
-LECCE	Flavio Del Monego	Serie A	0
-MILAN	Nello e Donato	Serie A	4
-NAPOLI	Luciano Modugno	Serie A	0
-PARMA	Fabrizio Amati	Serie A	21
-PISA	Matteo Profeti	Serie A	4
-ROMA	Fabio e Francesco	Serie A	0
-SASSUOLO	Damiano Andalò	Serie A	15
-TORINO	Gianluca Ristallo	Serie A	15
-UDINESE	Michele Cotugno	Serie A	10
-VERONA	Marco Ettore E Salvatore	Serie A	20
+ARSENAL	Ignazio Consentino	Premier League	52
+ASTON VILLA	Raffaele e Antonio	Premier League	60
+BOURNEMOUTH	Pasquale Ambrosio	Premier League	52
+BRENTFORD	Raffaele & Eugenio	Premier League	76
+BRIGHTON	Salvatore Miranda (ottav)	Premier League	51
+BURNLEY	Luciano e Antonio	Premier League	51
+CHELSEA	Agostino Miranda	Premier League	50
+CRYSTAL PALACE	Antonio & Salvatore	Premier League	50
+EVERTON	Davide Migliore	Premier League	60
+FULHAM	Francesco Somma	Premier League	66
+LEEDS	Antonio Tramontano	Premier League	51
+LIVERPOOL	Giuseppe Sicignano	Premier League	50
+MAN UNITED	Francesco Annunziata	Premier League	82
+MANCHESTER CITY	Emanuele Forte	Premier League	50
+NEWCASTLE	Vincenzo Miranda	Premier League	50
+NOTTINGHAM	Giuseppe Boccia	Premier League	96
+SUNDERLAND	Francesco Miranda Pic.	Premier League	60
+TOTTENHAM	Giuliano Boccia	Premier League	53
+WEST HAM	Francesco Miranda Gra.	Premier League	59
+WOLVERHAMPTON	Marco Franzese	Premier League	53
+ALAVES	Giuseppe Luongo	Liga Spagnola	76
+ATLETICO MADRID	Alessandro Boccia	Liga Spagnola	52
+ATLETICO BILBAO	Salvatore Ambrosio	Liga Spagnola	50
+BARCELLONA	Salvator Miranda	Liga Spagnola	50
+BETIS	Salvatore Ambrosio	Liga Spagnola	50
+CELTA VIGO	Francesco Raggio	Liga Spagnola	55
+ELCHE	Aniello D'ascoli	Liga Spagnola	62
+ESPANYOL	Antonio Miranda	Liga Spagnola	69
+GETAFE	Francesco DeVito	Liga Spagnola	69
+GIRONA	Umberto Di Mauro	Liga Spagnola	50
+LEVANTE	Renato e Daniele	Liga Spagnola	147
+MAIORCA	Luigi Duraccio	Liga Spagnola	50
+OSASUNA	Claudio Ambrosio	Liga Spagnola	50
+OVIEDO	Guglielmo e Aldo	Liga Spagnola	73
+REAL MADRID	Ettore Boccia	Liga Spagnola	55
+REAL SOCIETAD	Antonio Pagano	Liga Spagnola	50
+REAL VALLECANO	Saverio e francesco	Liga Spagnola	76
+SIVIGLIA	Giuseppe Miranda	Liga Spagnola	50
+VALENCIA	Gianluca Miranda	Liga Spagnola	57
+VILLAREAL	Giuseppe Miranda	Liga Spagnola	56
+AUGSBURG	Giuseppe Innusa	Bundesliga	51
+BAYERN MONACO	Eddy Brachini	Bundesliga	50
+BOCHUM	Gabriele Mingotti	Bundesliga	51
+COLONIA	Aliperti Umberto	Bundesliga	66
+DORTMUND	Giuseppe Annunziata	Bundesliga	50
+EINTRACHT	Luciano D'avino	Bundesliga	52
+FRIBURGO	Giuseppe Ambrosio	Bundesliga	50
+HEIDENHEIM	Angelo Caldarelli	Bundesliga	70
+HOFFENHEIM	Rito napolitano  	Bundesliga	60
+HOLSTEL KIEL	Gaetano e Giovanni	Bundesliga	114
+LEVERKUSEN	Vincenzo Carotenuto	Bundesliga	50
+LIPSIA	Marco Russo	Bundesliga	51
+MAINZ	Alessio Dilisio	Bundesliga	50
+MONCHENGLADBACH	Luigi Pizzella	Bundesliga	77
+NORIMBERGA	Carlo D’alpa	Bundesliga	50
+ST PAULI	Guido e Nicola	Bundesliga	70
+STOCCARDA	Daniele Coppola	Bundesliga	78
+UNION BERLINO	Daniele Olmetto	Bundesliga	50
+WERDER BREMA	Salvo Innusa	Bundesliga	52
+WOLFSBURG	Giuseppe Ianni 	Bundesliga	60
+ANGERS	Alessandro e Antonio	Ligue 1	54
+AUXERRE	Angelo & Giuseppe	Ligue 1	50
+BREST	Luca Battello	Ligue 1	50
+LE HAVRE	Annibale Mazzeo	Ligue 1	53
+LENS	Alessandro Amato	Ligue 1	58
+LILLE	Leonardo e Andrea	Ligue 1	76
+LIONE	Gabriele Micali	Ligue 1	62
+LORIENT	Omer Feldi	Ligue 1	71
+MARSIGLIA	Luca Matera 	Ligue 1	54
+METZ	Salvatore Franzese	Ligue 1	66
+MONACO	Claudio Ambrosio	Ligue 1	50
+NANTES	Antonio Langella	Ligue 1	76
+NIZZA	Maurizio Beghi	Ligue 1	61
+PARIS FC	Davide Ricciutelli	Ligue 1	56
+PSG	Benito Marino	Ligue 1	50
+REIMS	Stefano Delli Castelli	Ligue 1	63
+RENNES	Alessandro Nicolosi	Ligue 1	76
+SAINT ETIENNE	Roberto Saverino	Ligue 1	65
+STRASBURGO	Manuel Massaro	Ligue 1	59
+TOLOSA	Giampaolo Rizzuti	Ligue 1	52
+ATALANTA	Antonio Seggioli	Serie A	60
+BOLOGNA	Gabriele e Michele	Serie A	50
+CAGLIARI	Mattia Danesin	Serie A	59
+COMO	Carmine Altilio	Serie A	61
+CREMONESE	Daniele Salsi	Serie A	50
+FIORENTINA	Alberto Pisano	Serie A	72
+GENOA	Vincenzo e Miky	Serie A	234
+INTER	Angelo Catrini	Serie A	57
+JUVENTUS	Massimo Bufano	Serie A	54
+LAZIO	Marco Cesareo	Serie A	50
+LECCE	Flavio Del Monego	Serie A	50
+MILAN	Nello e Donato	Serie A	54
+NAPOLI	Luciano Modugno	Serie A	50
+PARMA	Fabrizio Amati	Serie A	71
+PISA	Matteo Profeti	Serie A	54
+ROMA	Fabio e Francesco	Serie A	50
+SASSUOLO	Damiano Andalò	Serie A	65
+TORINO	Gianluca Ristallo	Serie A	65
+UDINESE	Michele Cotugno	Serie A	60
+VERONA	Marco Ettore E Salvatore	Serie A	70

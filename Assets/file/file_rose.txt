@@ -135,7 +135,7 @@ Burnley	MUHAREMOVIC	DIF	sas	19	6,18	12	9	Premier League
 Burnley	RANIERI	DIF	fio	17	5,76	7	7	Premier League
 Burnley	BERNASCONI	DIF	ata	11	6,05	9	1	Premier League
 Burnley	DELE-BASHIRU	CEN	laz	7	5,64	4	13	Premier League
-Burnley	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	10	Premier League
+Burnley	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	10	Premier League
 Burnley	ZALEWSKI	CEN	ata	16	6,38	13	14	Premier League
 Burnley	KONE IS.	CEN	sas	19	6,47	14	10	Premier League
 Burnley	PALESTRA	CEN	cag	21	6,43	15	9	Premier League
@@ -612,7 +612,7 @@ Betis	ZANOLI	DIF	udi	19	6,03	11	9	Liga Spagnola
 Betis	ZIELINSKI	CEN	int	17	6,76	17	12	Liga Spagnola
 Betis	NICO PAZ	CEN	com	22	7,64	26	62	Liga Spagnola
 Betis	LOBOTKA	CEN	nap	17	6,41	14	23	Liga Spagnola
-Betis	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	6	Liga Spagnola
+Betis	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	6	Liga Spagnola
 Betis	PALESTRA	CEN	cag	21	6,43	15	6	Liga Spagnola
 Betis	VANDEPUTTE	CEN	cre	21	6,1	11	13	Liga Spagnola
 Betis	BASIC	CEN	laz	14	6,29	10	6	Liga Spagnola
@@ -815,7 +815,7 @@ Osasuna	MANDRAGORA	CEN	fio	22	6,7	16	16	Liga Spagnola
 Osasuna	PRATI	CEN	cag	20	5,83	8	7	Liga Spagnola
 Osasuna	CATALDI	CEN	laz	19	6,29	12	15	Liga Spagnola
 Osasuna	SOHM	CEN	bol	15	5,53	6	8	Liga Spagnola
-Osasuna	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	9	Liga Spagnola
+Osasuna	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	9	Liga Spagnola
 Osasuna	CAQUERET	CEN	com	17	6,35	15	12	Liga Spagnola
 Osasuna	BORRELLI	ATT	cag	20	6,13	15	14	Liga Spagnola
 Osasuna	GIOVANE	ATT	nap	22	6,39	17	13	Liga Spagnola
@@ -938,7 +938,7 @@ Siviglia	PULISIC	CEN	mil	16	7,88	25	92	Liga Spagnola
 Siviglia	DE ROON	CEN	ata	19	6,21	14	13	Liga Spagnola
 Siviglia	ADOPO	CEN	cag	22	6,02	11	5	Liga Spagnola
 Siviglia	AKINSANMIRO	CEN	pis	13	5,92	6	2	Liga Spagnola
-Siviglia	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	6	Liga Spagnola
+Siviglia	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	6	Liga Spagnola
 Siviglia	ADZIC	CEN	juv	6	6,5	5	7	Liga Spagnola
 Siviglia	BASIC	CEN	laz	14	6,29	10	10	Liga Spagnola
 Siviglia	LOFTUS-CHEEK	CEN	mil	18	6,11	12	13	Liga Spagnola
@@ -988,7 +988,7 @@ Villareal	MATIC	CEN	sas	21	6,21	12	13	Liga Spagnola
 Villareal	THURAM KHE.	CEN	juv	21	6,38	15	19	Liga Spagnola
 Villareal	BATURINA	CEN	com	11	7,45	19	25	Liga Spagnola
 Villareal	DE BRUYNE	CEN	nap	8	7,75	10	97	Liga Spagnola
-Villareal	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	12	Liga Spagnola
+Villareal	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	12	Liga Spagnola
 Villareal	DE ROON	CEN	ata	19	6,21	14	16	Liga Spagnola
 Villareal	CATALDI	CEN	laz	19	6,29	12	15	Liga Spagnola
 Villareal	CUADRADO	CEN	pis	9	6,28	4	14	Liga Spagnola
@@ -1013,7 +1013,7 @@ Augsburg	PRATI	CEN	cag	20	5,83	8	6	Bundesliga
 Augsburg	MCKENNIE	CEN	juv	19	6,5	16	10	Bundesliga
 Augsburg	MCTOMINAY	CEN	nap	21	7,21	22	112	Bundesliga
 Augsburg	SUCIC	CEN	int	15	6,13	10	12	Bundesliga
-Augsburg	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	24	Bundesliga
+Augsburg	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	24	Bundesliga
 Augsburg	VANDEPUTTE	CEN	cre	21	6,1	11	19	Bundesliga
 Augsburg	BERNABE	CEN	par	22	6,43	15	21	Bundesliga
 Augsburg	ZIELINSKI	CEN	int	17	6,76	17	17	Bundesliga
@@ -1165,7 +1165,7 @@ Friburgo	EDERSON	CEN	ata	18	5,89	11	22	Bundesliga
 Friburgo	GAETANO	CEN	cag	20	6,35	14	12	Bundesliga
 Friburgo	GUENDOUZI	CEN	laz	16	6,38	13	16	Bundesliga
 Friburgo	LOBOTKA	CEN	nap	17	6,41	14	15	Bundesliga
-Friburgo	MALDINI	CEN	ata	6	5,75	3	15	Bundesliga
+Friburgo	MALDINI	CEN	laz	6	5,75	3	15	Bundesliga
 Friburgo	RICCI	CEN	mil	17	6,38	14	18	Bundesliga
 Friburgo	GIOVANE	ATT	nap	22	6,39	17	12	Bundesliga
 Friburgo	KRSTOVIC	ATT	ata	17	7,26	22	25	Bundesliga
@@ -1234,7 +1234,7 @@ Holstel Kiel	BRITSCHGI	DIF	par	17	5,79	8	8	Bundesliga
 Holstel Kiel	KALULU	DIF	juv	22	6,27	15	21	Bundesliga
 Holstel Kiel	AHANOR	DIF	ata	13	5,88	9	8	Bundesliga
 Holstel Kiel	MUHAREMOVIC	DIF	sas	19	6,18	12	11	Bundesliga
-Holstel Kiel	MALDINI	CEN	ata	6	5,75	3	6	Bundesliga
+Holstel Kiel	MALDINI	CEN	laz	6	5,75	3	6	Bundesliga
 Holstel Kiel	KONE KO.	CEN	rom	22	6,52	16	19	Bundesliga
 Holstel Kiel	ZANIOLO	CEN	udi	18	6,97	18	16	Bundesliga
 Holstel Kiel	BAILEY	CEN	rom	7	5,57	6	17	Bundesliga
@@ -1685,7 +1685,7 @@ Lorient	OLIVERA	DIF	nap	11	5,59	5	15	Ligue1
 Lorient	VEIGA	DIF	lec	20	5,58	6	5	Ligue1
 Lorient	BRADARIC	DIF	ver	18	5,67	7	6	Ligue1
 Lorient	ELLERTSSON	CEN	gen	20	6,05	11	5	Ligue1
-Lorient	MALDINI	CEN	ata	6	5,75	3	16	Ligue1
+Lorient	MALDINI	CEN	laz	6	5,75	3	16	Ligue1
 Lorient	ROWE	CEN	bol	13	5,92	11	18	Ligue1
 Lorient	CALHANOGLU	CEN	int	16	7,59	24	52	Ligue1
 Lorient	ATTA	CEN	udi	17	6,65	13	14	Ligue1
@@ -1741,7 +1741,7 @@ Metz	DELE-BASHIRU	CEN	laz	7	5,64	4	19	Ligue1
 Metz	THORSTVEDT	CEN	sas	16	6,34	12	21	Ligue1
 Metz	PULISIC	CEN	mil	16	7,88	25	102	Ligue1
 Metz	BOVE	CEN	rom	0	0	1	1	Ligue1
-Metz	MALDINI	CEN	ata	6	5,75	3	8	Ligue1
+Metz	MALDINI	CEN	laz	6	5,75	3	8	Ligue1
 Metz	ODGAARD	ATT	bol	15	6,73	16	34	Ligue1
 Metz	PINAMONTI	ATT	sas	21	6,29	16	80	Ligue1
 Metz	SCAMACCA	ATT	ata	15	7,17	22	138	Ligue1
@@ -1765,7 +1765,7 @@ Monaco	MCTOMINAY	CEN	nap	21	7,21	22	66	Ligue1
 Monaco	MKHITARYAN	CEN	int	16	6,25	13	15	Ligue1
 Monaco	ELLERTSSON	CEN	gen	20	6,05	11	6	Ligue1
 Monaco	ZALEWSKI	CEN	ata	16	6,38	13	18	Ligue1
-Monaco	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	8	Ligue1
+Monaco	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	8	Ligue1
 Monaco	PRATI	CEN	cag	20	5,83	8	6	Ligue1
 Monaco	BONAZZOLI	ATT	cre	19	6,82	20	31	Ligue1
 Monaco	ESPOSITO PIO	ATT	int	17	6,79	20	23	Ligue1
@@ -1814,7 +1814,7 @@ Nizza	ATTA	CEN	udi	17	6,65	13	12	Ligue1
 Nizza	PULISIC	CEN	mil	16	7,88	25	102	Ligue1
 Nizza	CARBONI	CEN	int	10	5,65	5	8	Ligue1
 Nizza	GAETANO	CEN	cag	20	6,35	14	12	Ligue1
-Nizza	MALDINI	CEN	ata	6	5,75	3	6	Ligue1
+Nizza	MALDINI	CEN	laz	6	5,75	3	6	Ligue1
 Nizza	PALESTRA	CEN	cag	21	6,43	15	6	Ligue1
 Nizza	THORSTVEDT	CEN	sas	16	6,34	12	14	Ligue1
 Nizza	IMMOBILE	ATT	bol	6	5,5	8	67	Ligue1
@@ -1866,7 +1866,7 @@ Psg	TOURE ID.	CEN	pis	20	5,93	10	7	Ligue1
 Psg	BAILEY	CEN	rom	7	5,57	6	30	Ligue1
 Psg	ROWE	CEN	bol	13	5,92	11	15	Ligue1
 Psg	ORISTANIO	CEN	par	12	5,71	7	14	Ligue1
-Psg	MALDINI	CEN	ata	6	5,75	3	19	Ligue1
+Psg	MALDINI	CEN	laz	6	5,75	3	19	Ligue1
 Psg	DZEKO	ATT	fio	9	5,44	8	21	Ligue1
 Psg	DOVBYK	ATT	rom	12	6,88	17	60	Ligue1
 Psg	IMMOBILE	ATT	bol	6	5,5	8	60	Ligue1
@@ -1914,7 +1914,7 @@ Rennes	BARELLA	CEN	int	22	6,5	16	22	Ligue1
 Rennes	FERGUSON LE.	CEN	bol	15	6	11	28	Ligue1
 Rennes	PASALIC	CEN	ata	19	6,24	12	18	Ligue1
 Rennes	STANCIU	CEN	gen	4	4,88	1	15	Ligue1
-Rennes	MALDINI	CEN	ata	6	5,75	3	10	Ligue1
+Rennes	MALDINI	CEN	laz	6	5,75	3	10	Ligue1
 Rennes	MKHITARYAN	CEN	int	16	6,25	13	30	Ligue1
 Rennes	FOFANA	CEN	mil	18	6,08	10	30	Ligue1
 Rennes	DOUVIKAS	ATT	com	20	7,25	23	20	Ligue1
@@ -1991,7 +1991,7 @@ Tolosa	ELMAS	CEN	nap	17	5,76	8	11	Ligue1
 Tolosa	KOOPMEINERS	CEN	juv	18	5,75	10	18	Ligue1
 Tolosa	ZANIOLO	CEN	udi	18	6,97	18	15	Ligue1
 Tolosa	MKHITARYAN	CEN	int	16	6,25	13	11	Ligue1
-Tolosa	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	12	Ligue1
+Tolosa	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	12	Ligue1
 Tolosa	BONAZZOLI	ATT	cre	19	6,82	20	28	Ligue1
 Tolosa	LAURIENTE	ATT	sas	21	6,45	18	25	Ligue1
 Tolosa	FERGUSON EV.	ATT	rom	15	6,63	18	68	Ligue1
@@ -2041,7 +2041,7 @@ Bologna	FRENDRUP	CEN	gen	21	5,98	11	10	Serie A
 Bologna	NICO PAZ	CEN	com	22	7,64	26	62	Serie A
 Bologna	EL AYNAOUI	CEN	rom	9	5,72	5	24	Serie A
 Bologna	PULISIC	CEN	mil	16	7,88	25	111	Serie A
-Bologna	MALDINI	CEN	ata	6	5,75	3	8	Serie A
+Bologna	MALDINI	CEN	laz	6	5,75	3	8	Serie A
 Bologna	GIMENEZ	ATT	mil	9	5,78	5	36	Serie A
 Bologna	FERGUSON EV.	ATT	rom	15	6,63	18	62	Serie A
 Bologna	PELLEGRINO	ATT	par	22	6,82	21	41	Serie A
@@ -2137,7 +2137,7 @@ Fiorentina	BRITSCHGI	DIF	par	17	5,79	8	8	Serie A
 Fiorentina	BAILEY	CEN	rom	7	5,57	6	24	Serie A
 Fiorentina	SERDAR	CEN	ver	16	6,19	10	9	Serie A
 Fiorentina	NICO PAZ	CEN	com	22	7,64	26	74	Serie A
-Fiorentina	NICOLUSSI CAVIGLIA	CEN	fio	9	5,78	4	14	Serie A
+Fiorentina	NICOLUSSI CAVIGLIA	CEN	par	9	5,78	4	14	Serie A
 Fiorentina	EKKELENKAMP	CEN	udi	18	6,14	11	14	Serie A
 Fiorentina	SAMARDZIC	CEN	ata	14	6,21	12	23	Serie A
 Fiorentina	RABIOT	CEN	mil	15	7,2	16	49	Serie A
@@ -2341,7 +2341,7 @@ Parma	SUCIC	CEN	int	15	6,13	10	11	Serie A
 Parma	ZHEGROVA	CEN	juv	8	5,75	8	32	Serie A
 Parma	ELLERTSSON	CEN	gen	20	6,05	11	5	Serie A
 Parma	ADDAI	CEN	com	10	6,65	9	18	Serie A
-Parma	MALDINI	CEN	ata	6	5,75	3	12	Serie A
+Parma	MALDINI	CEN	laz	6	5,75	3	12	Serie A
 Parma	COLOMBO	ATT	gen	21	6,48	19	19	Serie A
 Parma	FERGUSON EV.	ATT	rom	15	6,63	18	57	Serie A
 Parma	ORBAN	ATT	ver	19	7	21	24	Serie A
