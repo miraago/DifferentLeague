@@ -1,27 +1,27 @@
 ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	Media recente	Media pagella	Media recente pagella	Somma bonus malus	Somma bonus malus ultime 5
 5739	ASTALDI	parma	P	P		1							
-353	AUDERO	cremonese	P	P		16	18	5,31	5	6,36	6,2	-19	-6
-6025	BIJLOW	genoa	P	P		12	1	4,5	4,5	6,5	6,5	-2	-2
+353	AUDERO	cremonese	P	P		16	18	5,31	5	6,36	6,2	-21	-7
+6025	BIJLOW	genoa	P	P		12	1	4,5	4,5	6,5	6,5	-5	-5
 483	BOER		P	P	*	1							
 421	BORBEI		P	P	*	1							
 532	BREZZO		P	P	*	1							
-355	BUTEZ	como	P	P		22	22	5,64	6,7	6,25	6,3	-13,5	2
-69	CAPRILE	cagliari	P	P		16	22	4,93	4,7	6,39	6,2	-32	-7,5
-1	CARNESECCHI	atalanta	P	P		22	22	5,66	6,5	6,43	6,7	-17	-1
+355	BUTEZ	como	P	P		22	22	5,64	6,7	6,25	6,3	-14	1,5
+69	CAPRILE	cagliari	P	P		16	22	4,93	4,7	6,39	6,2	-32	-6,5
+1	CARNESECCHI	atalanta	P	P		22	22	5,66	6,5	6,43	6,7	-14	2
 4370	CAVLINA	como	P	P		1							
 283	CHICHIZOLA		P	P	*	1							
 4305	CHIESA	verona	P	P		1							
 104	CHRISTENSEN	fiorentina	P	P		1							
 70	CIOCCI	cagliari	P	P		1							
 530	CONTINI	napoli	P	P		1							
-284	CORVI	parma	P	P		8	10	4,95	4,5	6,2	6,1	-12,5	-8
+284	CORVI	parma	P	P		8	10	4,95	4,5	6,2	6,1	-16,5	-11
 206	DAFFARA		P	P	*	1							
-105	DE GEA	fiorentina	P	P		16	22	4,89	5,1	6,25	6,3	-30	-6
+105	DE GEA	fiorentina	P	P		16	22	4,89	5,1	6,25	6,3	-32	-8
 458	DEVIS VASQUEZ	roma	P	P		1							
 165	DI GENNARO	inter	P	P		1							
-207	DI GREGORIO	juventus	P	P		21	19	5,55	6,25	6,32	6,5	-14,5	-1
+207	DI GREGORIO	juventus	P	P		21	19	5,55	6,25	6,32	6,5	-15,5	-2
 533	DONNARUMMA		P	P	*	1							
-422	FALCONE	lecce	P	P		18	22	5,32	5,7	6,41	6,4	-24	-3,5
+422	FALCONE	lecce	P	P		18	22	5,32	5,7	6,41	6,4	-25	-6
 5771	FERRANTE	napoli	P	P		1							
 423	FRUCHTL	lecce	P	P		1							
 528	FULIGNATI		P	P	*	9							
@@ -49,22 +49,22 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 349	MONTIPO	verona	P	P		12	20	4,48	3,83	6,03	5,83	-31	-12
 286	MORETTA		P	P	*	1							
 6061	MOTTA	lazio	P	P		1							
-4144	MURIC	sassuolo	P	P		15	21	5,05	4,9	6,38	6,4	-28	-7,5
+4144	MURIC	sassuolo	P	P		15	21	5,05	4,9	6,38	6,4	-29	-7,5
 763	NAVA	cremonese	P	P		1							
 1082	NICOLAS	pisa	P	P		1							
 4013	NUNZIANTE	udinese	P	P		1							
-653	OKOYE	udinese	P	P		14	14	4,93	5,25	6,07	6,5	-16	-6
+653	OKOYE	udinese	P	P		14	14	4,93	5,25	6,07	6,5	-16	-5
 654	PADELLI	udinese	P	P		2	2	5,25	5,5	6,25	6,5	-2	-2
-1083	PALEARI	torino	P	P		8	13	4,46	3,6	6,19	6,1	-22,5	-12,5
+1083	PALEARI	torino	P	P		8	13	4,46	3,6	6,19	6,1	-22,5	-12
 534	PASSADOR		P	P	*	1							
 4012	PENEV	lecce	P	P		1							
-350	PERILLI	verona	P	P		1	2	4,5	4,5	6	6	-3	-3
+350	PERILLI	verona	P	P		1	2	4,5	4,5	6	6	-7	-7
 209	PERIN	juventus	P	P		2	3	5,17	5	6,17	6	-3	-3
 4261	PESSINA	bologna	P	P		1	1	6,5		6,5	-1	0	0
 655	PIANA		P	P	*	1							
 210	PINSOGLIO	juventus	P	P		1							
 535	POPA		P	P	*	1							
-419	PROVEDEL	lazio	P	P		22	22	5,7	5,5	6,43	6,3	-16	-4
+419	PROVEDEL	lazio	P	P		22	22	5,7	5,5	6,43	6,3	-18,5	-4,5
 753	RADUNOVIC		P	P	*	1							
 167	RAIMONDI		P	P	*	1							
 32	RAVAGLIA	bologna	P	P		8	12	4,63	3,9	6,29	6,2	-20	-11,5
@@ -76,18 +76,19 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 487	SARO		P	P	*	1							
 606	SATALINO	sassuolo	P	P		1							
 656	SAVA	udinese	P	P		3	7	4		6,07	-1	-14,5	-12
-1092	SCUFFET	pisa	P	P		3	5	3,8	3,33	6,2	6,33	-12	-12
+1092	SCUFFET	pisa	P	P		3	5	3,8	3,33	6,2	6,33	-15	-13
 1089	SEMPER	pisa	P	P		12	17	4,82	4,25	6,29	6,25	-25	-9
 5855	SHERRI	cagliari	P	P		1							
 140	SIEGRIST	genoa	P	P		1							
 4143	SILVESTRI	cremonese	P	P		2	4	4,5		6,25	-1	-7	-7
+6246	SIVIERO	torino	P	P		1							
 33	SKORUPSKI	bologna	P	P		10	10	5	3,5	5,95	4,5	-9,5	-4
 1058	SOMMARIVA	genoa	P	P		1	2	4		6	-1	-4	-4
-168	SOMMER	inter	P	P		20	20	5,33	5,1	6,23	6,1	-18	-5
+168	SOMMER	inter	P	P		20	20	5,33	5,1	6,23	6,1	-18	-4
 3	SPORTIELLO	atalanta	P	P		1							
 287	SUZUKI	parma	P	P		10	11	5,27		6,32	-1	-11,5	-4
 4262	SVETOZAROV ILIEV		P	P	*	1							
-318	SVILAR	roma	P	P		23	22	5,8	5,7	6,39	6,1	-13	-2
+318	SVILAR	roma	P	P		23	22	5,8	5,7	6,39	6,1	-14	-2
 1072	TERRACCIANO PI.	milan	P	P		1	2	6,25		6,25	-1	0	0
 749	THOMAS GILLIER		P	P	*	1							
 489	TOMMASI		P	P	*	1							
@@ -104,7 +105,7 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 319	ABDUL HAMID		D	E	*	8							
 169	ACERBI	inter	D	D		10	12	6,13	6	6,13	6	0	0,5
 425	ADDO		D	D	*	1							
-4	AHANOR	atalanta	D	E		9	13	5,88	6,3	5,88	6,3	0	0
+4	AHANOR	atalanta	D	E		9	13	5,88	6,3	5,88	6,3	-2	-2
 4463	AKANJI	inter	D	D		12	20	6,1	6,2	6,18	6,2	-1,5	0
 4487	ALBIOL	pisa	D	D		5	6	5,75	6	5,83	6	-0,5	-0,5
 1090	AMORAN		D	D	*	1							
@@ -118,11 +119,11 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 141	BANI		D	D	*	7							
 490	BARBIERI	cremonese	D	E		7	16	5,75	5,5	5,84	5,63	-1,5	-1
 1073	BARTESAGHI	milan	D	E		12	17	6,44	5,88	6,12	5,88	5,5	0
-426	BASCHIROTTO	cremonese	D	D		11	22	6,18	5,5	5,93	5,5	5,5	0
+426	BASCHIROTTO	cremonese	D	D		11	22	6,18	5,5	5,93	5,5	5	-0,5
 170	BASTONI	inter	D	D		18	19	6,63	6,67	6,34	6,5	5,5	0
 4224	BELGHALI	verona	D	E		9	15	6,2		5,97	-1	3,5	5,5
 4332	BELLA-KOTCHAP	verona	D	D		5	13	5,58	5,33	5,69	5,67	-1,5	-1
-13	BELLANOVA	atalanta	D	E		5	12	5,83		5,75	-1	1	1
+13	BELLANOVA	atalanta	D	E		5	12	5,83		5,75	-1	0,5	0,5
 4281	BERNASCONI	atalanta	D	E		9	11	6,05	6,5	6	6,3	0,5	1
 658	BERTOLA	udinese	D	D		9	17	5,82	5,88	5,82	5,88	0	0
 572	BERUATTO		D	E	*	3							
@@ -135,26 +136,26 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 750	BONIFAZI	bologna	D	D		1							
 5977	BOZHINOV	pisa	D	D		6							
 3896	BRADARIC	verona	D	E		7	18	5,67	5,75	5,72	5,88	-1	-0,5
-211	BREMER	juventus	D	D		12	12	6,58	6,9	6,17	6,3	5	3
+211	BREMER	juventus	D	D		12	12	6,58	6,9	6,17	6,3	10,5	8,5
 4316	BRITSCHGI	parma	D	E		8	17	5,79	5,5	5,76	5,5	0,5	0
-246	BUONGIORNO	napoli	D	D		10	18	5,94	5,75	5,92	5,75	0,5	0
-217	CABAL	juventus	D	E		10	7	6,79	6	6	6	5,5	2,5
+246	BUONGIORNO	napoli	D	D		10	18	5,94	5,75	5,92	5,75	0	-0,5
+217	CABAL	juventus	D	E		10	7	6,79	6	6	6	5,5	3
 352	CALABRESE		D	D	*	2							
 573	CALABRESI	pisa	D	E		5	16	5,53	5,38	5,69	5,63	-2,5	-1
 35	CALABRIA		D	E	*	8							
-212	CAMBIASO	juventus	D	E		10	20	6	5,6	5,83	5,6	3,5	0
+212	CAMBIASO	juventus	D	E		10	20	6	5,6	5,83	5,6	1,5	-2
 3985	CANDE	sassuolo	D	D		4	9	5,56		5,67	-1	-1	-1
-574	CANESTRELLI	pisa	D	D		8	22	5,75	5,5	5,8	5,6	-1	-0,5
-575	CARACCIOLO	pisa	D	D		6	20	5,65	5,5	5,78	5,67	-2,5	-1
+574	CANESTRELLI	pisa	D	D		8	22	5,75	5,5	5,8	5,6	-1	0
+575	CARACCIOLO	pisa	D	D		6	20	5,65	5,5	5,78	5,67	-4,5	-3
 6130	CARBONI FR.	parma	D	E		2							
 172	CARLOS AUGUSTO	inter	D	E		11	17	6,06	5,75	5,91	6	2,5	-1
 36	CASALE	bologna	D	D		3	7	5,57	5,67	5,57	5,67	0	0
 360	CASSANDRO		D	E	*	3							
-492	CECCHERINI	cremonese	D	D		2	5	5,4	6	5,6	6	-1	-1
+492	CECCHERINI	cremonese	D	D		2	5	5,4	6	5,6	6	-1,5	-1,5
 322	CELIK	roma	D	D		11	18	6,06	6,13	5,92	6,13	2,5	0
 4319	CHAM	verona	D	E		1	4	5,63		5,63	-1	0	0
 609	CINQUEGRANO		D	D	*	1							
-289	CIRCATI	parma	D	D		8	17	6,03	5,3	5,94	5,5	1,5	-1
+289	CIRCATI	parma	D	D		8	17	6,03	5,3	5,94	5,5	1	-1
 543	COCO	torino	D	D		10	19	6,08	5,5	5,92	5,6	3	-0,5
 107	COMUZZO	fiorentina	D	D		9	16	5,84	6,6	5,69	6,1	2,5	2,5
 576	COPPOLA	pisa	D	D		1	3	4,83	4,83	5,17	5,17	-1	-1
@@ -174,14 +175,15 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 248	DI LORENZO	napoli	D	E		13	22	6,2	6,6	6,05	6	3,5	3
 76	DI PARDO		D	E	*	1	1	5,5		5,5	-1	0	0
 4458	DIEGO CARLOS	como	D	D		9	15	5,83	6,25	5,93	6,25	-1,5	-0,5
-175	DIMARCO	inter	D	E		27	20	7,55	9,3	6,43	6,9	22,5	12
+175	DIMARCO	inter	D	E		27	20	7,55	9,3	6,43	6,9	23,5	12
 1069	DJALO		D	D	*	4							
 7	DJIMSITI	atalanta	D	D		8	19	5,79	6	5,82	6	-0,5	0
-108	DODO	fiorentina	D	E		10	22	5,82	6,1	5,8	6	0,5	0,5
+108	DODO	fiorentina	D	E		10	22	5,82	6,1	5,8	6	0,5	1
 610	DOIG	sassuolo	D	E		8	20	5,68	5,7	5,78	5,7	-2	0
 362	DOSSENA	cagliari	D	E		1							
 176	DUMFRIES	inter	D	E		5	11	6		5,77	-1	2,5	-0,5
-687	EBOSSE	verona	D	D		1	3	5,33	5,75	5,33	5,75	0	0
+687	EBOSSE	torino	D	D		1	3	5,33	5,75	5,33	5,75	0	0
+6171	EDMUNDSSON	verona	D	D		6							
 659	EHIZIBUE	udinese	D	E		5	13	5,46	5,38	5,54	5,5	-1	-0,5
 462	EMERSON ROYAL		D	E	*	7							
 39	ERLIC		D	D	*	5							
@@ -196,41 +198,42 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 493	FOLINO	cremonese	D	D		7	5	6,7	6	6,1	6	3	3
 177	FONTANAROSA		D	D	*	1							
 109	FORTINI	fiorentina	D	E		7	13	5,77	5,75	5,77	5,75	0	0
-688	FRESE	verona	D	E		7	17	5,74	6,83	5,82	5,83	-1,5	2
+688	FRESE	verona	D	E		7	17	5,74	6,83	5,82	5,83	-1,5	2,5
 463	GABBIA	milan	D	D		11	21	6,05	6	6,12	6,1	-1,5	-0,5
 428	GALLO	lecce	D	E		8	22	5,73	5,7	5,73	5,7	0	0
+6244	GARCIA LOPES	sassuolo	D	E		6							
 429	GASPAR	lecce	D	D		6	18	5,58	5	5,81	5,5	-4	-2
-215	GATTI	juventus	D	D		4	10	6,15		6	-1	1,5	2,5
+215	GATTI	juventus	D	D		4	10	6,15		6	-1	1,5	3
 689	GHILARDI	roma	D	D		6	6	6,08	6,38	6,08	6,38	0	0
 660	GIANETTI		D	D	*	7							
 390	GIGOT	lazio	D	D		1							
 216	GIL PUCHE		D	D	*	1							
 1458	GILA	lazio	D	D		9	21	5,86	5,7	5,95	5,7	-2	0
 8	GODFREY		D	D	*	6							
-3949	GOGLICHIDZE	udinese	D	D		2	6	5,67		5,83	-1	-1	-1
+3949	GOGLICHIDZE		D	D	*	2	6	5,67		5,83	-1	-1	-1
 364	GOLDANIGA	como	D	D		1							
 1068	GONZALEZ FA.		D	D	*	6							
 110	GOSENS	fiorentina	D	E		9	15	6,07	6,5	5,73	6	5	2,5
 430	GUILBERT		D	E	*	1							
-4222	GUTIERREZ	napoli	D	E		6	8	5,69	5,5	5,69	5,5	0	0
+4222	GUTIERREZ	napoli	D	E		6	8	5,69	5,5	5,69	5,5	3	3
 293	HAINAUT		D	E	*	6							
 538	HAVERI		D	D	*	2							
 4109	HEGGEM	bologna	D	D		8	19	5,84	5,5	5,89	5,5	-1	0
 5998	HELLAND	bologna	D	D		6							
 324	HERMOSO	roma	D	D		10	16	6	5,67	6	6	0	-1
 9	HIEN	atalanta	D	D		10	20	5,88	5,8	5,9	5,8	-0,5	0
-40	HOLM	bologna	D	E		11	10	6,5	5	5,95	5,25	5,5	-0,5
+40	HOLM	juventus	D	E		11	10	6,5	5	5,95	5,25	5,5	-0,5
 391	HYSAJ	lazio	D	E		1	3	5,83	6	5,83	6	0	0
-757	IDRISSI	cagliari	D	E		10	16	6	5,63	5,88	5,75	2	-0,5
+757	IDRISSI	cagliari	D	E		10	16	6	5,63	5,88	5,75	5	2,5
 3986	IDZES	sassuolo	D	D		9	21	5,83	5,6	5,86	5,6	-0,5	0
 41	ILIC		D	D	*	3							
 539	ISMAJLI	torino	D	D		8	15	5,83	5,8	5,87	5,7	-0,5	0,5
 431	JEAN	lecce	D	D		1							
 461	JIMENEZ		D	E	*	8	1	5		5,5	-1	-0,5	-0,5
-1460	JOAO MARIO	juventus	D	E		3	7	5,86	6	5,93	6	-0,5	0
-249	JUAN JESUS	napoli	D	D		7	14	5,75	5,63	5,96	5,88	-3	-1,5
-1074	KABASELE	udinese	D	D		11	15	6,23	6,5	5,93	5,88	4,5	2
-218	KALULU	juventus	D	D		15	22	6,27	6,5	6,07	6,3	4,5	1
+1460	JOAO MARIO	bologna	D	E		3	7	5,86	6	5,93	6	-0,5	0
+249	JUAN JESUS	napoli	D	D		7	14	5,75	5,63	5,96	5,88	-3	-1
+1074	KABASELE	udinese	D	D		11	15	6,23	6,5	5,93	5,88	4,5	2,5
+218	KALULU	juventus	D	D		15	22	6,27	6,5	6,07	6,3	5,5	2
 661	KAMARA	udinese	D	E		7	15	5,73	5,38	5,77	5,5	-0,5	-0,5
 392	KAMENOVIC		D	E	*	1							
 219	KELLY	juventus	D	D		13	19	6,21	6,25	6,13	6,25	1,5	0
@@ -239,9 +242,9 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 4272	KOSPO	fiorentina	D	D		1							
 11	KOSSOUNOU	atalanta	D	D		7	10	6,1		5,8	-1	3	3
 4299	KOUADIO	fiorentina	D	D		1	2	5,75		5,75	-1	0	0
-434	KOUASSI	lecce	D	D		1	4	5,38		5,38	-1	0	0
+434	KOUASSI		D	D	*	1	4	5,38		5,38	-1	0	0
 761	KOVACIK		D	E	*	5							
-662	KRISTENSEN	udinese	D	D		8	12	6,08	5,88	5,88	6	2,5	-0,5
+662	KRISTENSEN	udinese	D	D		8	12	6,08	5,88	5,88	6	2	-1
 484	KUMBULLA		D	D	*	2							
 4404	LAMPTEY	fiorentina	D	E		1	1	5,5		5,5	-1	0	0
 405	LAZZARI	lazio	D	E		6	12	5,63	5,6	5,71	5,6	-1	0
@@ -249,47 +252,49 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 6001	LIROLA	verona	D	E		6	1	5	5	5,5	5,5	-0,5	-0,5
 295	LOVIK		D	E	*	3	6	5,67		5,67	-1	0	0
 42	LUCUMI	bologna	D	D		10	14	6,07	5,5	5,93	5,5	2	0
-78	LUPERTO	cagliari	D	D		10	18	5,97	5,6	5,89	5,8	1,5	-1
-577	LUSUARDI	pisa	D	D		1	3	5,33		5,5	-1	-0,5	-0,5
+6150	LUIS BALBO	fiorentina	D	E		1							
+78	LUPERTO	cremonese	D	D		10	18	5,97	5,6	5,89	5,8	1,5	-1
+577	LUSUARDI		D	D	*	1	3	5,33		5,5	-1	-0,5	-0,5
 43	LYKOGIANNIS	bologna	D	E		4	7	5,71	6	5,79	5,75	-0,5	-0,5
-326	MANCINI	roma	D	D		11	21	6	6	6,1	6,25	-2	-1
+326	MANCINI	roma	D	D		11	21	6	6	6,1	6,25	-2,5	-1,5
 485	MANNINI		D	E	*	1							
 1059	MARCANDALLI	genoa	D	D		9	15	5,9	6,63	5,87	6,25	0,5	1,5
 112	MARI		D	D	*	2	10	5,35		5,5	-1	-1,5	-0,5
-250	MARIANUCCI	napoli	D	D		1	2	6,25	7	5,75	6	1	1
+250	MARIANUCCI	torino	D	D		1	2	6,25	7	5,75	6	1	1
 540	MARIPAN	torino	D	D		10	20	5,98	5,5	5,85	5,5	2,5	0
 143	MARTIN	genoa	D	E		14	18	6,33	6,3	6	6,1	6	1
 393	MARUSIC	lazio	D	E		8	20	5,78	5	5,8	5,25	-0,5	-1
-541	MASINA	torino	D	D		2	5	5,5		5,3	-1	1	1
+541	MASINA		D	D	*	2	5	5,5		5,3	-1	1	1
 251	MAZZOCCHI	napoli	D	E		2	4	5,38	5	5,63	5,5	-1	-1
 4929	MBAMBI		D	D	*	1							
-84	MINA	cagliari	D	D		9	14	6	5,67	5,89	5,83	1,5	-1,5
+84	MINA	cagliari	D	D		9	14	6	5,67	5,89	5,83	1,5	-1
 44	MIRANDA	bologna	D	E		10	17	6	5,5	5,97	5,67	0,5	-0,5
 611	MIRANDA KE.		D	D	*	4							
 612	MISSORI		D	E	*	6							
+6245	MLACIC	udinese	D	D		4							
 220	MONTERO		D	D	*	2							
 367	MORENO	como	D	E		10	8	6,44	6	6,13	6	2,5	0
 496	MORETTI		D	D	*	2							
 613	MUHAREMOVIC	sassuolo	D	D		12	19	6,18	5,3	6,08	5,7	2	-2
 1084	MULLEN		D	D	*	3							
-327	N'DICKA	roma	D	D		8	17	5,88	6,25	5,97	6,25	-1,5	-0,5
+327	N'DICKA	roma	D	D		8	17	5,88	6,25	5,97	6,25	-2	-0,5
 542	N'GUESSAN		D	D	*	1							
 1674	NDABA	lecce	D	E		4	6	5,75	5,67	5,75	5,67	0	0
 497	NDIAYE		D	D	*	5							
 3894	NDIAYE NI.	parma	D	D		1	7	5,29		5,57	-1	-2	-2
 4304	NELSSON	verona	D	D		6	22	5,57	5,1	5,73	5,5	-3,5	-2
 4409	NKOUNKOU	torino	D	E		5	6	5,83		5,83	-1	0	0,5
-144	NORTON-CUFFY	genoa	D	D		10	20	5,98	5,88	5,88	5,88	2	0
+144	NORTON-CUFFY	genoa	D	D		10	20	5,98	5,88	5,88	5,88	1,5	-0,5
 1464	NUNEZ		D	D	*	6	17	5,5	5,67	5,76	5,67	-4,5	-0,5
 395	NUNO TAVARES	lazio	D	E		3	9	5,67		5,72	-1	-0,5	-0,5
 252	OBARETIN		D	D	*	1							
-79	OBERT	cagliari	D	D		9	19	5,79	5,9	5,92	6	-2,5	-0,5
+79	OBERT	cagliari	D	D		9	19	5,79	5,9	5,92	6	-1,5	0,5
 6000	OBRADOR	torino	D	E		4	1	5,5	5,5	5,5	5,5	0	0
-614	ODENTHAL	sassuolo	D	D		1							
+614	ODENTHAL		D	D	*	1							
 4466	ODOGU	milan	D	D		1							
 253	OLIVERA	napoli	D	E		5	11	5,59		5,68	-1	-1	-0,5
 300	OSORIO		D	D	*	7							
-1859	OSTIGARD	genoa	D	D		15	16	6,75	7,13	6,09	6,5	10,5	2,5
+1859	OSTIGARD	genoa	D	D		15	16	6,75	7,13	6,09	6,5	10	2
 145	OTOA	genoa	D	D		3	7	5,43	5	5,79	6	-2,5	-2
 690	OYEGOKE	verona	D	E		1	2	5	5	5	5	0	0
 178	PALACIOS		D	D	*	1							
@@ -298,20 +303,22 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 396	PATRIC	lazio	D	D		1	2	6		6	-1	0	0
 179	PAVARD		D	D	*	11	1	6,5		6,5	-1	0	0
 464	PAVLOVIC	milan	D	D		14	18	6,44	5,5	6,11	5,75	6	-0,5
-615	PAZ YE.	sassuolo	D	E		1							
-397	PELLEGRINI LU.	lazio	D	E		7	18	5,61	5,3	5,72	5,5	-2	-1
+615	PAZ YE.		D	E	*	1							
+6179	PEDRO FELIPE	sassuolo	D	D		1							
+397	PELLEGRINI LU.	lazio	D	E		7	18	5,61	5,3	5,72	5,5	-2,5	-1,5
 432	PEREZ MA.	lecce	D	E		1	1	6	6	6	6	0	0
 1459	PEZZELLA	cremonese	D	E		5	16	5,63	5,25	5,75	5,5	-2	-1
 616	PIERAGNOLO	sassuolo	D	E		1							
-82	PINTUS	cagliari	D	D		1							
+82	PINTUS		D	D	*	1							
 114	PONGRACIC	fiorentina	D	D		7	20	5,6	5,7	5,8	5,9	-4	-1
 664	PONTES ESTEVES		D	D	*	3							
 45	POSCH		D	D	*	8	8	6,19	5,75	5,88	6	2,5	-0,5
 578	PRIMASSO		D	D	*	1							
 394	PROVSTGAARD	lazio	D	D		4	7	5,79	5	5,86	5,5	-0,5	-0,5
 499	QUAGLIATA		D	E	*	6							
-3846	RAMON	como	D	D		13	19	6,18	6,38	6,08	6,5	2	2,5
+3846	RAMON	como	D	D		13	19	6,18	6,38	6,08	6,5	2	-0,5
 115	RANIERI	fiorentina	D	D		7	17	5,76	6	5,74	6	0,5	-0,5
+6149	RATERINK	cagliari	D	E		4							
 500	RAVANELLI		D	D	*	6							
 330	RENSCH	roma	D	E		7	7	6,07	6,5	5,93	6	1	1
 691	RIGO		D	D	*	1							
@@ -320,33 +327,33 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 4402	RODRIGUEZ JU.	cagliari	D	D		2	6	5,42	5	5,58	5,17	-1	-1
 617	ROMAGNA	sassuolo	D	D		1	3	5,67		5,67	-1	0	0
 398	ROMAGNOLI	lazio	D	D		9	20	5,8	5,8	5,9	5,9	-2	-0,5
-222	ROUHI	juventus	D	D		1							
+222	ROUHI		D	D	*	1							
 254	RRAHMANI	napoli	D	D		13	14	6,32	6,63	6,18	6,13	2	2
 618	RUAN		D	D	*	6							
-223	RUGANI	juventus	D	D		2	4	5,63		5,63	-1	0	0
+223	RUGANI	fiorentina	D	D		2	4	5,63		5,63	-1	0	0
 399	RUGGERI		D	D	*	1							
 579	RUS		D	D	*	6							
 146	SABELLI	genoa	D	E		1	5	5,1	6	5,5	6	-2	-2
 368	SALA MA.		D	E	*	1							
 603	SALAH-EDDINE		D	E	*	8							
-321	SANGARE	roma	D	D		1							
+321	SANGARE		D	D	*	1							
 224	SAVONA		D	E	*	6							
 729	SAZONOV	torino	D	D		1							
-12	SCALVINI	atalanta	D	D		10	9	6,94	7	6,33	6,5	5,5	2,5
+12	SCALVINI	atalanta	D	D		10	9	6,94	7	6,33	6,5	5,5	-0,5
 544	SCHUURS	torino	D	D		1							
 435	SCOTT		D	D	*	6							
 4301	SIEBERT	lecce	D	D		2	5	5,5	6	5,5	6	0	0
 692	SLOTSAGER	verona	D	D		1	3	5,83	5,75	5,83	5,75	0	0
 369	SMOLCIC	como	D	E		5	14	5,54	5,5	5,79	5,67	-3,5	-1
 665	SOLET	udinese	D	D		12	22	6,02	6,1	5,93	6,1	2	0
-255	SPINAZZOLA	napoli	D	E		14	17	6,47	6,7	6,03	6,1	7,5	3
+255	SPINAZZOLA	napoli	D	E		14	17	6,47	6,7	6,03	6,1	7,5	0
 180	STABILE		D	D	*	1							
 181	STANTE		D	D	*	1							
 693	TCHATCHOUA		D	E	*	9							
 6062	TCHOCA		D	D	*	5							
 465	TERRACCIANO FI.	cremonese	D	E		11	21	6,07	5,2	5,95	5,6	2,5	-2
 466	THIAW		D	D	*	10							
-436	TIAGO GABRIEL	lecce	D	D		9	22	5,82	5,3	5,82	5,8	0	-2,5
+436	TIAGO GABRIEL	lecce	D	D		9	22	5,82	5,3	5,82	5,8	-0,5	-3
 467	TOMORI	milan	D	D		12	18	6,14	6	6,14	6,13	0	-0,5
 296	TRABUCCHI		D	D	*	1							
 4302	TROILO	parma	D	D		2	6	5,33	5,5	5,58	5,5	-1,5	-1,5
@@ -367,24 +374,24 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 751	VITIK	bologna	D	D		6	11	5,68	5,38	5,82	5,5	-1,5	-0,5
 299	VOGLIACCO		D	D	*	6							
 372	VOJVODA	como	D	E		11	18	6,06	5,9	5,83	5,9	4	0
-545	WALUKIEWICZ	sassuolo	D	D		10	21	5,86	6	5,9	5,9	-1	0,5
+545	WALUKIEWICZ	sassuolo	D	D		10	21	5,86	6	5,9	5,9	-1	0
 1675	WESLEY	roma	D	E		15	20	6,48	6,1	6,13	6,1	7	0
 83	WIETESKA		D	D	*	6							
 148	ZANOLI	udinese	D	E		11	19	6,03	6,8	5,79	6	4,5	4
-85	ZAPPA	cagliari	D	E		8	19	5,79	5,5	5,74	5,5	1	0
+85	ZAPPA	cagliari	D	E		8	19	5,79	5,5	5,74	5,5	2	1
 23	ZAPPACOSTA	atalanta	D	E		12	19	5,97	6,3	5,92	6,3	1	0
 6060	ZATTERSTROM	genoa	D	D		4							
 4457	ZE PEDRO	cagliari	D	D		3	7	5,71	6,25	5,79	6,5	-0,5	-0,5
-666	ZEMURA	udinese	D	E		4	9	5,78	7,5	5,72	6,5	0,5	1
+666	ZEMURA	udinese	D	E		4	9	5,78	7,5	5,72	6,5	0	0,5
 4408	ZIOLKOWSKI	roma	D	D		5	7	5,71	6	5,86	6	-1	-0,5
 95	ZORTEA	bologna	D	E		10	17	5,94	5,7	5,91	5,8	0,5	-0,5
 732	ABILDGAARD		C	C	*	2							
 619	ABUBAKAR		C	C	*	2							
-772	ADDAI	como	C	T		9	10	6,65		5,9	-1	7,5	5
+772	ADDAI	como	C	T		9	10	6,65		5,9	-1	7	5
 468	ADLI		C	C	*	10							
 86	ADOPO	cagliari	C	C		11	22	6,02	6,7	5,89	6,2	3	2,5
 227	ADZIC	juventus	C	T		5	6	6,5	5,75	6	5,75	3	0
-46	AEBISCHER	pisa	C	C		10	21	5,88	5,9	5,93	5,8	-1	0,5
+46	AEBISCHER	pisa	C	C		10	21	5,88	5,9	5,93	5,8	2	3,5
 767	AFENA-GYAN		C	T	*	8							
 183	AKINSANMIRO	pisa	C	C		6	13	5,92	4,5	5,92	5	0	-0,5
 5369	AKPA AKPRO	verona	C	C		3	9	5,5		5,72	-1	-2	-1
@@ -396,16 +403,17 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 1060	ARAMU		C	T	*	1							
 5885	ARIZALA	udinese	C	C		5							
 1070	ARTHUR MELO		C	C	*	3							
-184	ASLLANI	torino	C	C		6	15	5,6		5,9	-1	-4,5	-3
-667	ATTA	udinese	C	C		13	17	6,65	7,13	6,18	6,13	8	3,5
+184	ASLLANI		C	C	*	6	15	5,6		5,9	-1	-4,5	-3
+667	ATTA	udinese	C	C		13	17	6,65	7,13	6,18	6,13	8	4
 4223	BAILEY		C	T	*	6	7	5,57		5,57	-1	0	0
+6180	BAKOLA	sassuolo	C	T		4							
 332	BALDANZI	genoa	C	T		6	9	5,94		5,72	-1	2	2,5
 668	BALLARINI		C	C	*	1							
 773	BALLET		C	T	*	11							
 119	BARAK		C	T	*	8							
 185	BARELLA	inter	C	C		16	22	6,5	6,2	6,23	6,2	6	0
 400	BASIC	lazio	C	C		10	14	6,29	5,83	6	5,83	4	-1
-770	BATURINA	como	C	T		19	11	7,45	9,5	6,09	6,75	15	12
+770	BATURINA	como	C	T		19	11	7,45	9,5	6,09	6,75	15	11
 547	BAYEYE		C	C	*	1							
 401	BELAHYANE	lazio	C	C		4	8	5,5	5,5	5,56	5,5	-0,5	0
 469	BENNACER		C	C	*	11							
@@ -419,7 +427,7 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 333	BOVE		C	C	*	1							
 766	BRAMBILLA		C	C	*	2							
 733	BRAUNODER		C	C	*	6							
-14	BRESCIANINI	fiorentina	C	C		8	8	6,69	6,63	6	5,88	5,5	2,5
+14	BRESCIANINI	fiorentina	C	C		8	8	6,69	6,63	6	5,88	5,5	3
 186	BUCHANAN		C	C	*	6							
 256	CAJUSTE		C	C	*	2							
 187	CALHANOGLU	inter	C	C		24	16	7,59	7,5	6,47	6,5	18	6
@@ -430,43 +438,43 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 149	CARBONI		C	T	*	5	10	5,65		5,75	-1	-1	-0,5
 548	CASADEI	torino	C	C		10	19	6,03	7,25	5,84	5,88	3,5	5,5
 503	CASTAGNETTI		C	C	*	9							
-402	CATALDI	lazio	C	C		12	19	6,29	6,5	6	6	5,5	1,5
+402	CATALDI	lazio	C	C		12	19	6,29	6,5	6	6	8,5	5
 759	CAVUOTI		C	T	*	1	1	5,5		5,5	-1	0	0
 695	CHARLYS		C	C	*	1							
-549	CIAMMAGLICHELLA		C	C	*	1							
+549	CIAMMAGLICHELLA	torino	C	C		1							
 696	CISSE		C	T	*	2							
 505	COLLOCOLO	cremonese	C	C		1	5	6	5,5	6,1	5,5	-0,5	-0,5
-637	CONCEICAO	juventus	C	T		13	16	6,38	5,5	6,03	5,5	5,5	2,5
+637	CONCEICAO	juventus	C	T		13	16	6,38	5,5	6,03	5,5	6	3
 4462	CORNET	genoa	C	T		1	4	4,5	5,5	5,25	5,5	-3	-3
 438	COULIBALY LA.	lecce	C	C		12	18	6,28	6,17	6,03	6,17	4,5	0
 4486	CREMASCHI	parma	C	C		1	1	5,5		5,5	-1	0	0
 334	CRISTANTE	roma	C	C		13	21	6,17	6,25	6,14	6,38	0,5	-0,5
 3948	CUADRADO	pisa	C	C		4	9	6,28		6,06	-1	2	2
-150	CUENCA	genoa	C	T		1							
+150	CUENCA		C	T	*	1							
 303	CYPRIEN		C	C	*	2							
-377	DA CUNHA	como	C	C		14	20	6,38	7,7	6,1	6,5	5,5	6
+377	DA CUNHA	como	C	C		14	20	6,38	7,7	6,1	6,5	5	2,5
 598	DARBOE		C	C	*	2							
 257	DE BRUYNE	napoli	C	T		10	8	7,75		6,31	-1	11,5	6
 15	DE KETELAERE	atalanta	C	T		20	20	6,85	7,9	6,3	6,9	11	5
-16	DE ROON	atalanta	C	C		14	19	6,21	7,3	6,16	6,6	1	3,5
+16	DE ROON	atalanta	C	C		14	19	6,21	7,3	6,16	6,6	0,5	3,5
 87	DEIOLA	cagliari	C	C		8	12	6		5,96	-1	0,5	0,5
 403	DELE-BASHIRU	lazio	C	T		4	7	5,64	5,5	5,64	5,5	0	0
-550	DEMBELE	torino	C	C		1	1	6		6	-1	0	0
+550	DEMBELE		C	C	*	1	1	6		6	-1	0	0
 188	DI MAGGIO		C	C	*	1							
 551	DI MARCO		C	C	*	1							
 4300	DIOUF	inter	C	C		3	5	5,8		5,8	-1	0	0
 228	DOUGLAS LUIZ		C	C	*	16							
 581	DURMUSH		C	C	*	1							
 17	EDERSON	atalanta	C	C		11	18	5,89	6,1	5,92	6,1	-0,5	0
-669	EKKELENKAMP	udinese	C	C		11	18	6,14	6,7	5,81	6,1	6	3
-599	EL AYNAOUI	roma	C	C		5	9	5,72		5,72	-1	0	0
+669	EKKELENKAMP	udinese	C	C		11	18	6,14	6,7	5,81	6,1	9	6
+599	EL AYNAOUI	roma	C	C		5	9	5,72		5,72	-1	-0,5	0
 49	EL AZZOUZI		C	C	*	4							
 1062	ELLERTSSON	genoa	C	C		11	20	6,05	6,1	5,88	6,1	3,5	0
 4406	ELMAS	napoli	C	T		8	17	5,76	5,9	5,74	5,7	0,5	1
 734	ENGELHARDT		C	C	*	9							
-198	ESPOSITO SE.	cagliari	C	T		15	21	6,52	6,2	6,05	6	10	1
+198	ESPOSITO SE.	cagliari	C	T		15	21	6,52	6,2	6,05	6	11	2
 304	ESTEVEZ	parma	C	C		7	15	5,77	5,6	5,87	5,7	-1,5	-0,5
-50	FABBIAN	fiorentina	C	C		11	13	6,35	6,63	5,88	5,88	6	6
+50	FABBIAN	fiorentina	C	C		11	13	6,35	6,63	5,88	5,88	5,5	2,5
 122	FAGIOLI	fiorentina	C	C		10	19	5,87	6,2	5,82	6,2	1	0
 439	FATICANTI	juventus	C	C		1							
 123	FAVASULI		C	C	*	1							
@@ -486,7 +494,7 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 552	GINEITIS	torino	C	C		8	15	5,73	6	5,73	6	0	0
 1078	GORTER	lecce	C	C		1	1	5,5	5,5	5,5	5,5	0	0
 507	GRASSI	cremonese	C	C		6	15	5,63	5,5	5,73	5,5	-1,5	0
-151	GRONBAEK	genoa	C	C		1	3	5,67		5,83	-1	-0,5	-0,5
+151	GRONBAEK		C	C	*	1	3	5,67		5,83	-1	-0,5	-0,5
 404	GUENDOUZI		C	C	*	13	16	6,38	6	6,19	6	3	-0,5
 697	HARROUI	verona	C	C		4	7	5,71	5,83	5,71	5,83	0	0
 261	HASA		C	C	*	2							
@@ -496,7 +504,7 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 623	IANNONI	sassuolo	C	C		2	4	6,5	5,25	5,88	5,5	2,5	2,5
 133	IKONE NA.		C	T	*	13							
 553	ILIC IV.	torino	C	C		3	7	5,64		5,79	-1	-1	-1
-64	ILING		C	T	*	11							
+64	ILING	pisa	C	T		11							
 554	ILKHAN	torino	C	C		3	7	5,5	5,5	5,57	5,6	-0,5	-0,5
 125	INFANTINO		C	C	*	1							
 3947	JASHARI	milan	C	C		3	4	5,75	5,75	5,75	5,75	0	0
@@ -504,15 +512,16 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 441	KABA		C	C	*	6	11	5,68	5,5	5,73	5,67	-0,5	-0,5
 65	KARLSSON		C	T	*	10							
 670	KARLSTROM	udinese	C	C		11	22	6	6,1	5,95	6,1	1	0
-698	KASTANOS	verona	C	T		1	2	5,75	5,5	5,75	5,5	0	0
+698	KASTANOS		C	T	*	1	2	5,75	5,5	5,75	5,5	0	0
 306	KEITA	parma	C	C		10	20	5,98	5,9	6	5,9	-0,5	0
 378	KONE		C	T	*	8							
-1861	KONE IS.	sassuolo	C	C		14	19	6,47	6,13	6,08	6,13	7,5	0
+1861	KONE IS.	sassuolo	C	C		14	19	6,47	6,13	6,08	6,13	10	2,5
 336	KONE KO.	roma	C	C		16	22	6,52	6,9	6,25	6,4	6	2,5
 229	KOOPMEINERS	juventus	C	T		10	18	5,75	5,88	5,89	5,88	-2,5	0
-230	KOSTIC	juventus	C	T		14	9	7,33	8	6,22	6,5	10	6
+230	KOSTIC	juventus	C	T		14	9	7,33	8	6,22	6,5	10	3
 1093	KOUDA		C	C	*	5							
 1079	KOVAC	lecce	C	C		1							
+6178	LAHDO	como	C	C		2							
 555	LAZARO	torino	C	C		10	21	5,93	6	5,88	5,8	1	1
 584	LEONCINI		C	C	*	1							
 624	LIPANI	sassuolo	C	C		5	9	5,61	5,7	5,61	5,7	0	0
@@ -522,27 +531,27 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 472	LOFTUS-CHEEK	milan	C	C		12	18	6,11	5,9	5,92	5,9	3,5	0
 508	LORDKIPANIDZE		C	C	*	1	1	6		6	-1	0	0
 4407	LORRAN	pisa	C	T		6	7	6	5,25	5,57	5,25	3	0
-671	LOVRIC	udinese	C	C		3	4	5,63		5,5	-1	0,5	0,5
+671	LOVRIC	verona	C	C		3	4	5,63		5,5	-1	0,5	0,5
 6026	LOYOLA OLEA	pisa	C	C		5							
-190	LUIS HENRIQUE	inter	C	C		12	15	6,03	6	6	6	0,5	0
+190	LUIS HENRIQUE	inter	C	C		12	15	6,03	6	6	6	1,5	1
 18	MALDINI	lazio	C	T		3	6	5,75	6	5,83	6	-0,5	0
-1080	MALEH	lecce	C	C		5	8	5,69	5,67	5,81	6	-1	-1
-154	MALINOVSKYI	genoa	C	T		15	20	6,43	7,2	6	6,4	8,5	4
+1080	MALEH	cremonese	C	C		5	8	5,69	5,67	5,81	6	-1	-1
+154	MALINOVSKYI	genoa	C	T		15	20	6,43	7,2	6	6,4	11	7
 649	MAN		C	T	*	16							
 126	MANDRAGORA	fiorentina	C	C		16	22	6,7	6,5	5,98	5,9	16	3
 442	MARCHWINSKI	lecce	C	C		1							
 91	MARIN		C	C	*	8							
 585	MARIN MA.	pisa	C	C		5	16	5,47	5,4	5,59	5,6	-2	-1
 155	MASINI	genoa	C	C		8	17	5,76	5,83	5,88	6	-2	-0,5
-4317	MATIC	sassuolo	C	C		12	21	6,21	5,8	6,17	6	1	-1
+4317	MATIC	sassuolo	C	C		12	21	6,21	5,8	6,17	6	2	0,5
 4930	MAUCCI		C	T	*	1							
 736	MAZZAGLIA		C	C	*	1							
-379	MAZZITELLI	cagliari	C	C		8	9	6,61	6,9	6,17	6,2	4	3,5
+379	MAZZITELLI	cagliari	C	C		8	9	6,61	6,9	6,17	6,2	7	6,5
 443	MCJANNETT		C	C	*	7							
-232	MCKENNIE	juventus	C	C		16	19	6,5	7,6	6,16	6,4	6,5	6
+232	MCKENNIE	juventus	C	C		16	19	6,5	7,6	6,16	6,4	9	5,5
 265	MCTOMINAY	napoli	C	C		22	21	7,21	8,3	6,38	6,5	17,5	9
 510	MILANESE		C	C	*	2							
-4014	MILLER	udinese	C	C		5	7	5,79	6	5,86	6	-0,5	0
+4014	MILLER	udinese	C	C		5	7	5,79	6	5,86	6	-1	-0,5
 156	MIRETTI	juventus	C	C		9	7	6,86	7,63	6,21	6,38	4,5	5
 191	MKHITARYAN	inter	C	C		13	16	6,25	7	6,13	6,4	2	3
 473	MODRIC	milan	C	C		17	20	6,68	6,5	6,45	6,33	4,5	0,5
@@ -552,8 +561,8 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 127	NDOUR	fiorentina	C	C		8	17	5,85	5,7	5,71	5,7	2,5	0
 5922	NGOM	lecce	C	C		5							
 699	NIASSE	verona	C	C		9	14	5,89	6,5	5,86	6,17	0,5	1
-380	NICO PAZ	como	C	T		26	22	7,64	6,9	6,5	6,4	25	2,5
-4371	NICOLUSSI CAVIGLIA	parma	C	C		4	9	5,78		5,83	-1	-0,5	-1,5
+380	NICO PAZ	como	C	T		26	22	7,64	6,9	6,5	6,4	22	-0,5
+4371	NICOLUSSI CAVIGLIA	parma	C	C		4	9	5,78		5,83	-1	-0,5	-1
 4405	ONANA JE.	genoa	C	C		1	1	5,5		5,5	-1	0	0
 1094	ORDONEZ	parma	C	C		2	9	5,33	5,5	5,56	5,5	-2	-1,5
 4358	ORISTANIO	parma	C	T		7	12	5,71	5,7	5,75	5,7	-0,5	0
@@ -561,35 +570,36 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 233	OWUSU		C	C	*	1							
 672	PAFUNDI		C	T	*	5							
 234	PAGNUCCO		C	C	*	1							
-19	PALESTRA	cagliari	C	C		15	21	6,43	7	6,12	6,3	6,5	3,5
+19	PALESTRA	cagliari	C	C		15	21	6,43	7	6,12	6,3	6,5	4
 235	PAPADOPOULOS		C	T	*	2							
 20	PASALIC	atalanta	C	T		12	19	6,24	7	5,87	6,17	7	2,5
 700	PATANE		C	C	*	1							
 673	PAYERO	cremonese	C	C		8	15	5,9	5,5	5,9	5,75	0	-1
-556	PEDERSEN	torino	C	C		6	16	5,59	4,75	5,69	5	-1,5	-1
+556	PEDERSEN	torino	C	C		6	16	5,59	4,75	5,69	5	-1,5	-0,5
 674	PEJICIC		C	C	*	1							
-339	PELLEGRINI LO.	roma	C	T		14	14	6,64	7,5	6,04	6	8,5	3
+339	PELLEGRINI LO.	roma	C	T		14	14	6,64	7,5	6,04	6	8	2,5
 1085	PERCIUN	torino	C	T		1							
-737	PERRONE	como	C	C		16	20	6,55	7,1	6,25	6,5	6	3
+737	PERRONE	como	C	C		16	20	6,55	7,1	6,25	6,5	5,5	2,5
 586	PICCININI	pisa	C	C		7	12	5,71	5,8	5,79	5,8	-1	0
 511	PICKEL		C	C	*	10							
-445	PIERRET	lecce	C	C		1	1	6		6	-1	0	0
+445	PIERRET		C	C	*	1	1	6		6	-1	0	0
 3895	PIOTROWSKI	udinese	C	C		9	20	5,88	5,38	5,73	5,38	3	0
 340	PISILLI	roma	C	C		5	7	6,07	6,38	5,93	6,13	1	1
 731	PLICCO	parma	C	T		1							
 55	POBEGA	bologna	C	C		11	16	6,44	5,67	6,03	5,67	6,5	1
-93	PRATI	cagliari	C	C		8	20	5,83	5,63	5,78	5,63	1	3
+93	PRATI	torino	C	C		8	20	5,83	5,63	5,78	5,63	0,5	-0,5
+6152	PRZYBOREK	lazio	C	T		6							
 643	PULISIC	milan	C	T		25	16	7,88	6	6,44	6	23	0
 4467	RABIOT	milan	C	C		16	15	7,2	6,1	6,5	6,1	10,5	0
 446	RAFIA		C	C	*	1							
-447	RAMADANI	lecce	C	C		9	21	5,76	5,7	5,9	5,9	-3	-1
+447	RAMADANI	lecce	C	C		9	21	5,76	5,7	5,9	5,9	-3,5	-1,5
 738	RAZI		C	T	*	8							
 475	RICCI	milan	C	C		14	17	6,38	6,13	6,09	6,13	5	0
 128	RICHARDSON		C	C	*	1	2	5,5		5,5	-1	0	0
 754	ROG		C	C	*	1							
 407	ROVELLA	lazio	C	C		3	6	5,92	5,75	5,92	6	0	0
 4314	ROWE	bologna	C	T		11	13	5,92	6,2	5,92	6,1	0	0,5
-675	RUI MODESTO	udinese	C	C		1	3	6,33		6	-1	1	1
+675	RUI MODESTO		C	C	*	1	3	6,33		6	-1	1	1
 129	SABIRI	fiorentina	C	T		1	1	6		6	-1	0	0
 266	SACO		C	C	*	1							
 481	SAELEMAEKERS	milan	C	T		17	22	6,73	6,2	6,36	6,1	8	0,5
@@ -602,33 +612,33 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 739	SERGI ROBERTO	como	C	C		2	8	5,75	6,25	5,88	6,25	-1	-0,5
 512	SERNICOLA		C	C	*	1							
 307	SOHM	bologna	C	C		6	15	5,53	5,75	5,53	5,75	0	0
-5856	SOLOMON	fiorentina	C	T		13	3	6	6	6	6	0	0
+5856	SOLOMON	fiorentina	C	T		13	3	6	6	6	6	3	3
 4111	SORENSEN	parma	C	C		10	20	5,95	5,7	5,85	5,7	2	0
-137	SOTTIL	lecce	C	T		10	16	6,03	5,63	5,81	5,63	3,5	-0,5
+137	SOTTIL	lecce	C	T		10	16	6,03	5,63	5,81	5,63	3,5	0
 416	STANCIU		C	C	*	1	4	4,88	2	5,63	5	-3	-3
 192	STANKOVIC		C	C	*	2							
 4359	STENGS	pisa	C	T		1							
-745	STREFEZZA		C	T	*	21							
+745	STREFEZZA	parma	C	T		15							
 193	SUCIC	inter	C	C		10	15	6,13	5,5	5,9	5,5	3,5	0
-22	SULEMANA IB.	cagliari	C	C		2	3	5,5	5,5	5,67	5,5	-0,5	-0,5
+22	SULEMANA IB.	cagliari	C	C		2	3	5,5	5,5	5,67	5,5	2,5	2,5
 702	SUSLOV	verona	C	T		1							
 557	TAMEZE	torino	C	C		6	19	5,53	5,2	5,58	5,3	-1	-0,5
-5881	TAYLOR	lazio	C	C		10	2	5,5	5,5	5,5	5,5	0	0
-158	THORSBY	genoa	C	C		12	12	6,42	5,67	5,92	5,67	6	-0,5
-625	THORSTVEDT	sassuolo	C	T		12	16	6,34	7,17	6,06	6,17	4,5	2,5
+5881	TAYLOR	lazio	C	C		10	2	5,5	5,5	5,5	5,5	3	3
+158	THORSBY	cremonese	C	C		12	12	6,42	5,67	5,92	5,67	6	-0,5
+625	THORSTVEDT	sassuolo	C	T		12	16	6,34	7,17	6,06	6,17	5	3,5
 236	THURAM KHE.	juventus	C	C		15	21	6,38	6,5	6,14	6,3	5	1
-588	TOURE ID.	pisa	C	C		10	20	5,93	5,8	5,85	5,8	1,5	0
+588	TOURE ID.	pisa	C	C		10	20	5,93	5,8	5,85	5,8	1	-0,5
 720	TRDAN		C	C	*	1							
 56	URBANSKI		C	C	*	2							
 513	VALOTI		C	C	*	1							
 523	VANDEPUTTE	cremonese	C	T		11	21	6,1	5,6	5,95	5,7	3	-0,5
 514	VAZQUEZ		C	T	*	11	13	6,23	5,75	5,85	5,75	5	1
-408	VECINO	lazio	C	C		9	12	5,88	6,17	5,83	5,83	0,5	0,5
+408	VECINO		C	C	*	9	12	5,88	6,17	5,83	5,83	0,5	0,5
 5710	VERDI		C	T	*	1							
-267	VERGARA	napoli	C	C		1	3	5,67	5,75	5,83	6	-0,5	-0,5
+267	VERGARA	napoli	C	C		1	3	5,67	5,75	5,83	6	3,5	3,5
 597	VIGNATO		C	T	*	11							
 94	VIOLA		C	T	*	12							
-558	VLASIC	torino	C	T		16	22	6,64	5,3	5,95	5,4	15	-0,5
+558	VLASIC	torino	C	T		16	22	6,64	5,3	5,95	5,4	15,5	0
 626	VOLPATO	sassuolo	C	T		11	12	6,54		6,04	-1	6	4
 4303	VRANCKX	sassuolo	C	C		5	13	5,54	5,33	5,62	5,5	-1	-0,5
 721	VURAL	pisa	C	C		5	8	5,63		5,81	-1	-1,5	-1
@@ -640,39 +650,42 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 647	ZERBIN	cremonese	C	T		8	16	5,84	5,5	5,75	5,5	1,5	0
 476	ZEROLI		C	C	*	2							
 4465	ZHEGROVA	juventus	C	T		8	8	5,75	5,67	5,75	5,67	0	0
-195	ZIELINSKI	inter	C	C		17	17	6,76	7,8	6,18	6,6	10	6
+195	ZIELINSKI	inter	C	C		17	17	6,76	7,8	6,18	6,6	13	6
 1862	ABOUKHLAL	torino	A	T		7	10	5,3	5,63	5,45	5,75	-1,5	-1
-559	ADAMS	torino	A	A		17	21	6,29	5,3	5,81	5,3	10	0
+559	ADAMS	torino	A	A		17	21	6,29	5,3	5,81	5,3	13	3
 703	AJAYI	verona	A	A		1							
 6082	ALBARRACIN BASIL	cagliari	A	T		10							
 741	ALI JASIM		A	T	*	7							
 648	ALMQVIST	parma	A	T		7	9	5,61	5,75	5,61	5,75	0	0
 627	ALVAREZ		A	A	*	10							
-269	AMBROSINO	napoli	A	A		1	2	5,5		5,5	-1	0	0
+269	AMBROSINO		A	A	*	1	2	5,5		5,5	-1	0	0
 237	ANGHELE		A	A	*	2							
 1063	ANKEYE		A	A	*	6							
 722	ARENA		A	T	*	6							
 747	AZON		A	A	*	2							
 5709	BALENTIEN	milan	A	T		1							
-448	BANDA	lecce	A	T		15	17	6,03	6,1	5,74	5,6	5	2,5
+448	BANDA	lecce	A	T		15	17	6,03	6,1	5,74	5,6	5	-0,5
+6153	BASSANINI		A	T	*	6							
 678	BAYO	udinese	A	A		5	8	5,88		5,75	-1	1	1
 1086	BEGIC		A	T	*	1							
 742	BELOTTI	cagliari	A	A		3	3	8,17		6,17	-1	6	6
 120	BELTRAN		A	A	*	17							
 308	BENEDYCZAK	parma	A	T		13	13	5,92	5,25	5,65	5,25	3,5	2,5
-628	BERARDI	sassuolo	A	T		16	12	7,33	5,5	6,17	5,5	14	10
+628	BERARDI	sassuolo	A	T		16	12	7,33	5,5	6,17	5,5	17	10
 57	BERNARDESCHI	bologna	A	T		11	13	5,96		5,81	-1	2	3
+6151	BOGA	juventus	A	T		12							
 4221	BOLZAN		A	A	*	1							
 515	BONAZZOLI	cremonese	A	A		20	19	6,82	5,7	6	5,7	15,5	0
 589	BONFANTI NI.		A	A	*	6							
-196	BONNY	inter	A	A		19	13	7,58	7,75	6,19	6,25	18	6
+196	BONNY	inter	A	A		19	13	7,58	7,75	6,19	6,25	18	3
 755	BORRELLI	cagliari	A	A		15	20	6,13	5,7	5,7	5,6	8,5	0,5
+6155	BOWIE	verona	A	A		8							
 704	BRAAF		A	A	*	4							
-5868	BRASCHI	fiorentina	A	A		1							
+5868	BRASCHI		A	A	*	1							
 679	BRAVO		A	A	*	4	5	6,2	5,5	5,7	5,5	2,5	2,5
 130	BREKALO		A	T	*	11							
 680	BRENNER		A	A	*	15							
-4282	BUFFON LOUIS	pisa	A	T		1	1	5,5		5,5	-1	0	0
+4282	BUFFON LOUIS		A	T	*	1	1	5,5		5,5	-1	0	0
 4318	BUKSA	udinese	A	A		10	12	5,88		5,67	-1	2,5	0
 449	BURNETE		A	A	*	9							
 705	CAIA		A	A	*	1							
@@ -682,18 +695,18 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 410	CASTELLANOS		A	A	*	18	11	6,64		5,91	-1	8	0
 59	CASTRO	bologna	A	A		21	19	7,05	7	6,03	6	19,5	4
 706	CAZZADORI		A	A	*	1							
-743	CERRI	como	A	A		1							
+743	CERRI		A	A	*	1							
 309	CHARPENTIER		A	A	*	10							
 270	CHEDDIRA	lecce	A	A		11	8	6,19	5,67	5,81	5,67	3	0
 600	CHERUBINI		A	T	*	1							
 642	CHUKWUEZE		A	T	*	11	1	5,5		5,5	-1	0	0
 629	CIERVO		A	T	*	2							
-477	COLOMBO	genoa	A	A		19	21	6,48	8,3	5,88	6,5	12,5	9
+477	COLOMBO	genoa	A	A		19	21	6,48	8,3	5,88	6,5	12,5	6
 707	CRUZ		A	A	*	2							
-381	CUTRONE	parma	A	A		12	15	5,87	5,5	5,67	5,5	3	0
+381	CUTRONE		A	A	*	12	15	5,87	5,5	5,67	5,5	3	0
 60	DALLINGA	bologna	A	A		15	13	6,27	5,25	5,92	5,25	4,5	0
-1071	DAVID	juventus	A	A		23	18	6,53	7,8	5,86	6,4	12	7
-681	DAVIS	udinese	A	A		24	21	7,07	7,7	6	6,3	22,5	7
+1071	DAVID	juventus	A	A		23	18	6,53	7,8	5,86	6,4	16	14
+681	DAVIS	udinese	A	A		24	21	7,07	7,7	6	6,3	22	6,5
 517	DE LUCA		A	A	*	4	1	10		7	-1	3	3
 1064	DEBENEDETTI		A	A	*	1							
 411	DIA	lazio	A	A		8	14	5,75	5,5	5,54	5,5	3	0
@@ -701,17 +714,18 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 682	DIAWARA		A	A	*	2							
 310	DJURIC	cremonese	A	A		3	3	5,33	5,5	5,5	5,5	-0,5	-0,5
 61	DOMINGUEZ	bologna	A	T		12	10	6,05	6,25	5,8	5,75	2,5	1,5
-383	DOUVIKAS	como	A	A		23	20	7,25	9,88	6,05	6,88	24	15
+383	DOUVIKAS	como	A	A		23	20	7,25	9,88	6,05	6,88	24	12
 342	DOVBYK	roma	A	A		17	12	6,88	7,75	6,04	6,25	10	6
 590	DUBICKAS		A	A	*	8							
-5884	DUROSINMI	pisa	A	A		9	2	7,5	7,5	6	6	3	3
+5884	DUROSINMI	pisa	A	A		9	2	7,5	7,5	6	6	4	4
 344	DYBALA	roma	A	T		19	17	6,29	7,3	5,94	6,3	6	5
 131	DZEKO		A	A	*	8	9	5,44		5,5	-1	-0,5	-0,5
 752	EBONE		A	A	*	1							
 160	EKHATOR	genoa	A	A		13	17	5,94	5,6	5,68	5,6	4,5	0
 161	EKUBAN	genoa	A	A		15	17	6,21	7,75	5,79	6,25	7	3
 343	EL SHAARAWY	roma	A	T		12	11	5,91	6,17	5,77	5,83	1,5	1
-197	ESPOSITO PIO	inter	A	A		20	17	6,79	7,63	6,06	6,38	12,5	6
+6148	ELPHEGE	parma	A	A		1							
+197	ESPOSITO PIO	inter	A	A		20	17	6,79	7,63	6,06	6,38	12,5	5
 384	FADERA	sassuolo	A	T		15	21	6,05	6,4	5,79	5,8	5,5	3
 97	FELICI	cagliari	A	T		9	11	6,36		5,86	-1	5,5	0
 1463	FERGUSON EV.	roma	A	A		18	15	6,63	7	5,93	6	10,5	7
@@ -726,41 +740,42 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 5836	GONZALEZ DI.		A	T	*	11							
 638	GONZALEZ NI.		A	T	*	18	1	6		6	-1	0	0
 132	GUDMUNDSSON	fiorentina	A	T		20	20	6,53	7,3	5,85	6,3	13,5	5
-4470	GUEYE	udinese	A	A		4	4	5,5	5,5	5,5	5,5	0	0
+4470	GUEYE	udinese	A	A		4	4	5,5	5,5	5,5	5,5	-0,5	-0,5
 717	HAJ MOHAMED		A	T	*	11							
 5999	HARRISON	fiorentina	A	T		10	1	5,5	5,5	5,5	5,5	0	0
 4468	HOJLUND	napoli	A	A		23	18	7,14	5,5	6,06	5,5	19,5	0
-769	IMMOBILE	bologna	A	A		8	6	5,5	5,5	5,58	5,67	-0,5	-0,5
+769	IMMOBILE		A	A	*	8	6	5,5	5,5	5,58	5,67	-0,5	-0,5
 5886	ISAAC	verona	A	A		8	1	5,5	5,5	5,5	5,5	0	0
-640	ISAKSEN	lazio	A	T		16	14	6,36	5,88	5,93	5,88	6	3
-519	JOHNSEN	cremonese	A	T		10	9	6	6,83	5,56	5,83	4	3
+640	ISAKSEN	lazio	A	T		16	14	6,36	5,88	5,93	5,88	7	1
+519	JOHNSEN		A	T	*	10	9	6	6,83	5,56	5,83	4	3
 1087	JOUJOU		A	T	*	2							
 710	KALLON		A	A	*	1							
 199	KAMATE		A	A	*	2							
-134	KEAN	fiorentina	A	A		23	19	6,71	7	5,95	6,17	14,5	8,5
+134	KEAN	fiorentina	A	A		23	19	6,71	7	5,95	6,17	14,5	2,5
 774	KERRIGAN		A	T	*	8							
-3963	KILICSOY	cagliari	A	A		15	10	6,9	6,4	6	5,8	9	3
+3963	KILICSOY	cagliari	A	A		15	10	6,9	6,4	6	5,8	12	6
 683	KJERRUMGAARD		A	A	*	1							
 238	KOLO MUANI		A	A	*	22							
 135	KOUAME	fiorentina	A	A		1	1	5,5		5,5	-1	0	0
 718	KOWALSKI		A	A	*	1							
-452	KRSTOVIC	atalanta	A	A		22	17	7,26	9,2	6	6,6	21,5	13
+452	KRSTOVIC	atalanta	A	A		22	17	7,26	9,2	6	6,6	21	12,5
 762	KUHN	como	A	T		14	14	5,89	6,63	5,68	5,88	3	3
+6154	KULENOVIC	torino	A	A		8							
 711	LAMBOURDE		A	A	*	7							
 644	LANG		A	T	*	16	15	6,03	6,5	5,77	5,83	4	2
 712	LASAGNA		A	A	*	1							
 630	LAURIENTE	sassuolo	A	T		18	21	6,45	5,7	5,93	5,8	11	-0,5
 480	LEAO	milan	A	T		27	16	7,69	7,5	6,28	6,3	22,5	6
-592	LERIS	pisa	A	T		16	19	6,08	6,6	5,79	5,9	5,5	3,5
+592	LERIS	pisa	A	T		16	19	6,08	6,6	5,79	5,9	5,5	1
 725	LIND		A	T	*	14							
 273	LINDSTROM		A	A	*	1							
-24	LOOKMAN	atalanta	A	A		14	11	6,41	6	5,86	6	6	3
+24	LOOKMAN		A	A	*	14	11	6,41	6	5,86	6	6	3
 274	LUCCA		A	A	*	12	9	6,06	5,5	5,78	5,5	2,5	0
 275	LUKAKU	napoli	A	A		4	1	5	5	5	5	0	0
 5584	LUNA		A	A	*	1							
-102	LUVUMBO	cagliari	A	A		8	10	5,55	5,25	5,55	5,25	0	0
+102	LUVUMBO		A	A	*	8	10	5,55	5,25	5,55	5,25	0	0
 5993	MALEN	roma	A	A		18	2	7,75	7,75	6,25	6,25	3	3
-200	MARTINEZ LA.	inter	A	A		39	22	8,2	8,4	6,45	6,5	38,5	9,5
+200	MARTINEZ LA.	inter	A	A		39	22	8,2	8,4	6,45	6,5	41,5	8,5
 239	MBANGULA		A	A	*	13							
 723	MEISTER	pisa	A	A		14	17	6	6,63	5,68	5,88	5,5	3
 1066	MESSIAS	genoa	A	T		7	6	6,5	8	6	6,5	3	3
@@ -770,18 +785,18 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 593	MLAKAR		A	T	*	10							
 5869	MOMMO		A	T	*	8							
 4011	MORATA	como	A	A		9	11	5,5		5,73	-1	-2,5	-3,5
-455	MORENTE TE.	lecce	A	T		9	15	5,47	5,5	5,53	5,5	-1	-0,5
+455	MORENTE TE.		A	T	*	9	15	5,47	5,5	5,53	5,5	-1	-0,5
 724	MOREO	pisa	A	A		18	19	6,63	7	5,82	5,9	15,5	5,5
-631	MORO LU.	sassuolo	A	A		4	4	5,63	5,5	5,63	5,5	0	0
-708	MOSQUERA	verona	A	A		10	11	5,68	5,25	5,55	5,25	1,5	1
+631	MORO LU.	sassuolo	A	A		4	4	5,63	5,5	5,63	5,5	-0,5	-0,5
+708	MOSQUERA	verona	A	A		10	11	5,68	5,25	5,55	5,25	1,5	0
 4403	MOUMBAGNA	cremonese	A	A		5	5	5,5	5,5	5,5	5,5	0	0
 632	MULATTIERI		A	A	*	11							
-451	N'DRI	lecce	A	T		13	9	6,39	5,75	5,83	5,75	5	-0,5
-136	N'ZOLA	pisa	A	A		11	16	5,91	4	5,63	5,5	4,5	-1
+451	N'DRI	lecce	A	T		13	9	6,39	5,75	5,83	5,75	5	0
+136	N'ZOLA	sassuolo	A	A		11	16	5,91	4	5,63	5,5	4,5	-1
 520	NASTI		A	A	*	12							
 635	NDOYE		A	T	*	20							
 645	NERES	napoli	A	T		19	16	6,75	6	6,09	6	10,5	0,5
-276	NGONGE	torino	A	T		12	17	5,85	5,25	5,68	5,25	3	0
+276	NGONGE		A	T	*	12	17	5,85	5,25	5,68	5,25	3	0
 561	NJIE	torino	A	T		5	4	6,63	7,17	5,63	5,83	4	4
 4372	NKUNKU	milan	A	A		20	14	6,96	7,75	5,96	6,25	14	13
 413	NOSLIN	lazio	A	T		12	10	6,15	4,83	5,65	5,17	5	-1
@@ -798,11 +813,11 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 311	PARTIPILO		A	T	*	1							
 594	PAVANELLO		A	A	*	1							
 99	PAVOLETTI	cagliari	A	A		4	4	5,88		5,75	-1	0,5	0,5
-414	PEDRO	lazio	A	T		13	12	6,04	7,75	5,79	6,25	3	2,5
+414	PEDRO	lazio	A	T		13	12	6,04	7,75	5,79	6,25	6	5,5
 563	PELLEGRI		A	A	*	10							
-312	PELLEGRINO	parma	A	A		21	22	6,82	7,3	6,02	6,1	17,5	6
+312	PELLEGRINO	parma	A	A		21	22	6,82	7,3	6,02	6,1	17,5	3
 100	PICCOLI	fiorentina	A	A		15	17	6,06	6,63	5,71	5,88	6	3
-633	PIERINI	sassuolo	A	T		6	6	5,67	6	5,75	6	-0,5	0
+633	PIERINI		A	T	*	6	6	5,67	6	5,75	6	-0,5	0
 453	PIEROTTI	lecce	A	T		12	21	5,55	5,6	5,57	5,7	-0,5	-0,5
 241	PIETRELLI		A	T	*	1							
 162	PINAMONTI	sassuolo	A	A		16	21	6,29	5,2	5,79	5,2	10,5	0
@@ -815,20 +830,22 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 564	RAUTI		A	A	*	1							
 726	RAYCHEV		A	A	*	1							
 714	ROCHA LIVRAMENTO		A	A	*	9							
-775	RODRIGUEZ JE.	como	A	T		17	18	6,19	6,5	5,94	6,2	4,5	1,5
+775	RODRIGUEZ JE.	como	A	T		17	18	6,19	6,5	5,94	6,2	4,5	2
 454	SALOMAA		A	A	*	8							
 565	SANABRIA	cremonese	A	A		13	15	5,87	5,75	5,67	5,75	3	0
 677	SANCHEZ		A	A	*	14							
+6243	SANTOS	napoli	A	T		6							
 201	SARR		A	A	*	1							
-715	SARR AM.	verona	A	A		13	22	5,68	5,7	5,64	5,5	1	1
+715	SARR AM.	verona	A	A		13	22	5,68	5,7	5,64	5,5	0	0
 566	SAVVA	torino	A	T		1							
 26	SCAMACCA	atalanta	A	A		22	15	7,17	6,75	5,97	5,88	18	3,5
 278	SGARBI		A	A	*	1							
 730	SIMEONE	torino	A	A		20	17	6,97	7,17	6,09	6,17	15	3
 1088	SITS		A	A	*	1							
-651	SKJELLERUP	sassuolo	A	A		1							
+651	SKJELLERUP		A	A	*	1							
 602	SOLBAKKEN		A	T	*	8							
 601	SOULE	roma	A	T		23	22	7,09	6,9	6,11	6,1	21,5	4
+6147	STOJILKOVIC	pisa	A	A		11							
 521	STUCKLER		A	A	*	1							
 4331	STULIC	lecce	A	A		14	21	5,88	6,4	5,62	5,8	5,5	3
 27	SULEMANA KA.	atalanta	A	T		12	12	6,29		5,83	-1	5,5	-0,5
@@ -837,16 +854,17 @@ ID	Giocatore	Squadra	Ruolo	Ruolo Mod. Av.	Fuori lista	Quotazione	Presenze	Media	
 203	THURAM MA.	inter	A	A		29	16	7,53	8,5	6,28	6,63	20	7,5
 28	TOURE		A	A	*	11							
 595	TRAMONI L.		A	A	*	8							
-596	TRAMONI MA.	pisa	A	T		15	19	5,97	6,75	5,61	5,75	7	3,5
+596	TRAMONI MA.	pisa	A	T		15	19	5,97	6,75	5,61	5,75	6,5	3,5
 522	TSADJOUT		A	A	*	10							
-4461	VARDY	cremonese	A	A		17	18	6,53	6,3	5,72	5,6	14,5	3,5
+4461	VARDY	cremonese	A	A		17	18	6,53	6,3	5,72	5,6	14	3
 5978	VAZ	roma	A	A		17	2	5,75	5,75	5,75	5,75	0	0
 1067	VENTURINO	roma	A	T		1	2	6		6	-1	0	0
 101	VINCIGUERRA		A	T	*	1							
-163	VITINHA	genoa	A	A		16	19	6,18	5,9	5,89	6	5,5	-0,5
+163	VITINHA	genoa	A	A		16	19	6,18	5,9	5,89	6	8,5	2,5
 243	VLAHOVIC	juventus	A	A		12	13	6,65		5,88	-1	10	4
 456	VOELKERLING PERSSON		A	A	*	8							
 244	YILDIZ	juventus	A	T		29	21	7,62	7,1	6,48	6,7	24	2
 641	ZACCAGNI	lazio	A	T		17	19	6,24	5,63	5,97	6	5	-1,5
 560	ZAPATA	torino	A	A		13	13	5,69	5,5	5,62	5,5	1	0
+6170	ZARAGOZA	roma	A	T		13							
 204	ZUBEREK		A	A	*	1							

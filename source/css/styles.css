@@ -440,7 +440,7 @@ button {
   padding: 5px;
 }
 
-#contenitore-filtri-attivi {
+#barra-filtri-attivi {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -449,6 +449,7 @@ button {
   gap: 5px;
   height: auto;
   position: relative;
+  order: 1000;
 }
 
 .filtro-attivo {
@@ -460,18 +461,9 @@ button {
   /* margin: 5px; */
   font-size: x-small;
   border: 1px solid var(--background_primario);
+  cursor: pointer;
 }
 .filtro-attivo:hover {
-  background-color: #ffffff;
-}
-
-span.x {
-  background-color: #bb0000;
+  background-color: #ff0000;
   color: white;
-  cursor: pointer;
-  font-size: x-small;
-  text-align: center;
-  line-height: 10px;
-  position: relative;
-  left: 5px;
 }

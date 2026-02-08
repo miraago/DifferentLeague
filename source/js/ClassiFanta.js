@@ -35,7 +35,7 @@ class Giocatore {
     mv = "",
     mvUltime5 = "",
     sommaBonusMalus = "",
-    sommaBonusMalusUltime5 = ""
+    sommaBonusMalusUltime5 = "",
   ) {
     // Use property assignment so the defined setters are invoked
     this.setId = id;
@@ -147,10 +147,11 @@ class Giocatore {
   }
   set setRuolo(ruolo) {
     const ruoliValidi = ["P", "D", "C", "A"];
-    this.#ruolo = ruoliValidi.includes(ruolo) ? ruolo : undefined; //se il ruolo è valido lo assegno, altrimenti lo imposto a undefined
+    this.#ruolo = ruoliValidi.includes(ruolo) ? ruolo : ""; //se il ruolo è valido lo assegno, altrimenti lo imposto a undefined
   }
   set setRuoloMantra(ruoloMantra) {
-    this.#ruoloMantra = ruoloMantra;
+    const ruoliValidi = ["P", "D", "C", "A"];
+    this.#ruoloMantra = ruoliValidi.includes(ruoloMantra) ? ruoloMantra : "";
   }
   set setFuoriLista(fuoriDellaLista) {
     // assegna true se il valore è '*' altrimenti false
@@ -251,7 +252,7 @@ class Giocatore {
         this.#ruolo
       }, Quotazione: ${this.#quotazione}, Presenze: ${this.#presenze}, FVM: ${
         this.#fvm
-      }, MV: ${this.#mv}`
+      }, MV: ${this.#mv}`,
     );
   }
 } //FINE CLASS GIOCATORE**************************************************************
@@ -299,6 +300,7 @@ class Rosa {
 
     return array;
   }
+
   get getCreditiResidui() {
     return this.#creditiResidui;
   }
@@ -380,7 +382,7 @@ class Rosa {
     let campionatoUpper =
       typeof campionato == "string" ? campionato.trim().toUpperCase() : "";
     this.#campionatoDiAppartenenza = IMPOSTAZIONI.CAMPIONATI.TUTTI.includes(
-      campionatoUpper
+      campionatoUpper,
     )
       ? campionatoUpper
       : "";
@@ -431,7 +433,7 @@ class RecordAcquisto {
     datiGiocatore,
     giornataDiAcquisto = "",
     dataDiAcquisto = "",
-    costoDiAcquisto = ""
+    costoDiAcquisto = "",
   ) {
     this.setGiornataDiAcquisto = giornataDiAcquisto;
     this.setDataDiAcquisto = dataDiAcquisto;
