@@ -26,7 +26,6 @@ containerFiltri.addEventListener("change", gestisciFiltroPresenzeMinime);
 containerFiltri.addEventListener("input", chiamaPaginaCliccata);
 containerFiltri.addEventListener("change", gestisciFiltroRosa);
 
-
 let filtroRuolo = [];
 
 let filtroQtMinEMax = {
@@ -36,25 +35,20 @@ let filtroQtMinEMax = {
   filtroMaxSelezionato: 1,
 };
 let filtroSelezionaCampionato = []; //se è vuoto significa che è selezionato tutti
-let filtroSelezionaSquadra = [];//se è vuoto significa che è selezionato tutti
-let filtroPresenzeMinimo = 0;//se è 0 significa che è selezionato tutti
-let filtroPresenzeMinimoSelezionato = 0;//se è 0 significa che è selezionato tutti
-let filtroCaricaFuoriLista = false;//se è true significa che è selezionato tutti
-let filtroRosa = ""; 
+let filtroSelezionaSquadra = []; //se è vuoto significa che è selezionato tutti
+let filtroPresenzeMinimo = 0; //se è 0 significa che è selezionato tutti
+let filtroPresenzeMinimoSelezionato = 0; //se è 0 significa che è selezionato tutti
+let filtroCaricaFuoriLista = false; //se è true significa che è selezionato tutti
+let filtroRosa = "";
 
-const LI_TAG = document.querySelectorAll("li");
-LI_TAG[0].addEventListener("click", stampaListaPresidenti);
-LI_TAG[1].addEventListener("click", stampaRoseComplete);
-LI_TAG[2].addEventListener("click", stampaListaGiocatori);
-LI_TAG[3].addEventListener("click", stampaListaAppartenenze);
-LI_TAG[4].addEventListener("click", stampaListaSvincolati);
-LI_TAG[5].addEventListener("click", stampaListaCreditiResidui);
-LI_TAG[6].addEventListener("click", stampaListaGiocatoriDaSvincolare);
+const containerMenu = document.getElementById("contenitore-menu");
+containerMenu.addEventListener("click", chiamaPaginaCliccata);
 
 const containerTable = document.getElementById("container-table");
 containerTable.addEventListener("click", (e) => ordinaTabella(e));
 
 async function logicaPrincipale() {
+  console.log("function logicaPrincipale");
   const popup = document.getElementById("popup-caricamento");
   const TAG_H3 = popup.querySelector("h3");
 
@@ -84,6 +78,7 @@ async function logicaPrincipale() {
 async function caricaPresidenti() {
   //console.log("Caricamento presidenti in corso...");
   //let datiPresidenti = get_file_presidenti(); //ottengo il contenuto del file presidenti
+  console.log("function caricaPresidenti");
 
   const response = await fetch("Assets/file/presidenti.txt");
   if (!response.ok) {
@@ -111,8 +106,9 @@ async function caricaPresidenti() {
 async function caricaGiocatori() {
   //console.log("Caricamento giocatori in corso...");
   //let datiGiocatori = get_file_giocatori();
+  console.log("function caricaGiocatori");
 
-  const response = await fetch("Assets/file/quotazioni_gg24.txt");
+  const response = await fetch("Assets/file/quotazioni_gg25.txt");
   if (!response.ok) {
     throw new Error("Network response was not ok " + response.statusText);
   }
@@ -190,6 +186,7 @@ async function caricaGiocatori() {
 
 async function caricaAcquisti() {
   //console.log("Caricamento acquisti in corso...");
+  console.log("function caricaAcquisti");
 
   const response = await fetch("Assets/file/file_rose.txt");
   if (!response.ok) {
@@ -253,93 +250,108 @@ async function caricaAcquisti() {
 }
 //---------------------------------------------------------------------------
 
-function paginaMercato() {
-  //console.log("Pagina mercato in corso...");
-  TAG_H2.textContent = "PAGINA MERCATO";
-  azzeraTabelle();
-  //console.log("Pagina mercato completata.");
-}
 // fine menu
 
 //STAMPE TABELLE
-
-function stampaListaPresidenti() {
-  //console.log("Stampa lista presidenti in corso...");
-
-  if (TAG_H2.textContent != "LISTA PRESIDENTI") {
+function stampaInfoSquadre() {
+  console.log("function stampaInfoSquadre");
+  if (TAG_H2.dataset.action != "apri-info-squadre") {
     //se viene da un'altra pagina possiamo azzerare i filtri
-    {
-      azzeraFiltri();
-    }
-
-    TAG_H2.textContent = "LISTA PRESIDENTI";
-
-    if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-      creaFiltroSelezionaCampionato();
-      stampaListaPresidenti();
-    }
-
-    azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
-
-    IMPOSTAZIONI.CAMPIONATI.TUTTI.forEach((camp) => {
-      //scorri la lista dei campionati
-
-      //se è stato selezionato un filtro controlliamo che il campionato corrente sia uguale al filtro
-      if (
-        filtroSelezionaCampionato.includes(camp) ||
-        filtroSelezionaCampionato.length == 0
-      ) {
-        //se il filtro è tutti oppure il campionato corrente è uguale al filtro procedi
-
-        const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-        const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-        const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-        let rigaHTML = "";
-        // inizializziamo la riga di intestazione delle tabella
-        TAG_THEAD.innerHTML = `<tr> <th colspan="2">${toCapitalize(
-          camp,
-        )}</th></tr class="intestazione-colonne"> 
-                            <tr>
-                            <th> Squadra </th> 
-                            <th> Presidente </th>                           
-                            </tr>`;
-
-        //ricaviamoci solo i presidenti del campionato attuale
-        const presidentiFiltrati = presidenti.filter(
-          (item) => item.getCampionatoDiAppartenenza == camp,
-        );
-
-        //scorri la lista presidenti ed inserisci ogni presidente nella tabella
-        presidentiFiltrati.forEach((presidente) => {
-          rigaHTML += `<tr>
-                      <td> ${toCapitalize(presidente.getNomeRosa)} </td>
-                      <td> ${toCapitalize(
-                        presidente.getNomePresidente,
-                      )} </td>                      
-                    </tr>`;
-        });
-        containerTable.appendChild(TAG_TABLE);
-        TAG_TBODY.innerHTML = rigaHTML;
-        TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
-      }
-    });
-
-    // console.log("Stampa lista presidenti completata.");
+    azzeraFiltri();
   }
+  TAG_H2.textContent = "INFO SQUADRE";
+  TAG_H2.dataset.action = "apri-info-squadre";
+
+  azzeraTabelle();
+
+  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
+    creaFiltroSelezionaCampionato();
+  }
+
+  let tbody = "";
+  const arrayTeamsFiltrati = applicaFiltroTeams();
+  //ordiniamo la lista da chi ha più crediti a chi ha meno crediti
+  const squadreFiltrate = arrayTeamsFiltrati.sort((sqA, sqB) => {
+    return sqB.getCreditiResidui - sqA.getCreditiResidui;
+  });
+
+  arrayTeamsFiltrati.forEach((teamsAttuale) => {
+    const numeroPortieri = teamsAttuale.getContaP;
+    const numeroDifensori = teamsAttuale.getContaD;
+    const numeroCentrocampisti = teamsAttuale.getContaC;
+    const numeroAttaccanti = teamsAttuale.getContaA;
+
+    //scorri la lista dei teams
+    //teamAttuales contiene la squadra del campionato filtrato
+    //costruiamo la riga con tutte le squadre
+    //per ogni squadra  salviamo una riga con i dati che ci servono
+    //cioè Nome squadra | Nome presidente | crediti Residui
+    tbody += `
+        <tr>
+        <td>${toCapitalize(teamsAttuale.getNomeRosa)}</td>
+        <td>${toCapitalize(teamsAttuale.getNomePresidente)}</td>
+        <td>${toCapitalize(teamsAttuale.getCampionatoDiAppartenenza)}</td>
+        <td>${teamsAttuale.getCreditiResidui}</td>
+        <td>${teamsAttuale.getValoreRosa}</td>
+        <td>${teamsAttuale.getCreditiSpesi}</td>
+        `;
+    tbody +=
+      numeroPortieri < IMPOSTAZIONI.REGOLE.MAX_P
+        ? `<td class="ruoloMancante">${numeroPortieri}</td>`
+        : `<td>${numeroPortieri}</td>`;
+    tbody +=
+      numeroDifensori < IMPOSTAZIONI.REGOLE.MAX_D
+        ? `<td class="ruoloMancante">${numeroDifensori}</td>`
+        : `<td>${numeroDifensori}</td>`;
+    tbody +=
+      numeroCentrocampisti < IMPOSTAZIONI.REGOLE.MAX_C
+        ? `<td class="ruoloMancante">${numeroCentrocampisti}</td>`
+        : `<td>${numeroCentrocampisti}</td>`;
+    tbody +=
+      numeroAttaccanti < IMPOSTAZIONI.REGOLE.MAX_A
+        ? `<td class="ruoloMancante">${numeroAttaccanti}</td>`
+        : `<td>${numeroAttaccanti}</td>`;
+    tbody += `</tr>`;
+  });
+
+  //creare la tabella, thead, tbody
+  const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+  const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
+  const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
+  TAG_TBODY.innerHTML = tbody;
+  TAG_THEAD.innerHTML = `
+        <tr class="intestazione-colonne">
+          <th>Squadra</th>
+          <th>Nome Presidente</th>
+          <th>Lega di Appartenenza </th>
+          <th>Crediti Residui</th>
+          <th>Valore Rosa</th>
+          <th>Crediti Spesi</th>
+          <th>P</th>
+          <th>D</th>
+          <th>C</th>
+          <th>A</th>
+        </tr>`;
+
+  containerTable.appendChild(TAG_TABLE); //inseriamo la tabella nel contenitore
+  TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
+
+  //console.log("Stampa lista crediti residui Terminata");
 }
 
-function stampaRoseComplete() {
+function stampaRose() {
   // console.log("Stampa LISTA ROSE in corso...");
+  console.log("function stampaRose()");
 
-  if (TAG_H2.textContent != "LISTA SQUADRE") {
+  if (TAG_H2.dataset.action != "apri-tutte-le-rose") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
   }
 
   TAG_H2.textContent = "LISTA SQUADRE";
+  TAG_H2.dataset.action = "apri-tutte-le-rose";
 
   if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-    azzeraTabelle();
     azzeraFiltri();
     creaFiltroRicercaGiocatore();
     creaFiltroSelezionaCampionato();
@@ -347,9 +359,8 @@ function stampaRoseComplete() {
     creaFiltroQuotazioneMinEMax();
     creaFiltroTeam();
     creaFiltroFuoriLista();
-   
   }
-
+  azzeraTabelle();
   let arrayTeams = applicaFiltroTeams(); //preleviamo solo i team del campionato selezionato
   let giocatoriFiltrati = applicaFiltriGiocatori(); //preleviamo tutti i giocatori filtrati
   const arrayNomiGiocatori = giocatoriFiltrati.map((gio) => gio.getNome);
@@ -407,6 +418,7 @@ function stampaRoseComplete() {
       }
     });
     if (contaGiocatori > 0) {
+      //<div class="campo-campionato-di-appartenenza">${toCapitalize(rosaCorrente.getCampionatoDiAppartenenza)}</div>
       //CREAZIONI ELEMENTI TABELLA
       //per ogni presifente con almeno un giocatore creiamo una tabella
       const TAG_TABLE = document.createElement("table"); //creazione tabella
@@ -414,19 +426,19 @@ function stampaRoseComplete() {
       const TAG_THEAD = document.createElement("thead"); //creazione thead
       const TAG_TFOOT = document.createElement("tfoot"); //creazione thead
       TAG_THEAD.innerHTML += `<tr>
-      <th colspan="6"> 
-        <section class="box-thead">
-          <div id="contenitore-nome">
-            <div class="campo-nome-squadra">${toCapitalize(rosaCorrente.getNomeRosa)}</div>
-            <div class="campo-nome-presidente">${toCapitalize(rosaCorrente.getNomePresidente)}</div>
-          </div>
-          <div class="campo-campionato-di-appartenenza">${toCapitalize(rosaCorrente.getCampionatoDiAppartenenza)}</div>
-        </section> 
-      </th>
-    </tr>
-    
-    
-    <tr class="intestazione-colonne">
+        <th colspan="6"> 
+          <section class="box-thead">
+            <div id="contenitore-nome">
+              <div class="campo-nome-squadra">${toCapitalize(rosaCorrente.getNomeRosa)}</div>
+              <div class="campo-nome-presidente">${toCapitalize(rosaCorrente.getNomePresidente)}</div>
+            </div>
+            <div class="campo-campionato-di-appartenenza">
+              <img class="logo_lega" src="Assets/image/logo_leghe/Logo_${rosaCorrente.getCampionatoDiAppartenenza.toLowerCase().replace(" ", "_")}.png">
+            </div>
+          </section> 
+        </th>
+      </tr>
+          <tr class="intestazione-colonne">
       <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
     </tr>`;
       TAG_TFOOT.innerHTML = `<tr>
@@ -453,11 +465,12 @@ function stampaRoseComplete() {
 }
 
 function stampaListaGiocatori() {
-  if (TAG_H2.textContent != "LISTA GIOCATORI") {
+  console.log("function stampaListaGiocatori()");
+  if (TAG_H2.dataset.action != "apri-lista-giocatori") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
   }
-
+  TAG_H2.dataset.action = "apri-lista-giocatori";
   TAG_H2.textContent = "LISTA GIOCATORI";
   //creiamo i filtri per la pagina giocatori
 
@@ -468,7 +481,6 @@ function stampaListaGiocatori() {
     creaFiltroTeam();
     creaFiltroPresenzeMinime();
     creaFiltroFuoriLista();
-    
   }
   azzeraTabelle();
 
@@ -522,7 +534,7 @@ function stampaListaGiocatori() {
     });
 
     //CREAZIONE TABELLA
-    TAG_H2.textContent = "LISTA GIOCATORI";
+
     const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
     const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
     const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
@@ -552,11 +564,13 @@ function stampaListaGiocatori() {
 }
 
 function stampaListaAppartenenze() {
-  if (TAG_H2.textContent != "LISTA APPARTENENZE") {
+  console.log("function stampaListaAppartenenze()");
+  if (TAG_H2.dataset.action != "apri-appartenenze") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
   }
 
+  TAG_H2.dataset.action = "apri-appartenenze";
   TAG_H2.textContent = "LISTA APPARTENENZE";
 
   if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
@@ -566,7 +580,6 @@ function stampaListaAppartenenze() {
     creaFiltroTeam();
     creaFiltroPresenzeMinime();
     creaFiltroFuoriLista();
-   
   }
 
   azzeraTabelle();
@@ -682,13 +695,15 @@ function stampaListaAppartenenze() {
   containerTable.appendChild(TAG_TABLE);
 }
 function stampaListaSvincolati() {
+  console.log("function stampaListaSvincolati()");
   //console.log("Stampa lista Svincolati in corso..."
   // );
 
-  if (TAG_H2.textContent != "LISTA SVINCOLATI") {
+  if (TAG_H2.dataset.action != "apri-svincolati") {
     azzeraFiltri();
   }
 
+  TAG_H2.dataset.action = "apri-svincolati";
   TAG_H2.textContent = "LISTA SVINCOLATI";
   if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
     creaFiltroRicercaGiocatore();
@@ -697,7 +712,6 @@ function stampaListaSvincolati() {
     creaFiltroTeam();
     creaFiltroPresenzeMinime();
     creaFiltroFuoriLista();
-    
   }
 
   azzeraTabelle();
@@ -767,63 +781,6 @@ function stampaListaSvincolati() {
   //console.log("Stampa lista svincolaticompletata.");
 }
 
-function stampaListaCreditiResidui() {
-  if (TAG_H2.textContent != "LISTA CREDITI RESIDUI") {
-    //se viene da un'altra pagina possiamo azzerare i filtri
-    azzeraFiltri();
-  }
-  TAG_H2.textContent = "LISTA CREDITI RESIDUI";
-
-  azzeraTabelle();
-
-  //filtri per la pagina crediti residui
-  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-    creaFiltroSelezionaCampionato();
-  
-  }
-
-  let tbody = "";
-  const arrayTeamsFiltrati = applicaFiltroTeams();
-  //ordiniamo la lista da chi ha più crediti a chi ha meno crediti
-  const squadreFiltrate = arrayTeamsFiltrati.sort((sqA, sqB) => {
-    return sqB.getCreditiResidui - sqA.getCreditiResidui;
-  });
-
-  arrayTeamsFiltrati.forEach((teamsAttuale) => {
-    //scorri la lista dei teams
-    //teamAttuales contiene la squadra del campionato filtrato
-    //costruiamo la riga con tutte le squadre
-    //per ogni squadra  salviamo una riga con i dati che ci servono
-    //cioè Nome squadra | Nome presidente | crediti Residui
-    tbody += `
-        <tr>
-        <td>${toCapitalize(teamsAttuale.getNomeRosa)}</td>
-        <td>${toCapitalize(teamsAttuale.getNomePresidente)}</td>
-        <td>${toCapitalize(teamsAttuale.getCampionatoDiAppartenenza)}</td>
-        <td>${teamsAttuale.getCreditiResidui}</td>
-        </tr>
-        `;
-  });
-
-  //creare la tabella, thead, tbody
-  const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-  const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-  const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-  TAG_TBODY.innerHTML = tbody;
-  TAG_THEAD.innerHTML = `
-        <tr class="intestazione-colonne">
-          <th>Squadra</th>
-          <th>Nome Presidente</th>
-          <th>Lega di Appartenenza </th>
-          <th>Crediti Residui</th>
-        </tr>`;
-
-  containerTable.appendChild(TAG_TABLE); //inseriamo la tabella nel contenitore
-  TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
-
-  //console.log("Stampa lista crediti residui Terminata");
-}
-
 //FINE STAMPA TABELLA
 
 //FILTRI----------------------------------------------------------------------------------------
@@ -831,22 +788,24 @@ function stampaListaCreditiResidui() {
 
 function creaFiltroSelezionaCampionato() {
   //console.log("creazione filtro seleziona campionato in corso...");
+  console.log("function creaFiltroSelezionaCampionato()");
 
   containerFiltri.insertAdjacentHTML(
     "beforeend",
     `<section class="box-filtro">
           <label>Lega</label>
-          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR1}"id="logo-premier" class="logo-campionato" src="./Assets/image/logo_leghe/Logo_premier.png" title="Premier League" alt="Premier League" ></div>
-          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR2}"id="logo-liga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_liga.png" title="Liga Spagnola" alt="Liga Spagnola"></div>
-          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR3}"id="logo-bundesliga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_Bundesliga.png" title="Bundesliga" alt="Bundesliga"></div>
-          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR4}"id="logo-ligue1"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_ligue1.png" title="Ligue 1" alt="Ligue 1"></div>
-          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR5}"id="logo-seriea"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_SerieA.png" title="Serie A" alt="Serie A"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR1}"id="logo-premier" class="logo-campionato" src="./Assets/image/logo_leghe/Logo_${IMPOSTAZIONI.CAMPIONATI.GIR1.toLowerCase().replace(" ", "_")}.png" title="Premier League" alt="Premier League" ></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR2}"id="logo-liga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_${IMPOSTAZIONI.CAMPIONATI.GIR2.toLowerCase().replace(" ", "_")}.png" title="Liga Spagnola" alt="Liga Spagnola"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR3}"id="logo-bundesliga"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_${IMPOSTAZIONI.CAMPIONATI.GIR3.toLowerCase().replace(" ", "_")}.png" title="Bundesliga" alt="Bundesliga"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR4}"id="logo-ligue1"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_${IMPOSTAZIONI.CAMPIONATI.GIR4.toLowerCase().replace(" ", "_")}.png" title="Ligue 1" alt="Ligue 1"></div>
+          <div><img name="${IMPOSTAZIONI.CAMPIONATI.GIR5}"id="logo-seriea"class="logo-campionato" src="./Assets/image/logo_leghe/Logo_${IMPOSTAZIONI.CAMPIONATI.GIR5.toLowerCase().replace(" ", "_")}.png" title="Serie A" alt="Serie A"></div>
     </section>`,
   );
 
   //console.log("creazione filtro seleziona campionato completata.");
 }
 function gestisciFiltroSelezionaCampionato(evento) {
+  console.log("function gestisciFiltroSelezionaCampionato(evento)");
   const elemento_cliccato = evento.target;
 
   if (elemento_cliccato.className.includes("logo-campionato")) {
@@ -865,63 +824,59 @@ function gestisciFiltroSelezionaCampionato(evento) {
 }
 
 function creaFiltroRuolo() {
-//<section class="box-filtro" id="filtro-ruolo">
+  console.log("function creaFiltroRuolo()");
+  //<section class="box-filtro" id="filtro-ruolo">
   //  <label>Ruolo</label>
-    //  <div class="ruolo P ${filtroRuolo.P ? "selected" : ""}">P</div>
-      //<div class="ruolo D ${filtroRuolo.D ? "selected" : ""}">D</div>
-      //<div class="ruolo C ${filtroRuolo.C ? "selected" : ""}">C</div>
-      //<div class="ruolo A ${filtroRuolo.A ? "selected" : ""}">A</div>
-    //</section>
-
+  //  <div class="ruolo P ${filtroRuolo.P ? "selected" : ""}">P</div>
+  //<div class="ruolo D ${filtroRuolo.D ? "selected" : ""}">D</div>
+  //<div class="ruolo C ${filtroRuolo.C ? "selected" : ""}">C</div>
+  //<div class="ruolo A ${filtroRuolo.A ? "selected" : ""}">A</div>
+  //</section>
 
   containerFiltri.insertAdjacentHTML(
     "beforeend",
     `  
     <section class="box-filtro" id="filtro-ruolo">
     <label>Ruolo</label>
-      <div data-tipo-ruolo="P" class="ruolo ${filtroRuolo.P ? "selected" : ""}">P</div>
-      <div data-tipo-ruolo="D" class="ruolo ${filtroRuolo.D ? "selected" : ""}">D</div>
-      <div data-tipo-ruolo="C" class="ruolo ${filtroRuolo.C ? "selected" : ""}">C</div>
-      <div data-tipo-ruolo="A" class="ruolo ${filtroRuolo.A ? "selected" : ""}">A</div>
+      <div data-tipo-ruolo="P" class="ruolo ${filtroRuolo.includes("P") ? "selected" : ""}">P</div>
+      <div data-tipo-ruolo="D" class="ruolo ${filtroRuolo.includes("D") ? "selected" : ""}">D</div>
+      <div data-tipo-ruolo="C" class="ruolo ${filtroRuolo.includes("C") ? "selected" : ""}">C</div>
+      <div data-tipo-ruolo="A" class="ruolo ${filtroRuolo.includes("A") ? "selected" : ""}">A</div>
     </section>
   `,
   );
 }
 function gestisciFiltroRuolo(evento) {
+  console.log("function gestisciFiltroRuolo(evento)");
   //capiamo da dove viene il click e gestiamo solo se proviene da un elemento con classe ruolo
   const elemento_cliccato = evento.target;
 
-   if (elemento_cliccato.dataset.tipoRuolo!= undefined)    
-    {
-      const ruolo_cliccato = elemento_cliccato.dataset.tipoRuolo; //ci memorizziamo il ruolo
+  if (elemento_cliccato.dataset.tipoRuolo != undefined) {
+    const ruolo_cliccato = elemento_cliccato.dataset.tipoRuolo; //ci memorizziamo il ruolo
 
-      if (filtroRuolo.includes(ruolo_cliccato)) {
+    if (filtroRuolo.includes(ruolo_cliccato)) {
       //se il ruolo è già incluso nel filtro lo rimuoviamo
       const indice = filtroRuolo.indexOf(ruolo_cliccato);
-      filtroRuolo.splice(indice, 1);    
-      } else {
-      filtroRuolo.push(ruolo_cliccato);      
-      } // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true
+      filtroRuolo.splice(indice, 1);
+    } else {
+      filtroRuolo.push(ruolo_cliccato);
+    } // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true
 
-
-      if(elemento_cliccato.classList.contains("selected")) // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
-        {
-          elemento_cliccato.classList.remove("selected");
-          //rimuoviamo il filtro attivo
-        }
-        else{
-          elemento_cliccato.classList.add("selected");
-          //creiamo il filtroattivo
-        }
-      
-      chiamaPaginaCliccata();
+    if (
+      elemento_cliccato.classList.contains("selected")
+    ) // se l'elemento cliccato ha già la classe selected la rimuovi altrimenti la inserisci
+    {
+      elemento_cliccato.classList.remove("selected");
+    } else {
+      elemento_cliccato.classList.add("selected");
     }
 
-
+    chiamaPaginaCliccata();
   }
-
+}
 
 function creaFiltroFuoriLista() {
+  console.log("function creaFiltroFuoriLista()");
   containerFiltri.insertAdjacentHTML(
     "beforeend",
     `
@@ -940,6 +895,7 @@ function creaFiltroFuoriLista() {
 }
 
 function gestisciFiltroFuoriLista(evento) {
+  console.log("function gestisciFiltroFuoriLista(evento)");
   //capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal radiobutton con nome carica-FuoriLista
 
   if (evento.target.name == "carica-FuoriLista") {
@@ -954,12 +910,12 @@ function gestisciFiltroFuoriLista(evento) {
 }
 
 function azzeraTabelle() {
-  //console.log("Azzero tutte le tabelle precedenti...");
+  console.log("function azzeraTabelle()");
   containerTable.innerHTML = "";
-  //console.log("Tabelle azzerate.");
 }
 
 function azzeraFiltri() {
+  console.log("function azzeraFiltri()");
   filtroRuolo = []; //azzero i filtri selezionati
   filtroQtMinEMax.filtroMaxSelezionato = filtroQtMinEMax.filtroMax;
   filtroQtMinEMax.filtroMinSelezionato = filtroQtMinEMax.filtroMin;
@@ -972,6 +928,7 @@ function azzeraFiltri() {
 
 //ORDINAMENTO TABELLE
 function ordinaTabella(evento) {
+  console.log("function ordinaTabella(evento)");
   const th = evento.target.closest("th");
 
   // Se il click non è avvenuto su un'intestazione, interrompi
@@ -1014,36 +971,58 @@ function ordinaTabella(evento) {
   tbody.append(...rows);
 }
 
-function chiamaPaginaCliccata() {
-  switch (TAG_H2.textContent) {
-    case "LISTA PRESIDENTI":
-      stampaListaPresidenti();
+function chiamaPaginaCliccata(evento) {
+  console.log("function chiamaPaginaCliccata(evento)");
+  let chiamante;
+
+  if (evento) {
+    const controllo = evento.target.closest("li");
+    if (controllo) {
+      chiamante = controllo.dataset.action; //se la pagina è stata chiamata da un click del menu vedi chi lo ha chiamato)
+    } else {
+      // se l'evento non proviene dal menu (es. input di ricerca), mantieni la pagina corrente
+      chiamante = TAG_H2.dataset.action;
+    }
+  } else {
+    chiamante = TAG_H2.dataset.action; //altrimenti vedi su che pagina stavi
+  }
+
+  console.log(chiamante);
+  switch (chiamante) {
+    case "apri-info-squadre":
+      stampaInfoSquadre();
       break;
-    case "LISTA SQUADRE":
-      stampaRoseComplete();
+    case "apri-squadre":
+      stampaInfoSquadre();
       break;
-    case "LISTA CREDITI RESIDUI":
-      stampaListaCreditiResidui();
+    case "apri-tutte-le-rose":
+      stampaRose();
       break;
-    case "LISTA GIOCATORI":
+    case "apri-lista-giocatori":
       stampaListaGiocatori();
       break;
-    case "LISTA APPARTENENZE":
-      stampaListaAppartenenze();
+    case "apri-lista-giocatori":
+      stampaListaGiocatori();
       break;
-    case "LISTA SVINCOLATI":
+    case "apri-mercato":
       stampaListaSvincolati();
       break;
-    case "GIOCATORI FUORI LISTA":
+    case "apri-appartenenze":
+      stampaListaAppartenenze();
+      break;
+    case "apri-svincolati":
+      stampaListaSvincolati();
+      break;
+    case "apri-da-svincolare":
       stampaListaGiocatoriDaSvincolare();
       break;
     default:
       break;
   }
-  
 }
 
 function ruoliFiltrati() {
+  console.log("function ruoliFiltrati()");
   if (filtroRuolo.length == 0) {
     return ["P", "D", "C", "A"];
   }
@@ -1051,6 +1030,7 @@ function ruoliFiltrati() {
 }
 
 function creaFiltroTeam() {
+  console.log("function creaFiltroTeam()");
   let tuttiTeam = new Set();
 
   player.forEach((giocatoreCorrente) => {
@@ -1078,8 +1058,10 @@ function creaFiltroTeam() {
   );
 }
 function gestisciFiltroTeam(evento) {
+  console.log("function gestisciFiltroTeam(evento)");
   const elemento_cliccato = evento.target;
-  const nodo_parente = evento.target.parentElement;
+
+  const nodo_parente = elemento_cliccato.parentElement;
 
   if (nodo_parente.className.includes("box-team")) {
     {
@@ -1093,12 +1075,13 @@ function gestisciFiltroTeam(evento) {
         filtroSelezionaSquadra.push(nomeSquadra);
         nodo_parente.classList.add("selected");
       }
+      chiamaPaginaCliccata();
     }
-    chiamaPaginaCliccata();
   }
 }
 
 function creaFiltroQuotazioneMinEMax() {
+  console.log("function creaFiltroQuotazioneMinEMax()");
   //riempiamo i due select in base ai giocatori attualment in memoria
   let popolaMinEMaxHTML = ""; //partiamo da 1 fino al maxQuotazione
   for (let i = 0; i < parseInt(filtroQtMinEMax.filtroMax); i++) {
@@ -1130,6 +1113,7 @@ function creaFiltroQuotazioneMinEMax() {
   TagSelectMax.value = filtroQtMinEMax.filtroMaxSelezionato;
 }
 function gestisciFiltroQuotazioneMinEMax(event) {
+  console.log("function gestisciFiltroQuotazioneMinEMax(event)");
   //capiamo se il change proviene dal select min o max
 
   const TAG = event.target;
@@ -1156,8 +1140,10 @@ function gestisciFiltroQuotazioneMinEMax(event) {
     }
 
     if (
-      filtroQtMinEMax.filtroMinSelezionato > filtroQtMinEMax.filtroMaxSelezionato ||
-      filtroQtMinEMax.filtroMaxSelezionato < filtroQtMinEMax.filtroMinSelezionato
+      filtroQtMinEMax.filtroMinSelezionato >
+        filtroQtMinEMax.filtroMaxSelezionato ||
+      filtroQtMinEMax.filtroMaxSelezionato <
+        filtroQtMinEMax.filtroMinSelezionato
     ) {
       TAGMAX.value = filtroQtMinEMax.filtroMaxSelezionato =
         filtroQtMinEMax.filtroMax;
@@ -1168,6 +1154,7 @@ function gestisciFiltroQuotazioneMinEMax(event) {
 }
 
 function creaFiltroRicercaGiocatore() {
+  console.log("function creaFiltroRicercaGiocatore()");
   containerFiltri.insertAdjacentHTML(
     "beforeend",
     `
@@ -1179,6 +1166,7 @@ function creaFiltroRicercaGiocatore() {
 }
 
 function checkQuotazione(quotazione = 0) {
+  console.log("function checkQuotazione(quotazione = 0)");
   if (
     quotazione >= filtroQtMinEMax.filtroMinSelezionato &&
     quotazione <= filtroQtMinEMax.filtroMaxSelezionato
@@ -1190,66 +1178,61 @@ function checkQuotazione(quotazione = 0) {
 }
 
 function applicaFiltriGiocatori() {
+  console.log("function applicaFiltriGiocatori())");
   let arrayFiltrato;
+  // APPLICAZIONE FILTRI
+
+  const contaElementiFiltroBox =
+    document.querySelectorAll(".box-filtro").length; // conta gli elementi nel contenitore di filtri
+
+  // Se non sono presenti filtri, restituisci l'array completo (copia)
+  if (contaElementiFiltroBox === 0) return player.slice();
+
+  // filtra per ruolo
+  arrayFiltrato = player.filter((giocatoreCorrente) => {
+    return ruoliFiltrati().includes(giocatoreCorrente.getRuolo);
+  });
+
+  // filtro ricerca giocatore (solo se esiste il controllo e contiene testo)
+  const TAG_RICERCA = document.getElementById("input-ricerca-giocatore");
+  if (TAG_RICERCA && TAG_RICERCA.value && TAG_RICERCA.value.trim() !== "") {
+    const regex = new RegExp(TAG_RICERCA.value.trim(), "i");
+    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+      return regex.test(giocatoreCorrente.getNome);
+    });
+  }
+
+  // filtro per quotazione
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    return checkQuotazione(giocatoreCorrente.getQuotazione);
+  });
+
+  // filtro per squadra
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    if (filtroSelezionaSquadra.length == 0) return true;
+    return filtroSelezionaSquadra.includes(
+      giocatoreCorrente.getSquadraDiAppartenenza.toLowerCase(),
+    );
+  });
+
+  // filtro per presenze minime
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    return giocatoreCorrente.getPresenze >= filtroPresenzeMinimoSelezionato;
+  });
+
+  // filto per escludere o meno i fuorilista
+  if (!filtroCaricaFuoriLista) {
+    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+      return !giocatoreCorrente.getFuoriLista;
+    });
+  }
 
   azzeraTabelle();
-
-  //APPLICAZIONE FILTRI
-
-  //filtro ricerca giocatore
-  const contaElementiFiltroBox =
-    document.querySelectorAll(".box-filtro").length;
-
-  if (contaElementiFiltroBox > 0) {
-    const TAG_RICERCA = document.getElementById("input-ricerca-giocatore");
-    const regex = new RegExp(TAG_RICERCA.value.trim(), "i");
-
-    //filtra per ruolo
-    arrayFiltrato = player.filter((giocatoreCorrente) => {
-      return ruoliFiltrati().includes(giocatoreCorrente.getRuolo);
-    });
-
-    if (TAG_RICERCA.value != "") {
-      arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-        return regex.test(giocatoreCorrente.getNome);
-      });
-    }
-
-    //filtro per quotazione
-    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-      return checkQuotazione(giocatoreCorrente.getQuotazione);
-    });
-
-    //filtro per squadra (100)
-    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-      if (filtroSelezionaSquadra.length == 0) {
-        return true;
-      } else {
-        return filtroSelezionaSquadra.includes(
-          giocatoreCorrente.getSquadraDiAppartenenza.toLowerCase(),
-        );
-      }
-    });
-
-    //filtro per presenze minime
-    arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-      return giocatoreCorrente.getPresenze >= filtroPresenzeMinimoSelezionato;
-    });
-
-    //filto per escludere o meno i fuorilista, se il filtro fuorilista è false applichiamo il filtro escludendo i fuorilista
-    if (!filtroCaricaFuoriLista) {
-      //escludi i fuorilista
-      arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-        return !giocatoreCorrente.getFuoriLista;
-      });
-    }
-
-    return arrayFiltrato;
-  }
+  return arrayFiltrato;
 }
 
 function applicaFiltroTeams() {
-  azzeraTabelle();
+  console.log("function applicaFiltroTeams()");
 
   let arraySquadre = presidenti.filter((teamsCorrente) => {
     return filtroSelezionaCampionato.includes(
@@ -1266,6 +1249,7 @@ function applicaFiltroTeams() {
 }
 
 function creaFiltroPresenzeMinime() {
+  console.log("creaFiltroPresenzeMinime()");
   let selectPresenzeHTML = ""; //partiamo da 0 fino al max presenze tra i giocatori
   for (let i = 0; i <= filtroPresenzeMinimo; i++) {
     selectPresenzeHTML += `<option>${i}</option>`;
@@ -1280,19 +1264,62 @@ function creaFiltroPresenzeMinime() {
     </section>`,
   );
 }
+function creaFiltroRosa() {
+  console.log("function creaFiltroRosa()");
+  let optionsRosaHTML = "";
+
+  //SE già esiste il filtro rosa lo azzeriamo
+  const filtroRosaEsistente = document.getElementById("select-scegli-rosa");
+  if (filtroRosaEsistente) {
+    filtroRosaEsistente.parentNode.remove();
+  }
+
+  optionsRosaHTML += `<option value="tutte">Tutte le rose</option>`;
+
+  presidenti.forEach((teamCorrente) => {
+    if (filtroRosa == teamCorrente.getNomeRosa.toLowerCase()) {
+      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}" selected>${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
+    } else {
+      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}">${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
+    }
+  });
+
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `
+  <section class="box-filtro">
+          <label>Scegli la rosa</label>
+          <select id="select-scegli-rosa">
+            ${optionsRosaHTML}
+        </section>`,
+  );
+}
+
+function gestisciFiltroRosa(event) {
+  console.log("function gestisciFiltroRosa(event)");
+  const TAG = event.target;
+
+  if (TAG.id == "select-scegli-rosa") {
+    filtroRosa = TAG.value;
+    chiamaPaginaCliccata();
+  }
+}
 
 function gestisciFiltroPresenzeMinime(event) {
+  console.log("function gestisciFiltroPresenzeMinime(event)");
   const TAG = event.target;
-  if (TAG.id == "select-presenze-minime") { //verifichiamo che il change provenga dal filtro presenze minime
+  if (TAG.id == "select-presenze-minime") {
+    //verifichiamo che il change provenga dal filtro presenze minime
     filtroPresenzeMinimoSelezionato = parseInt(TAG.value);
     chiamaPaginaCliccata();
   }
 }
 
 function stampaListaGiocatoriDaSvincolare() {
+  console.log("function stampaListaGiocatoriDaSvincolare()");
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
   creaFiltroRosa();
-
+  TAG_H2.dataset.action = "apri-da-svincolare";
   TAG_H2.textContent = "GIOCATORI FUORI LISTA";
 
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
@@ -1344,45 +1371,3 @@ function stampaListaGiocatoriDaSvincolare() {
   TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
   containerTable.appendChild(TAG_TABLE);
 }
-
-function creaFiltroRosa() {
-  let optionsRosaHTML = "";
-
-  //SE già esiste il filtro rosa lo azzeriamo
-  const filtroRosaEsistente = document.getElementById("select-scegli-rosa");
-  if (filtroRosaEsistente) {
-    filtroRosaEsistente.parentNode.remove();
-  }
-
-  optionsRosaHTML += `<option value="tutte">Tutte le rose</option>`;
-
-  presidenti.forEach((teamCorrente) => {
-    if (filtroRosa == teamCorrente.getNomeRosa.toLowerCase()) {
-      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}" selected>${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
-    } else {
-      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}">${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
-    }
-  });
-
-  containerFiltri.insertAdjacentHTML(
-    "beforeend",
-    `
-  <section class="box-filtro">
-          <label>Scegli la rosa</label>
-          <select id="select-scegli-rosa">
-            ${optionsRosaHTML}
-        </section>`,
-  );
-}
-
-function gestisciFiltroRosa(event) {
-  const TAG = event.target;
-
-  if (TAG.id == "select-scegli-rosa") {
-    filtroRosa = TAG.value;
-    chiamaPaginaCliccata();
-  }
-}
-
-
-

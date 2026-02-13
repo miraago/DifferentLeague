@@ -291,6 +291,40 @@ class Rosa {
     return this.#slotRosa.A;
   }
 
+  get getContaP(){
+    let conta = 0;
+    for(let i = 0; i < this.#slotRosa.P.length; i++)
+    {
+      if(this.#slotRosa.P[i] != null) conta++;
+    }
+    return conta;
+  }
+  get getContaD(){
+    let conta = 0;
+    for(let i = 0; i < this.#slotRosa.D.length; i++)
+    {
+      if(this.#slotRosa.D[i] != null) conta++;
+    }
+    return conta;
+  }
+  get getContaC(){
+    let conta = 0;
+    for(let i = 0; i < this.#slotRosa.C.length; i++)
+    {
+      if(this.#slotRosa.C[i] != null) conta++;
+    }
+    return conta;
+  }
+  get getContaA(){
+    let conta = 0;
+    for(let i = 0; i < this.#slotRosa.A.length; i++)
+    {
+      if(this.#slotRosa.A[i] != null) conta++;
+    }
+    return conta;
+  }
+
+
   get getTuttiGliSlot() {
     let array = [];
     this.getPortieri.forEach((el) => array.push(el));

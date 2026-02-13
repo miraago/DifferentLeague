@@ -8,51 +8,20 @@
 }
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-image: url("../../Assets/image/sfondo.png");
+  background-repeat: repeat;
+  background-size: 100vh;
 }
 
 main {
   position: relative;
 }
-#navbar {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: var(--background_primario);
-  color: white;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-ul {
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-ul li {
-  text-align: center;
-  margin-left: 0;
-  padding: 10px;
-  cursor: pointer;
-  display: inline-block;
-  min-width: 100px;
-}
-ul li:hover {
-  background-color: rgb(47, 241, 255);
-  color: rgb(0, 14, 36);
-  scale: 1.2;
-  font-weight: bold;
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-}
+
 h1 {
-  text-align: left;
-  font-size: 30px;
+  text-align: center;
+  font-size: 40pt;
+  font-weight: bold;
+  padding: 10px;
 }
 
 h2 {
@@ -91,10 +60,12 @@ h2 {
   margin: 0 auto;
   justify-content: center;
   gap: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-top: 10px;
 }
 
 table {
-  width: 65%;
+  width: 100%;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid lightgray;
   border-spacing: 10px 15px;
@@ -119,6 +90,7 @@ table tbody tr {
 }
 table tbody tr td,
 table thead tr th {
+  text-align: center;
   padding: 5px;
 }
 table tbody tr:hover td {
@@ -141,7 +113,6 @@ table tr:nth-child(even) td {
 .logo-menu {
   width: 100px;
   height: auto;
-  margin: 0 auto;
   text-align: center;
 }
 .logo-menu-index {
@@ -150,11 +121,6 @@ table tr:nth-child(even) td {
   margin: 0 auto;
   text-align: center;
 }
-
-/* #container-table th {
-  cursor: pointer;
-  user-select: none;
-} */
 
 #container-table th[data-order="asc"]::after {
   content: " ↑";
@@ -345,6 +311,7 @@ tr td img {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  flex-wrap: nowrap;
 }
 div #contenitore-nome {
   display: flex;
@@ -411,35 +378,6 @@ div #contenitore-nome {
   color: white;
 }
 
-.box-filtro x {
-  width: 15px;
-  font-size: small;
-  height: 15px;
-  text-align: center;
-  line-height: 15px;
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  border-radius: 50%;
-  background-color: white;
-  cursor: pointer;
-  color: var(--background_primario);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  z-index: 1000;
-}
-
-.box-filtro x.visible {
-  visibility: visible;
-}
-
-button {
-  cursor: pointer;
-  padding: 5px;
-}
-
 #barra-filtri-attivi {
   width: 100%;
   display: flex;
@@ -465,5 +403,118 @@ button {
 }
 .filtro-attivo:hover {
   background-color: #ff0000;
+  color: white;
+}
+
+.ruoloMancante {
+  color: #b60000;
+}
+
+.logo_lega {
+  height: 50px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+
+/* ----------------------NAVBAR----------------------- */
+/* 1. Navbar: allineamento alla base per coerenza visiva */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Allinea h1 e menu sulla stessa linea di base */
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background_primario);
+  color: white;
+  flex-wrap: wrap;
+}
+
+/* 2. Contenitore Menu: non deve forzare larghezze fisse se non necessario */
+#contenitore-menu {
+  display: flex;
+  flex: 1; /* Prende lo spazio centrale */
+  justify-content: center; /* Centra il menu tra gli altri due elementi */
+  margin-left: 10px;
+}
+
+#contenitore-menu > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  border-top-left-radius: 10px;
+  background-color: rgba(33, 52, 76, 0.5);
+}
+
+#contenitore-menu > ul > li:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* 3. Voci Principali: devono essere il riferimento (relative) */
+#contenitore-menu > ul > li {
+  position: relative; /* Indispensabile per ancorare la tendina */
+  padding: 10px 15px;
+  cursor: pointer;
+
+  white-space: nowrap; /* Evita che il testo vada a capo */
+  flex-grow: 1; /* Dice al pulsante: "occupa tutto lo spazio libero" */
+  text-align: center; /* Centra il testo nel pulsante allargato */
+}
+
+/* 4. Sottomenu: deve essere largo QUANTO il suo LI padre */
+#contenitore-menu > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  /*Appareesattamentesotto*/
+  left: 0;
+  /*AllineatoasinistradelLI"Squadre"*/
+  width: max-content;
+  min-width: 100%;
+  /*ForzalastessalarghezzadelLIpadre*/
+  background-color: var(--background_primario);
+  padding: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+
+/* 5. Elementi della tendina: rimuoviamo posizionamenti assoluti interni */
+#contenitore-menu > ul > li > ul > li {
+  position: static; /* Reset dal tuo vecchio codice */
+  width: 100%; /* Prende tutta la larghezza della tendina */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+/* 6. Hover: applicato a TUTTI i li per coerenza */
+#contenitore-menu li:hover {
+  background-color: rgb(1, 40, 71);
+}
+
+#contenitore-menu > ul > li:hover > ul {
+  display: block; /* Mostra la tendina al passaggio del mouse */
+}
+#contenitore-menu li {
+  text-align: center;
+}
+#contenitore-menu a {
   color: white;
 }

@@ -18,7 +18,7 @@
       </div>
       <nav id="navbar">
         <div>
-          <image
+          <img
             src="Assets/image/logo.png"
             alt="LogoDifferentLeague"
             title="Logo"
@@ -26,17 +26,36 @@
           />
         </div>
         <h1>Different League</h1>
-        <ul>
-          <li>Tutti i Presidenti</li>
-          <li>Tutte le Squadre</li>
-          <li>Lista Giocatori</li>
-          <li>Appartenenza</li>
-          <li>Svincolati</li>
-          <li>Crediti Residui</li>
-          <li>Giocatori Da Svincolare</li>
-
-          <li><a href="./source/html/login.html">Login</a></li>
-        </ul>
+        <div id="contenitore-menu">
+          <ul>
+            <li data-action="apri-squadre">
+              Squadre
+              <ul>
+                <li data-action="apri-info-squadre">Info Squadre</li>
+                <li data-action="apri-tutte-le-rose">Tutte le Rose</li>
+              </ul>
+            </li>
+            <li data-action="apri-lista-giocatori">
+              Giocatori
+              <ul>
+                <li data-action="apri-lista-giocatori">Lista Giocatori</li>
+              </ul>
+            </li>
+            <li data-action="apri-mercato">
+              Mercato
+              <ul>
+                <li data-action="apri-appartenenze">Appartenenza</li>
+                <li data-action="apri-svincolati">Svincolati</li>
+                <li data-action="apri-da-svincolare">
+                  Giocatori Da Svincolare
+                </li>
+              </ul>
+            </li>
+            <li data-action="apri-login">
+              <a href="./source/html/login.html">Login</a>
+            </li>
+          </ul>
+        </div>
       </nav>
       <h2></h2>
       <div id="container-filtri">
@@ -45,7 +64,7 @@
 
       <div id="container-table">
         <div>
-          <image
+          <img
             src="Assets/image/logo.png"
             alt="LogoDifferentLeague"
             title="Logo"
