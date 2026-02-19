@@ -27,6 +27,7 @@ h1 {
 h2 {
   text-align: center;
   margin: 20px 0;
+  color: var(--background_primario);
 }
 
 #container-giornate {
@@ -48,6 +49,13 @@ h2 {
   width: 15px;
   height: 15px;
   transform: scale(1.15);
+}
+
+#vista-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 /* STILI PER LA TABELLA */
@@ -107,7 +115,7 @@ table tr:nth-child(even) td {
 }
 #container-filtri select {
   padding-left: 10px;
-  height: 80%;
+  min-height: 80%;
 }
 
 .logo-menu {
@@ -169,6 +177,7 @@ table tr:nth-child(even) td {
   justify-content: center;
   margin-bottom: 20px;
   gap: 10px;
+  display: none;
 }
 
 /* Contenitore singolo, ogni .box-filtro va nel contenitore principale */
@@ -316,21 +325,6 @@ tr td img {
 div #contenitore-nome {
   display: flex;
   flex-direction: column;
-}
-.campo-nome-squadra {
-  font-size: 24px;
-}
-.campo-nome-presidente {
-  font-size: 12px;
-  font-weight: 100;
-  font-style: italic;
-}
-.campo-campionato-di-appartenenza {
-  font-size: 18px;
-}
-
-#id-box-team {
-  flex-wrap: wrap;
 }
 
 .box-team {

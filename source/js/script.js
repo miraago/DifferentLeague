@@ -4,9 +4,13 @@ import {
   StatisticaDiGiornata,
   RecordAcquisto,
 } from "./ClassiFanta.js";
+import {
+  stampaLaMiaSquadra,
+  gestisciFiltroSelezionaSquadraDaSelect,
+} from "./laMiaSquadra.js";
 
 import { IMPOSTAZIONI } from "./impostazioni.js";
-
+// import { inizializzaMercato } from "./mercato.js"
 import { toCapitalize } from "./funzioniAgo.js";
 
 let player = [];
@@ -41,6 +45,11 @@ let filtroPresenzeMinimoSelezionato = 0; //se è 0 significa che è selezionato 
 let filtroCaricaFuoriLista = false; //se è true significa che è selezionato tutti
 let filtroRosa = "";
 
+const tagVistaLaMiaSquadra = document.getElementById("vista-la-mia-squadra");
+tagVistaLaMiaSquadra.addEventListener("change", (e) => {
+  gestisciFiltroSelezionaSquadraDaSelect(e, chiamaPaginaCliccata);
+});
+
 const containerMenu = document.getElementById("contenitore-menu");
 containerMenu.addEventListener("click", chiamaPaginaCliccata);
 
@@ -63,6 +72,7 @@ async function logicaPrincipale() {
     ]);
     //gli acquisti vanno caricati solo dopo aver caricato presidenti e giocatori
     await caricaAcquisti();
+
     popup.style.display = "none";
   } catch (err) {
     console.error(err);
@@ -248,13 +258,20 @@ async function caricaAcquisti() {
   }
   //console.log("Caricamento acquisti completato.");
 }
+
 //---------------------------------------------------------------------------
 
 // fine menu
 
 //STAMPE TABELLE
+function stampaDashboard() {
+  paginaDaRendereVisibile("dashboard");
+  TAG_H2.textContent = "Fantacalcio Different League";
+}
+
 function stampaInfoSquadre() {
   console.log("function stampaInfoSquadre");
+  paginaDaRendereVisibile("dati");
   if (TAG_H2.dataset.action != "apri-info-squadre") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
@@ -341,6 +358,7 @@ function stampaInfoSquadre() {
 
 function stampaRose() {
   // console.log("Stampa LISTA ROSE in corso...");
+  paginaDaRendereVisibile("dati");
   console.log("function stampaRose()");
 
   if (TAG_H2.dataset.action != "apri-tutte-le-rose") {
@@ -466,6 +484,7 @@ function stampaRose() {
 
 function stampaListaGiocatori() {
   console.log("function stampaListaGiocatori()");
+  paginaDaRendereVisibile("dati");
   if (TAG_H2.dataset.action != "apri-lista-giocatori") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
@@ -565,6 +584,7 @@ function stampaListaGiocatori() {
 
 function stampaListaAppartenenze() {
   console.log("function stampaListaAppartenenze()");
+  paginaDaRendereVisibile("dati");
   if (TAG_H2.dataset.action != "apri-appartenenze") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
@@ -696,6 +716,7 @@ function stampaListaAppartenenze() {
 }
 function stampaListaSvincolati() {
   console.log("function stampaListaSvincolati()");
+  paginaDaRendereVisibile("dati");
   //console.log("Stampa lista Svincolati in corso..."
   // );
 
@@ -779,6 +800,63 @@ function stampaListaSvincolati() {
   }
 
   //console.log("Stampa lista svincolaticompletata.");
+}
+function stampaListaGiocatoriDaSvincolare() {
+  console.log("function stampaListaGiocatoriDaSvincolare()");
+  paginaDaRendereVisibile("dati");
+  azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
+  creaFiltroRosa();
+  TAG_H2.dataset.action = "apri-da-svincolare";
+  TAG_H2.textContent = "GIOCATORI FUORI LISTA";
+
+  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
+  let contaGiocatori = 0;
+  presidenti.forEach((teamCorrente) => {
+    if (teamCorrente == filtroRosa || filtroRosa == "Tutte le rose") {
+      //scorriamo tutte le squadre del campionato
+      teamCorrente.getTuttiGliSlot.forEach((playerCorrente) => {
+        //scorriamo tutti i giocatori e individuiamo i fuori lista della squadra corrente
+        if (playerCorrente.getDatiGiocatore.getFuoriLista) {
+          contaGiocatori++;
+          rigaHTML += `
+      <tr>
+        <td> ${teamCorrente.getNomeRosa} </td>
+        <td> ${playerCorrente.getDatiGiocatore.getRuolo}  </td>
+        <td> ${toCapitalize(playerCorrente.getDatiGiocatore.getNome)}</td>
+        <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
+        <td> ${playerCorrente.getCostoDiAcquisto} </td>
+        
+        <td> ${Math.ceil(
+          (playerCorrente.getCostoDiAcquisto +
+            playerCorrente.getDatiGiocatore.getQuotazione) /
+            2,
+        )} </td>
+      </tr>
+      `;
+        }
+      });
+    }
+  });
+
+  //creiamo una tabella
+  const TAG_TABLE = document.createElement("table");
+  const TAG_THEAD = document.createElement("thead");
+  const TAG_TBODY = document.createElement("tbody");
+
+  //inseriamo l'intestazione della tabella
+  TAG_THEAD.innerHTML = `
+      <tr  class="intestazione-colonne">
+        <th> Squadra </th>
+        <th> Ruolo </th>
+        <th> Nome  </th>
+        <th> Quotazione </th>
+        <th> Costo Pagato </th>
+        <th> Costo di svincolo </th>    
+    </tr>`;
+
+  TAG_TBODY.innerHTML = rigaHTML;
+  TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
+  containerTable.appendChild(TAG_TABLE);
 }
 
 //FINE STAMPA TABELLA
@@ -995,6 +1073,15 @@ function chiamaPaginaCliccata(evento) {
     case "apri-squadre":
       stampaInfoSquadre();
       break;
+    case "apri-la-mia-squadra":
+      stampaLaMiaSquadra(
+        presidenti,
+        tagVistaLaMiaSquadra,
+        TAG_H2,
+        azzeraFiltri,
+        paginaDaRendereVisibile,
+      );
+      break;
     case "apri-tutte-le-rose":
       stampaRose();
       break;
@@ -1017,6 +1104,7 @@ function chiamaPaginaCliccata(evento) {
       stampaListaGiocatoriDaSvincolare();
       break;
     default:
+      stampaDashboard();
       break;
   }
 }
@@ -1250,6 +1338,7 @@ function applicaFiltroTeams() {
 
 function creaFiltroPresenzeMinime() {
   console.log("creaFiltroPresenzeMinime()");
+
   let selectPresenzeHTML = ""; //partiamo da 0 fino al max presenze tra i giocatori
   for (let i = 0; i <= filtroPresenzeMinimo; i++) {
     selectPresenzeHTML += `<option>${i}</option>`;
@@ -1315,59 +1404,25 @@ function gestisciFiltroPresenzeMinime(event) {
   }
 }
 
-function stampaListaGiocatoriDaSvincolare() {
-  console.log("function stampaListaGiocatoriDaSvincolare()");
-  azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
-  creaFiltroRosa();
-  TAG_H2.dataset.action = "apri-da-svincolare";
-  TAG_H2.textContent = "GIOCATORI FUORI LISTA";
+/*
+@param paginaDaRendereVisibile
+*/
+function paginaDaRendereVisibile(pagina = "") {
+  const PAGINE = document.querySelectorAll(".pagina"); //otteniamo tutti gli elementi pagina
 
-  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-  let contaGiocatori = 0;
-  presidenti.forEach((teamCorrente) => {
-    if (teamCorrente == filtroRosa || filtroRosa == "Tutte le rose") {
-      //scorriamo tutte le squadre del campionato
-      teamCorrente.getTuttiGliSlot.forEach((playerCorrente) => {
-        //scorriamo tutti i giocatori e individuiamo i fuori lista della squadra corrente
-        if (playerCorrente.getDatiGiocatore.getFuoriLista) {
-          contaGiocatori++;
-          rigaHTML += `
-      <tr>
-        <td> ${teamCorrente.getNomeRosa} </td>
-        <td> ${playerCorrente.getDatiGiocatore.getRuolo}  </td>
-        <td> ${toCapitalize(playerCorrente.getDatiGiocatore.getNome)}</td>
-        <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
-        <td> ${playerCorrente.getCostoDiAcquisto} </td>
-        
-        <td> ${Math.ceil(
-          (playerCorrente.getCostoDiAcquisto +
-            playerCorrente.getDatiGiocatore.getQuotazione) /
-            2,
-        )} </td>
-      </tr>
-      `;
-        }
-      });
-    }
-  });
+  if (pagina == "dashboard") {
+    containerFiltri.style.display = "none";
+  } else {
+    containerFiltri.style.display = "flex";
+  }
 
-  //creiamo una tabella
-  const TAG_TABLE = document.createElement("table");
-  const TAG_THEAD = document.createElement("thead");
-  const TAG_TBODY = document.createElement("tbody");
-
-  //inseriamo l'intestazione della tabella
-  TAG_THEAD.innerHTML = `
-      <tr  class="intestazione-colonne">
-        <th> Squadra </th>
-        <th> Ruolo </th>
-        <th> Nome  </th>
-        <th> Quotazione </th>
-        <th> Costo Pagato </th>
-        <th> Costo di svincolo </th>    
-    </tr>`;
-
-  TAG_TBODY.innerHTML = rigaHTML;
-  TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
-  containerTable.appendChild(TAG_TABLE);
+  if (pagina != "" && PAGINE) {
+    PAGINE.forEach((paginacorrente) => {
+      if (paginacorrente.dataset.pagina == pagina) {
+        paginacorrente.style.display = "flex";
+      } else {
+        paginacorrente.style.display = "none";
+      }
+    });
+  }
 }

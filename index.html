@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="source/css/styles.css" />
+    <link rel="stylesheet" href="source/css/laMiaSquadra.css" />
     <link rel="icon" href="Assets/icone/logodl.ico" />
     <script src="./source/js/script.js" type="module" defer></script>
 
@@ -17,6 +18,7 @@
         <h3>Caricamento Dati in corso ...Attendere Prego!!!</h3>
       </div>
       <nav id="navbar">
+        <!-- vista dashboard -->
         <div>
           <img
             src="Assets/image/logo.png"
@@ -28,9 +30,11 @@
         <h1>Different League</h1>
         <div id="contenitore-menu">
           <ul>
+            <li data-action="apri-dashboard">Pagina Iniziale</li>
             <li data-action="apri-squadre">
               Squadre
               <ul>
+                <li data-action="apri-la-mia-squadra">La mia squadra</li>
                 <li data-action="apri-info-squadre">Info Squadre</li>
                 <li data-action="apri-tutte-le-rose">Tutte le Rose</li>
               </ul>
@@ -44,8 +48,12 @@
             <li data-action="apri-mercato">
               Mercato
               <ul>
-                <li data-action="apri-appartenenze">Appartenenza</li>
                 <li data-action="apri-svincolati">Svincolati</li>
+                <li data-action="apri-scambi-1-a-molti">Scambi 1 a molti</li>
+                <li data-action="apri-scambi-classici">Scambi Classici</li>
+                <li data-action="apri-buste">Buste</li>
+                <li data-action="apri-appartenenze">Appartenenza</li>
+
                 <li data-action="apri-da-svincolare">
                   Giocatori Da Svincolare
                 </li>
@@ -57,12 +65,12 @@
           </ul>
         </div>
       </nav>
-      <h2></h2>
+      <h2 id="titolo">Fantacalcio Different League</h2>
       <div id="container-filtri">
         <div id="contenitore-filtri-attivi"></div>
       </div>
 
-      <div id="container-table">
+      <div class="pagina" data-pagina="dashboard" id="vista-dashboard">
         <div>
           <img
             src="Assets/image/logo.png"
@@ -70,6 +78,16 @@
             title="Logo"
             class="logo-menu-index"
           />
+        </div>
+      </div>
+      <div class="pagina" data-pagina="dati" id="container-table"></div>
+      <div class="pagina" data-pagina="scambi" id="vista-scambi"></div>
+      <div id="vista-la-mia-squadra"
+        class="pagina"
+        data-pagina="la-mia-squadra"
+      >
+            
+          
         </div>
       </div>
     </main>

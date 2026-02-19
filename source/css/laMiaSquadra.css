@@ -1,0 +1,186 @@
+:root {
+  --background_primario: rgb(2, 87, 156);
+  --color-scuro: rgb(1, 22, 53);
+  --color_primario: white;
+}
+
+#vista-la-mia-squadra {
+  background-color: var(--background_primario);
+  color: var(--color_primario);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 20px;
+  display: none;
+}
+
+#vista-la-mia-squadra .intestazione-team {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#vista-la-mia-squadra .intestazione-team > div {
+  width: 100%;
+  text-align: center;
+}
+#campo-nome-team {
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+#campo-campionato-di-appartenenza {
+  font-size: 18px;
+}
+#campo-nome-presidente {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 100;
+  font-style: italic;
+  text-align: center;
+}
+#campo-crediti-residui {
+  font-size: 36pt;
+  font-weight: 100;
+  font-style: italic;
+  width: 20%;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+#info-slot-ruoli {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+#info-slot-ruoli > div {
+  width: 22%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 32px;
+}
+#contenitore-rosa {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.box-pacchetto-giocatori {
+  min-width: calc(25% - 3px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: var(--color-scuro);
+  border-radius: 18px;
+  gap: 3px;
+}
+
+.box-giocatore {
+  margin: 0 auto;
+
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-scuro);
+  color: var(--color_primario);
+  border-radius: 5px;
+  overflow: hidden;
+}
+#box-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}
+#box-statistiche {
+  width: 25%;
+  display: flex;
+  font-size: small;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1px;
+}
+#box-statistiche div {
+  text-align: left;
+}
+#box-costi {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color_primario);
+  background-color: rgb(60, 236, 252);
+  color: var(--color-scuro);
+}
+#campo-nome-giocatore {
+  color: rgb(60, 236, 252);
+  font-family: "Arial Narrow Bold", sans-serif;
+  font-weight: 100;
+}
+#campo-nome-squadra {
+  font-size: x-small;
+  text-align: center;
+}
+#campo-costo-acquisto {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 100;
+  font-style: italic;
+  padding: 5px;
+}
+#campo-quotazione {
+  text-align: right;
+  font-size: x-small;
+  padding-right: 2px;
+}
+
+/* Stile per il selettore delle squadre */
+#select-scelta-squadra {
+  /* min-width: 180px; Larghezza minima per non farlo schiacciare */
+  /* padding: 5px; Un po' di respiro interno */
+  /* margin-top: 5px; Lo distanzia dall'etichetta superiore */
+  /* font-size: 14px; */
+  /* border: 1px solid var(--background_primario);
+  border-radius: 5px; */
+  /* background-color: white; */
+  color: var(--background_primario);
+  /* cursor: pointer; */
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: white;
+  color: var(--background_primario);
+  font-weight: bold;
+}
+
+#select-scelta-squadra:focus {
+  outline: 2px solid rgb(47, 241, 255); /* Effetto quando lo clicchi */
+}
