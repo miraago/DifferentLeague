@@ -181,6 +181,6 @@
   font-weight: bold;
 }
 
-#select-scelta-squadra:focus {
+input:focus {
   outline: 2px solid rgb(47, 241, 255); /* Effetto quando lo clicchi */
 }

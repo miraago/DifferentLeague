@@ -113,9 +113,11 @@ table tr:nth-child(even) td {
   font-size: 14px;
   font-style: italic;
 }
-#container-filtri select {
+#container-filtri #select-qt-min,
+#container-filtri #select-qt-max,
+#container-filtri #select-presenze-minime {
   padding-left: 10px;
-  min-height: 80%;
+  min-height: 85%;
 }
 
 .logo-menu {
@@ -336,6 +338,12 @@ div #contenitore-nome {
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
+}
+#id-box-team {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .box-team p {
   display: block;

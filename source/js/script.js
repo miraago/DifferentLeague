@@ -9,6 +9,8 @@ import {
   gestisciFiltroSelezionaSquadraDaSelect,
 } from "./laMiaSquadra.js";
 
+import { caricaTuttiIDati } from "./caricamentoDati.js";
+
 import { IMPOSTAZIONI } from "./impostazioni.js";
 // import { inizializzaMercato } from "./mercato.js"
 import { toCapitalize } from "./funzioniAgo.js";
@@ -57,209 +59,35 @@ const containerTable = document.getElementById("container-table");
 containerTable.addEventListener("click", (e) => ordinaTabella(e));
 
 async function logicaPrincipale() {
-  console.log("function logicaPrincipale");
+  console.log("Avvio Logica Principale...");
   const popup = document.getElementById("popup-caricamento");
   const TAG_H3 = popup.querySelector("h3");
-
-  popup.style.display = "visible"; //popup attesa caricamento dati
+  popup.style.display = "flex"; 
 
   try {
-    await Promise.all([
-      //caricamento dati presidenti
-      caricaPresidenti(),
-      //caricamento dati giocatori
-      caricaGiocatori(),
-    ]);
-    //gli acquisti vanno caricati solo dopo aver caricato presidenti e giocatori
-    await caricaAcquisti();
+    // 1. Chiediamo TUTTI i dati al nostro nuovo modulo
+    const datiScaricati = await caricaTuttiIDati();
+
+    // 2. Popoliamo le variabili globali di script.js
+    presidenti = datiScaricati.presidenti;
+    player = datiScaricati.giocatori;
+    acquisti = datiScaricati.acquisti;
+
+    // 3. Popoliamo i filtri con i massimali calcolati dal modulo!
+    filtroQtMinEMax.filtroMax = datiScaricati.maxQuotazione;
+    filtroQtMinEMax.filtroMaxSelezionato = datiScaricati.maxQuotazione;
+    
+    filtroPresenzeMinimo = datiScaricati.maxPresenze;
+    // filtroPresenzeMinimoSelezionato parte da 0, quindi va bene così.
 
     popup.style.display = "none";
+    console.log("✅ Dati caricati e pronti all'uso!");
+
   } catch (err) {
     console.error(err);
-    TAG_H3.innerText =
-      "Errore Caricamento Dati, Ricaricare la pagina ... se il problema persiste contattare l'admin. " +
-      err;
+    TAG_H3.innerText = "Errore Caricamento Dati. Contattare l'admin. " + err;
   }
-  console.log("Tutto caricato");
-  //console.log("Logica principale completata.");
 }
-
-// caricamento file --------------------------------
-async function caricaPresidenti() {
-  //console.log("Caricamento presidenti in corso...");
-  //let datiPresidenti = get_file_presidenti(); //ottengo il contenuto del file presidenti
-  console.log("function caricaPresidenti");
-
-  const response = await fetch("Assets/file/presidenti.txt");
-  if (!response.ok) {
-    throw new Error("Network response was not ok " + response.statusText);
-  }
-  const datiPresidenti = (await response.text())
-    .replaceAll("\t", "|")
-    .toUpperCase();
-
-  let temp = [];
-  let arrayPresidenti = datiPresidenti.split("\n"); //divido il file in righe
-
-  for (let i = 0; i < arrayPresidenti.length; i++) {
-    {
-      temp = arrayPresidenti[i].split("|"); //divido ogni riga in colonne
-      if (temp.length > 1) {
-        //fin quanto l'array è pieno puoi aggiungere
-        presidenti.push(new Rosa(temp[0], temp[1], temp[2], temp[3])); //creo un nuovo oggetto presidente e lo aggiungo all'array presidenti
-      }
-    }
-  }
-  //console.log("Caricamento presidenti completato.");
-}
-
-async function caricaGiocatori() {
-  //console.log("Caricamento giocatori in corso...");
-  //let datiGiocatori = get_file_giocatori();
-  console.log("function caricaGiocatori");
-
-  const response = await fetch("Assets/file/quotazioni_gg25.txt");
-  if (!response.ok) {
-    throw new Error("Network response was not ok " + response.statusText);
-  }
-  const datiGiocatori = (await response.text())
-    .replaceAll("\t", "|")
-    .toUpperCase();
-
-  let temp = [];
-  let arrayGiocatori = datiGiocatori.split("\n");
-
-  console.log(
-    "📥 File caricato - Righe totali:",
-    arrayGiocatori.length,
-    "Bytes:",
-    datiGiocatori.length,
-  );
-
-  let recordInvalidi = 0;
-
-  for (let i = 1; i < arrayGiocatori.length; i++) {
-    temp = arrayGiocatori[i].split("|");
-
-    if (temp.length > 1) {
-      //temp.length > 1 il record non è vuoto
-
-      // Verifica se il record ha almeno 14 campi
-      if (temp.length < 14) {
-        console.warn(
-          `Record ${i} ha solo ${temp.length} campi:`,
-          temp[0],
-          temp[1],
-        );
-        recordInvalidi++;
-        continue;
-      }
-
-      player.push(
-        new Giocatore(
-          temp[0], //id
-          temp[1], //nome
-          temp[2], //squadra di appartenenza
-          temp[3], //ruolo
-          temp[4], //ruolo mantra
-          temp[5], //fuorilista
-          temp[6], //quotazione
-          temp[7], //presenze
-          temp[8],
-          temp[9],
-          temp[10],
-          temp[11],
-          temp[12],
-          temp[13],
-        ),
-      );
-      const qtPlayerAttuale = parseInt(temp[6]);
-      //aggiornamento min e max quotazione
-      if (filtroQtMinEMax.filtroMax < qtPlayerAttuale) {
-        filtroQtMinEMax.filtroMaxSelezionato = filtroQtMinEMax.filtroMax =
-          qtPlayerAttuale;
-      }
-      //popoliamo le presenze minime
-      if (filtroPresenzeMinimo < parseInt(temp[7])) {
-        filtroPresenzeMinimo = parseInt(temp[7]);
-      }
-    }
-  }
-  console.log(
-    "✅ Giocatori caricati:",
-    player.length,
-    "| Record invalidi:",
-    recordInvalidi,
-  );
-  //console.log("Caricamento giocatori completato.");
-}
-
-async function caricaAcquisti() {
-  //console.log("Caricamento acquisti in corso...");
-  console.log("function caricaAcquisti");
-
-  const response = await fetch("Assets/file/file_rose.txt");
-  if (!response.ok) {
-    throw new Error("Network response was not ok " + response.statusText);
-  }
-  let datiRose = (await response.text()).toUpperCase(); //leggiamo il file rose e lo trasformiamo in maiuscolo
-  datiRose = datiRose.replaceAll("\t", "|"); //sostituiamo tutti i tab con il carattere pipe  (|)
-
-  //esempio : Arsenal	SOMMER	POR	int	8	4,88	18	45	Premier League
-  let temp = [];
-  let arrayRose = datiRose.split("\n").filter((line) => line.trim()); //in questo array trasformiamo ogni riga in un indice di array, filtrando righe vuote
-
-  for (let i = 0; i < arrayRose.length; i++) {
-    {
-      temp = arrayRose[i].split("|"); //qui dividiamo ogni riga in colonne
-      /*ESEMPIO
-      temp[0]=Arsenal	
-      temp[1]=SOMMER	
-      temp[2]=POR	
-      temp[3]=int	
-      temp[4]=8	
-      temp[5]=4,88	
-      temp[6]=18	
-      temp[7]=45	
-      temp[8]=Premier League*/
-      let tempNomeSquadra = temp[0]; //esempio Arsenal
-      let tempNomeGiocatore = temp[1]; //esempio Sommer
-      let tempPrezzoAcquisto = temp[7]; // Esempio 45
-
-      //registriamo il giocatore in un record
-      const record = new RecordAcquisto(
-        player.find((p) => {
-          return p.getNome == tempNomeGiocatore;
-        }),
-        11,
-        "",
-        tempPrezzoAcquisto,
-      );
-
-      //record ora contiene il record di acquisto del giocatore
-
-      const presidenteTrovato = presidenti.find((p) => {
-        return tempNomeSquadra == p.getNomeRosa;
-      });
-
-      //presidente trovato ora contiene l'oggetto presidente a cui dobbiamo aggiungere il giocatore
-
-      if (presidenteTrovato) {
-        //se la ricerca dei presidenti è andata a buon fine registriamo il record
-        presidenteTrovato.addRecordAcquisto(record);
-        const giocatoreTrovato = player.find((p) => {
-          return p.getNome == tempNomeGiocatore;
-        });
-        if (giocatoreTrovato) {
-          giocatoreTrovato.aggiungiPossessi(presidenteTrovato);
-        }
-      }
-    } //ora ogni rosa in presidenti ha i suoi giocatori aggiunti ed ogni giocatore ha le sue appartenenze aggiornate
-  }
-  //console.log("Caricamento acquisti completato.");
-}
-
-//---------------------------------------------------------------------------
 
 // fine menu
 
