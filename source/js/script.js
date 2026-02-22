@@ -1,51 +1,64 @@
 import {
-  Giocatore,
-  Rosa,
-  StatisticaDiGiornata,
-  RecordAcquisto,
-} from "./ClassiFanta.js";
-import {
   stampaLaMiaSquadra,
   gestisciFiltroSelezionaSquadraDaSelect,
 } from "./laMiaSquadra.js";
 
+import { 
+  stampaListaGiocatori,
+  stampaListaAppartenenze,
+  stampaListaSvincolati,
+ } from "./vistaGiocatori.js";
+
 import { caricaTuttiIDati } from "./caricamentoDati.js";
 
 import { IMPOSTAZIONI } from "./impostazioni.js";
-// import { inizializzaMercato } from "./mercato.js"
+
 import { toCapitalize } from "./funzioniAgo.js";
 
-let player = [];
+let player = []; //lista giocatori
 let acquisti = [];
-let presidenti = [];
-logicaPrincipale();
+let presidenti = []; //lista presidenti
 const TAG_H2 = document.querySelector("h2");
 
-//FILTRI
-const containerFiltri = document.getElementById("container-filtri");
-containerFiltri.addEventListener("click", gestisciFiltroRuolo);
-containerFiltri.addEventListener("click", gestisciFiltroSelezionaCampionato);
-containerFiltri.addEventListener("click", gestisciFiltroTeam);
-containerFiltri.addEventListener("change", gestisciFiltroFuoriLista);
-containerFiltri.addEventListener("change", gestisciFiltroQuotazioneMinEMax);
-containerFiltri.addEventListener("change", gestisciFiltroPresenzeMinime);
-containerFiltri.addEventListener("input", chiamaPaginaCliccata);
-containerFiltri.addEventListener("change", gestisciFiltroRosa);
-
-let filtroRuolo = [];
-
-let filtroQtMinEMax = {
-  filtroMin: 1,
-  filtroMax: 1,
-  filtroMinSelezionato: 1,
-  filtroMaxSelezionato: 1,
+//GESTIONE FILTRI
+const STATO_FILTRI = {
+  qt:{ //filtro quotazioni 
+    min:1, //quotazione minima
+    max:1, //quotazione massima
+    minSelezionato:1, //quotazione minima selezionata nel filtro
+    maxSelezionato:1  //quotazione massima selezionata nel filtro    
+  },
+  presenze:{ //filtro presenze
+    min:0,
+    max:0,
+    minSelezionato:0
+  },
+  ruolo : [], //filtro ruolo
+  lega : [], //filtro lega, tiene traccia del campionato cliccato
+  squadraSA:[], //filtro squadra serie A selezionata
+  caricaFuoriLista:false, //  tiene traccia se mostrare o meno i fuori lista. se è true significa che è selezionato tutti
+  rosaPresidente:"" // tiene traccia del presidente selezionato
 };
-let filtroSelezionaCampionato = []; //se è vuoto significa che è selezionato tutti
-let filtroSelezionaSquadra = []; //se è vuoto significa che è selezionato tutti
-let filtroPresenzeMinimo = 0; //se è 0 significa che è selezionato tutti
-let filtroPresenzeMinimoSelezionato = 0; //se è 0 significa che è selezionato tutti
-let filtroCaricaFuoriLista = false; //se è true significa che è selezionato tutti
-let filtroRosa = "";
+
+const containerFiltri = document.getElementById("container-filtri");
+
+containerFiltri.addEventListener("click", (evento) => {
+  gestisciFiltroRuolo(evento);
+  gestisciFiltroSelezionaCampionato(evento);
+  gestisciFiltroTeam(evento);
+});
+
+containerFiltri.addEventListener("change", (evento) => {
+  gestisciFiltroFuoriLista(evento);
+  gestisciFiltroQuotazioneMinEMax(evento);
+  gestisciFiltroPresenzeMinime(evento);
+  gestisciFiltroRosa(evento);
+});
+
+containerFiltri.addEventListener("input", chiamaPaginaCliccata);
+
+
+
 
 const tagVistaLaMiaSquadra = document.getElementById("vista-la-mia-squadra");
 tagVistaLaMiaSquadra.addEventListener("change", (e) => {
@@ -58,11 +71,14 @@ containerMenu.addEventListener("click", chiamaPaginaCliccata);
 const containerTable = document.getElementById("container-table");
 containerTable.addEventListener("click", (e) => ordinaTabella(e));
 
+//AVVIO PROGRAMMA
+logicaPrincipale();
+
 async function logicaPrincipale() {
   console.log("Avvio Logica Principale...");
   const popup = document.getElementById("popup-caricamento");
   const TAG_H3 = popup.querySelector("h3");
-  popup.style.display = "flex"; 
+  popup.style.display = "flex";
 
   try {
     // 1. Chiediamo TUTTI i dati al nostro nuovo modulo
@@ -73,23 +89,38 @@ async function logicaPrincipale() {
     player = datiScaricati.giocatori;
     acquisti = datiScaricati.acquisti;
 
-    // 3. Popoliamo i filtri con i massimali calcolati dal modulo!
-    filtroQtMinEMax.filtroMax = datiScaricati.maxQuotazione;
-    filtroQtMinEMax.filtroMaxSelezionato = datiScaricati.maxQuotazione;
-    
-    filtroPresenzeMinimo = datiScaricati.maxPresenze;
-    // filtroPresenzeMinimoSelezionato parte da 0, quindi va bene così.
+    inizializzaFiltri();
 
     popup.style.display = "none";
     console.log("✅ Dati caricati e pronti all'uso!");
-
   } catch (err) {
     console.error(err);
     TAG_H3.innerText = "Errore Caricamento Dati. Contattare l'admin. " + err;
   }
 }
 
-// fine menu
+//
+
+function inizializzaFiltri() {
+  //inizializzazione filtro quotazione min e max
+
+  player.forEach((playerCorrente) => {
+    const quotazione = playerCorrente.getQuotazione;//quotazione del giocatore corrente
+    const presenze = playerCorrente.getPresenze;//presenze del giocatore corrente
+
+    if (quotazione > STATO_FILTRI.qt.max) {
+      STATO_FILTRI.qt.max = quotazione;
+    }
+    if (STATO_FILTRI.presenze.max < presenze) {
+      STATO_FILTRI.presenze.max = presenze;  //presenze massime del giocatore
+    }
+  });
+
+
+
+  STATO_FILTRI.qt.maxSelezionato = STATO_FILTRI.qt.max;
+
+}
 
 //STAMPE TABELLE
 function stampaDashboard() {
@@ -310,325 +341,6 @@ function stampaRose() {
   });
 }
 
-function stampaListaGiocatori() {
-  console.log("function stampaListaGiocatori()");
-  paginaDaRendereVisibile("dati");
-  if (TAG_H2.dataset.action != "apri-lista-giocatori") {
-    //se viene da un'altra pagina possiamo azzerare i filtri
-    azzeraFiltri();
-  }
-  TAG_H2.dataset.action = "apri-lista-giocatori";
-  TAG_H2.textContent = "LISTA GIOCATORI";
-  //creiamo i filtri per la pagina giocatori
-
-  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-    creaFiltroRicercaGiocatore();
-    creaFiltroRuolo();
-    creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam();
-    creaFiltroPresenzeMinime();
-    creaFiltroFuoriLista();
-  }
-  azzeraTabelle();
-
-  // console.log("Stampa lista giocatori in corso...");
-
-  const arrayFiltrato = applicaFiltriGiocatori();
-
-  //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
-  if (arrayFiltrato.length !== 0) {
-    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-
-    //SCORIAMO LA LISTA DI TUTTI I GIOCATORI FILTRATI
-    arrayFiltrato.forEach((p) => {
-      let rigaSquadre = "";
-
-      //per ogni giocatore andiamo a controllare le squadre che lo posseggono
-      acquisti.forEach((record) => {
-        if (record.getRifNomeGiocatore == p.getNome) {
-          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${
-            record.getCostoDiAcquisto
-          })</td>`;
-        }
-      });
-
-      const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
-      const asterisco = classefuorilista.length > 1 ? "(*)" : "";
-      let riganuova = "";
-
-      riganuova = `<tr ${classefuorilista}>
-        <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
-        <td>${toCapitalize(p.getNome)}${asterisco}</td>`;
-
-      if (p.getFuoriLista) {
-        riganuova += "<td></td>";
-      } else {
-        riganuova += `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(p.getSquadraDiAppartenenza.slice(0, 3))}</td>`;
-      }
-      riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
-        <td>${p.getPresenze}</td>
-        <td>${p.getMv}</td>
-        <td>${p.getFvm}</td>
-        <td>${p.getSommaBonusMalus}</td>
-        <td>${p.getMvUltime5}</td>
-        <td>${p.getFvmUltime5}</td>
-        <td>${p.getSommaBonusMalusUltime5}</td>
-        ${rigaSquadre}
-      </tr>`;
-
-      //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
-      rigaHTML += riganuova; //caso2 ok
-    });
-
-    //CREAZIONE TABELLA
-
-    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-    const thead = `<tr class="intestazione-colonne">
-        <th>Ruolo</th>
-        <th>Nome</th>
-        <th>Squadra</th>
-        <th>Quotazione</th>
-        <th>Presenze</th>
-        <th>MediaVoto</th>
-        <th>FantaMedia</th>
-        <th>Somma Bonus/Malus </th>
-        <th>MediaVoto Recente</th>
-        <th>FantaMedia Recente</th>
-        <th>Bonus Malus ultime 5 </th>
-        </tr>`;
-    TAG_THEAD.innerHTML = thead;
-    containerTable.appendChild(TAG_TABLE);
-    TAG_TBODY.innerHTML = rigaHTML;
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
-  } else {
-    containerTable.textContent =
-      "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
-  }
-
-  //console.log("Stampa lista giocatori completata.");
-}
-
-function stampaListaAppartenenze() {
-  console.log("function stampaListaAppartenenze()");
-  paginaDaRendereVisibile("dati");
-  if (TAG_H2.dataset.action != "apri-appartenenze") {
-    //se viene da un'altra pagina possiamo azzerare i filtri
-    azzeraFiltri();
-  }
-
-  TAG_H2.dataset.action = "apri-appartenenze";
-  TAG_H2.textContent = "LISTA APPARTENENZE";
-
-  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-    creaFiltroRicercaGiocatore();
-    creaFiltroRuolo();
-    creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam();
-    creaFiltroPresenzeMinime();
-    creaFiltroFuoriLista();
-  }
-
-  azzeraTabelle();
-  //console.log("Stampa lista Appartenenze in corso...");
-  const arrayFiltrato = applicaFiltriGiocatori();
-
-  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-
-  //scorriamo l'array filtratoe lo inseriamo nella riga che andremo ad inserire nel tbody
-
-  arrayFiltrato.forEach((playerCorrente) => {
-    let tdSquadre1 = "";
-    let tdSquadre2 = "";
-    let tdSquadre3 = "";
-    let tdSquadre4 = "";
-    let tdSquadre5 = "";
-
-    playerCorrente.getPossessi.forEach((sqPos) => {
-      const campionato = sqPos.getCampionatoDiAppartenenza;
-      switch (campionato) {
-        case IMPOSTAZIONI.CAMPIONATI.GIR1:
-          tdSquadre1 += sqPos.getNomeRosa + " ";
-          break;
-        case IMPOSTAZIONI.CAMPIONATI.GIR2:
-          tdSquadre2 += sqPos.getNomeRosa + " ";
-          break;
-        case IMPOSTAZIONI.CAMPIONATI.GIR3:
-          tdSquadre3 += sqPos.getNomeRosa + " ";
-          break;
-        case IMPOSTAZIONI.CAMPIONATI.GIR4:
-          tdSquadre4 += sqPos.getNomeRosa + " ";
-          break;
-        case IMPOSTAZIONI.CAMPIONATI.GIR5:
-          tdSquadre5 += sqPos.getNomeRosa + " ";
-          break;
-      }
-    });
-
-    // se è fuori lista aggiungo la classe alla riga
-    const classFuoriLista = playerCorrente.getFuoriLista
-      ? 'class="fuorilista"'
-      : "";
-    const asterisco = classFuoriLista.length > 1 ? "(*)" : "";
-
-    rigaHTML += `
-      <tr ${classFuoriLista}>
-        <td><span class="${playerCorrente.getRuolo}"</span>
-          ${playerCorrente.getRuolo}
-        </td>
-        <td>
-          ${toCapitalize(playerCorrente.getNome)}${asterisco}
-        </td>`;
-    if (playerCorrente.getSquadraDiAppartenenza == "") {
-      rigaHTML += `<td></td>`;
-    } else {
-      rigaHTML += `
-
-        <td class="squadra-di-appartenenza"> 
-          <img src="Assets/image/loghi_team_serie_A/${playerCorrente.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
-          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza.slice(0, 3))}          
-        </td>`;
-    }
-
-    rigaHTML += `
-        <td  class="cella-quotazione"><img src="Assets/icone/soldi.png"/>
-         ${playerCorrente.getQuotazione}
-        </td>
-        <td>
-          ${playerCorrente.getCopieOccupate}
-        </td>
-        <td>
-         ${toCapitalize(tdSquadre1)}
-        </td>
-        <td>
-         ${toCapitalize(tdSquadre2)}
-        </td>
-        <td>
-         ${toCapitalize(tdSquadre3)}
-        </td>
-        <td>
-         ${toCapitalize(tdSquadre4)}
-        </td>
-        <td>
-         ${toCapitalize(tdSquadre5)}
-        </td>
-        
-      </tr>
-      `;
-  });
-
-  //creiamo una tabella
-  const TAG_TABLE = document.createElement("table");
-  const TAG_THEAD = document.createElement("thead");
-  const TAG_TBODY = document.createElement("tbody");
-
-  //inseriamo l'intestazione della tabella
-  TAG_THEAD.innerHTML = `
-      <tr  class="intestazione-colonne">
-        <th> Ruolo </th>
-        <th> Nome  </th>
-        <th> Squadra </th>
-        <th> Quotazione </th>
-        <th> Numero Appartenenze </th>
-        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR1)} </th>
-        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR2)} </th>
-        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR3)} </th>
-        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR4)} </th>
-        <th> ${toCapitalize(IMPOSTAZIONI.CAMPIONATI.GIR5)} </th>
-    </tr>`;
-
-  TAG_TBODY.innerHTML = rigaHTML;
-  TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
-  containerTable.appendChild(TAG_TABLE);
-}
-function stampaListaSvincolati() {
-  console.log("function stampaListaSvincolati()");
-  paginaDaRendereVisibile("dati");
-  //console.log("Stampa lista Svincolati in corso..."
-  // );
-
-  if (TAG_H2.dataset.action != "apri-svincolati") {
-    azzeraFiltri();
-  }
-
-  TAG_H2.dataset.action = "apri-svincolati";
-  TAG_H2.textContent = "LISTA SVINCOLATI";
-  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
-    creaFiltroRicercaGiocatore();
-    creaFiltroRuolo();
-    creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam();
-    creaFiltroPresenzeMinime();
-    creaFiltroFuoriLista();
-  }
-
-  azzeraTabelle();
-
-  const arrayFiltrato = applicaFiltriGiocatori();
-
-  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-
-  let contaGiocatori = 0;
-  arrayFiltrato.forEach((pl) => {
-    const classefuorilista = pl.getFuoriLista ? "class='fuorilista'" : "";
-    const asterisco = classefuorilista.length > 1 ? "(*)" : "";
-
-    //true - true  - stampa
-    //true - false - non stampare
-    //false - true   - non stampare
-    // false - false  - non stampare
-
-    if (pl.getCopieDisponibili > 0) {
-      rigaHTML += `<tr ${classefuorilista}>
-          <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
-          <td>${pl.getNome}${asterisco}</td>`;
-      rigaHTML +=
-        pl.getSquadraDiAppartenenza == ""
-          ? "<td></td>"
-          : `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${pl.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(pl.getSquadraDiAppartenenza.slice(0, 3))}</td>`;
-      rigaHTML += `          
-          <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${pl.getQuotazione}</td>
-          <td>${pl.getPresenze}</td>
-          <td>${pl.getMv}</td>
-          <td>${pl.getFvm}</td>
-          <td>${pl.getSommaBonusMalus}</td>
-          <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
-          <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
-        </tr>`;
-      contaGiocatori++;
-    }
-  });
-  if (contaGiocatori > 0) {
-    const theadTemp = `<tr><th colspan="10">LISTA GIOCATORI SVINCOLATI</tr>
-      <tr class="intestazione-colonne">
-      <th>Ruolo</th>
-      <th>Nome</th>
-      <th>Squadra</th>
-      <th>Quotazione</th>
-      <th>Presenze</th>
-      <th>MV</th>
-      <th>FVM</th>
-      <th>Somma Bonus/Malus</th>
-      <th>Posseduto</th>
-      <th>Info</th>
-      </tr>`;
-    //per ogni ruolo creiamo una tabella
-    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-    TAG_THEAD.innerHTML = theadTemp;
-    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-
-    containerTable.appendChild(TAG_TABLE); //aggiungiamo la tabella nel contenitore passato
-    TAG_TBODY.innerHTML = rigaHTML; //inseriamo il contenuto del tbody
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
-  } else {
-    containerTable.textContent =
-      "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
-  }
-
-  //console.log("Stampa lista svincolaticompletata.");
-}
 function stampaListaGiocatoriDaSvincolare() {
   console.log("function stampaListaGiocatoriDaSvincolare()");
   paginaDaRendereVisibile("dati");
@@ -640,7 +352,7 @@ function stampaListaGiocatoriDaSvincolare() {
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
   let contaGiocatori = 0;
   presidenti.forEach((teamCorrente) => {
-    if (teamCorrente == filtroRosa || filtroRosa == "Tutte le rose") {
+    if (teamCorrente == STATO_FILTRI.rosaPresidente || STATO_FILTRI.rosaPresidente == "Tutte le rose") {
       //scorriamo tutte le squadre del campionato
       teamCorrente.getTuttiGliSlot.forEach((playerCorrente) => {
         //scorriamo tutti i giocatori e individuiamo i fuori lista della squadra corrente
@@ -687,6 +399,18 @@ function stampaListaGiocatoriDaSvincolare() {
   containerTable.appendChild(TAG_TABLE);
 }
 
+function creaFiltriPaginaGiocatoriSeMancante() {
+  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
+    creaFiltroRicercaGiocatore();
+    creaFiltroRuolo();
+    creaFiltroQuotazioneMinEMax();
+    creaFiltroTeam();
+    creaFiltroPresenzeMinime();
+    creaFiltroFuoriLista();
+  }
+}
+
+
 //FINE STAMPA TABELLA
 
 //FILTRI----------------------------------------------------------------------------------------
@@ -715,14 +439,14 @@ function gestisciFiltroSelezionaCampionato(evento) {
   const elemento_cliccato = evento.target;
 
   if (elemento_cliccato.className.includes("logo-campionato")) {
-    if (filtroSelezionaCampionato.includes(elemento_cliccato.name)) {
+    if (STATO_FILTRI.lega.includes(elemento_cliccato.name)) {
       //se il campionato è già incluso nel filtro, lo rimuoviamo
-      const indice = filtroSelezionaCampionato.indexOf(elemento_cliccato.name); //troviamo l'indice del campionato da rimuovere
-      filtroSelezionaCampionato.splice(indice, 1); //rimuoviamo il campionato dal filtro
+      const indice = STATO_FILTRI.lega.indexOf(elemento_cliccato.name); //troviamo l'indice del campionato da rimuovere
+      STATO_FILTRI.lega.splice(indice, 1); //rimuoviamo il campionato dal filtro
       elemento_cliccato.classList.remove("selected");
     } else {
       //altrimenti lo aggiungiamo al filtro
-      filtroSelezionaCampionato.push(elemento_cliccato.name); //aggiungiamo il campionato al filtro
+      STATO_FILTRI.lega.push(elemento_cliccato.name); //aggiungiamo il campionato al filtro
       elemento_cliccato.classList.add("selected"); //aggiungiamo la classe selected per evidenziare il filtro selezionato
     }
   }
@@ -730,24 +454,16 @@ function gestisciFiltroSelezionaCampionato(evento) {
 }
 
 function creaFiltroRuolo() {
-  console.log("function creaFiltroRuolo()");
-  //<section class="box-filtro" id="filtro-ruolo">
-  //  <label>Ruolo</label>
-  //  <div class="ruolo P ${filtroRuolo.P ? "selected" : ""}">P</div>
-  //<div class="ruolo D ${filtroRuolo.D ? "selected" : ""}">D</div>
-  //<div class="ruolo C ${filtroRuolo.C ? "selected" : ""}">C</div>
-  //<div class="ruolo A ${filtroRuolo.A ? "selected" : ""}">A</div>
-  //</section>
 
   containerFiltri.insertAdjacentHTML(
     "beforeend",
     `  
     <section class="box-filtro" id="filtro-ruolo">
     <label>Ruolo</label>
-      <div data-tipo-ruolo="P" class="ruolo ${filtroRuolo.includes("P") ? "selected" : ""}">P</div>
-      <div data-tipo-ruolo="D" class="ruolo ${filtroRuolo.includes("D") ? "selected" : ""}">D</div>
-      <div data-tipo-ruolo="C" class="ruolo ${filtroRuolo.includes("C") ? "selected" : ""}">C</div>
-      <div data-tipo-ruolo="A" class="ruolo ${filtroRuolo.includes("A") ? "selected" : ""}">A</div>
+      <div data-tipo-ruolo="P" class="ruolo ${STATO_FILTRI.ruolo.includes("P") ? "selected" : ""}">P</div>
+      <div data-tipo-ruolo="D" class="ruolo ${STATO_FILTRI.ruolo.includes("D") ? "selected" : ""}">D</div>
+      <div data-tipo-ruolo="C" class="ruolo ${STATO_FILTRI.ruolo.includes("C") ? "selected" : ""}">C</div>
+      <div data-tipo-ruolo="A" class="ruolo ${STATO_FILTRI.ruolo.includes("A") ? "selected" : ""}">A</div>
     </section>
   `,
   );
@@ -760,12 +476,12 @@ function gestisciFiltroRuolo(evento) {
   if (elemento_cliccato.dataset.tipoRuolo != undefined) {
     const ruolo_cliccato = elemento_cliccato.dataset.tipoRuolo; //ci memorizziamo il ruolo
 
-    if (filtroRuolo.includes(ruolo_cliccato)) {
+    if (STATO_FILTRI.ruolo.includes(ruolo_cliccato)) {
       //se il ruolo è già incluso nel filtro lo rimuoviamo
-      const indice = filtroRuolo.indexOf(ruolo_cliccato);
-      filtroRuolo.splice(indice, 1);
+      const indice = STATO_FILTRI.ruolo.indexOf(ruolo_cliccato);
+      STATO_FILTRI.ruolo.splice(indice, 1);
     } else {
-      filtroRuolo.push(ruolo_cliccato);
+      STATO_FILTRI.ruolo.push(ruolo_cliccato);
     } // se filtroruolo è true fallo diventare false, altrimenti essendo falso lo fai diventare true
 
     if (
@@ -789,10 +505,10 @@ function creaFiltroFuoriLista() {
         <section class="box-filtro" id="container-filtro-fuoriLista"> 
           <label>Fuori Lista</label>
           <input type="radio" name="carica-FuoriLista" value="si"  ${
-            filtroCaricaFuoriLista ? "checked" : ""
+            STATO_FILTRI.caricaFuoriLista ? "checked" : ""
           }> si
           <input type="radio" name="carica-FuoriLista" value="no"  ${
-            filtroCaricaFuoriLista ? "" : "checked"
+            STATO_FILTRI.caricaFuoriLista ? "" : "checked"
           }> no 
         </section>
         `,
@@ -807,9 +523,9 @@ function gestisciFiltroFuoriLista(evento) {
   if (evento.target.name == "carica-FuoriLista") {
     // se e si controlliamo il valore se e si o se e no, e ne cambiamo lo stato
     if (evento.target.value == "si") {
-      filtroCaricaFuoriLista = true;
+      STATO_FILTRI.caricaFuoriLista = true;
     } else {
-      filtroCaricaFuoriLista = false;
+      STATO_FILTRI.caricaFuoriLista = false;
     }
     chiamaPaginaCliccata();
   }
@@ -822,13 +538,13 @@ function azzeraTabelle() {
 
 function azzeraFiltri() {
   console.log("function azzeraFiltri()");
-  filtroRuolo = []; //azzero i filtri selezionati
-  filtroQtMinEMax.filtroMaxSelezionato = filtroQtMinEMax.filtroMax;
-  filtroQtMinEMax.filtroMinSelezionato = filtroQtMinEMax.filtroMin;
-  filtroCaricaFuoriLista = false;
-  filtroSelezionaCampionato = [];
-  filtroSelezionaSquadra = [];
-  filtroPresenzeMinimoSelezionato = 0;
+  STATO_FILTRI.ruolo = []; //azzero i filtri selezionati
+  STATO_FILTRI.qt.maxSelezionato = STATO_FILTRI.qt.max;
+  STATO_FILTRI.qt.minSelezionato = STATO_FILTRI.qt.min;
+  STATO_FILTRI.caricaFuoriLista = false;
+  STATO_FILTRI.lega = [];
+  STATO_FILTRI.squadraSA = [];
+  STATO_FILTRI.presenze.minSelezionato = 0;
   containerFiltri.innerHTML = "";
 }
 
@@ -913,20 +629,43 @@ function chiamaPaginaCliccata(evento) {
     case "apri-tutte-le-rose":
       stampaRose();
       break;
+
     case "apri-lista-giocatori":
-      stampaListaGiocatori();
-      break;
-    case "apri-lista-giocatori":
-      stampaListaGiocatori();
+      stampaListaGiocatori(
+        TAG_H2, // 1
+        paginaDaRendereVisibile, // 2
+        azzeraFiltri, // 3
+        creaFiltriPaginaGiocatoriSeMancante, // 4
+        azzeraTabelle, // 5
+        applicaFiltriGiocatori, // 6
+        acquisti, // 7
+        containerTable, // 8
+      );
       break;
     case "apri-mercato":
       stampaListaSvincolati();
       break;
     case "apri-appartenenze":
-      stampaListaAppartenenze();
+      stampaListaAppartenenze(
+        TAG_H2, // 1
+        paginaDaRendereVisibile, // 2
+        azzeraFiltri, // 3
+        creaFiltriPaginaGiocatoriSeMancante, // 4
+        azzeraTabelle, // 5
+        applicaFiltriGiocatori, // 6
+        containerTable, // 7
+      );
       break;
     case "apri-svincolati":
-      stampaListaSvincolati();
+      stampaListaSvincolati(
+        TAG_H2, // 1
+        paginaDaRendereVisibile, // 2
+        azzeraFiltri, // 3
+        creaFiltriPaginaGiocatoriSeMancante, // 4
+        azzeraTabelle, // 5
+        applicaFiltriGiocatori, // 6
+        containerTable // 7
+      );
       break;
     case "apri-da-svincolare":
       stampaListaGiocatoriDaSvincolare();
@@ -939,10 +678,10 @@ function chiamaPaginaCliccata(evento) {
 
 function ruoliFiltrati() {
   console.log("function ruoliFiltrati()");
-  if (filtroRuolo.length == 0) {
+  if (STATO_FILTRI.ruolo.length == 0) {
     return ["P", "D", "C", "A"];
   }
-  return filtroRuolo;
+  return STATO_FILTRI.ruolo;
 }
 
 function creaFiltroTeam() {
@@ -983,12 +722,12 @@ function gestisciFiltroTeam(evento) {
     {
       const nomeSquadra = nodo_parente.getAttribute("name");
 
-      if (filtroSelezionaSquadra.includes(nomeSquadra)) {
-        const indice = filtroSelezionaSquadra.indexOf(nomeSquadra);
-        filtroSelezionaSquadra.splice(indice, 1);
+      if (STATO_FILTRI.squadraSA.includes(nomeSquadra)) {
+        const indice = STATO_FILTRI.squadraSA.indexOf(nomeSquadra);
+        STATO_FILTRI.squadraSA.splice(indice, 1);
         nodo_parente.classList.remove("selected");
       } else {
-        filtroSelezionaSquadra.push(nomeSquadra);
+        STATO_FILTRI.squadraSA.push(nomeSquadra);
         nodo_parente.classList.add("selected");
       }
       chiamaPaginaCliccata();
@@ -1000,7 +739,7 @@ function creaFiltroQuotazioneMinEMax() {
   console.log("function creaFiltroQuotazioneMinEMax()");
   //riempiamo i due select in base ai giocatori attualment in memoria
   let popolaMinEMaxHTML = ""; //partiamo da 1 fino al maxQuotazione
-  for (let i = 0; i < parseInt(filtroQtMinEMax.filtroMax); i++) {
+  for (let i = 0; i < parseInt(STATO_FILTRI.qt.max); i++) {
     popolaMinEMaxHTML += "<option>" + (i + 1) + "</option>";
   }
 
@@ -1025,8 +764,8 @@ function creaFiltroQuotazioneMinEMax() {
 
   //imposta il valore minimo selezionato (se non presente usa il primo)
 
-  TagSelectMin.value = filtroQtMinEMax.filtroMinSelezionato;
-  TagSelectMax.value = filtroQtMinEMax.filtroMaxSelezionato;
+  TagSelectMin.value = STATO_FILTRI.qt.minSelezionato;
+  TagSelectMax.value = STATO_FILTRI.qt.maxSelezionato;
 }
 function gestisciFiltroQuotazioneMinEMax(event) {
   console.log("function gestisciFiltroQuotazioneMinEMax(event)");
@@ -1039,30 +778,30 @@ function gestisciFiltroQuotazioneMinEMax(event) {
   if (TAG.id == "select-qt-max" || TAG.id == "select-qt-min") {
     if (TAG.id == "select-qt-max") {
       //se è stato cambiato il val max
-      TAGMAX.value = filtroQtMinEMax.filtroMaxSelezionato = parseInt(TAG.value);
+      TAGMAX.value = STATO_FILTRI.qt.maxSelezionato = parseInt(TAG.value);
 
       //gestione filtro attivo
-      if (filtroQtMinEMax.filtroMaxSelezionato != filtroQtMinEMax.filtroMax) {
+      if (STATO_FILTRI.qt.maxSelezionato != STATO_FILTRI.qt.max) {
       } else {
       }
     } //se è stato cambiato il val min
     else {
-      TAGMIN.value = filtroQtMinEMax.filtroMinSelezionato = parseInt(TAG.value);
+      TAGMIN.value = STATO_FILTRI.qt.minSelezionato = parseInt(TAG.value);
 
       //gestione filtro attivo
-      if (filtroQtMinEMax.filtroMinSelezionato != filtroQtMinEMax.filtroMin) {
+      if (STATO_FILTRI.qt.minSelezionato != STATO_FILTRI.qt.min) {
       } else {
       }
     }
 
     if (
-      filtroQtMinEMax.filtroMinSelezionato >
-        filtroQtMinEMax.filtroMaxSelezionato ||
-      filtroQtMinEMax.filtroMaxSelezionato <
-        filtroQtMinEMax.filtroMinSelezionato
+      STATO_FILTRI.qt.minSelezionato >
+        STATO_FILTRI.qt.maxSelezionato ||
+      STATO_FILTRI.qt.maxSelezionato <
+        STATO_FILTRI.qt.minSelezionato
     ) {
-      TAGMAX.value = filtroQtMinEMax.filtroMaxSelezionato =
-        filtroQtMinEMax.filtroMax;
+      TAGMAX.value = STATO_FILTRI.qt.maxSelezionato =
+        STATO_FILTRI.qt.max;
     }
 
     chiamaPaginaCliccata();
@@ -1084,8 +823,8 @@ function creaFiltroRicercaGiocatore() {
 function checkQuotazione(quotazione = 0) {
   console.log("function checkQuotazione(quotazione = 0)");
   if (
-    quotazione >= filtroQtMinEMax.filtroMinSelezionato &&
-    quotazione <= filtroQtMinEMax.filtroMaxSelezionato
+    quotazione >= STATO_FILTRI.qt.minSelezionato &&
+    quotazione <= STATO_FILTRI.qt.maxSelezionato
   ) {
     return true;
   } else {
@@ -1125,19 +864,19 @@ function applicaFiltriGiocatori() {
 
   // filtro per squadra
   arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-    if (filtroSelezionaSquadra.length == 0) return true;
-    return filtroSelezionaSquadra.includes(
+    if (STATO_FILTRI.squadraSA.length == 0) return true;
+    return STATO_FILTRI.squadraSA.includes(
       giocatoreCorrente.getSquadraDiAppartenenza.toLowerCase(),
     );
   });
 
   // filtro per presenze minime
   arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-    return giocatoreCorrente.getPresenze >= filtroPresenzeMinimoSelezionato;
+    return giocatoreCorrente.getPresenze >= STATO_FILTRI.presenze.minSelezionato;
   });
 
   // filto per escludere o meno i fuorilista
-  if (!filtroCaricaFuoriLista) {
+  if (!STATO_FILTRI.caricaFuoriLista) {
     arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
       return !giocatoreCorrente.getFuoriLista;
     });
@@ -1151,7 +890,7 @@ function applicaFiltroTeams() {
   console.log("function applicaFiltroTeams()");
 
   let arraySquadre = presidenti.filter((teamsCorrente) => {
-    return filtroSelezionaCampionato.includes(
+    return STATO_FILTRI.lega.includes(
       teamsCorrente.getCampionatoDiAppartenenza,
     );
   });
@@ -1165,10 +904,10 @@ function applicaFiltroTeams() {
 }
 
 function creaFiltroPresenzeMinime() {
-  console.log("creaFiltroPresenzeMinime()");
+
 
   let selectPresenzeHTML = ""; //partiamo da 0 fino al max presenze tra i giocatori
-  for (let i = 0; i <= filtroPresenzeMinimo; i++) {
+  for (let i = 0; i <= STATO_FILTRI.presenze.max; i++) {
     selectPresenzeHTML += `<option>${i}</option>`;
   }
   containerFiltri.insertAdjacentHTML(
@@ -1194,7 +933,7 @@ function creaFiltroRosa() {
   optionsRosaHTML += `<option value="tutte">Tutte le rose</option>`;
 
   presidenti.forEach((teamCorrente) => {
-    if (filtroRosa == teamCorrente.getNomeRosa.toLowerCase()) {
+    if (STATO_FILTRI.rosaPresidente == teamCorrente.getNomeRosa.toLowerCase()) {
       optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}" selected>${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
     } else {
       optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}">${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
@@ -1217,7 +956,7 @@ function gestisciFiltroRosa(event) {
   const TAG = event.target;
 
   if (TAG.id == "select-scegli-rosa") {
-    filtroRosa = TAG.value;
+    STATO_FILTRI.rosaPresidente = TAG.value;
     chiamaPaginaCliccata();
   }
 }
@@ -1227,7 +966,7 @@ function gestisciFiltroPresenzeMinime(event) {
   const TAG = event.target;
   if (TAG.id == "select-presenze-minime") {
     //verifichiamo che il change provenga dal filtro presenze minime
-    filtroPresenzeMinimoSelezionato = parseInt(TAG.value);
+    STATO_FILTRI.presenze.minSelezionato = parseInt(TAG.value);
     chiamaPaginaCliccata();
   }
 }

@@ -1,5 +1,5 @@
 // source/js/caricamentoDati.js
-import { Giocatore, Rosa, RecordAcquisto } from "./ClassiFanta.js";
+import { Giocatore, Rosa, RecordAcquisto } from "./classiFanta.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 
 export async function caricaTuttiIDati() {
@@ -22,8 +22,6 @@ export async function caricaTuttiIDati() {
       presidenti: listaPresidenti,
       giocatori: datiGiocatori.lista,
       acquisti: listaAcquisti,
-      maxQuotazione: datiGiocatori.maxQt, // Passiamo il massimale
-      maxPresenze: datiGiocatori.maxPres, // Passiamo il massimale
     };
   } catch (errore) {
     console.error("Errore fatale nel caricamento dati:", errore);
@@ -65,10 +63,6 @@ async function caricaGiocatori() {
   let player = [];
   let recordInvalidi = 0;
 
-  // Variabili per calcolare i massimali (ci serviranno per i filtri)
-  let maxQuotazioneTrovata = 1;
-  let maxPresenzeTrovate = 0;
-
   let arrayGiocatori = datiGiocatori.split("\n");
 
   for (let i = 1; i < arrayGiocatori.length; i++) {
@@ -98,25 +92,12 @@ async function caricaGiocatori() {
           temp[13],
         ),
       );
-
-      // --- CALCOLO VALORI MASSIMI (Sostituisce il vecchio codice) ---
-      const qtPlayerAttuale = parseInt(temp[6]);
-      const presenzePlayerAttuale = parseInt(temp[7]);
-
-      if (maxQuotazioneTrovata < qtPlayerAttuale) {
-        maxQuotazioneTrovata = qtPlayerAttuale;
-      }
-      if (maxPresenzeTrovate < presenzePlayerAttuale) {
-        maxPresenzeTrovate = presenzePlayerAttuale;
-      }
     }
   }
 
-  // Restituiamo non solo la lista, ma anche i massimali trovati!
+  // Restituiamo la lista
   return {
     lista: player,
-    maxQt: maxQuotazioneTrovata,
-    maxPres: maxPresenzeTrovate,
   };
 }
 
