@@ -1,4 +1,4 @@
-import { Giocatore, Rosa, RecordAcquisto } from "./ccc.js";
+import { Giocatore, Rosa, RecordAcquisto } from "./classiFanta.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 import { toCapitalize } from "./funzioniAgo.js";
 
