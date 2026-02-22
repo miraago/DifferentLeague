@@ -9,11 +9,6 @@
 }
 
 
-
-
-
-
-
 /* contenitore che contiene tutti i box filtro */
 #container-filtri {
   padding-top: 15px;
@@ -30,16 +25,15 @@
   justify-content: center;
   gap: 10px;
   display: none;
+  margin-bottom: 20px;
+
+  &a{
+    text-decoration: none;
+    color: black;
+  }
 
 
-
-& #select-qt-min, 
-& #select-qt-max, 
-& #select-presenze-minime {
-  padding-left: 10px;
-  min-height: 85%;
-}
-
+  
 
 
 & input {
@@ -156,6 +150,34 @@
  & .box-team.selected p {
   background-color: var(--background_primario);
   color: white;
+}
+select {  
+ 
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  color: #1a2236;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231a2236' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); 
+  background-repeat: no-repeat;
+  background-position: right 3px center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+}
+
+select:focus {
+  outline: none;
+  border-color: #1a2236;
+  box-shadow: 0 0 0 3px rgba(26,34,54,0.12);
 }
 
 }

@@ -1,5 +1,5 @@
 // source/js/caricamentoDati.js
-import { Giocatore, Rosa, RecordAcquisto } from "./classiFanta.js";
+import { Giocatore, Rosa, RecordAcquisto } from "./ccc.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 
 export async function caricaTuttiIDati() {
