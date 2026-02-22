@@ -1,186 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;600&display=swap');
+
 :root {
-  --background_primario: rgb(2, 87, 156);
-  --color-scuro: rgb(1, 22, 53);
-  --color_primario: white;
+  --bg-vista:     #dde1e8;
+  --bg-card:      #000d1d;
+  --bg-card-hover:#212d42;
+  --text-primary: #ffffff;
+  --text-muted:   rgba(255,255,255,0.42);
+  --border-card:  rgba(255,255,255,0.08);
+
+  /* Colori per ruolo */
+  --col-P: hsl(40, 94%, 52%);
+  --col-D: hsl(96, 70%, 46%);
+  --col-C: hsl(217, 93%, 52%);
+  --col-A: hsl(351, 89%, 53%);
 }
 
+
+span{
+    color: rgb(0, 0, 0);
+}
+/* ── VISTA PRINCIPALE ──────────────────────────────────────────── */
 #vista-la-mia-squadra {
-  background-color: var(--background_primario);
-  color: var(--color_primario);
+  background: var(--bg-vista);
+  color: #1a2236;
+  font-family: 'Barlow', sans-serif;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-  width: 60%;
+  align-items: flex-start;
+  padding: 24px 20px 30px;
+  gap: 12px;
+  width: 76%;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
   display: none;
 }
 
+/* ── INTESTAZIONE ──────────────────────────────────────────────── */
 #vista-la-mia-squadra .intestazione-team {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  gap: 16px;
 }
 #vista-la-mia-squadra .intestazione-team > div {
   width: 100%;
-  text-align: center;
 }
+
 #campo-nome-team {
-  width: 100%;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #1a2236;
   text-align: center;
-  font-size: 60px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 #campo-campionato-di-appartenenza {
-  font-size: 18px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #9c9b9b;
+  text-align: center;
+  margin-top: 3px;
 }
 #campo-nome-presidente {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: #667;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 4px;
   width: 100%;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 100;
-  font-style: italic;
-  text-align: center;
 }
+
+/* Crediti residui – a destra, compatto, NON gigante */
 #campo-crediti-residui {
-  font-size: 36pt;
-  font-weight: 100;
-  font-style: italic;
-  width: 20%;
-  text-align: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: right;
+  width: 20% !important;
+  flex-shrink: 0;
+  /* reset stile precedente */
+  font-size: unset;
+  font-family: unset;
+  font-style: unset;
+  color: unset;
+  text-shadow: none;
 }
+#campo-crediti-residui .numero {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  font-style: italic;
+  color: #1a2236;
+  line-height: 1;
+  display: block;
+}
+#campo-crediti-residui .etichetta {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Meta info valore/crediti */
+#vista-la-mia-squadra section:not(.intestazione-team):not(#info-slot-ruoli) {
+  width: 100%;
+}
+#vista-la-mia-squadra section:not(.intestazione-team):not(#info-slot-ruoli) > div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  padding: 2px 0;
+}
+
+/* ── SLOT RUOLI ────────────────────────────────────────────────── */
 #info-slot-ruoli {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-#info-slot-ruoli > div {
-  width: 22%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 32px;
-}
-#contenitore-rosa {
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.box-pacchetto-giocatori {
-  min-width: calc(25% - 3px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  color: var(--color-scuro);
-  border-radius: 18px;
-  gap: 3px;
-}
-
-.box-giocatore {
-  margin: 0 auto;
-
-  width: 90%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--color-scuro);
-  color: var(--color_primario);
-  border-radius: 5px;
-  overflow: hidden;
-}
-#box-info {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 50%;
-  flex-direction: column;
-}
-#box-statistiche {
-  width: 25%;
-  display: flex;
-  font-size: small;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1px;
-}
-#box-statistiche div {
-  text-align: left;
-}
-#box-costi {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid var(--color_primario);
-  background-color: rgb(60, 236, 252);
-  color: var(--color-scuro);
-}
-#campo-nome-giocatore {
-  color: rgb(60, 236, 252);
-  font-family: "Arial Narrow Bold", sans-serif;
-  font-weight: 100;
-}
-#campo-nome-squadra {
-  font-size: x-small;
-  text-align: center;
-}
-#campo-costo-acquisto {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
-  font-weight: 100;
-  font-style: italic;
-  padding: 5px;
+  gap: 8px;
+  margin: 2px 0 4px;
+}
+#info-slot-ruoli > div {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #fff;
+  border-radius: 7px;
+  padding: 5px 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#info-slot-ruoli .slot-P { background: var(--col-P); }
+#info-slot-ruoli .slot-D { background: var(--col-D); }
+#info-slot-ruoli .slot-C { background: var(--col-C); }
+#info-slot-ruoli .slot-A { background: var(--col-A); }
+
+/* ── CONTENITORE ROSA ──────────────────────────────────────────── */
+#contenitore-rosa {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ── PACCHETTO PER RUOLO ───────────────────────────────────────── */
+.box-pacchetto-giocatori {
+  flex: 1 1 200px;
+  min-width: 195px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.box-pacchetto-giocatori::before {
+  content: attr(data-ruolo);
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 2px solid;
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+.box-pacchetto-giocatori[data-ruolo="Portieri"]::before       { color: var(--col-P); border-color: var(--col-P); }
+.box-pacchetto-giocatori[data-ruolo="Difensori"]::before      { color: var(--col-D); border-color: var(--col-D); }
+.box-pacchetto-giocatori[data-ruolo="Centrocampisti"]::before { color: var(--col-C); border-color: var(--col-C); }
+.box-pacchetto-giocatori[data-ruolo="Attaccanti"]::before     { color: var(--col-A); border-color: var(--col-A); }
+
+/* ── CARD GIOCATORE ────────────────────────────────────────────── */
+.box-giocatore {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: stretch;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  animation: fadeUp 0.3s ease both;
+}
+
+/* Barra laterale colorata per ruolo */
+.box-giocatore::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  opacity: 0.65;
+  transition: opacity 0.15s ease;
+  border-radius: 3px 0 0 3px;
+}
+.ruolo-P::before { background: var(--col-P); }
+.ruolo-D::before { background: var(--col-D); }
+.ruolo-C::before { background: var(--col-C); }
+.ruolo-A::before { background: var(--col-A); }
+
+.ruolo-P:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(40,94%,52%,0.35); border-color: hsla(40,94%,52%,0.4); background: var(--bg-card-hover); }
+.ruolo-D:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(96,70%,46%,0.35); border-color: hsla(96,70%,46%,0.4); background: var(--bg-card-hover); }
+.ruolo-C:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(217,93%,52%,0.35); border-color: hsla(217,93%,52%,0.4); background: var(--bg-card-hover); }
+.ruolo-A:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(351,89%,53%,0.35); border-color: hsla(351,89%,53%,0.4); background: var(--bg-card-hover); }
+
+.box-giocatore:hover::before { opacity: 1; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(1)  { animation-delay:.03s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(2)  { animation-delay:.06s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(3)  { animation-delay:.09s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(4)  { animation-delay:.12s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(5)  { animation-delay:.15s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(6)  { animation-delay:.18s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(7)  { animation-delay:.21s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(8)  { animation-delay:.24s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(9)  { animation-delay:.27s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(10) { animation-delay:.30s }
+
+/* ── BOX INFO ──────────────────────────────────────────────────── */
+#box-info {
+  padding: 6px 6px 6px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+/* Wrapper logo bianco – garantisce visibilità qualunque sia il colore del logo */
+.logo-wrap {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+.logo-squadra {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.box-giocatore:hover .logo-squadra {
+  transform: scale(1.1);
+}
+.logo-squadra-placeholder {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  color: #555;
+  width: 22px;
+  height: 22px;
+}
+
+.info-testi {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+#campo-nome-giocatore {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  transition: color 0.15s ease;
+}
+.ruolo-P:hover #campo-nome-giocatore { color: var(--col-P); }
+.ruolo-D:hover #campo-nome-giocatore { color: var(--col-D); }
+.ruolo-C:hover #campo-nome-giocatore { color: var(--col-C); }
+.ruolo-A:hover #campo-nome-giocatore { color: var(--col-A); }
+
+#campo-nome-squadra {
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* ── BOX STATISTICHE ───────────────────────────────────────────── */
+#box-statistiche {
+  padding: 5px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+#box-statistiche div {
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  font-family: 'Barlow', monospace;
+  line-height: 1.5;
+}
+
+/* ── BOX COSTO ─────────────────────────────────────────────────── */
+#box-costi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  min-width: 44px;
+  padding: 4px 6px;
 }
 #campo-quotazione {
-  text-align: right;
-  font-size: x-small;
-  padding-right: 2px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1px;
 }
+#campo-costo-acquisto {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1;
+}
+/* Colore prezzo = colore ruolo */
+.ruolo-P #campo-costo-acquisto { color: var(--col-P); text-shadow: 0 0 10px hsla(40,94%,52%,0.45); }
+.ruolo-D #campo-costo-acquisto { color: var(--col-D); text-shadow: 0 0 10px hsla(96,70%,46%,0.45); }
+.ruolo-C #campo-costo-acquisto { color: var(--col-C); text-shadow: 0 0 10px hsla(217,93%,52%,0.45); }
+.ruolo-A #campo-costo-acquisto { color: var(--col-A); text-shadow: 0 0 10px hsla(351,89%,53%,0.45); }
 
-/* Stile per il selettore delle squadre */
+/* ── SELETTORE SQUADRA ─────────────────────────────────────────── */
 #select-scelta-squadra {
-  /* min-width: 180px; Larghezza minima per non farlo schiacciare */
-  /* padding: 5px; Un po' di respiro interno */
-  /* margin-top: 5px; Lo distanzia dall'etichetta superiore */
-  /* font-size: 14px; */
-  /* border: 1px solid var(--background_primario);
-  border-radius: 5px; */
-  /* background-color: white; */
-  color: var(--background_primario);
-  /* cursor: pointer; */
   width: 100%;
-  padding: 8px;
+  padding: 10px 40px 10px 14px;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  color: #1a2236;
   cursor: pointer;
-  background-color: white;
-  color: var(--background_primario);
-  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231a2236' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-
+#select-scelta-squadra:focus {
+  outline: none;
+  border-color: #1a2236;
+  box-shadow: 0 0 0 3px rgba(26,34,54,0.12);
+}
 input:focus {
-  outline: 2px solid rgb(47, 241, 255); /* Effetto quando lo clicchi */
+  outline: 2px solid #1a2236;
 }
