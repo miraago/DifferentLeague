@@ -98,7 +98,7 @@ table tbody tr {
 }
 table tbody tr td,
 table thead tr th {
-  text-align: center;
+  text-align: left;
   padding: 5px;
 }
 table tbody tr:hover td {
@@ -107,9 +107,6 @@ table tbody tr:hover td {
 table tr:nth-child(even) td {
   background-color: rgb(245, 247, 250);
 }
-
-
-
 
 .logo-menu {
   width: 100px;
@@ -145,12 +142,6 @@ table tr:nth-child(even) td {
   line-height: 50vh;
 }
 
-
-
-
-
-
-
 .fuorilista {
   color: rgb(116, 116, 116);
 }
@@ -169,18 +160,23 @@ span {
   height: calc(1em + 6px);
   color: white;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 span.P {
   background-color: hsl(40, 94%, 52%, 1);
+  color: white;
 }
 span.D {
   background-color: hsl(96, 70%, 46%, 1);
+  color: white;
 }
 span.C {
   background-color: hsl(217, 93%, 52%, 1);
+  color: white;
 }
 span.A {
   background-color: hsl(351, 89%, 53%, 1);
+  color: white;
 }
 
 table thead tr.intestazione-colonne th {
@@ -194,7 +190,6 @@ table thead tr.intestazione-colonne th:hover {
   text-decoration: underline;
   color: aqua;
 }
-
 
 .logo-campionato {
   height: 40px;
@@ -241,12 +236,6 @@ div #contenitore-nome {
   display: flex;
   flex-direction: column;
 }
-
-
-
-
-
-
 
 .ruoloMancante {
   color: #b60000;

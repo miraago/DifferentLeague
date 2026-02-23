@@ -55,7 +55,7 @@ export function stampaListaGiocatori(
       if (p.getFuoriLista) {
         riganuova += "<td></td>";
       } else {
-        riganuova += `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(p.getSquadraDiAppartenenza.slice(0, 3))}</td>`;
+        riganuova += `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(p.getSquadraDiAppartenenza)}</td>`;
       }
       riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
         <td>${p.getPresenze}</td>
@@ -112,7 +112,6 @@ export function stampaListaAppartenenze(
   cbApplicaFiltriGiocatori,
   containerTable,
 ) {
-
   cbPaginaDaRendereVisibile("dati");
   if (TAG_H2.dataset.action != "apri-appartenenze") {
     //se viene da un'altra pagina possiamo azzerare i filtri
@@ -244,9 +243,7 @@ export function stampaListaSvincolati(
   cbApplicaFiltriGiocatori,
   containerTable,
 ) {
-
   cbPaginaDaRendereVisibile("dati");
- 
 
   if (TAG_H2.dataset.action != "apri-svincolati") {
     cbAzzeraFiltri();
@@ -267,7 +264,6 @@ export function stampaListaSvincolati(
     const classefuorilista = pl.getFuoriLista ? "class='fuorilista'" : "";
     const asterisco = classefuorilista.length > 1 ? "(*)" : "";
 
-
     if (pl.getCopieDisponibili > 0) {
       rigaHTML += `<tr ${classefuorilista}>
           <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
@@ -275,7 +271,7 @@ export function stampaListaSvincolati(
       rigaHTML +=
         pl.getSquadraDiAppartenenza == ""
           ? "<td></td>"
-          : `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${pl.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(pl.getSquadraDiAppartenenza.slice(0, 3))}</td>`;
+          : `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${pl.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(pl.getSquadraDiAppartenenza)}</td>`;
       rigaHTML += `          
           <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${pl.getQuotazione}</td>
           <td>${pl.getPresenze}</td>
@@ -318,4 +314,3 @@ export function stampaListaSvincolati(
 
   //console.log("Stampa lista svincolaticompletata.");
 }
-
