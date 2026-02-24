@@ -102,14 +102,13 @@ export function stampaLaMiaSquadra(
               <div id="campo-nome-team">${presidenteloggato.getNomeRosa}</div>
               <div id="campo-nome-presidente">${presidenteloggato.getNomePresidente}</div>
             </div>
-            <div id="campo-crediti-residui"> ${presidenteloggato.getCreditiResidui} crediti</div>
+            <div>
+              <div id="campo-crediti-residui"> ${presidenteloggato.getCreditiResidui} crediti</div>
+              <div>Valore Rosa ${presidenteloggato.getValoreRosa}</div> 
+              <div>Crediti spesi${presidenteloggato.getCreditiSpesi}</div> 
+            </div>             
       </section>
-      <section> 
-        <div>
-            <div>Valore Rosa ${presidenteloggato.getValoreRosa}</div> 
-            <div>Crediti spesi${presidenteloggato.getCreditiSpesi}</div>  
-        </div>                    
-      </section>  
+        
       <section id="info-slot-ruoli"> 
             <div> ${presidenteloggato.getContaP} P</div>
             <div> ${presidenteloggato.getContaD} D</div>

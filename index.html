@@ -61,11 +61,12 @@
               </ul>
             </li>
             <li data-action="apri-login">
-              <a href="./source/html/login.html">Login</a>
+              Scegli la tua squadra
             </li>
           </ul>
         </div>
       </nav>
+
       <h2 id="titolo">Fantacalcio Different League</h2>
       <div id="container-filtri">
         <div id="contenitore-filtri-attivi"></div>
@@ -91,6 +92,17 @@
           
         </div>
       </div>
+      <div id="modal-login" class="overlay-login" style="display: none;">
+  <div class="box-login">
+    <h2>Benvenuto!</h2>
+    <p>Seleziona la tua squadra per entrare</p>
+    
+    <select id="select-login-squadra">
+      </select>
+
+    <button id="btn-entra">ENTRA</button>
+  </div>
+</div>
     </main>
     <footer></footer>
   </body>

@@ -1,3 +1,6 @@
+// ... altri import ...
+import { controllaAccesso, SQUADRA_UTENTE, logout } from "./gestioneUtente.js";
+
 import {
   stampaLaMiaSquadra,
   gestisciFiltroSelezionaSquadraDaSelect,
@@ -77,6 +80,30 @@ containerTable.addEventListener("click", (e) => ordinaTabella(e));
 //AVVIO PROGRAMMA
 logicaPrincipale();
 
+// async function logicaPrincipale() {
+//   console.log("Avvio Logica Principale...");
+//   const popup = document.getElementById("popup-caricamento");
+//   const TAG_H3 = popup.querySelector("h3");
+//   popup.style.display = "flex";
+
+//   try {
+//     // 1. Chiediamo TUTTI i dati al nostro nuovo modulo
+//     const datiScaricati = await caricaTuttiIDati();
+
+//     // 2. Popoliamo le variabili globali di script.js
+//     presidenti = datiScaricati.presidenti;
+//     player = datiScaricati.giocatori;
+//     acquisti = datiScaricati.acquisti;
+
+//     inizializzaFiltri(player);
+
+//     popup.style.display = "none";
+//     console.log("✅ Dati caricati e pronti all'uso!");
+//   } catch (err) {
+//     console.error(err);
+//     TAG_H3.innerText = "Errore Caricamento Dati. Contattare l'admin. " + err;
+//   }
+// }
 async function logicaPrincipale() {
   console.log("Avvio Logica Principale...");
   const popup = document.getElementById("popup-caricamento");
@@ -84,22 +111,45 @@ async function logicaPrincipale() {
   popup.style.display = "flex";
 
   try {
-    // 1. Chiediamo TUTTI i dati al nostro nuovo modulo
+    // 1. Carichiamo i dati
     const datiScaricati = await caricaTuttiIDati();
-
-    // 2. Popoliamo le variabili globali di script.js
     presidenti = datiScaricati.presidenti;
     player = datiScaricati.giocatori;
     acquisti = datiScaricati.acquisti;
 
     inizializzaFiltri(player);
-
     popup.style.display = "none";
-    console.log("✅ Dati caricati e pronti all'uso!");
+    console.log("✅ Dati caricati!");
+
+    // 2. CONTROLLO LOGIN
+    // Passiamo una "callback" (una funzione) che verrà eseguita SOLO dopo che l'utente ha cliccato "Entra"
+    const utenteGiaLoggato = controllaAccesso(presidenti, () => {
+      // Questa parte viene eseguita se l'utente fa il login ORA
+      console.log("Login effettuato ora.");
+      avviaApplicazione();
+    });
+
+    if (utenteGiaLoggato) {
+      // Questa parte viene eseguita se l'utente era GIÀ loggato da ieri
+      avviaApplicazione();
+    }
   } catch (err) {
     console.error(err);
-    TAG_H3.innerText = "Errore Caricamento Dati. Contattare l'admin. " + err;
+    TAG_H3.innerText = "Errore: " + err;
   }
+}
+
+// Funzione che fa partire la prima schermata
+function avviaApplicazione() {
+  // Qui puoi decidere: mostriamo la dashboard o direttamente la "Mia Squadra"?
+  console.log("Benvenuto presidente di: " + SQUADRA_UTENTE);
+
+  // Esempio: Se vuoi aprire direttamente la TUA squadra
+  // Possiamo forzare l'apertura della pagina "la mia squadra"
+  // document.querySelector("li[data-action='apri-la-mia-squadra']").click();
+
+  // Oppure standard dashboard:
+  stampaDashboard();
 }
 
 //
@@ -509,6 +559,10 @@ function chiamaPaginaCliccata(evento) {
       break;
     case "apri-da-svincolare":
       stampaListaGiocatoriDaSvincolare();
+      break;
+    case "apri-login":
+      localStorage.removeItem("fanta_squadra_corrente");
+      location.reload();
       break;
     default:
       stampaDashboard();

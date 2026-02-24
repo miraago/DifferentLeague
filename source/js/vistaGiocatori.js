@@ -141,19 +141,19 @@ export function stampaListaAppartenenze(
       const campionato = sqPos.getCampionatoDiAppartenenza;
       switch (campionato) {
         case IMPOSTAZIONI.CAMPIONATI.GIR1:
-          tdSquadre1 += sqPos.getNomeRosa + " ";
+          tdSquadre1 += sqPos.getNomeRosa + "| ";
           break;
         case IMPOSTAZIONI.CAMPIONATI.GIR2:
-          tdSquadre2 += sqPos.getNomeRosa + " ";
+          tdSquadre2 += sqPos.getNomeRosa + "| ";
           break;
         case IMPOSTAZIONI.CAMPIONATI.GIR3:
-          tdSquadre3 += sqPos.getNomeRosa + " ";
+          tdSquadre3 += sqPos.getNomeRosa + "| ";
           break;
         case IMPOSTAZIONI.CAMPIONATI.GIR4:
-          tdSquadre4 += sqPos.getNomeRosa + " ";
+          tdSquadre4 += sqPos.getNomeRosa + "| ";
           break;
         case IMPOSTAZIONI.CAMPIONATI.GIR5:
-          tdSquadre5 += sqPos.getNomeRosa + " ";
+          tdSquadre5 += sqPos.getNomeRosa + "| ";
           break;
       }
     });
@@ -179,7 +179,7 @@ export function stampaListaAppartenenze(
 
         <td class="squadra-di-appartenenza"> 
           <img src="Assets/image/loghi_team_serie_A/${playerCorrente.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
-          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza.slice(0, 3))}          
+          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}          
         </td>`;
     }
 

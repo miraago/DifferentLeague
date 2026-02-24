@@ -349,3 +349,50 @@ div #contenitore-nome {
 #contenitore-menu a {
   color: white;
 }
+
+/* Overlay che copre tutto lo schermo */
+.overlay-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Sfondo scuro semitrasparente */
+  z-index: 9999; /* Sta sopra a tutto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Il box bianco al centro */
+.box-login {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
+  width: 300px;
+}
+
+.box-login select {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.box-login button {
+  background-color: var(--background_primario, blue);
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.box-login button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}

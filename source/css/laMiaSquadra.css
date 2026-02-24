@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;600&display=swap");
 
 :root {
-  --bg-vista:     #dde1e8;
-  --bg-card:      #000d1d;
-  --bg-card-hover:#212d42;
+  --bg-vista: #dde1e8;
+  --bg-card: #000d1d;
+  --bg-card-hover: #212d42;
   --text-primary: #ffffff;
-  --text-muted:   rgba(255,255,255,0.42);
-  --border-card:  rgba(255,255,255,0.08);
+  --text-muted: rgba(255, 255, 255, 0.42);
+  --border-card: rgba(255, 255, 255, 0.08);
 
   /* Colori per ruolo */
   --col-P: hsl(40, 94%, 52%);
@@ -15,15 +15,14 @@
   --col-A: hsl(351, 89%, 53%);
 }
 
-
-span{
-    color: rgb(0, 0, 0);
+span {
+  color: rgb(0, 0, 0);
 }
 /* ── VISTA PRINCIPALE ──────────────────────────────────────────── */
 #vista-la-mia-squadra {
   background: var(--bg-vista);
   color: #1a2236;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -34,8 +33,10 @@ span{
   width: 76%;
   margin: 0 auto;
   border-radius: 24px;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   display: none;
 }
 
@@ -47,7 +48,7 @@ span{
   align-items: center;
   justify-content: space-between;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   gap: 16px;
 }
 #vista-la-mia-squadra .intestazione-team > div {
@@ -55,7 +56,7 @@ span{
 }
 
 #campo-nome-team {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 900;
   font-size: 56px;
   letter-spacing: 5px;
@@ -84,7 +85,9 @@ span{
 }
 
 /* Crediti residui – a destra, compatto, NON gigante */
-#campo-crediti-residui {
+#campo-crediti-residui,
+#campo-crediti-spesi,
+#campo-valore-rosa {
   text-align: right;
   width: 20% !important;
   flex-shrink: 0;
@@ -95,8 +98,10 @@ span{
   color: unset;
   text-shadow: none;
 }
-#campo-crediti-residui .numero {
-  font-family: 'Barlow Condensed', sans-serif;
+#campo-crediti-residui .numero,
+#campo-crediti-spesi .numero,
+#campo-valore-rosa .numero {
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 900;
   font-size: 40px;
   font-style: italic;
@@ -104,7 +109,9 @@ span{
   line-height: 1;
   display: block;
 }
-#campo-crediti-residui .etichetta {
+#campo-crediti-residui .etichetta,
+#campo-crediti-spesi .etichetta,
+#campo-valore-rosa .etichetta {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -117,7 +124,9 @@ span{
 #vista-la-mia-squadra section:not(.intestazione-team):not(#info-slot-ruoli) {
   width: 100%;
 }
-#vista-la-mia-squadra section:not(.intestazione-team):not(#info-slot-ruoli) > div {
+#vista-la-mia-squadra
+  section:not(.intestazione-team):not(#info-slot-ruoli)
+  > div {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -139,7 +148,7 @@ span{
   margin: 2px 0 4px;
 }
 #info-slot-ruoli > div {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px;
@@ -150,10 +159,18 @@ span{
   align-items: center;
   gap: 5px;
 }
-#info-slot-ruoli .slot-P { background: var(--col-P); }
-#info-slot-ruoli .slot-D { background: var(--col-D); }
-#info-slot-ruoli .slot-C { background: var(--col-C); }
-#info-slot-ruoli .slot-A { background: var(--col-A); }
+#info-slot-ruoli .slot-P {
+  background: var(--col-P);
+}
+#info-slot-ruoli .slot-D {
+  background: var(--col-D);
+}
+#info-slot-ruoli .slot-C {
+  background: var(--col-C);
+}
+#info-slot-ruoli .slot-A {
+  background: var(--col-A);
+}
 
 /* ── CONTENITORE ROSA ──────────────────────────────────────────── */
 #contenitore-rosa {
@@ -178,7 +195,7 @@ span{
 .box-pacchetto-giocatori::before {
   content: attr(data-ruolo);
   display: block;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   font-size: 9px;
   letter-spacing: 4px;
@@ -189,10 +206,22 @@ span{
   margin-bottom: 4px;
   opacity: 0.75;
 }
-.box-pacchetto-giocatori[data-ruolo="Portieri"]::before       { color: var(--col-P); border-color: var(--col-P); }
-.box-pacchetto-giocatori[data-ruolo="Difensori"]::before      { color: var(--col-D); border-color: var(--col-D); }
-.box-pacchetto-giocatori[data-ruolo="Centrocampisti"]::before { color: var(--col-C); border-color: var(--col-C); }
-.box-pacchetto-giocatori[data-ruolo="Attaccanti"]::before     { color: var(--col-A); border-color: var(--col-A); }
+.box-pacchetto-giocatori[data-ruolo="Portieri"]::before {
+  color: var(--col-P);
+  border-color: var(--col-P);
+}
+.box-pacchetto-giocatori[data-ruolo="Difensori"]::before {
+  color: var(--col-D);
+  border-color: var(--col-D);
+}
+.box-pacchetto-giocatori[data-ruolo="Centrocampisti"]::before {
+  color: var(--col-C);
+  border-color: var(--col-C);
+}
+.box-pacchetto-giocatori[data-ruolo="Attaccanti"]::before {
+  color: var(--col-A);
+  border-color: var(--col-A);
+}
 
 /* ── CARD GIOCATORE ────────────────────────────────────────────── */
 .box-giocatore {
@@ -206,46 +235,108 @@ span{
   overflow: hidden;
   position: relative;
   cursor: default;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
   animation: fadeUp 0.3s ease both;
 }
 
 /* Barra laterale colorata per ruolo */
 .box-giocatore::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: 0; top: 0; bottom: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 3px;
   opacity: 0.65;
   transition: opacity 0.15s ease;
   border-radius: 3px 0 0 3px;
 }
-.ruolo-P::before { background: var(--col-P); }
-.ruolo-D::before { background: var(--col-D); }
-.ruolo-C::before { background: var(--col-C); }
-.ruolo-A::before { background: var(--col-A); }
+.ruolo-P::before {
+  background: var(--col-P);
+}
+.ruolo-D::before {
+  background: var(--col-D);
+}
+.ruolo-C::before {
+  background: var(--col-C);
+}
+.ruolo-A::before {
+  background: var(--col-A);
+}
 
-.ruolo-P:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(40,94%,52%,0.35); border-color: hsla(40,94%,52%,0.4); background: var(--bg-card-hover); }
-.ruolo-D:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(96,70%,46%,0.35); border-color: hsla(96,70%,46%,0.4); background: var(--bg-card-hover); }
-.ruolo-C:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(217,93%,52%,0.35); border-color: hsla(217,93%,52%,0.4); background: var(--bg-card-hover); }
-.ruolo-A:hover { transform: translateX(4px); box-shadow: -4px 0 18px hsla(351,89%,53%,0.35); border-color: hsla(351,89%,53%,0.4); background: var(--bg-card-hover); }
+.ruolo-P:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 18px hsla(40, 94%, 52%, 0.35);
+  border-color: hsla(40, 94%, 52%, 0.4);
+  background: var(--bg-card-hover);
+}
+.ruolo-D:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 18px hsla(96, 70%, 46%, 0.35);
+  border-color: hsla(96, 70%, 46%, 0.4);
+  background: var(--bg-card-hover);
+}
+.ruolo-C:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 18px hsla(217, 93%, 52%, 0.35);
+  border-color: hsla(217, 93%, 52%, 0.4);
+  background: var(--bg-card-hover);
+}
+.ruolo-A:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 18px hsla(351, 89%, 53%, 0.35);
+  border-color: hsla(351, 89%, 53%, 0.4);
+  background: var(--bg-card-hover);
+}
 
-.box-giocatore:hover::before { opacity: 1; }
+.box-giocatore:hover::before {
+  opacity: 1;
+}
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.box-pacchetto-giocatori .box-giocatore:nth-child(1)  { animation-delay:.03s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(2)  { animation-delay:.06s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(3)  { animation-delay:.09s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(4)  { animation-delay:.12s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(5)  { animation-delay:.15s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(6)  { animation-delay:.18s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(7)  { animation-delay:.21s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(8)  { animation-delay:.24s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(9)  { animation-delay:.27s }
-.box-pacchetto-giocatori .box-giocatore:nth-child(10) { animation-delay:.30s }
+.box-pacchetto-giocatori .box-giocatore:nth-child(1) {
+  animation-delay: 0.03s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(2) {
+  animation-delay: 0.06s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(3) {
+  animation-delay: 0.09s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(4) {
+  animation-delay: 0.12s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(5) {
+  animation-delay: 0.15s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(6) {
+  animation-delay: 0.18s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(7) {
+  animation-delay: 0.21s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(8) {
+  animation-delay: 0.24s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(9) {
+  animation-delay: 0.27s;
+}
+.box-pacchetto-giocatori .box-giocatore:nth-child(10) {
+  animation-delay: 0.3s;
+}
 
 /* ── BOX INFO ──────────────────────────────────────────────────── */
 #box-info {
@@ -268,7 +359,7 @@ span{
   justify-content: center;
   flex-shrink: 0;
   padding: 2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 .logo-squadra {
   width: 22px;
@@ -285,7 +376,7 @@ span{
   align-items: center;
   justify-content: center;
   font-size: 8px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   color: #555;
   width: 22px;
@@ -299,7 +390,7 @@ span{
   min-width: 0;
 }
 #campo-nome-giocatore {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.3px;
@@ -311,14 +402,22 @@ span{
   line-height: 1.1;
   transition: color 0.15s ease;
 }
-.ruolo-P:hover #campo-nome-giocatore { color: var(--col-P); }
-.ruolo-D:hover #campo-nome-giocatore { color: var(--col-D); }
-.ruolo-C:hover #campo-nome-giocatore { color: var(--col-C); }
-.ruolo-A:hover #campo-nome-giocatore { color: var(--col-A); }
+.ruolo-P:hover #campo-nome-giocatore {
+  color: var(--col-P);
+}
+.ruolo-D:hover #campo-nome-giocatore {
+  color: var(--col-D);
+}
+.ruolo-C:hover #campo-nome-giocatore {
+  color: var(--col-C);
+}
+.ruolo-A:hover #campo-nome-giocatore {
+  color: var(--col-A);
+}
 
 #campo-nome-squadra {
   font-size: 9px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
@@ -330,13 +429,13 @@ span{
   flex-direction: column;
   justify-content: center;
   gap: 1px;
-  border-left: 1px solid rgba(255,255,255,0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 #box-statistiche div {
   font-size: 9px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
   white-space: nowrap;
-  font-family: 'Barlow', monospace;
+  font-family: "Barlow", monospace;
   line-height: 1.5;
 }
 
@@ -346,30 +445,42 @@ span{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.25);
-  border-left: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
   min-width: 44px;
   padding: 4px 6px;
 }
 #campo-quotazione {
   font-size: 8px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 1px;
 }
 #campo-costo-acquisto {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 900;
   font-size: 24px;
   font-style: italic;
   line-height: 1;
 }
 /* Colore prezzo = colore ruolo */
-.ruolo-P #campo-costo-acquisto { color: var(--col-P); text-shadow: 0 0 10px hsla(40,94%,52%,0.45); }
-.ruolo-D #campo-costo-acquisto { color: var(--col-D); text-shadow: 0 0 10px hsla(96,70%,46%,0.45); }
-.ruolo-C #campo-costo-acquisto { color: var(--col-C); text-shadow: 0 0 10px hsla(217,93%,52%,0.45); }
-.ruolo-A #campo-costo-acquisto { color: var(--col-A); text-shadow: 0 0 10px hsla(351,89%,53%,0.45); }
+.ruolo-P #campo-costo-acquisto {
+  color: var(--col-P);
+  text-shadow: 0 0 10px hsla(40, 94%, 52%, 0.45);
+}
+.ruolo-D #campo-costo-acquisto {
+  color: var(--col-D);
+  text-shadow: 0 0 10px hsla(96, 70%, 46%, 0.45);
+}
+.ruolo-C #campo-costo-acquisto {
+  color: var(--col-C);
+  text-shadow: 0 0 10px hsla(217, 93%, 52%, 0.45);
+}
+.ruolo-A #campo-costo-acquisto {
+  color: var(--col-A);
+  text-shadow: 0 0 10px hsla(351, 89%, 53%, 0.45);
+}
 
 /* ── SELETTORE SQUADRA ─────────────────────────────────────────── */
 
