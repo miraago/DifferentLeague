@@ -74,7 +74,7 @@ NIZZA	Maurizio Beghi	Ligue 1	4
 PARIS FC	Davide Ricciutelli	Ligue 1	69
 PSG	Benito Marino	Ligue 1	40
 REIMS	Stefano Delli Castelli	Ligue 1	31
-RENNES	Alessandro Nicolosi	Ligue 1	94
+RENNES	Domenico Di Benedetto	Ligue 1	94
 SAINT ETIENNE	Roberto Saverino	Ligue 1	59
 STRASBURGO	Manuel Massaro	Ligue 1	1
 TOLOSA	Giampaolo Rizzuti	Ligue 1	38

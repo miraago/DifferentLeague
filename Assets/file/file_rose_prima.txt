@@ -160,11 +160,6 @@ Chelsea	MARTIN	DIF	gen	18	6,33	14	25	Premier League
 Chelsea	SOLET	DIF	udi	22	6,02	12	14	Premier League
 Chelsea	GUTIERREZ	DIF	nap	8	5,69	6	16	Premier League
 Chelsea	DE BRUYNE	CEN	nap	8	7,75	10	29	Premier League
-Chelsea	ESPOSITO SE.	CEN	cag	21	6,52	15	13	Premier League
-Chelsea	SAELEMAEKERS	CEN	mil	22	6,73	17	23	Premier League
-Chelsea	ELMAS	CEN	nap	17	5,76	8	16	Premier League
-Chelsea	VAZQUEZ	CEN	cre	13	6,23	11	22	Premier League
-Chelsea	CALHANOGLU	CEN	int	16	7,59	24	38	Premier League
 Chelsea	FAZZINI	CEN	fio	8	5,75	2	9	Premier League
 Chelsea	RAMADANI	CEN	lec	21	5,76	9	10	Premier League
 Chelsea	KRSTOVIC	ATT	ata	17	7,26	22	40	Premier League

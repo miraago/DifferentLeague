@@ -45,10 +45,12 @@ let presidenti = []; //lista presidenti
 const TAG_H2 = document.querySelector("h2");
 
 containerFiltri.addEventListener("click", (evento) => {
-  gestisciFiltroRuolo(evento);
-  gestisciFiltroSelezionaCampionato(evento);
-  gestisciFiltroTeam(evento);
-  chiamaPaginaCliccata();
+  if (evento.target.tagName != "SELECT") {
+    gestisciFiltroRuolo(evento);
+    gestisciFiltroSelezionaCampionato(evento);
+    gestisciFiltroTeam(evento);
+    chiamaPaginaCliccata();
+  }
 });
 
 containerFiltri.addEventListener("change", (evento) => {
@@ -318,22 +320,22 @@ function stampaListaGiocatoriDaSvincolare() {
   paginaDaRendereVisibile("dati");
   azzeraTabelle(); //azzeriamo tutte le tabelle precedenti
   creaFiltroRosa(presidenti);
+
   TAG_H2.dataset.action = "apri-da-svincolare";
   TAG_H2.textContent = "GIOCATORI FUORI LISTA";
 
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
   let contaGiocatori = 0;
-  presidenti.forEach((teamCorrente) => {
-    if (
-      teamCorrente == STATO_FILTRI.rosaPresidente ||
-      STATO_FILTRI.rosaPresidente == "Tutte le rose"
-    ) {
-      //scorriamo tutte le squadre del campionato
-      teamCorrente.getTuttiGliSlot.forEach((playerCorrente) => {
-        //scorriamo tutti i giocatori e individuiamo i fuori lista della squadra corrente
-        if (playerCorrente.getDatiGiocatore.getFuoriLista) {
-          contaGiocatori++;
-          rigaHTML += `
+  // const arrayFiltrato = STATO_FILTRI.rosaPresidente== "Tutte le rose" ? presidenti : presidenti.filter(presidenteCorrente => presidenteCorrente.getNomeRosa == STATO_FILTRI.rosaPresidente);
+  const arrayFiltrato = applicaFiltroTeams(presidenti);
+
+  arrayFiltrato.forEach((teamCorrente) => {
+    //scorriamo tutte le squadre del campionato o quella scelta
+    teamCorrente.getTuttiGliSlot.forEach((playerCorrente) => {
+      //scorriamo tutti i giocatori e individuiamo i fuori lista della squadra corrente
+      if (playerCorrente.getDatiGiocatore.getFuoriLista) {
+        contaGiocatori++;
+        rigaHTML += `
       <tr>
         <td> ${teamCorrente.getNomeRosa} </td>
         <td> ${playerCorrente.getDatiGiocatore.getRuolo}  </td>
@@ -348,9 +350,8 @@ function stampaListaGiocatoriDaSvincolare() {
         )} </td>
       </tr>
       `;
-        }
-      });
-    }
+      }
+    });
   });
 
   //creiamo una tabella

@@ -53,7 +53,7 @@ async function caricaPresidenti() {
 
 async function caricaGiocatori() {
   console.log("Modulo Dati: caricaGiocatori");
-  const response = await fetch("Assets/file/quotazioni_gg26.txt");
+  const response = await fetch("Assets/file/quotazioni_gg27.txt");
   if (!response.ok) throw new Error("Errore network");
 
   const datiGiocatori = (await response.text())

@@ -22,7 +22,7 @@ export const STATO_FILTRI = {
   lega: [], //filtro lega, tiene traccia del campionato cliccato
   squadraSA: [], //filtro squadra serie A selezionata
   caricaFuoriLista: false, //  tiene traccia se mostrare o meno i fuori lista. se è true significa che è selezionato tutti
-  rosaPresidente: "", // tiene traccia del presidente selezionato
+  rosaPresidente: "tutte", // tiene traccia del presidente selezionato nella select
 };
 export function creaFiltroSelezionaCampionato() {
   containerFiltri.insertAdjacentHTML(
@@ -112,15 +112,25 @@ export function applicaFiltriGiocatori(player) {
 }
 
 export function applicaFiltroTeams(presidenti) {
-  let arraySquadre = presidenti.filter((teamsCorrente) => {
-    return STATO_FILTRI.lega.includes(
-      teamsCorrente.getCampionatoDiAppartenenza,
-    );
-  });
+  let arraySquadre = [...presidenti];
 
-  if (arraySquadre.length == 0) {
-    //se non è applicato nessun filtro deve caricare tutte le rose
-    arraySquadre = presidenti.map((squadraCorrente) => squadraCorrente);
+  //filtro per selezionare la squadra scelta nel filtro select
+  if (STATO_FILTRI.rosaPresidente != "tutte") {
+    arraySquadre = presidenti.filter((teamCorrente) => {
+      return (
+        teamCorrente.getNomeRosa.toLowerCase() == STATO_FILTRI.rosaPresidente
+      );
+    });
+  }
+
+  //filtro per selezionare solo le squadre appartenenti ad un determinato campionato
+  if (STATO_FILTRI.lega.length > 0) {
+    // è inutile controllare se non è stato selezionato il filtro seleziona campionato
+    arraySquadre = presidenti.filter((teamsCorrente) => {
+      return STATO_FILTRI.lega.includes(
+        teamsCorrente.getCampionatoDiAppartenenza,
+      );
+    });
   }
 
   return arraySquadre;
@@ -142,37 +152,42 @@ export function creaFiltroPresenzeMinime() {
   );
 }
 export function creaFiltroRosa(presidenti) {
-  let optionsRosaHTML = "";
+  const selectSceltaSquadra = document.getElementById("select-scegli-rosa"); // mi creo il riferimento al select
 
-  //SE già esiste il filtro rosa lo azzeriamo
-  const filtroRosaEsistente = document.getElementById("select-scegli-rosa");
-  if (filtroRosaEsistente) {
-    filtroRosaEsistente.parentNode.remove();
-  }
+  //se esiste non lo dobbiamo creare
+  if (selectSceltaSquadra) {
+    //se esiste aggiorniamo il valore, si presuppone che l'utente abbia scelto una squadra
+    STATO_FILTRI.rosaPresidente = selectSceltaSquadra.value;
+  } else {
+    //se non esiste lo creiamo
+    let optionsRosaHTML = "";
 
-  optionsRosaHTML += `<option value="tutte">Tutte le rose</option>`;
+    //ci creiamo le opzioni per il select
+    optionsRosaHTML += `<option value="tutte" ${STATO_FILTRI.rosaPresidente == "tutte" ? "selected" : ""}>Tutte</option>`;
 
-  presidenti.forEach((teamCorrente) => {
-    if (STATO_FILTRI.rosaPresidente == teamCorrente.getNomeRosa.toLowerCase()) {
-      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}" selected>${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
-    } else {
-      optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}">${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
-    }
-  });
+    presidenti.forEach((teamCorrente) => {
+      if (
+        STATO_FILTRI.rosaPresidente == teamCorrente.getNomeRosa.toLowerCase()
+      ) {
+        optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}" selected>${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
+      } else {
+        optionsRosaHTML += `<option value="${teamCorrente.getNomeRosa.toLowerCase()}">${toCapitalize(teamCorrente.getNomeRosa)}</option>`;
+      }
+    });
 
-  containerFiltri.insertAdjacentHTML(
-    "beforeend",
-    `
+    containerFiltri.insertAdjacentHTML(
+      "beforeend",
+      `
   <section class="box-filtro">
           <label>Scegli la rosa</label>
           <select id="select-scegli-rosa">
             ${optionsRosaHTML}
         </section>`,
-  );
+    );
+  }
 }
 
 export function gestisciFiltroRosa(event) {
-  console.log("function gestisciFiltroRosa(event)");
   const TAG = event.target;
 
   if (TAG.id == "select-scegli-rosa") {
