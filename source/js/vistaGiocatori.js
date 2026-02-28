@@ -19,6 +19,7 @@ export function stampaListaGiocatori(
   }
   TAG_H2.dataset.action = "apri-lista-giocatori";
   TAG_H2.textContent = "LISTA GIOCATORI";
+
   //creiamo i filtri per la pagina giocatori
   cbCreaFiltriPaginaGiocatoriSeMancante();
   cbAzzeraTabelle();
@@ -26,6 +27,7 @@ export function stampaListaGiocatori(
   // console.log("Stampa lista giocatori in corso...");
 
   const arrayFiltrato = cbApplicaFiltriGiocatori();
+  TAG_H2.textContent = `LISTA GIOCATORI - Giocatori caricati ${arrayFiltrato.length}`;
 
   //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
   if (arrayFiltrato.length !== 0) {
@@ -125,6 +127,7 @@ export function stampaListaAppartenenze(
   cbAzzeraTabelle();
   //console.log("Stampa lista Appartenenze in corso...");
   const arrayFiltrato = cbApplicaFiltriGiocatori();
+  TAG_H2.textContent = `LISTA GIOCATORI appartenenti ad almeno una squadra - Giocatori caricati ${arrayFiltrato.length}`;
 
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
@@ -245,14 +248,13 @@ export function stampaListaSvincolati(
 ) {
   cbPaginaDaRendereVisibile("dati");
 
-  if (TAG_H2.dataset.action != "apri-svincolati") {
+  if (TAG_H2.dataset.action != "apri-lista-svincolati") {
     cbAzzeraFiltri();
   }
 
-  TAG_H2.dataset.action = "apri-svincolati";
-  TAG_H2.textContent = "LISTA SVINCOLATI";
-  cbCreaFiltriPaginaGiocatoriSeMancante();
+  TAG_H2.dataset.action = "apri-lista-svincolati";
 
+  cbCreaFiltriPaginaGiocatoriSeMancante();
   cbAzzeraTabelle();
 
   const arrayFiltrato = cbApplicaFiltriGiocatori();
@@ -284,6 +286,7 @@ export function stampaListaSvincolati(
       contaGiocatori++;
     }
   });
+  TAG_H2.textContent = `LISTA GIOCATORI SVINCOLATI- Giocatori caricati ${contaGiocatori}`;
   if (contaGiocatori > 0) {
     const theadTemp = `<tr><th colspan="10">LISTA GIOCATORI SVINCOLATI</tr>
       <tr class="intestazione-colonne">

@@ -28,9 +28,9 @@ span {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  padding: 24px 20px 30px;
+  /* padding: 24px 20px 30px; */
   gap: 12px;
-  width: 76%;
+  width: 80%;
   margin: 0 auto;
   border-radius: 24px;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -44,6 +44,7 @@ span {
 #vista-la-mia-squadra .intestazione-team {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -52,7 +53,7 @@ span {
   gap: 16px;
 }
 #vista-la-mia-squadra .intestazione-team > div {
-  width: 100%;
+  width: 35%;
 }
 
 #campo-nome-team {
@@ -186,7 +187,7 @@ span {
 /* ── PACCHETTO PER RUOLO ───────────────────────────────────────── */
 .box-pacchetto-giocatori {
   flex: 1 1 200px;
-  min-width: 195px;
+  min-width: 210px;
   max-width: 260px;
   display: flex;
   flex-direction: column;

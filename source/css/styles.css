@@ -17,27 +17,10 @@ main {
   position: relative;
 }
 
-h1 {
-  text-align: center;
-  font-size: 40pt;
-  font-weight: bold;
-  padding: 10px;
-}
-
 h2 {
   text-align: center;
   margin: 20px 0;
   color: var(--background_primario);
-}
-
-#container-giornate {
-  margin-bottom: 20px;
-  padding: 5px;
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .icona-ricerca-possessi {
@@ -108,11 +91,6 @@ table tr:nth-child(even) td {
   background-color: rgb(245, 247, 250);
 }
 
-.logo-menu {
-  width: 100px;
-  height: auto;
-  text-align: center;
-}
 .logo-menu-index {
   width: auto;
   height: 60vh;
@@ -197,17 +175,17 @@ table thead tr.intestazione-colonne th:hover {
 
   box-sizing: border-box;
 }
-.logo-campionato:hover {
+/* #logo-sito:hover {
   scale: 1.2;
 
   border: 2px solid var(--background_primario);
-}
+} */
 
-.logo-campionato.selected {
+/* #logo-sito .selected {
   background-color: white;
   border: 2px solid var(--background_primario);
   scale: 1.2;
-}
+} */
 
 .squadra-di-appartenenza {
   font-style: italic;
@@ -250,104 +228,6 @@ div #contenitore-nome {
   -moz-border-radius: 10%;
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
-}
-
-/* ----------------------NAVBAR----------------------- */
-/* 1. Navbar: allineamento alla base per coerenza visiva */
-#navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end; /* Allinea h1 e menu sulla stessa linea di base */
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: var(--background_primario);
-  color: white;
-  flex-wrap: wrap;
-}
-
-/* 2. Contenitore Menu: non deve forzare larghezze fisse se non necessario */
-#contenitore-menu {
-  display: flex;
-  flex: 1; /* Prende lo spazio centrale */
-  justify-content: center; /* Centra il menu tra gli altri due elementi */
-  margin-left: 10px;
-}
-
-#contenitore-menu > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 100%;
-  gap: 5px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  border-top-left-radius: 10px;
-  background-color: rgba(33, 52, 76, 0.5);
-}
-
-#contenitore-menu > ul > li:first-child {
-  border-top-left-radius: 10px;
-}
-
-/* 3. Voci Principali: devono essere il riferimento (relative) */
-#contenitore-menu > ul > li {
-  position: relative; /* Indispensabile per ancorare la tendina */
-  padding: 10px 15px;
-  cursor: pointer;
-
-  white-space: nowrap; /* Evita che il testo vada a capo */
-  flex-grow: 1; /* Dice al pulsante: "occupa tutto lo spazio libero" */
-  text-align: center; /* Centra il testo nel pulsante allargato */
-}
-
-/* 4. Sottomenu: deve essere largo QUANTO il suo LI padre */
-#contenitore-menu > ul > li > ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  /*Appareesattamentesotto*/
-  left: 0;
-  /*AllineatoasinistradelLI"Squadre"*/
-  width: max-content;
-  min-width: 100%;
-  /*ForzalastessalarghezzadelLIpadre*/
-  background-color: var(--background_primario);
-  padding: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-
-/* 5. Elementi della tendina: rimuoviamo posizionamenti assoluti interni */
-#contenitore-menu > ul > li > ul > li {
-  position: static; /* Reset dal tuo vecchio codice */
-  width: 100%; /* Prende tutta la larghezza della tendina */
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  box-sizing: border-box;
-
-  text-align: left;
-}
-
-/* 6. Hover: applicato a TUTTI i li per coerenza */
-#contenitore-menu li:hover {
-  background-color: rgb(1, 40, 71);
-}
-
-#contenitore-menu > ul > li:hover > ul {
-  display: block; /* Mostra la tendina al passaggio del mouse */
-}
-#contenitore-menu li {
-  text-align: center;
-}
-#contenitore-menu a {
-  color: white;
 }
 
 /* Overlay che copre tutto lo schermo */

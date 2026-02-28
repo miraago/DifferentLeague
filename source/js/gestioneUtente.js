@@ -40,8 +40,8 @@ export function controllaAccesso(presidenti, callbackSuccesso) {
     const scelta = selectLogin.value;
     if (scelta) {
       // SALVIAMO NEL BROWSER!
-      localStorage.setItem("fanta_squadra_corrente", scelta);
-      SQUADRA_UTENTE = scelta;
+      localStorage.setItem("fanta_squadra_corrente", scelta.toUpperCase());
+      SQUADRA_UTENTE = scelta.toUpperCase();
 
       // Chiudiamo il modal
       modalLogin.style.display = "none";

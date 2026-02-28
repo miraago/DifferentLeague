@@ -6,6 +6,8 @@ import {
   gestisciFiltroSelezionaSquadraDaSelect,
 } from "./laMiaSquadra.js";
 
+import { mercatoSvincola } from "./vistaMercato.js";
+
 import {
   stampaListaGiocatori,
   stampaListaAppartenenze,
@@ -80,30 +82,6 @@ containerTable.addEventListener("click", (e) => ordinaTabella(e));
 //AVVIO PROGRAMMA
 logicaPrincipale();
 
-// async function logicaPrincipale() {
-//   console.log("Avvio Logica Principale...");
-//   const popup = document.getElementById("popup-caricamento");
-//   const TAG_H3 = popup.querySelector("h3");
-//   popup.style.display = "flex";
-
-//   try {
-//     // 1. Chiediamo TUTTI i dati al nostro nuovo modulo
-//     const datiScaricati = await caricaTuttiIDati();
-
-//     // 2. Popoliamo le variabili globali di script.js
-//     presidenti = datiScaricati.presidenti;
-//     player = datiScaricati.giocatori;
-//     acquisti = datiScaricati.acquisti;
-
-//     inizializzaFiltri(player);
-
-//     popup.style.display = "none";
-//     console.log("✅ Dati caricati e pronti all'uso!");
-//   } catch (err) {
-//     console.error(err);
-//     TAG_H3.innerText = "Errore Caricamento Dati. Contattare l'admin. " + err;
-//   }
-// }
 async function logicaPrincipale() {
   console.log("Avvio Logica Principale...");
   const popup = document.getElementById("popup-caricamento");
@@ -149,6 +127,16 @@ function avviaApplicazione() {
   // document.querySelector("li[data-action='apri-la-mia-squadra']").click();
 
   // Oppure standard dashboard:
+  //ricaviamo il nome del presidente
+  let nomePresidente = "";
+  presidenti.forEach((presidenteCorrente) => {
+    if (presidenteCorrente.getNomeRosa == SQUADRA_UTENTE) {
+      nomePresidente = presidenteCorrente.getNomePresidente;
+      return;
+    }
+  });
+  document.getElementById("nome-presidente").textContent =
+    SQUADRA_UTENTE + " di " + nomePresidente;
   stampaDashboard();
 }
 
@@ -524,7 +512,7 @@ function chiamaPaginaCliccata(evento) {
         containerTable,
       );
       break;
-    case "apri-mercato":
+    case "apri-lista-svincolati":
       stampaListaSvincolati(
         TAG_H2, // 1
         paginaDaRendereVisibile, // 2
@@ -533,6 +521,15 @@ function chiamaPaginaCliccata(evento) {
         azzeraTabelle, // 5
         () => applicaFiltriGiocatori(player), // 6
         containerTable,
+      );
+      break;
+    case "apri-mercato-svincola":
+      mercatoSvincola(
+        TAG_H2, //1
+        presidenti,
+        paginaDaRendereVisibile,
+        azzeraTabelle,
+        azzeraFiltri,
       );
       break;
     case "apri-appartenenze":
@@ -576,7 +573,7 @@ function chiamaPaginaCliccata(evento) {
 function paginaDaRendereVisibile(pagina = "") {
   const PAGINE = document.querySelectorAll(".pagina"); //otteniamo tutti gli elementi pagina
 
-  if (pagina == "dashboard") {
+  if (pagina == "dashboard" || pagina == "mercato") {
     containerFiltri.style.display = "none";
   } else {
     containerFiltri.style.display = "flex";

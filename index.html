@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="source/css/styles.css" />
     <link rel="stylesheet" href="source/css/laMiaSquadra.css" />
     <link rel="stylesheet" href="source/css/filtri.css" />
+    <link rel="stylesheet" href="source/css/menu.css" />
+    <link rel="stylesheet" href="source/css/mercatoSvincola.css" />
     <link rel="icon" href="Assets/icone/logodl.ico" />
     <script src="./source/js/script.js" type="module" defer></script>
 
@@ -20,50 +22,117 @@
       </div>
       <nav id="navbar">
         <!-- vista dashboard -->
-        <div>
+        
           <img
             src="Assets/image/logo.png"
             alt="LogoDifferentLeague"
             title="Logo"
-            class="logo-menu"
+            id="logo-sito"
           />
-        </div>
-        <h1>Different League</h1>
+       
+        <h1 id="titolo">Different League</h1>
+        <div><div id="nome-presidente"></div>
         <div id="contenitore-menu">
           <ul>
-            <li data-action="apri-dashboard">Pagina Iniziale</li>
+            <li data-action="apri-dashboard">
+              <span class="etichetta">
+                Home
+              </span>
+              <span class="icona">
+                <img src="./Assets/image/iconGeneric.png"/>
+              </span>              
+            </li>
             <li data-action="apri-squadre">
-              Squadre
+              <span class="etichetta">
+                Squadre
+              </span>
+              <span class="icona">
+                <img src="./Assets/image/iconGeneric.png"/>
+              </span>
               <ul>
-                <li data-action="apri-la-mia-squadra">La mia squadra</li>
-                <li data-action="apri-info-squadre">Info Squadre</li>
-                <li data-action="apri-tutte-le-rose">Tutte le Rose</li>
+                <li data-action="apri-la-mia-squadra">
+                  <span class="etichetta">
+                    La mia squadra
+                  </span>
+                  <span class="icona">
+                    <img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                </li>
+                <li data-action="apri-info-squadre">
+                  <span class="etichetta">
+                    Info Squadre
+                  </span>
+                  <span class="icona">
+                    <img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                  </li>
+                  <li data-action="apri-tutte-le-rose">
+                    <span class="etichetta">                    
+                    Tutte Le Rose
+                  </span>
+                  <span class="icona">
+                    <img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                </li>
               </ul>
             </li>
             <li data-action="apri-lista-giocatori">
-              Giocatori
+              <span class="etichetta">Giocatori</span>
+                <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>                
               <ul>
-                <li data-action="apri-lista-giocatori">Lista Giocatori</li>
+                <li data-action="apri-lista-giocatori">
+                  <span class="etichetta">Lista Giocatori</span>
+                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
+                </li>
+                <li data-action="apri-svincolati"
+                ><span class="etichetta">Lista Svincolati</span>
+                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                </li>
               </ul>
             </li>
             <li data-action="apri-mercato">
-              Mercato
+              <span class="etichetta">Mercato</span>
+                <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                </span>
               <ul>
-                <li data-action="apri-svincolati">Svincolati</li>
-                <li data-action="apri-scambi-1-a-molti">Scambi 1 a molti</li>
-                <li data-action="apri-scambi-classici">Scambi Classici</li>
-                <li data-action="apri-buste">Buste</li>
-                <li data-action="apri-appartenenze">Appartenenza</li>
+                <li data-action="apri-mercato-svincola">
+                  <span class="etichetta">Svincola Giocatori</span>
+                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                </li>
+                <li data-action="apri-scambi-1-a-molti">
+                  <span class="etichetta">Scambi 1 a molti</span>
+                    <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                    </span>
+                  </li>
+                <li data-action="apri-scambi-classici">
+                  <span class="etichetta">Scambi Classici</span>
+                    <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                    </span>
+                  </li>
+                <li data-action="apri-buste"
+                ><span class="etichetta">Buste</span>
+                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                </li>
+                <li data-action="apri-appartenenze">
+                  <span class="etichetta">Appartenenza</span>
+                    <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                    </span>
+                  </li>
 
                 <li data-action="apri-da-svincolare">
-                  Giocatori Da Svincolare
+                  <span class="etichetta">Giocatori Da Svincolare</span><span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
                 </li>
               </ul>
             </li>
             <li data-action="apri-login">
-              Scegli la tua squadra
+              <span class="etichetta">Scegli la tua squadra</span>
+              <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
             </li>
           </ul>
+        </div>
         </div>
       </nav>
 
@@ -82,14 +151,18 @@
           />
         </div>
       </div>
-      <div class="pagina" data-pagina="dati" id="container-table"></div>
-      <div class="pagina" data-pagina="scambi" id="vista-scambi"></div>
-      <div id="vista-la-mia-squadra"
-        class="pagina"
-        data-pagina="la-mia-squadra"
-      >
-            
+        <!-- container table contiene il contenitore delle tabelle  -->
+        <div class="pagina" data-pagina="dati" id="container-table"></div>
+        <!-- vista scambi contiene la vista del mercato scambi  -->  
+        <div class="pagina" data-pagina="scambi" id="vista-scambi"></div>
+        <!-- vista mercato contiene la vista del mercato  -->  
+        <div class="pagina" data-pagina="mercato" id="vista-mercato"></div>
+        <!-- vista la mia squadra contiene la vista della propria squadra -->  
+        <div class="pagina" data-pagina="la-mia-squadra" id="vista-la-mia-squadra">
           
+          
+          
+        
         </div>
       </div>
       <div id="modal-login" class="overlay-login" style="display: none;">

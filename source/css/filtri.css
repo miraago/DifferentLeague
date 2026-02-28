@@ -1,12 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  --background_primario: rgb(2, 87, 156);
-}
-
 /* contenitore che contiene tutti i box filtro */
 #container-filtri:hover {
   box-shadow: 5px 5px 15px var(--background_primario);
