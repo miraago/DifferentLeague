@@ -6,7 +6,7 @@ import {
   gestisciFiltroSelezionaSquadraDaSelect,
 } from "./laMiaSquadra.js";
 
-import { mercatoSvincola } from "./vistaMercato.js";
+import { mercatoSvincola, inizializzaMercato } from "./vistaMercato.js";
 
 import {
   stampaListaGiocatori,
@@ -96,6 +96,9 @@ async function logicaPrincipale() {
     acquisti = datiScaricati.acquisti;
 
     inizializzaFiltri(player);
+
+    inizializzaMercato(player, presidenti);
+
     popup.style.display = "none";
     console.log("✅ Dati caricati!");
 
@@ -543,6 +546,7 @@ function chiamaPaginaCliccata(evento) {
         containerTable,
       );
       break;
+      inizializzaMercato;
     case "apri-svincolati":
       stampaListaSvincolati(
         TAG_H2, // 1

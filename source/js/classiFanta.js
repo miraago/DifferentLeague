@@ -421,6 +421,7 @@ class Rosa {
       ? campionatoUpper
       : "";
   }
+  
   addRecordAcquisto(record) {
     if (!(record instanceof RecordAcquisto)) {
       return -1;

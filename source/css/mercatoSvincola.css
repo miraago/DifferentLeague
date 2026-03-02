@@ -5,53 +5,65 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
+  o {
+  }
 
-  s {
-  }
-  #contenitore-info {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    min-height: 50px;
-    background-color: aqua;
-  }
   #container-giocatori,
-  #contenitore-da-svincolare {
+  #container-da-svincolare {
     width: 30%;
     height: fit-content;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 5px;
   }
 
+  /*CARD GIOCATORE */
   .card-giocatore {
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    border: 1px solid rgb(1, 1, 37);
-    align-items: center;
+    border: 1px solid rgb(61, 61, 61);
   }
-  .card-giocatore > div {
+  #container-da-svincolare .card-giocatore {
+    background-color: rgb(255, 0, 0);
+  }
+  #container-da-svincolare .valore,
+  #container-da-svincolare .etichetta,
+  #container-da-svincolare .nome-giocatore {
+    color: white;
+  }
+
+  .card-giocatore:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    border-left: 5px solid green;
+  }
+
+  .card-giocatore:hover div div .nome-giocatore {
+    color: green;
+  }
+
+  /* BOX SX ruolo e squadra */
+  #box-sx {
     display: flex;
-    min-width: fit-content;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: row;
+    height: 100%;
   }
   .ruolo {
-    width: 10%;
-    text-align: center;
-  }
-  .squadra {
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
     text-align: center;
   }
   .squadra img {
@@ -59,17 +71,21 @@
     height: 40px;
     display: block;
   }
-  .nome-giocatore {
-    width: 50%;
-    color: rgb(2, 2, 2);
-    font-size: large;
-    font-family: "Trebuchet MS", sans-serif;
-    font-weight: bold;
-    text-align: left;
+
+  /* BOX centrale nome sopra e statistiche sotto */
+  #box-centrale {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #box-centrale > div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
   .quotazione,
   .prezzo-pagato,
-  .costo-cessione,
   .media-voto,
   .fanta-media-voto,
   .presenze {
@@ -77,19 +93,61 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 15%;
+    width: calc(100% / 6);
     height: 100%;
+  }
+  .costo-cessione {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .costo-cessione div {
+    color: rgb(0, 92, 23);
+    font-weight: bolder;
+  }
+
+  .costo-cessione .valore {
+    font-size: 34px;
   }
   .etichetta {
     color: rgb(51, 51, 51);
     font-size: xx-small;
-    height: 20%;
+    white-space: wrap;
+    text-align: center;
   }
   .valore {
     color: rgb(0, 0, 54);
-    font-size: 100;
-    height: 80%;
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-size: x-small;
+    text-align: center;
+
+    /* height: 80%; */
   }
+
+  #box-dx {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .nome-giocatore {
+    height: 50%;
+    color: rgb(2, 2, 2);
+    font-size: 24px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  #box-statistiche {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+  }
+
   .icona {
     display: block;
     width: 25px;
@@ -97,7 +155,58 @@
     cursor: pointer;
   }
   .icona:hover {
-    scale: 1.5em;
+    transform: scale(1.5);
     background-color: brown;
+  }
+
+  /* CONTENITORE INFO SQUADRA */
+
+  #container-info-squadra {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px;
+  }
+  #box-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #container-info-squadra #box-info #nome-presidente {
+    font-size: large;
+    letter-spacing: 15px;
+    font-style: oblique;
+    text-align: center;
+  }
+  #container-info-squadra #box-info #nome-squadra {
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-size: 6em;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  #container-info-squadra #box-calcoli {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #container-info-squadra #box-calcoli div {
+    padding: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #container-info-squadra #box-calcoli .etichetta {
+    font-size: small;
+  }
+  #container-info-squadra #box-calcoli .valore {
+    font-size: 25pt;
+    color: rgb(7, 137, 0);
   }
 }
