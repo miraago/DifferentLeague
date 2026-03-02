@@ -14,7 +14,9 @@ export function inizializzaMercato(players, presidenti) {
 
   //ricavo tutte le info del presidente loggato
   presidenteUtenteLoggato = cbPresidenti.find((squadraAttuale) => {
-    return squadraAttuale.getNomeRosa == SQUADRA_UTENTE;
+    return (
+      squadraAttuale.getNomeRosa.toUpperCase() == SQUADRA_UTENTE.toUpperCase()
+    );
   });
 }
 
