@@ -97,8 +97,6 @@ async function logicaPrincipale() {
 
     inizializzaFiltri(player);
 
-    inizializzaMercato(player, presidenti);
-
     popup.style.display = "none";
     console.log("✅ Dati caricati!");
 
@@ -141,6 +139,7 @@ function avviaApplicazione() {
   document.getElementById("nome-presidente").textContent =
     SQUADRA_UTENTE + " di " + nomePresidente;
   stampaDashboard();
+  inizializzaMercato(player, presidenti);
 }
 
 //
