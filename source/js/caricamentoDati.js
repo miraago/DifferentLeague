@@ -1,6 +1,7 @@
 // source/js/caricamentoDati.js
-import { Giocatore, Rosa, RecordAcquisto } from "./classiFanta.js";
+import { Giocatore, Rosa, RecordAcquisto, StatisticaDiGiornata} from "./classiFanta.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
+import { player } from "./script.js";
 
 export async function caricaTuttiIDati() {
   try {
@@ -16,6 +17,9 @@ export async function caricaTuttiIDati() {
       listaPresidenti,
       datiGiocatori.lista,
     );
+
+    //carichiamo i voti
+    await caricaVoti(datiGiocatori.lista);
 
     // 3. Impacchetta tutto in un grande oggetto e spediscilo a script.js
     return {
@@ -53,7 +57,9 @@ async function caricaPresidenti() {
 
 async function caricaGiocatori() {
   console.log("Modulo Dati: caricaGiocatori");
-  const response = await fetch("Assets/file/quotazioni_gg27.txt");
+  const response = await fetch(
+    `Assets/file/quotazioni/quotazioni_gg${IMPOSTAZIONI.GIORNATAATTUALE.giornata}.txt`,
+  );
   if (!response.ok) throw new Error("Errore network");
 
   const datiGiocatori = (await response.text())
@@ -141,4 +147,39 @@ async function caricaAcquisti(presidenti, player) {
   }
 
   return acquisti; // <--- MANCAVA! Restituiamo l'array riempito
+}
+
+async function caricaVoti(player)
+{
+ 
+  console.log("Modulo Dati: caricaVoti");
+  //carichiamo i dati .json della giornata 1
+  for(let giornata=1; giornata<IMPOSTAZIONI.GIORNATAATTUALE.giornata; giornata++)
+  {
+  let response = await fetch (`Assets/file/voti/giornata_${giornata}.json`);
+  if (!response.ok) 
+    {
+      throw new Error(`Errore network - non siamo riusciti a caricare i voti della giornata ${giornata}`);
+    }
+
+  const datiVoti = await response.json();
+  //scorriamo le statistiche di giornata
+  datiVoti.forEach(dt => {
+    //statistca corrente
+    const statistica = new StatisticaDiGiornata(dt.nome, giornata, dt.partita, dt.votoFCL, dt.votoFCC, dt.votoMI, dt.votoRO, dt.assistLI, dt.assistFC, dt.assistMI, dt.assistFE, dt.minuti_giocati, dt.entrato, dt.sostituito, dt.fvm, dt.goal, dt.goal_subiti, dt.rigore_segnato, dt.rigore_sbagliato, dt.rigore_parato, dt.autorete, dt.ammonizione, dt.espulsione, dt.imbattuta, dt.goaldecisivovittoria);
+    
+    //troviamo tra i giocatori a chi appartiene la statistica
+    const trovaGiocatore = player.find(p => {
+      return p.getNome == statistica.getNomeGiocatore;
+    });
+
+    if(trovaGiocatore)
+    {
+    trovaGiocatore.addStatisticheDiGiornata(statistica);
+    }
+        
+  });
+}
+    
+
 }

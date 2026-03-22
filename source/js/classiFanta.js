@@ -18,7 +18,7 @@ class Giocatore {
   #sommaBonusMalus;
   #sommaBonusMalusUltime5;
   #possessi = [];
-  //#statisticheDiGiornata = [];
+  #statisticheDiGiornata = [];
 
   //costruttore
   constructor(
@@ -101,6 +101,11 @@ class Giocatore {
   get getPossessi() {
     return this.#possessi;
   }
+  get getStatisticheDiGiornata() {
+    return this.#statisticheDiGiornata;
+  }
+
+
 
   //setter Giocatore
   set setId(id) {
@@ -255,6 +260,13 @@ class Giocatore {
       }, MV: ${this.#mv}`,
     );
   }
+
+
+  addStatisticheDiGiornata(statistiche) {
+    if (statistiche instanceof StatisticaDiGiornata) {
+      this.#statisticheDiGiornata.push(statistiche);
+    }
+  }
 } //FINE CLASS GIOCATORE**************************************************************
 
 //CLASS ROSA**************************************************************
@@ -291,39 +303,34 @@ class Rosa {
     return this.#slotRosa.A;
   }
 
-  get getContaP(){
+  get getContaP() {
     let conta = 0;
-    for(let i = 0; i < this.#slotRosa.P.length; i++)
-    {
-      if(this.#slotRosa.P[i] != null) conta++;
+    for (let i = 0; i < this.#slotRosa.P.length; i++) {
+      if (this.#slotRosa.P[i] != null) conta++;
     }
     return conta;
   }
-  get getContaD(){
+  get getContaD() {
     let conta = 0;
-    for(let i = 0; i < this.#slotRosa.D.length; i++)
-    {
-      if(this.#slotRosa.D[i] != null) conta++;
+    for (let i = 0; i < this.#slotRosa.D.length; i++) {
+      if (this.#slotRosa.D[i] != null) conta++;
     }
     return conta;
   }
-  get getContaC(){
+  get getContaC() {
     let conta = 0;
-    for(let i = 0; i < this.#slotRosa.C.length; i++)
-    {
-      if(this.#slotRosa.C[i] != null) conta++;
+    for (let i = 0; i < this.#slotRosa.C.length; i++) {
+      if (this.#slotRosa.C[i] != null) conta++;
     }
     return conta;
   }
-  get getContaA(){
+  get getContaA() {
     let conta = 0;
-    for(let i = 0; i < this.#slotRosa.A.length; i++)
-    {
-      if(this.#slotRosa.A[i] != null) conta++;
+    for (let i = 0; i < this.#slotRosa.A.length; i++) {
+      if (this.#slotRosa.A[i] != null) conta++;
     }
     return conta;
   }
-
 
   get getTuttiGliSlot() {
     let array = [];
@@ -362,6 +369,17 @@ class Rosa {
   }
   get getCampionatoDiAppartenenza() {
     return this.#campionatoDiAppartenenza;
+  }
+
+  giocatoreToCosto(giocatore) {
+    if ((!giocatore) instanceof Giocatore) {
+      return 0;
+    }
+    const slotTrovato = this.getTuttiGliSlot.find((slotCorrente) => {
+      return slotCorrente.getDatiGiocatore.getNome == giocatore.getNome;
+    });
+
+    return slotTrovato.getCostoDiAcquisto;
   }
 
   get getCreditiSpesi() {
@@ -421,7 +439,7 @@ class Rosa {
       ? campionatoUpper
       : "";
   }
-  
+
   addRecordAcquisto(record) {
     if (!(record instanceof RecordAcquisto)) {
       return -1;
@@ -446,7 +464,12 @@ class Rosa {
     });
     return conta;
   }
-  //controlla se il giocatore passato appartiene alla rosa di riferimento
+
+  /**
+   * controlla se il giocatore passato appartiene alla rosa di riferimento
+   * * @param {Giocatore} oggetto - Il giocatore da controllare
+   * @returns {boolean} true se è posseduto - false se non è posseduto
+   */
   controllaSePresente(player = null) {
     if (!player) {
       this.getTuttiGliSlot.some((el) => {
@@ -455,7 +478,9 @@ class Rosa {
       });
     }
   }
-} //FINE CLASS ROSA**************************************************************
+}
+
+//FINE CLASS ROSA**************************************************************
 
 //CLASS RECORDACQUISTO**************************************************************
 class RecordAcquisto {
@@ -517,31 +542,129 @@ class RecordAcquisto {
 class StatisticaDiGiornata {
   #nomeGiocatore;
   #giornata;
-  #voto;
+  #partita;
+  #votoFC_L;
+  #votoFC_C;
+  #voto_MI;  
+  #votoRO;
+  #assistLI;
+  #assistFC;
+  #assistMI;
+  #assistFE;
+  #minutiGiocati;
+  #entrato;
+  #sostituito;
   #fvm;
   #goal;
-  #assist;
-  #ammonizione;
-  #espilsione;
-  #rigoreParato;
-  #rigoreSbagliato;
+  #goalSubiti;
   #rigoreSegnato;
-  #goalSubito;
-  #autogoal;
-  constructor(nomeGiocatore = "", giornata = "") {
+  #rigoreSbagliato;
+  #rigoreParato;
+  #autorete;
+  #ammonizione;
+  #espulsione;
+  #imbattuta;
+  #goalDecisivoVittoria;
+
+  constructor(
+    nomeGiocatore,
+    giornata,
+    partita,
+    votoFC_L,
+    votoFC_C,
+    voto_MI,
+    votoRO,
+    assistLI,
+    assistFC,
+    assistMI,
+    assistFE,
+    minutiGiocati,
+    entrato,
+    sostituito,
+    fvm,
+    goal,
+    goalSubiti,
+    rigoreSegnato,
+    rigoreSbagliato,
+    rigoreParato,
+    autorete,
+    ammonizione,
+    espulsione,
+    imbattuta,
+    goalDecisivoVittoria,
+  )
+  {
     this.setNomeGiocatore = nomeGiocatore;
     this.setGiornata = giornata;
+    this.setPartita = partita;
+    this.setVotoFC_L = votoFC_L;
+    this.setVotoFC_C = votoFC_C;
+    this.setVoto_MI = voto_MI;
+    this.setVotoRO = votoRO;    
+    this.setAssistLI = assistLI;
+    this.setAssistFC = assistFC;
+    this.setAssistMI = assistMI;
+    this.setAssistFE = assistFE;
+    this.setMinutiGiocati = minutiGiocati;
+    this.setEntrato = entrato;
+    this.setSostituito = sostituito;
+    this.setFvm = fvm;
+    this.setGoal = goal;
+    this.setGoalSubiti = goalSubiti;
+    this.setRigoreSegnato = rigoreSegnato;
+    this.setRigoreSbagliato = rigoreSbagliato;
+    this.setRigoreParato = rigoreParato;
+    this.setAutorete = autorete;
+    this.setAmmonizione = ammonizione;
+    this.setEspulsione = espulsione;
+    this.setIbattuta = imbattuta;
+    this.setGoalDecisivoVittoria = goalDecisivoVittoria;
+
   }
 
-  //getter  }
+
+  //getter
   get getNomeGiocatore() {
     return this.#nomeGiocatore;
   }
   get getGiornata() {
     return this.#giornata;
   }
-  get getVoto() {
-    return this.#voto;
+  get getPartita() {
+    return this.#partita;
+  } 
+  get getVotoFC_L() {
+    return this.#votoFC_L;
+  }
+  get getVotoFC_C() {
+    return this.#votoFC_C;
+  }
+  get getVoto_MI() {
+    return this.#voto_MI;
+  }
+  get getVotoRO() {
+    return this.#votoRO;
+  }
+  get getAssistLI() {
+    return this.#assistLI;
+  }
+  get getAssistFC() {
+    return this.#assistFC;
+  }
+  get getAssistMI() {
+    return this.#assistMI;
+  }
+  get getAssistFE() {
+    return this.#assistFE;
+  }
+  get getMinutiGiocati() {
+    return this.#minutiGiocati;
+  }
+  get getEntrato() {
+    return this.#entrato;
+  }
+  get getSostituito() {
+    return this.#sostituito;
   }
   get getFvm() {
     return this.#fvm;
@@ -549,40 +672,76 @@ class StatisticaDiGiornata {
   get getGoal() {
     return this.#goal;
   }
-  get getAssist() {
-    return this.#assist;
+  get getGoalSubiti() {
+    return this.#goalSubiti;
+  }
+  get getRigoreSegnato() {
+    return this.#rigoreSegnato;
+  }
+  get getRigoreSbagliato() {
+    return this.#rigoreSbagliato;
+  }
+  get getRigoreParato() {
+    return this.#rigoreParato;
+  }
+  get getAutorete() {
+    return this.#autorete;
   }
   get getAmmonizione() {
     return this.#ammonizione;
   }
   get getEspulsione() {
-    return this.#espilsione;
+    return this.#espulsione;
   }
-  get getRigoreParato() {
-    return this.#rigoreParato;
+  get getIbattuta() {
+    return this.#imbattuta;
   }
-  get getRigoreSbagliato() {
-    return this.#rigoreSbagliato;
-  }
-  get getRigoreSegnato() {
-    return this.#rigoreSegnato;
-  }
-  get getGoalSubito() {
-    return this.#goalSubito;
-  }
-  get getAutogoal() {
-    return this.#autogoal;
+  get getGoalDecisivoVittoria() {
+    return this.#goalDecisivoVittoria;
   }
 
   //setter
-  set setNomeGiocatore(nomeGiocatore) {
-    this.#nomeGiocatore = nomeGiocatore;
+  set setNomeGiocatore(nome) {
+    this.#nomeGiocatore = nome;
   }
   set setGiornata(giornata) {
     this.#giornata = giornata;
   }
-  set setVoto(voto) {
-    this.#voto = voto;
+  set setPartita(partita) {
+    this.#partita = partita;
+  }
+  set setVotoFC_L(voto) {
+    this.#votoFC_L = voto;
+  }
+  set setVotoFC_C(voto) {
+    this.#votoFC_C = voto;
+  }
+  set setVoto_MI(voto) {
+    this.#voto_MI = voto;
+  }
+  set setVotoRO(voto) {
+    this.#votoRO = voto;
+  }
+  set setAssistLI(assist) {
+    this.#assistLI = assist;
+  }
+  set setAssistFC(assist) {
+    this.#assistFC = assist;
+  }
+  set setAssistMI(assist) {
+    this.#assistMI = assist;
+  }
+  set setAssistFE(assist) {
+    this.#assistFE = assist;
+  }
+  set setMinutiGiocati(minuti) {
+    this.#minutiGiocati = minuti;
+  }
+  set setEntrato(entrato) {
+    this.#entrato = entrato;
+  }
+  set setSostituito(sostituito) {
+    this.#sostituito = sostituito;
   }
   set setFvm(fvm) {
     this.#fvm = fvm;
@@ -590,30 +749,36 @@ class StatisticaDiGiornata {
   set setGoal(goal) {
     this.#goal = goal;
   }
-  set setAssist(assist) {
-    this.#assist = assist;
+  set setGoalSubiti(goalSubiti) {
+    this.#goalSubiti = goalSubiti;
+  }
+  set setRigoreSegnato(rigoreSegnato) {
+    this.#rigoreSegnato = rigoreSegnato;
+  }
+  set setRigoreSbagliato(rigoreSbagliato) {
+    this.#rigoreSbagliato = rigoreSbagliato;
+  }
+  set setRigoreParato(rigoreParato) {
+    this.#rigoreParato = rigoreParato;
+  }
+  set setAutorete(autorete) {
+    this.#autorete = autorete;
   }
   set setAmmonizione(ammonizione) {
     this.#ammonizione = ammonizione;
   }
   set setEspulsione(espulsione) {
-    this.#espilsione = espulsione;
+    this.#espulsione = espulsione;
   }
-  set setRigoreParato(rigoreParato) {
-    this.#rigoreParato = rigoreParato;
+  set setIbattuta(imbattuta) {
+    this.#imbattuta = imbattuta;
   }
-  set setRigoreSbagliato(rigoreSbagliato) {
-    this.#rigoreSbagliato = rigoreSbagliato;
+  set setGoalDecisivoVittoria(goalDecisivoVittoria) {
+    this.#goalDecisivoVittoria = goalDecisivoVittoria;
   }
-  set setRigoreSegnato(rigoreSegnato) {
-    this.#rigoreSegnato = rigoreSegnato;
-  }
-  set setGoalSubito(goalSubito) {
-    this.#goalSubito = goalSubito;
-  }
-  set setAutogoal(autogoal) {
-    this.#autogoal = autogoal;
-  }
+
+
+ 
 } //FINE CLASS STATISTICA DI GIORNATA**************************************************************
 
 export { Giocatore, Rosa, RecordAcquisto, StatisticaDiGiornata };

@@ -1,7 +1,7 @@
 import { SQUADRA_UTENTE } from "./gestioneUtente.js";
 import { toCapitalize } from "./funzioniAgo.js";
 
-const LOGO_BASE_PATH = "../../Assets/image/loghi_team_serie_A/";
+const LOGO_BASE_PATH = "Assets/image/loghi_team_serie_A/";
 
 // Variabile per tenere traccia dell'oggetto squadra attualmente visualizzato
 let teamOggettoVisualizzato = null;

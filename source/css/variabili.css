@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+:root {
+  --background_primario: rgb(2, 87, 156);
+  --colore_primario: white;
+
+  --background_menu: rgb(0, 35, 76);
+
+  --font-titolo: "Teko", sans-serif;
+  --font-menu: "Oswald", sans-serif;
+  --font-tabellone: "Montserrat", sans-serif;
+  --font-card: "Barlow Semi Condensed", sans-serif;
+
+  --weight-bold: 700;
+  --weight-regular: 400;
+}

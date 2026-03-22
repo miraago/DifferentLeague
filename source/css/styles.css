@@ -1,7 +1,3 @@
-:root {
-  --background_primario: rgb(2, 87, 156);
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -13,6 +9,17 @@ body {
   background-size: 100vh;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var (--font-titolo);
+  text-transform: uppercase;
+  color: rgb(0, 35, 76);
+}
+
 main {
   position: relative;
 }
@@ -20,7 +27,6 @@ main {
 h2 {
   text-align: center;
   margin: 20px 0;
-  color: var(--background_primario);
 }
 
 .icona-ricerca-possessi {
@@ -53,6 +59,19 @@ h2 {
   gap: 20px;
   background-color: rgba(255, 255, 255, 0.7);
   padding-top: 10px;
+}
+
+.vista-modale {
+  position: absolute;
+
+  left: 50%;
+  display: flex;
+  width: 50%;
+}
+
+#vista-dati {
+  display: flex;
+  flex-direction: column;
 }
 
 table {
@@ -275,4 +294,99 @@ div #contenitore-nome {
 .box-login button:hover {
   opacity: 0.9;
   transform: scale(1.05);
+}
+
+/* Trasforma qualsiasi contenitore in un popup gigante sopra lo schermo */
+.modal-attivo {
+  position: fixed !important;
+  top: 5%;
+  left: 5%;
+  width: 60% !important;
+  height: 70% !important;
+  background-color: white;
+  z-index: 9999; /* Sta sopra a tutto */
+  border-radius: 15px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Sfondo nero semitrasparente dietro al popup */
+.modal-attivo::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+#modal-statistiche {
+  position: fixed; /* sopra a tutto */
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.7); /* fondo nero un pò trasparente */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+#popup-statistiche {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999999;
+  background-color: white;
+  width: 30vw;
+  height: max-content;
+  box-shadow: 0px 0px 50px var(--background_primario);
+  border:3px solid var(--background_primario);
+  border-radius:10px;
+
+
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+#popup-statistiche div {
+  width: 100%;
+  padding: 5px;
+  font-size: large;
+}
+/*bottone x */
+#popup-statistiche .x {
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  color: white;
+  line-height: 16px;
+  text-align: center;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+}
+
+#popup-statistiche .x:hover {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(193, 1, 1);
+  line-height: 20px;
+  top: -10px;
+  right: -10px;
 }

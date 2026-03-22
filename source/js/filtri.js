@@ -427,6 +427,15 @@ export function creaFiltriPaginaGiocatoriSeMancante(player) {
     creaFiltroFuoriLista();
   }
 }
+export function creaFiltriPaginaSvincolatiSeMancante(player) {
+  if (containerFiltri.querySelectorAll(".box-filtro").length == 0) {
+    creaFiltroRicercaGiocatore();
+    creaFiltroRuolo();
+    creaFiltroQuotazioneMinEMax();
+    creaFiltroTeam(player);
+    creaFiltroPresenzeMinime();
+  }
+}
 
 export function inizializzaFiltri(player) {
   //inizializzazione filtro quotazione min e max

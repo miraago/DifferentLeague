@@ -53,4 +53,7 @@ export const IMPOSTAZIONI = {
     CARICAMENTO_FUORI_LISTA: false, //true (carica anche Fuorilista) false ( non caricare)
     NUMERO_GIORNATE: 38,
   },
+  GIORNATAATTUALE: {
+    giornata: 30,
+  },
 };

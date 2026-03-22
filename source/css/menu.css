@@ -1,23 +1,28 @@
 #navbar {
+  font-family: var(--font-menu);
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Allinea h1 e menu sulla stessa linea di base */
+  align-items: center;
   width: 100%;
   position: sticky; /* sempre visibile */
   top: 0;
   z-index: 10;
-  background-color: var(--background_primario);
-  color: white;
+  background-color: var(--background_menu);
+  color: var(--colore_primario);
   flex-wrap: wrap;
 
   #prova {
   }
-
+  #nome-presidente {
+    padding: 5px;
+    text-align: right;
+  }
   ul > li {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    width: 150px;
   }
   ul > li > span {
     text-align: center;
@@ -27,7 +32,7 @@
   }
   .etichetta {
     font-size: x-small;
-    color: white;
+    color: var(--colore_primario);
   }
 
   #logo-sito {
@@ -67,7 +72,7 @@
     list-style: none;
 
     border-top-left-radius: 10px;
-    background-color: rgba(33, 52, 76, 0.5);
+    background-color: var(--background_menu);
   }
 
   #contenitore-menu > ul > li:first-child {
@@ -96,7 +101,7 @@
     width: max-content;
     min-width: 100%;
     /*ForzalastessalarghezzadelLIpadre*/
-    background-color: var(--background_primario);
+    background-color: var(--background_menu);
     padding: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-bottom-left-radius: 10px;
@@ -117,7 +122,7 @@
 
   /* 6. Hover: applicato a TUTTI i li per coerenza */
   #contenitore-menu li:hover {
-    background-color: rgb(1, 40, 71);
+    background-color: rgb(82, 95, 106);
   }
 
   #contenitore-menu > ul > li:hover > ul {
@@ -127,6 +132,6 @@
     text-align: center;
   }
   #contenitore-menu a {
-    color: white;
+    color: var(--colore_primario);
   }
 }

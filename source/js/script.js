@@ -31,6 +31,7 @@ import {
   gestisciFiltroFuoriLista,
   azzeraFiltri,
   creaFiltriPaginaGiocatoriSeMancante,
+  creaFiltriPaginaSvincolatiSeMancante,
   creaFiltroQuotazioneMinEMax,
   creaFiltroFuoriLista,
   creaFiltroRuolo,
@@ -44,9 +45,10 @@ import { IMPOSTAZIONI } from "./impostazioni.js";
 
 import { toCapitalize } from "./funzioniAgo.js";
 
-let player = []; //lista giocatori
-let acquisti = [];
-let presidenti = []; //lista presidenti
+export let player = []; //lista giocatori
+export let acquisti = [];
+export let presidenti = []; //lista presidenti
+
 const TAG_H2 = document.querySelector("h2");
 
 containerFiltri.addEventListener("click", (evento) => {
@@ -139,7 +141,29 @@ function avviaApplicazione() {
   document.getElementById("nome-presidente").textContent =
     SQUADRA_UTENTE + " di " + nomePresidente;
   stampaDashboard();
-  inizializzaMercato(player, presidenti);
+
+  inizializzaMercato(player, presidenti, (ruoloCercato) => {
+    // 1. Troviamo la TUA VERA pagina che contiene le tabelle (data-pagina="dati")
+    const vistaDati = document.querySelector('.pagina[data-pagina="dati"]');
+
+    if (vistaDati) {
+      // La trasformiamo nel popup!
+      vistaDati.classList.add("modal-attivo");
+      vistaDati.style.display = "block"; // La forziamo ad apparire
+      containerFiltri.style.display = "flex"; // Riaccendiamo anche i filtri
+    }
+
+    // 2. Chiamiamo il "mostro" a 8 parametri usando le tue variabili GLOBALI
+    stampaListaSvincolati(
+      () => {}, // MAGIA: passiamo una funzione vuota così non distrugge il mercato!
+      azzeraFiltri,
+      () => creaFiltriPaginaGiocatoriSeMancante(player),
+      azzeraTabelle,
+      () => applicaFiltriGiocatori(player),
+
+      ruoloCercato, // Il parametro che ci manda vistaMercato.js
+    );
+  });
 }
 
 //
@@ -504,25 +528,20 @@ function chiamaPaginaCliccata(evento) {
 
     case "apri-lista-giocatori":
       stampaListaGiocatori(
-        TAG_H2, // 1
         paginaDaRendereVisibile, // 2
         azzeraFiltri, // 3
         () => creaFiltriPaginaGiocatoriSeMancante(player), // 4
         azzeraTabelle, // 5
         () => applicaFiltriGiocatori(player), // 6
-        acquisti, // 7
-        containerTable,
       );
       break;
     case "apri-lista-svincolati":
       stampaListaSvincolati(
-        TAG_H2, // 1
         paginaDaRendereVisibile, // 2
         azzeraFiltri, // 3
-        () => creaFiltriPaginaGiocatoriSeMancante(player), // 4
+        () => creaFiltriPaginaSvincolatiSeMancante(player), // 4
         azzeraTabelle, // 5
         () => applicaFiltriGiocatori(player), // 6
-        containerTable,
       );
       break;
     case "apri-mercato-svincola":
@@ -536,25 +555,21 @@ function chiamaPaginaCliccata(evento) {
       break;
     case "apri-appartenenze":
       stampaListaAppartenenze(
-        TAG_H2, // 1
         paginaDaRendereVisibile, // 2
         azzeraFiltri, // 3
         () => creaFiltriPaginaGiocatoriSeMancante(player), // 4
         azzeraTabelle, // 5
         () => applicaFiltriGiocatori(player), // 6
-        containerTable,
       );
       break;
       inizializzaMercato;
     case "apri-svincolati":
       stampaListaSvincolati(
-        TAG_H2, // 1
         paginaDaRendereVisibile, // 2
         azzeraFiltri, // 3
-        () => creaFiltriPaginaGiocatoriSeMancante(player), // 4
+        () => creaFiltriPaginaSvincolatiSeMancante(player), // 4
         azzeraTabelle, // 5
         () => applicaFiltriGiocatori(player), // 6
-        containerTable,
       );
       break;
     case "apri-da-svincolare":

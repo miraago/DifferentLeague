@@ -167,4 +167,10 @@
     border-color: #1a2236;
     box-shadow: 0 0 0 3px rgba(26, 34, 54, 0.12);
   }
+
+  .bloccaFiltro {
+    pointer-events: none;
+    opacity: 0.5; /* Li fa sembrare "spenti" o grigi */
+    filter: grayscale(100%); /* Opzionale: li fa diventare in bianco e nero */
+  }
 }

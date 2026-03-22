@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="source/css/variabili.css" />
     <link rel="stylesheet" href="source/css/styles.css" />
     <link rel="stylesheet" href="source/css/laMiaSquadra.css" />
     <link rel="stylesheet" href="source/css/filtri.css" />
     <link rel="stylesheet" href="source/css/menu.css" />
     <link rel="stylesheet" href="source/css/mercatoSvincola.css" />
+    
     <link rel="icon" href="Assets/icone/logodl.ico" />
     <script src="./source/js/script.js" type="module" defer></script>
 
@@ -137,9 +139,7 @@
       </nav>
 
       <h2 id="titolo">Fantacalcio Different League</h2>
-      <div id="container-filtri">
-        <div id="contenitore-filtri-attivi"></div>
-      </div>
+      
 
       <div class="pagina" data-pagina="dashboard" id="vista-dashboard">
         <div>
@@ -152,7 +152,10 @@
         </div>
       </div>
         <!-- container table contiene il contenitore delle tabelle  -->
-        <div class="pagina" data-pagina="dati" id="container-table"></div>
+        <div class="pagina" data-pagina="dati" id="vista-dati">
+          <div id="container-filtri"></div>
+          <div id="container-table"></div>
+        </div>
         <!-- vista scambi contiene la vista del mercato scambi  -->  
         <div class="pagina" data-pagina="scambi" id="vista-scambi"></div>
         <!-- vista mercato contiene la vista del mercato  -->  

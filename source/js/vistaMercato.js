@@ -1,16 +1,29 @@
 import { SQUADRA_UTENTE } from "./gestioneUtente.js";
 import { toCapitalize } from "./funzioniAgo.js";
+import { IMPOSTAZIONI } from "./impostazioni.js";
+import { stampaListaSvincolati } from "./vistaGiocatori.js";
 
 const vistaMercato = document.getElementById("vista-mercato");
 
-vistaMercato.addEventListener("click", gestisciClickMercatoSvincola);
+vistaMercato.addEventListener("click", gestisciClickDaSvincolare);
+vistaMercato.addEventListener("click", gestisciClickDapromettere);
+vistaMercato.addEventListener("click", gestisciClickDaAnnullare);
+vistaMercato.addEventListener("click", gestisciOffertaSlotVuoto);
 let cbPlayer = [];
 let cbPresidenti = [];
 let presidenteUtenteLoggato = "";
+let containerInfoSquadra = null;
+let containerBottoni = null;
+let containerGiocatori = null;
+let containerRiepilogo = null;
+let apriPopupSvincolatiEsterno = cbApriPopupSvincolati;
 
-export function inizializzaMercato(players, presidenti) {
+export let operazioneInCorso = null;
+
+export function inizializzaMercato(players, presidenti, cbApriPopup) {
   cbPlayer = players;
   cbPresidenti = presidenti;
+  apriPopupSvincolatiEsterno = cbApriPopup; // La salviamo per usarla dopo!
 
   //ricavo tutte le info del presidente loggato
   presidenteUtenteLoggato = cbPresidenti.find((squadraAttuale) => {
@@ -20,25 +33,12 @@ export function inizializzaMercato(players, presidenti) {
   });
 }
 
-export function mercatoSvincola(
-  TAG_H2,
-  cbPresidenti,
-  cbPaginaDaRendereVisibile,
-  cbAzzeraTabelle,
-  cbAzzeraFiltri,
-) {
-  if (TAG_H2.dataset.action != "apri-mercato") {
-    TAG_H2.innerText = "MERCATO - Svincola Giocatori";
-    TAG_H2.dataset.action = "apri-mercato";
-    cbPaginaDaRendereVisibile("mercato");
-  }
-
-  vistaMercato.innerText = ""; //Azzeriamo la vista e la ricostruiamo
-
+//crea la
+function creaContainer() {
   //creiamo i tre contenitori
 
   //contenitore info squadra
-  const containerInfoSquadra = document.createElement("section");
+  containerInfoSquadra = document.createElement("section");
   containerInfoSquadra.id = "container-info-squadra";
   containerInfoSquadra.innerHTML = `
   <div id="box-info">
@@ -67,132 +67,313 @@ export function mercatoSvincola(
       `;
   vistaMercato.append(containerInfoSquadra);
 
+  //contenitore bottone invia
+  containerBottoni = document.createElement("section");
+  containerBottoni.id = "container-bottoni";
+  vistaMercato.append(containerBottoni);
+
   //contenitore giocatori
-  const containerPlayer = document.createElement("section");
-  containerPlayer.id = "container-giocatori";
-  vistaMercato.append(containerPlayer);
-  containerPlayer.innerHTML = `<h2> LISTA GIOCATORI ${SQUADRA_UTENTE} </h2>`;
-  containerPlayer.innerHTML +=
-    "<div> Clicca sul giocatore per svincolare </div>";
+  containerGiocatori = document.createElement("section");
+  containerGiocatori.id = "container-giocatori";
+  vistaMercato.append(containerGiocatori);
+  containerGiocatori.innerHTML = `<h2> LISTA GIOCATORI ${SQUADRA_UTENTE} </h2>`;
 
-  //contenitore da svincolare
-  const containerDaSvincolare = document.createElement("section");
-  containerDaSvincolare.id = "container-da-svincolare";
-  containerDaSvincolare.innerHTML = "<h2> LISTA GIOCATORI DA SVINCOLARE </h2>";
-  vistaMercato.append(containerDaSvincolare);
-  containerDaSvincolare.innerHTML +=
-    "<div> Clicca sul giocatore per rimettere in rosa </div>";
-
-  let giocatoriHTML = "";
-  presidenteUtenteLoggato.getTuttiGliSlot.forEach((element, index) => {
-    giocatoriHTML += creaCardGiocatore(element, index);
-  });
-
-  containerPlayer.innerHTML += giocatoriHTML;
+  //contenitore riepilogo
+  containerRiepilogo = document.createElement("section");
+  containerRiepilogo.id = "container-riepilogo";
+  vistaMercato.append(containerRiepilogo);
+  containerRiepilogo.innerHTML = `<h3> Riepilogo Mercato </h2>`;
 }
 
+export function mercatoSvincola(
+  TAG_H2,
+  cbPresidenti,
+  cbPaginaDaRendereVisibile,
+  cbAzzeraTabelle,
+  cbAzzeraFiltri,
+) {
+  if (TAG_H2.dataset.action != "apri-mercato") {
+    TAG_H2.innerText = "MERCATO - Svincola Giocatori";
+    TAG_H2.dataset.action = "apri-mercato";
+    cbPaginaDaRendereVisibile("mercato");
+  }
+
+  vistaMercato.innerText = ""; //Azzeriamo la vista e la ricostruiamo
+
+  creaContainer();
+
+  presidenteUtenteLoggato.getTuttiGliSlot.forEach((element, index) => {
+    let temp = 0;
+    if (index >= 0 && index < 3) {
+      temp = "P";
+    } else if (index >= 3 && index < 11) {
+      temp = "D";
+    } else if (index >= 11 && index < 19) {
+      temp = "C";
+    } else {
+      temp = "A";
+    }
+
+    //creiamo il box contenente la card
+    const boxSlot = document.createElement("section");
+    boxSlot.classList.add("box-slot");
+    boxSlot.dataset.ruolo = temp; //data ruolo
+    boxSlot.dataset.index = index; //data Index
+    boxSlot.style.order = index; //order per il flexBox per tenerle sempre in ordine di slot
+
+    if (element) {
+      // se element esiste e non è null crea card giocatore
+      boxSlot.append(creaCardGiocatore(element, index));
+    } else {
+      //situazione di slot vuoto
+      boxSlot.append(creaCardGiocatoreVuota(temp, index));
+    }
+
+    containerGiocatori.append(boxSlot);
+  });
+}
+
+//crea una card giocatore
 function creaCardGiocatore(giocatore, index) {
   const valoreCard = calcolaCostoSvincolo(giocatore);
 
-  const cardGiocatore = `
-    <div class="card-giocatore" data-card="${giocatore.getDatiGiocatore.getNome}" data-index="${index}" data-valore="${valoreCard}"> 
-      <div id="box-sx">
-                
-                <div class="squadra">
-                  <img 
-                    src="Assets/image/loghi_team_serie_A/${giocatore.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"
-                    title="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"
-                    alt="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"/>
-                </div>
-      </div>
+  //card
+  const tagCard = document.createElement("div");
+  tagCard.classList.add("card-giocatore");
+  tagCard.dataset.card = giocatore.getDatiGiocatore.getNome; //nome giocatore
+  tagCard.dataset.index = index; //index giocatore
+  tagCard.dataset.valore = valoreCard; //costo di svincolo
+  tagCard.dataset.ruolo = giocatore.getDatiGiocatore.getRuolo;
+  // fine card
 
+  //adesso costruiamo l'interno della card
 
+  //1)box contenitore a sinistra
+  const inCardBoxSx = document.createElement("div");
+  inCardBoxSx.classList.add("in-card-box-sx");
 
-      <div id="box-centrale">
-          <div>
-                <div class="ruolo"><span class="${giocatore.getDatiGiocatore.getRuolo}">${giocatore.getDatiGiocatore.getRuolo}</span></div>
-                <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>
-          </div>
-                <div id="box-statistiche">
-                  <div class="presenze">              
-                    <div class="valore">${giocatore.getDatiGiocatore.getPresenze}</div>
-                    <div class="etichetta"> Presenze </div>
-                  </div>
-                  <div class="quotazione">              
-                    <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
-                    <div class="etichetta"> Quotazione </div>
-                  </div>
-                  <div class="media-voto">              
-                    <div class="valore">${giocatore.getDatiGiocatore.getMv}</div>
-                    <div class="etichetta"> M.V.</div>
-                  </div>
-                  <div class="fanta-media-voto">              
-                    <div class="valore">${giocatore.getDatiGiocatore.getFvm}</div>
-                    <div class="etichetta"> F.M.V.</div>
-                  </div>
-                  <div class="prezzo-pagato">              
-                    <div class="valore">${giocatore.getCostoDiAcquisto}</div>
-                    <div class="etichetta"> Costo Pagato</div>
-                  </div>
-                  
-                </div>
-      </div>
-              
-            
-            
-        <div id="box-dx"> 
-        <div class="costo-cessione">              
-                    <div class="valore">${valoreCard}</div>
-                    <div class="etichetta"> Costo Cessione</div>
-                  </div>               
-                
+  //1A interno contenitore sx
+  inCardBoxSx.innerHTML = `
+        <div class="ruolo">
+          <span class="${giocatore.getDatiGiocatore.getRuolo}">${giocatore.getDatiGiocatore.getRuolo}</span>
         </div>
+        <div class="squadra">
+          <img 
+            src="Assets/image/loghi_team_serie_A/${giocatore.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"
+            title="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"
+            alt="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"/>
+        </div>
+        <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
+
+  //2)box contenitore statistiche
+  const inCardBoxStatistiche = document.createElement("div");
+  inCardBoxStatistiche.classList.add("in-card-box-statistiche");
+
+  //2A interno contenitore statistiche
+  inCardBoxStatistiche.innerHTML = `<div class="presenze, statistica">              
+          <div class="valore">${giocatore.getDatiGiocatore.getPresenze}</div>
+          <div class="etichetta"> Presenze </div>
+        </div>
+        <div class="quotazione, statistica">              
+          <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
+          <div class="etichetta"> Quotazione </div>
+        </div>
+        <div class="media-voto, statistica">              
+          <div class="valore">${giocatore.getDatiGiocatore.getMv}</div>
+          <div class="etichetta"> M.V.</div>
+        </div>
+        <div class="fanta-media-voto, statistica">              
+          <div class="valore">${giocatore.getDatiGiocatore.getFvm}</div>
+          <div class="etichetta"> F.M.V.</div>
+        </div>
+        <div class="prezzo-pagato, statistica">              
+          <div class="valore">${giocatore.getCostoDiAcquisto}</div>
+          <div class="etichetta"> Costo Pagato</div>
+        </div>                  
       </div>`;
-  return cardGiocatore;
+
+  //3)box contenitore a destra
+  const inCardBoxDx = document.createElement("div");
+  inCardBoxDx.classList.add("in-card-box-dx");
+
+  //3A interno contenitore destra
+  inCardBoxDx.innerHTML = `<div class="costo-cessione">              
+          <div class="valore"> + ${valoreCard}</div>
+          <div class="etichetta"> Costo Cessione</div>
+        </div>`;
+
+  //4) box contenitore pulsanti o icone
+  const inCardBoxIcone = document.createElement("div");
+  inCardBoxIcone.classList.add("in-card-box-icone");
+
+  //4A interno contenitore icone o pulsanti
+  inCardBoxIcone.innerHTML = `<div class="bottone-svincola">Svincola</div>
+        <div class="bottone-promessa">Promessa</div>
+        <div class="bottone-annulla">❌</div>`;
+
+  //5 inseriamo il contenuto nella card
+  tagCard.append(inCardBoxSx);
+  tagCard.append(inCardBoxStatistiche);
+  tagCard.append(inCardBoxDx);
+  tagCard.append(inCardBoxIcone);
+
+  return tagCard;
 }
 
-function gestisciClickMercatoSvincola(e) {
-  const cardCliccata = e.target.closest(".card-giocatore");
-  if (!cardCliccata) return; // se non ho cliccato sulla card fermati
+/**
+ *crea una card giocatore vuota con una + al centro
+ * @param {string} ruoloG la stringa contenente il ruolo del giocatore da aggiungere
+ * @param {number} index l'index del giocatore da aggiungere
+ * @returns card vuota
+ */
+function creaCardGiocatoreVuota(ruoloG, index) {
+  const cardVuota = document.createElement("div");
+  cardVuota.classList.add("card-vuota");
+  cardVuota.dataset.index = index;
+  cardVuota.dataset.valore = 0;
+  cardVuota.dataset.ruolo = ruoloG;
+  cardVuota.style.order = index;
 
-  //se siamo qui significa che è stato fatto click su una card
-  //per prima cosa prendiamo i riferimenti dei contenitori
-  const containerDaSvincolare = document.getElementById(
-    "container-da-svincolare",
+  cardVuota.innerHTML = `<div id="box-centrale">      
+                + ${ruoloG}               
+      </div>`;
+
+  return cardVuota;
+}
+
+//gestisce il bottone svincola
+function gestisciClickDaSvincolare(e) {
+  const iconaCliccata = e.target.closest(".bottone-svincola"); // se è stato fatto click sull'icona cestino
+
+  if (!iconaCliccata) return; // se non ho cliccato sul pulsante cestino esci
+
+  const cardCliccata = e.target.closest(".card-giocatore"); //prendiamo il riferimento alla card cliccata
+  const slotCliccato = e.target.closest(".box-slot");
+
+  const nomeGiocatore = cardCliccata.dataset.card; //prendiamo il nome del giocatore
+
+  const giocatoreDiRiferimento = cbPlayer.find((giocatoreCorrente) => {
+    //ricaviamo le info del giocatore
+    return giocatoreCorrente.getNome == nomeGiocatore;
+  });
+
+  cardCliccata.classList.add("in-svincolo"); //aggiungiamo la classe in svincolo
+
+  //PRENDIAMO LA CARD E LA METTIAMO nel container riepilogo
+  containerRiepilogo.append(cardCliccata);
+
+  const ruoloDiRiferimento = giocatoreDiRiferimento.getRuolo;
+
+  //togliamo i pulsanti di svincola e di sostituisci, il giocatore
+  cardCliccata.querySelector(".bottone-svincola").style.display = "none";
+  cardCliccata.querySelector(".bottone-promessa").style.display = "none";
+  cardCliccata.querySelector(".bottone-annulla").style.display = "block";
+
+  const cardVuota = creaCardGiocatoreVuota(
+    ruoloDiRiferimento,
+    cardCliccata.dataset.index,
   );
-  const containerGiocatori = document.getElementById("container-giocatori");
-  const contenitoreCliccato = cardCliccata.closest("section");
 
-  //capiamo in che contenitore si trova la card
-  if (contenitoreCliccato == containerGiocatori) {
-    //gestiamo carta che si trova all'interno del contenitore da svincolare
-    //il giocatore era in rosa e lo sposto in da svincolare
-    containerDaSvincolare.append(cardCliccata);
-  } else {
-    ////il giocatore era in svincolati e lo sposto in lista giocatori
-    //logica per farla aggiungere alla stessa posizione di dove stava prima
+  slotCliccato.append(cardVuota);
 
-    const elencoCard = Array.from(
-      containerGiocatori.querySelectorAll(".card-giocatore"),
-    );
-
-    const indexCartaCliccata = parseInt(cardCliccata.dataset.index);
-    //cerchiamo la prima carta con index maggiore della mia
-    const primaCartaConIndexMaggiore = elencoCard.find((cardAttuale) => {
-      return parseInt(cardAttuale.dataset.index) >= indexCartaCliccata;
-    });
-
-    if (
-      !primaCartaConIndexMaggiore
-    ) //se non esiste dobbiamo inserire all'inizio
-    {
-      containerGiocatori.append(cardCliccata);
-    } else {
-      containerGiocatori.insertBefore(cardCliccata, primaCartaConIndexMaggiore);
-    }
-  }
   aggiornaValoriNelBoxInfo();
 }
+
+//gestisce il bottone promessa
+function gestisciClickDapromettere(e) {
+  const iconaCliccata = e.target.closest(".bottone-promessa"); // se è stato fatto click sull'icona promessa
+
+  if (!iconaCliccata) return; // se non ho cliccato sul pulsante promessa esci
+
+  const cardCliccata = e.target.closest(".card-giocatore"); //prendiamo il riferimento alla card cliccata
+  const slotCliccato = e.target.closest(".box-slot"); //prendiamo il riferimento allo slot dove si trova la card
+
+  const nomeGiocatore = cardCliccata.dataset.card; //prendiamo il nome del giocatore
+
+  const giocatoreDiRiferimento = cbPlayer.find((giocatoreCorrente) => {
+    //ricaviamo le info del giocatore
+    return giocatoreCorrente.getNome == nomeGiocatore;
+  });
+
+  cardCliccata.classList.add("in-promessa"); //aggiungiamo la classe in promessa
+
+  //PRENDIAMO LA CARD E LA METTIAMO nel container riepilogo
+  containerRiepilogo.append(cardCliccata);
+
+  const ruoloDiRiferimento = giocatoreDiRiferimento.getRuolo;
+
+  //togliamo i pulsanti di svincola e di sostituisci, il giocatore
+  cardCliccata.querySelector(".bottone-svincola").style.display = "none";
+  cardCliccata.querySelector(".bottone-promessa").style.display = "none";
+  cardCliccata.querySelector(".bottone-annulla").style.display = "block";
+
+  const cardVuota = creaCardGiocatoreVuota(
+    ruoloDiRiferimento,
+    cardCliccata.dataset.index,
+  );
+
+  operazioneInCorso = {
+    tipo: "PROMESSA",
+    ruoloCercato: ruoloDiRiferimento,
+    giocatoreDaTagliare: nomeGiocatore,
+    slotDiRiferimento: slotCliccato,
+  };
+
+  //qui dobbiamo aprire una finestra popup con la lista dei giocatori, salviamo le info che ci servono
+  if (apriPopupSvincolatiEsterno) {
+    apriPopupSvincolatiEsterno(ruoloDiRiferimento);
+  }
+
+  slotCliccato.append(cardVuota);
+
+  aggiornaValoriNelBoxInfo();
+}
+
+//gestisce il bottone annulla
+function gestisciClickDaAnnullare(e) {
+  const iconaCliccata = e.target.closest(".bottone-annulla"); // se è stato fatto click sull'icona annulla
+
+  if (!iconaCliccata) return; // se non ho cliccato sul pulsante annulla esci
+
+  const cardCliccata = e.target.closest(".card-giocatore"); //prendiamo il riferimento alla card cliccata
+
+  cardCliccata.classList.remove("in-svincolo"); //rimuoviamo la classe in svincolo
+
+  //rimettiamo i pulsanti di svincola e di sostituisci, il giocatore
+  cardCliccata.querySelector(".bottone-svincola").style.display = "block";
+  cardCliccata.querySelector(".bottone-promessa").style.display = "block";
+  cardCliccata.querySelector(".bottone-annulla").style.display = "none";
+
+  //rimettiamo la card in rosa
+
+  //cerchiamo lo slot del giocatore
+  const tuttiGliSlot = containerGiocatori.querySelectorAll(".box-slot"); //prendiamo tutti gli slot
+
+  let slotDaRimpiazzare;
+  tuttiGliSlot.forEach((slotCorrente) => {
+    if (slotCorrente.dataset.index == cardCliccata.dataset.index) {
+      slotDaRimpiazzare = slotCorrente;
+      return;
+    }
+  });
+
+  //se nel frattempo lo slot è stato rimpiazzato da un giocatore non possiamo svincolare
+  if (slotDaRimpiazzare.querySelector(".card-giocatore")) {
+    //logica per avvisare l'utente a dover eliminare prima la card
+  } else {
+    //card vuota da eliminare
+    slotDaRimpiazzare.querySelector(".card-vuota").remove();
+  }
+  slotDaRimpiazzare.append(cardCliccata);
+
+  aggiornaValoriNelBoxInfo();
+}
+
+/**
+ * calcola il valore di svincolo
+ * @param {*} giocatore
+ * @returns {number} ritorna il valore di svincolo
+ */
 
 function calcolaCostoSvincolo(giocatore) {
   const quotazioneAttuale = giocatore.getDatiGiocatore.getQuotazione;
@@ -213,12 +394,7 @@ function aggiornaValoriNelBoxInfo() {
   const elementoValoreTotale = document.getElementById("crediti-totale");
   let valoreTotale = parseInt(elementoValoreTotale.innerText.trim());
 
-  const containerDaSvincolare = document.getElementById(
-    "container-da-svincolare",
-  );
-
-  const elementiDaSvincolare =
-    containerDaSvincolare.querySelectorAll(".card-giocatore");
+  const elementiDaSvincolare = vistaMercato.querySelectorAll(".in-svincolo");
 
   elementiDaSvincolare.forEach((cardAttuale) => {
     valoreSvincolati += parseInt(cardAttuale.dataset.valore);
@@ -228,4 +404,45 @@ function aggiornaValoriNelBoxInfo() {
 
   elementoValoreSvincolati.innerText = valoreSvincolati;
   elementoValoreTotale.innerText = valoreTotale;
+
+  //inserisciBottoneInvia();
+}
+
+function gestisciOffertaSlotVuoto(e) {
+  const cardVuota = e.target.closest(".card-vuota");
+  if (!cardVuota) return;
+
+  const ruoloDiRiferimento = cardVuota.dataset.ruolo;
+  const slotCliccato = cardVuota.closest(".box-slot");
+
+  // 1. SALVIAMO L'INTENZIONE NELL'INTERRUTTORE
+  operazioneInCorso = {
+    tipo: "ACQUISTO_LIBERO",
+    ruoloCercato: ruoloDiRiferimento,
+    slotDiRiferimento: slotCliccato,
+  };
+
+  // 2. CHIAMIAMO LA FUNZIONE PONTE
+  if (apriPopupSvincolatiEsterno) {
+    apriPopupSvincolatiEsterno(ruoloDiRiferimento);
+  }
+}
+
+// import { stampaListaSvincolati } from "./vistaGiocatori.js";
+
+function cbApriPopupSvincolati(ruolo) {
+  const ruoloDiRiferimento = ruolo;
+
+  // 1. SALVIAMO L'INTENZIONE (Importantissimo per sapere poi chi comprare)
+  operazioneInCorso = {
+    tipo: "PROMESSA",
+    ruoloCercato: ruoloDiRiferimento,
+    giocatoreDaTagliare: nomeGiocatore,
+    slotDiRiferimento: slotCliccato,
+  };
+
+  // 2. CHIAMIAMO LA FUNZIONE PONTE (Passandogli solo il ruolo!)
+  if (apriPopupSvincolatiEsterno) {
+    apriPopupSvincolatiEsterno(ruoloDiRiferimento);
+  }
 }

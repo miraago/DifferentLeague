@@ -11,19 +11,81 @@
   o {
   }
 
-  #container-giocatori,
-  #container-da-svincolare {
-    width: 30%;
+  #container-giocatori {
+    width: calc(70% - 10px); /* 10px sono di gap */
     height: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 5px;
   }
+  #container-riepilogo {
+    width: calc(30% - 10px); /* 10px sono di gap */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
 
+    x {
+    }
+    /* LA CARD SE SI TROVA NEL CONTAINER RIEPILOGO
+      DEVE MOSTRARE SOLO UNA PARTE DELLA CARD */
+    #container-riepilogo .card-giocatore {
+      width: 70%;
+      background-color: white;
+      font-size: small;
+      border: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .card-giocatore .nome-giocatore,
+    .card-giocatore .valore {
+      font-size: small;
+    }
+    .card-giocatore .etichetta {
+      display: none;
+    }
+    .card-giocatore img {
+      width: 20px;
+      height: 20px;
+    }
+    .in-card-box-icone {
+      position: static;
+      order: 3;
+      display: flex;
+      text-align: center;
+    }
+    .in-card-box-statistiche {
+      display: none;
+    }
+    .in-svincolo,
+    .in-promessa {
+      flex-wrap: nowrap;
+    }
+  }
   /*CARD GIOCATORE */
   .card-giocatore {
-    width: 100%;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px solid rgb(61, 61, 61);
+  }
+  .card-vuota {
+    width: 80%;
+    min-height: 50px;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
@@ -35,34 +97,36 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     border: 1px solid rgb(61, 61, 61);
-  }
-  #container-da-svincolare .card-giocatore {
-    background-color: rgb(255, 0, 0);
-  }
-  #container-da-svincolare .valore,
-  #container-da-svincolare .etichetta,
-  #container-da-svincolare .nome-giocatore {
-    color: white;
+    cursor: pointer;
   }
 
   .card-giocatore:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    border-left: 5px solid green;
+    background-color: azure;
   }
 
-  .card-giocatore:hover div div .nome-giocatore {
-    color: green;
+  .card-doppia {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
   }
 
   /* BOX SX ruolo e squadra */
-  #box-sx {
+  .in-card-box-sx {
+    overflow: hidden;
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     flex-direction: row;
     height: 100%;
+    gap: 10px;
   }
   .ruolo {
     display: flex;
+    padding: 5px;
     align-items: center;
     text-align: center;
   }
@@ -70,6 +134,15 @@
     width: 40px;
     height: 40px;
     display: block;
+  }
+  img {
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+  }
+  img:hover {
+    scale: 1.4;
   }
 
   /* BOX centrale nome sopra e statistiche sotto */
@@ -128,40 +201,61 @@
     /* height: 80%; */
   }
 
-  #box-dx {
+  .in-card-box-dx {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    flex-wrap: nowrap;
+    gap: 10px;
     height: 100%;
+
+    order: 2;
   }
   .nome-giocatore {
     height: 50%;
+    width: 200px;
     color: rgb(2, 2, 2);
     font-size: 24px;
     font-family: "Trebuchet MS", sans-serif;
     font-weight: bold;
     text-align: left;
+    text-overflow: ellipsis;
   }
 
-  #box-statistiche {
+  .in-card-box-statistiche {
+    padding: 0;
+    width: 200px;
     display: flex;
     flex-direction: row;
-    height: 50%;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .in-card-box-icone {
+    position: absolute;
+    top: 10%;
+    left: 102%;
+    display: flex;
+    text-align: center;
+    gap: 1px;
+    flex-direction: column;
+  }
+  .statistica {
+    /* statistiche 5 */
+    width: calc(100% / 5);
   }
 
   .icona {
     display: block;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
-  .icona:hover {
-    transform: scale(1.5);
-    background-color: brown;
+    width: 30px;
+    height: 30px;
   }
 
   /* CONTENITORE INFO SQUADRA */
 
-  #container-info-squadra {
+  #container-info-squadra,
+  #container-bottoni {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -185,7 +279,7 @@
     text-align: center;
   }
   #container-info-squadra #box-info #nome-squadra {
-    font-family: "Arial Narrow Bold", sans-serif;
+    color: rgb(0, 35, 76);
     font-size: 6em;
     font-weight: 700;
     text-align: center;
@@ -208,5 +302,63 @@
   #container-info-squadra #box-calcoli .valore {
     font-size: 25pt;
     color: rgb(7, 137, 0);
+  }
+  button {
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .card-vuota {
+    border: 1px dashed black;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .in-promessa {
+    border: 3px solid orange;
+  }
+  .in-svincolo {
+    border: 3px solid red;
+  }
+  .in-svincolo .in-card-box-sx,
+  .in-svincolo .in-card-box-statistiche {
+    opacity: 0.8; /* Li fa sembrare "spenti" o grigi */
+    color: rgb(53, 53, 53);
+    filter: grayscale(100%);
+  }
+
+  .bottone-svincola {
+    background-color: rgb(255, 0, 0);
+    padding: 3px;
+    color: white;
+    border-radius: 10px;
+    font-size: small;
+    cursor: pointer;
+  }
+  .bottone-promessa {
+    background-color: rgb(219, 132, 0);
+    padding: 3px;
+    color: white;
+    border-radius: 10px;
+    font-size: small;
+    cursor: pointer;
+  }
+  .bottone-annulla {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    text-align: center;
+    padding: 4px;
+    border-radius: 10px;
+    font-size: xx-small;
+    cursor: pointer;
+    display: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 }
