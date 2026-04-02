@@ -14,15 +14,16 @@
   #prova {
   }
   #nome-presidente {
-    padding: 5px;
+    margin-right: 10px;
     text-align: right;
+    width: 100%;
   }
   ul > li {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: calc(100% / 5);
   }
   ul > li > span {
     text-align: center;
@@ -36,16 +37,18 @@
   }
 
   #logo-sito {
-    width: 60px;
+    width: 50px;
     height: auto;
     text-align: center;
     display: block;
   }
 
   #titolo {
-    text-align: center;
-    font-size: 40pt;
+    /* text-align: center; */
+    margin-right: 10px;
+    font-size: 2.5rem;
     font-weight: bold;
+    color: white;
   }
 
   .etichetta {
@@ -58,7 +61,6 @@
     display: flex;
     flex: 1; /* Prende lo spazio centrale */
     justify-content: center; /* Centra il menu tra gli altri due elementi */
-    margin-left: 10px;
   }
 
   #contenitore-menu > ul {
@@ -66,13 +68,13 @@
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;
-    gap: 5px;
     margin: 0;
     padding: 0;
     list-style: none;
 
     border-top-left-radius: 10px;
     background-color: var(--background_menu);
+    flex-wrap: wrap; /* Permette al menu di andare a capo se lo spazio è insufficiente */
   }
 
   #contenitore-menu > ul > li:first-child {
@@ -133,5 +135,18 @@
   }
   #contenitore-menu a {
     color: var(--colore_primario);
+  }
+  .icona img {
+    width: 25px;
+    height: 25px;
+    margin-right: 0 auto;
+  }
+
+  /* MEDIA QUERY */
+  @media all and (max-width: 630px) {
+    #navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }

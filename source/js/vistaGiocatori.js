@@ -62,16 +62,18 @@ export function stampaListaGiocatori(
       if (p.getFuoriLista) {
         riganuova += "<td></td>";
       } else {
-        riganuova += `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(p.getSquadraDiAppartenenza)}</td>`;
+        riganuova += `<td class="cella-squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span></td>`;
       }
       riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
         <td>${p.getPresenze}</td>
+        <td>${p.getGoalTotali}</td>
+        <td>${p.getAssistTotali}</td>
         <td>${p.getMv}</td>
         <td>${p.getFvm}</td>
         <td>${p.getSommaBonusMalus}</td>
-        <td>${p.getMvUltime5}</td>
-        <td>${p.getFvmUltime5}</td>
-        <td>${p.getSommaBonusMalusUltime5}</td>
+        <td class="colonna-MV5">${p.getMvUltime5}</td>
+        <td class="colonna-FMV5">${p.getFvmUltime5}</td>
+        <td class="colonna-BM5">${p.getSommaBonusMalusUltime5}</td>
         ${rigaSquadre}
       </tr>`;
 
@@ -85,17 +87,19 @@ export function stampaListaGiocatori(
     const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
     const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
     const thead = `<tr class="intestazione-colonne">
-        <th>Ruolo</th>
+        <th>R</th>
         <th>Nome</th>
-        <th>Squadra</th>
-        <th>Quotazione</th>
-        <th>Presenze</th>
-        <th>MediaVoto</th>
-        <th>FantaMedia</th>
-        <th>Somma Bonus/Malus </th>
-        <th>MediaVoto Recente</th>
-        <th>FantaMedia Recente</th>
-        <th>Bonus Malus ultime 5 </th>
+        <th>Squ</th>
+        <th>Qt</th>
+        <th>Pre</th>
+        <th>Gol</th>
+        <th>Ass</th>
+        <th>MV</th>
+        <th>Fmv</th>
+        <th>Sm B/M </th>
+        <th class="colonna-MV5">MV 5</th>
+        <th class="colonna-FMV5">FMV 5</th>
+        <th class="colonna-BM5">BM 5 </th>
         </tr>`;
     TAG_THEAD.innerHTML = thead;
 
@@ -274,32 +278,33 @@ export function stampaListaSvincolati(
 
   const arrayFiltrato = cbApplicaFiltriGiocatori();
 
-
-  /************************************PRENDIAMO IL RIFERIMENTO ALLA SQUADRA LOGGATA 
+  /************************************PRENDIAMO IL RIFERIMENTO ALLA SQUADRA LOGGATA
    * SE LA SQUADRA LOGGATA HA UN GIOCATORE DALLA LISTA SVINCOLATI, LO ESCLUDIAMO
-  */
-  const presidenteLoggato=presidenti.find((presidenteCorrente) => {
+   */
+  const presidenteLoggato = presidenti.find((presidenteCorrente) => {
     return presidenteCorrente.getNomeRosa == SQUADRA_UTENTE;
   });
   //presidenteLoggato è il riferimento al presidente
-   let arrayGiocatoriPresidente=[];
-   presidenteLoggato.getTuttiGliSlot.forEach((giocatoreCorrente) => {
-    if (giocatoreCorrente != null)
-    {
+  let arrayGiocatoriPresidente = [];
+  presidenteLoggato.getTuttiGliSlot.forEach((giocatoreCorrente) => {
+    if (giocatoreCorrente != null) {
       arrayGiocatoriPresidente.push(giocatoreCorrente.getDatiGiocatore);
     }
   });
-//********************************************************************************** */
-
+  //********************************************************************************** */
 
   let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
   let contaGiocatori = 0; //contatore giocatori
 
   arrayFiltrato.forEach((pl) => {
-    if (pl.getCopieDisponibili > 0 && pl.getFuoriLista == false && !arrayGiocatoriPresidente.includes(pl)) { //se c'è almeno una copia disponibile e non è un fuori lista e non è presente nella squadra loggata puoi stampare
+    if (
+      pl.getCopieDisponibili > 0 &&
+      pl.getFuoriLista == false &&
+      !arrayGiocatoriPresidente.includes(pl)
+    ) {
+      //se c'è almeno una copia disponibile e non è un fuori lista e non è presente nella squadra loggata puoi stampare
 
-      
       rigaHTML += `<tr data-nome="${pl.getNome}" data-squadra="${pl.getSquadraDiAppartenenza}">
           <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
           <td data-name="${pl.getNome}">${pl.getNome}</td>`;
@@ -353,7 +358,7 @@ export function stampaListaSvincolati(
 
 function gestisciClickRigaGiocatore(e) {
   const trCliccata = e.target.closest("tr");
-  if (!trCliccata && trCliccata.dataset.nome!=null) return; //se non è stato cliccato su una tr esci
+  if (!trCliccata && trCliccata.dataset.nome != null) return; //se non è stato cliccato su una tr esci
 
   popupStatisticheGiocatore(nomeToGiocatore(trCliccata.dataset.nome));
 
@@ -388,23 +393,21 @@ export function popupStatisticheGiocatore(giocatore) {
 
   //ci ricaviamo i possessi che andremo a mettere in una tabella
   let righeTabella = "";
-  let tabella="";
-
+  let tabella = "";
 
   const contaPossessi = giocatore.getPossessi.length;
-  if(contaPossessi>0)
-  {
-  giocatore.getPossessi.forEach((possessoCorrente) => {
-    righeTabella += `<tr>
+  if (contaPossessi > 0) {
+    giocatore.getPossessi.forEach((possessoCorrente) => {
+      righeTabella += `<tr>
                         <td> ${possessoCorrente.getNomeRosa}</td> 
                         <td> ${possessoCorrente.getCampionatoDiAppartenenza}</td>
                         <td> ${possessoCorrente.giocatoreToCosto(giocatore)}</td>  
                         
                       </tr>`;
-  });
+    });
 
-  //costruiamo la tabella
-  tabella = `<table>
+    //costruiamo la tabella
+    tabella = `<table>
                   <thead>
                     <th>Squadra</th>
                     <th>Campionato</th>
@@ -414,27 +417,61 @@ export function popupStatisticheGiocatore(giocatore) {
                     ${righeTabella}
                   </tbody>
                 </table>`;
-  }
-  else
-  {
+  } else {
     // se i possessi sono 0 avvisiamo che non è posseduto
-    tabella=` Nessuna squadra possiede ${giocatore.getNome}`;
+    tabella = ` Nessuna squadra possiede ${giocatore.getNome}`;
   }
-
-  
 
   popupStatistiche.innerHTML = `
     <div>
       <div class="x"> X </div>
-      <div>Nome: ${giocatore.getNome}</div>
-      <div>Squadra: ${giocatore.getSquadraDiAppartenenza}</div>
-      <div>Quotazione: ${giocatore.getQuotazione}</div>
-      <hr></hr>
-      <div>Presenze: ${giocatore.getPresenze}</div>
-      <div> Media Voto:  ${giocatore.getMv}</div>
-      <div> Fanta Media Voto :  ${giocatore.getFvm} </div>
+      <div class="container-info-giocatore">
+      <div class="campo-ruolo"><span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
+      <div class="campo-nome">${giocatore.getNome}</div>
+      <div class="campo-squadra"><img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png" class="icona-statistiche" title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
+    </div>
+
+    <div class="container-statistiche-giocatore">
+      <div class="campo">
+         <div class="valore">${giocatore.getQuotazione}</div>
+         <div class="etichetta">Quotazione</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getPresenze}</div>
+         <div class="etichetta">Presenze</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getGoalTotali}</div>
+         <div class="etichetta">Goal</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getAssistTotali}</div>
+         <div class="etichetta">Assist</div>          
+      </div>
+    </div>
+
+
+    <div class="container-statistiche-giocatore">
+      <div class="campo">
+        <div class="valore">${giocatore.getMv}</div>
+        <div class="etichetta">Media Voto</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getFvm}</div>
+        <div class="etichetta">Fanta Media Voto</div>
+      </div>
+    </div>
+      
+      
       <hr></hr>
       
+
+
+      <div> ${creaTabellaStatistiche(giocatore)}</div>
+      <hr></hr>
       <div> Squadre che lo posseggono </div>
       ${tabella}
     </div>`;
@@ -457,7 +494,6 @@ function gestisciClickAnnulla(e) {
   console.log(e);
   if (!e.target.closest(".x") && e.key != "Escape") return; //controllo sicurezza
 
-
   const popupStatistiche = document.getElementById("popup-statistiche");
   if (!popupStatistiche) return;
 
@@ -465,4 +501,236 @@ function gestisciClickAnnulla(e) {
   popupStatistiche.parentNode.style.display = "none"; //nascondo il modal
 }
 
+function creaTabellaStatistiche(giocatore) {
+  if (!giocatore) return; //controllo sicurezza
+  //costruzione tabella con le statistiche del giocatore
 
+  //TH TABELLA STATISTICHE
+  const thTabellaStatistiche = `<tr>
+  <th>Gio</th>
+  <th>Part</th>
+  <th>Vt</th>
+  <th>Min Gio</th>
+  <th>Ent</th>
+  <th>Sos</th>  
+  <th>Bon/Mal</th> 
+  <th>Amm/Esp</th>
+  </tr>`;
+
+  //RIGHE TABELLA STATISTICHE
+
+  let righeTabellaStatistiche = "";
+  giocatore.getStatisticheDiGiornata.forEach((statisticaCorrente) => {
+    let giornata = statisticaCorrente.getGiornata;
+
+    //partita
+    /* "partita esempio ": "Milan - Genoa", */
+    let partita = statisticaCorrente.getPartita;
+    let squadraCasa = partita.split(" - ")[0];
+    let squadraOspite = partita.split(" - ")[1];
+    squadraCasa = squadraCasa.trim();
+    squadraOspite = squadraOspite.trim();
+    squadraCasa = `<img src='Assets/image/loghi_team_serie_A/${squadraCasa.toLowerCase()}.png' class='icona-statistiche' title='${squadraCasa}'/>`;
+    squadraOspite = `<img src='Assets/image/loghi_team_serie_A/${squadraOspite.toLowerCase()}.png' class='icona-statistiche' title='${squadraOspite}'/>`;
+    partita = squadraCasa + " - " + squadraOspite;
+
+    let minuti =
+      statisticaCorrente.getMinutiGiocati != 0
+        ? statisticaCorrente.getMinutiGiocati
+        : " ";
+    let entrato =
+      statisticaCorrente.getEntrato != 0 ? statisticaCorrente.getEntrato : " ";
+    let sostituito =
+      statisticaCorrente.getSostituito != 0
+        ? statisticaCorrente.getSostituito
+        : " ";
+    let voto =
+      statisticaCorrente.getVotoFC_L != 0
+        ? statisticaCorrente.getVotoFC_L
+        : " ";
+
+    //ASSIST
+    let assist =
+      statisticaCorrente.getAssistLI != 0
+        ? statisticaCorrente.getAssistLI
+        : " ";
+    if (assist != " ") {
+      let tempAssist = "";
+      for (let i = 0; i < assist; i++) {
+        tempAssist +=
+          "<img src='Assets/image/imageStatistiche/assist.png' class='icona-statistiche' title='Assist'/>";
+      }
+      assist = tempAssist;
+    }
+
+    //GOAL
+    let goal =
+      statisticaCorrente.getGoal != 0 ? statisticaCorrente.getGoal : " ";
+    if (goal != " ") {
+      let tempGoal = "";
+      for (let i = 0; i < goal; i++) {
+        tempGoal +=
+          "<img src='Assets/image/imageStatistiche/golFatto.png' class='icona-statistiche' title='Goal'/>";
+      }
+      goal = tempGoal;
+    }
+    //GOAL SUBITI
+    let goalSubiti =
+      statisticaCorrente.getGoalSubiti != 0
+        ? statisticaCorrente.getGoalSubiti
+        : " ";
+    if (goalSubiti != " ") {
+      let tempGoalSubiti = "";
+      for (let i = 0; i < goalSubiti; i++) {
+        tempGoalSubiti +=
+          "<img src='Assets/image/imageStatistiche/golSubito.png' class='icona-statistiche' title='Goal subito'/>";
+      }
+      goalSubiti = tempGoalSubiti;
+    }
+
+    //RIGORE SEGNATO
+    let rigoreSegnato =
+      statisticaCorrente.getRigoreSegnato != 0
+        ? statisticaCorrente.getRigoreSegnato
+        : " ";
+    if (rigoreSegnato != " ") {
+      let tempRigoreSegnato = "";
+      for (let i = 0; i < rigoreSegnato; i++) {
+        tempRigoreSegnato +=
+          "<img src='Assets/image/imageStatistiche/rigoreSegnato.png' class='icona-statistiche' title='Rigore segnato'/>";
+      }
+      rigoreSegnato = tempRigoreSegnato;
+    }
+
+    //RIGORE SBAGLIATO
+    let rigoreSbagliato =
+      statisticaCorrente.getRigoreSbagliato != 0
+        ? statisticaCorrente.getRigoreSbagliato
+        : " ";
+    if (rigoreSbagliato != " ") {
+      let tempRigoreSbagliato = "";
+      for (let i = 0; i < rigoreSbagliato; i++) {
+        tempRigoreSbagliato +=
+          "<img src='Assets/image/imageStatistiche/rigoreSbagliato.png' class='icona-statistiche' title='Rigore sbagliato'/>";
+      }
+      rigoreSbagliato = tempRigoreSbagliato;
+    }
+
+    //RIGORE PARATO
+    let rigoreParato =
+      statisticaCorrente.getRigoreParato != 0
+        ? statisticaCorrente.getRigoreParato
+        : " ";
+    if (rigoreParato != " ") {
+      let tempRigoreParato = "";
+      for (let i = 0; i < rigoreParato; i++) {
+        tempRigoreParato +=
+          "<img src='Assets/image/imageStatistiche/rigoreParato.png' class='icona-statistiche' title='Rigore parato'/>";
+      }
+      rigoreParato = tempRigoreParato;
+    }
+
+    //AUTORETE
+    let autorete =
+      statisticaCorrente.getAutorete != 0
+        ? statisticaCorrente.getAutorete
+        : " ";
+    if (autorete != " ") {
+      let tempAutorete = "";
+      for (let i = 0; i < autorete; i++) {
+        tempAutorete +=
+          "<img src='Assets/image/imageStatistiche/autorete.png' class='icona-statistiche' title='Autorete'/>";
+      }
+      autorete = tempAutorete;
+    }
+
+    //AMMONIZIONE
+    let ammonizione =
+      statisticaCorrente.getAmmonizione != 0
+        ? statisticaCorrente.getAmmonizione
+        : " ";
+    if (ammonizione != " ") {
+      let tempAmmonizione = "";
+      for (let i = 0; i < ammonizione; i++) {
+        tempAmmonizione +=
+          "<img src='Assets/image/imageStatistiche/ammonito.png' class='icona-statistiche' title='Ammonizione'/>";
+      }
+      ammonizione = tempAmmonizione;
+    }
+
+    //ESPULSIONE
+    let espulsione =
+      statisticaCorrente.getEspulsione != 0
+        ? statisticaCorrente.getEspulsione
+        : " ";
+    if (espulsione != " ") {
+      let tempEspulsione = "";
+      for (let i = 0; i < espulsione; i++) {
+        tempEspulsione +=
+          "<img src='Assets/image/imageStatistiche/espulso.png' class='icona-statistiche' title='Espulsione'/>";
+      }
+      espulsione = tempEspulsione;
+    }
+
+    //IMBATTUTA
+    let imbattuta = statisticaCorrente.getIbattuta;
+    if (imbattuta) {
+      imbattuta =
+        "<img src='Assets/image/imageStatistiche/portiereImbattuto.png' class='icona-statistiche' title='Imbattuto'/>";
+    } else {
+      imbattuta = "";
+    }
+
+    //GOAL DECISIVO VITTORIA
+    let goalDecisivoVittoria =
+      statisticaCorrente.getGoalDecisivoVittoria != 0
+        ? statisticaCorrente.getGoalDecisivoVittoria
+        : " ";
+    if (goalDecisivoVittoria != " ") {
+      let tempGoalDecisivoVittoria = "";
+      for (let i = 0; i < goalDecisivoVittoria; i++) {
+        tempGoalDecisivoVittoria +=
+          "<img src='Assets/image/imageStatistiche/goalDecisivoVittoria.png' class='icona-statistiche' title='Goal decisivo vittoria'/>";
+      }
+      goalDecisivoVittoria = tempGoalDecisivoVittoria;
+    }
+
+    `<tr>
+  <th>Gio</th>
+  <th>Partita</th>
+  <th>Voto</th>
+  <th>Min Gio</th>
+  <th>Ent</th>
+  <th>Sost</th>  
+  <th>Bon/Mal</th> 
+  <th>Amm/Esp</th>
+  </tr>`;
+
+    righeTabellaStatistiche += `<tr>
+                        <td> ${giornata}</td> 
+                        <td> ${partita}</td>
+                        <td> ${voto}</td>
+                        <td> ${minuti}</td> 
+                        <td> ${entrato}</td>
+                        <td> ${sostituito}</td>                      
+                        <td> ${autorete}${goalSubiti}${rigoreParato}${imbattuta}${goal}${assist}${rigoreSegnato}${rigoreSbagliato}${goalDecisivoVittoria}</td> 
+                        <td> ${ammonizione}${espulsione}</td>
+                                                     
+                      </tr>`;
+  });
+
+  const tabellaStatistiche = `<div>
+  <h3>Statistiche di giornata</h3>
+  <table>
+    <thead>
+      ${thTabellaStatistiche}
+    </thead>
+    <tbody>
+      ${righeTabellaStatistiche}
+    </tbody>
+  </table>
+      
+  </div>`;
+
+  return tabellaStatistiche;
+}

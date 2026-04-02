@@ -422,9 +422,9 @@ export function creaFiltriPaginaGiocatoriSeMancante(player) {
     creaFiltroRicercaGiocatore();
     creaFiltroRuolo();
     creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam(player);
     creaFiltroPresenzeMinime();
     creaFiltroFuoriLista();
+    creaFiltroTeam(player);
   }
 }
 export function creaFiltriPaginaSvincolatiSeMancante(player) {
@@ -432,8 +432,8 @@ export function creaFiltriPaginaSvincolatiSeMancante(player) {
     creaFiltroRicercaGiocatore();
     creaFiltroRuolo();
     creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam(player);
     creaFiltroPresenzeMinime();
+    creaFiltroTeam(player);
   }
 }
 

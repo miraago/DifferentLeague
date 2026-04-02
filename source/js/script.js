@@ -504,7 +504,6 @@ function chiamaPaginaCliccata(evento) {
     chiamante = TAG_H2.dataset.action; //altrimenti vedi su che pagina stavi
   }
 
-  console.log(chiamante);
   switch (chiamante) {
     case "apri-info-squadre":
       stampaInfoSquadre();
