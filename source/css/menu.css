@@ -1,8 +1,8 @@
 #navbar {
   font-family: var(--font-menu);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-end;
   width: 100%;
   position: sticky; /* sempre visibile */
   top: 0;
@@ -14,7 +14,10 @@
   #prova {
   }
   #nome-presidente {
-    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 100;
+    font-style: italic; 
+    
     text-align: right;
     width: 100%;
   }
@@ -35,17 +38,22 @@
     font-size: x-small;
     color: var(--colore_primario);
   }
+  >div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   #logo-sito {
-    width: 50px;
+    width: 75px;
     height: auto;
     text-align: center;
     display: block;
   }
 
   #titolo {
-    /* text-align: center; */
-    margin-right: 10px;
+    text-align: center;    
     font-size: 2.5rem;
     font-weight: bold;
     color: white;
@@ -58,6 +66,7 @@
 
   /* 2. Contenitore Menu: non deve forzare larghezze fisse se non necessario */
   #contenitore-menu {
+    margin-top: 5px;
     display: flex;
     flex: 1; /* Prende lo spazio centrale */
     justify-content: center; /* Centra il menu tra gli altri due elementi */
@@ -77,9 +86,7 @@
     flex-wrap: wrap; /* Permette al menu di andare a capo se lo spazio è insufficiente */
   }
 
-  #contenitore-menu > ul > li:first-child {
-    border-top-left-radius: 10px;
-  }
+
 
   /* 3. Voci Principali: devono essere il riferimento (relative) */
   #contenitore-menu > ul > li {
@@ -100,7 +107,7 @@
     /*Appareesattamentesotto*/
     left: 0;
     /*AllineatoasinistradelLI"Squadre"*/
-    width: max-content;
+    width: 100%;
     min-width: 100%;
     /*ForzalastessalarghezzadelLIpadre*/
     background-color: var(--background_menu);
@@ -108,18 +115,17 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   /* 5. Elementi della tendina: rimuoviamo posizionamenti assoluti interni */
   #contenitore-menu > ul > li > ul > li {
-    position: static; /* Reset dal tuo vecchio codice */
+    position: static; 
     width: 100%; /* Prende tutta la larghezza della tendina */
-
-    padding-left: 15px;
+    
     box-sizing: border-box;
-
-    text-align: left;
+    text-align: center;
+    cursor: inherit;
   }
 
   /* 6. Hover: applicato a TUTTI i li per coerenza */
@@ -137,8 +143,8 @@
     color: var(--colore_primario);
   }
   .icona img {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     margin-right: 0 auto;
   }
 
@@ -148,5 +154,10 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    
+   
   }
+  
+  
 }
+

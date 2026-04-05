@@ -13,7 +13,7 @@ class Giocatore {
   #presenze = 0; //presenza intesa come giocato almeno un minuto in una giornata
   #fvm;
   #fvmUltime5;
-  #mv=0;
+  #mv = 0;
   #mvUltime5;
   #sommaBonusMalus;
   #sommaBonusMalusUltime5;
@@ -31,7 +31,6 @@ class Giocatore {
     ruoloMantra = "",
     fuoriLista = "",
     quotazione = "",
-    fvm = "",
     fvmUltime5 = "",
     mvUltime5 = "",
     sommaBonusMalus = "",
@@ -45,7 +44,6 @@ class Giocatore {
     this.setRuoloMantra = ruoloMantra;
     this.setFuoriLista = fuoriLista;
     this.setQuotazione = quotazione;
-    this.setFvm = fvm;
     this.setFvmUltime5 = fvmUltime5;
     this.setMvUltime5 = mvUltime5;
     this.setSommaBonusMalus = sommaBonusMalus;
@@ -76,8 +74,8 @@ class Giocatore {
   }
   get getPresenze() {
     let tempPresenze = 0;
-    this.#statisticheDiGiornata.forEach(statistica => {
-      if(statistica.getMinutiGiocati > 0) {
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      if (statistica.getMinutiGiocati > 0) {
         tempPresenze++;
       }
     });
@@ -85,6 +83,101 @@ class Giocatore {
     return this.#presenze;
   }
   get getFvm() {
+    let arrayVotoFCL = [];
+    let arrayVotoFCC = [];
+    let arrayVotoMI = [];
+    let arrayVotoRO = [];
+    let temp = 0;
+
+    this.#statisticheDiGiornata.forEach((statisticaCorrente) => {
+      temp = 0; //variabile temporanea per calcolare il bonus/malus da aggiungere al voto
+      if (statisticaCorrente.getVotoFC_L != "") {
+        //se c'è un voto valido per FC_L allora calcolo il bonus/malus e lo aggiungo al voto
+        if (statisticaCorrente.getAssistLI != "") {
+          temp +=
+            statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
+        }
+        if (statisticaCorrente.getGoal != "") {
+          temp += statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
+        }
+        if (statisticaCorrente.getAmmonizione != "") {
+          temp -=
+            statisticaCorrente.getAmmonizione *
+            IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
+        }
+        if (statisticaCorrente.getEspulsione != "") {
+          temp -=
+            statisticaCorrente.getEspulsione *
+            IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
+        }
+        if (statisticaCorrente.getGoalSubiti != "") {
+          temp -=
+            statisticaCorrente.getGoalSubiti *
+            IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
+        }
+        if (statisticaCorrente.getImbattuta != "") {
+          temp +=
+            statisticaCorrente.getImbattuta *
+            IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
+        }
+        if (statisticaCorrente.getGoalDecisivoVittoria != "") {
+          temp +=
+            statisticaCorrente.getGoalDecisivoVittoria *
+            IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+        }
+        if (statisticaCorrente.getRigoreSbagliato != "") {
+          temp -=
+            statisticaCorrente.getRigoreSbagliato *
+            IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
+        }
+        if (statisticaCorrente.getRigoreParato != "") {
+          temp +=
+            statisticaCorrente.getRigoreParato *
+            IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
+        }
+        if (statisticaCorrente.getAutorete != "") {
+          temp -=
+            statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
+        }
+        if (statisticaCorrente.getRigoreSegnato != "") {
+          temp +=
+            statisticaCorrente.getRigoreSegnato *
+            IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
+        }
+
+        if (statisticaCorrente.getVotoFC_L != "") {
+          arrayVotoFCL.push(parseFloat(statisticaCorrente.getVotoFC_L) + temp);
+        }
+        if (statisticaCorrente.getVotoFC_C != "") {
+          arrayVotoFCC.push(parseFloat(statisticaCorrente.getVotoFC_C) + temp);
+        }
+        if (statisticaCorrente.getVoto_MI != "") {
+          arrayVotoMI.push(parseFloat(statisticaCorrente.getVoto_MI) + temp);
+        }
+        if (statisticaCorrente.getVotoRO != "") {
+          arrayVotoRO.push(parseFloat(statisticaCorrente.getVotoRO) + temp);
+        }
+      }
+    });
+
+    let mediaFCL =
+      arrayVotoFCL.length > 0
+        ? arrayVotoFCL.reduce((a, b) => a + b, 0) / arrayVotoFCL.length
+        : 0;
+    let mediaFCC =
+      arrayVotoFCC.length > 0
+        ? arrayVotoFCC.reduce((a, b) => a + b, 0) / arrayVotoFCC.length
+        : 0;
+    let mediaMI =
+      arrayVotoMI.length > 0
+        ? arrayVotoMI.reduce((a, b) => a + b, 0) / arrayVotoMI.length
+        : 0;
+    let mediaRO =
+      arrayVotoRO.length > 0
+        ? arrayVotoRO.reduce((a, b) => a + b, 0) / arrayVotoRO.length
+        : 0;
+
+    this.#fvm = mediaFCL.toFixed(2);
     return this.#fvm;
   }
   get getFvmUltime5() {
@@ -97,8 +190,7 @@ class Giocatore {
     let arrayVotoRO = [];
 
     this.#statisticheDiGiornata.forEach((statisticaCorrente) => {
-      
-        if (statisticaCorrente.getVotoFC_L != "") {
+      if (statisticaCorrente.getVotoFC_L != "") {
         arrayVotoFCL.push(parseFloat(statisticaCorrente.getVotoFC_L));
       }
       if (statisticaCorrente.getVotoFC_C != "") {
@@ -110,17 +202,26 @@ class Giocatore {
       if (statisticaCorrente.getVotoRO != "") {
         arrayVotoRO.push(parseFloat(statisticaCorrente.getVotoRO));
       }
-    
-      });
+    });
 
-      let mediaFCL = arrayVotoFCL.length > 0 ? arrayVotoFCL.reduce((a, b) => a + b, 0) / arrayVotoFCL.length : 0;
-      let mediaFCC = arrayVotoFCC.length > 0 ? arrayVotoFCC.reduce((a, b) => a + b, 0) / arrayVotoFCC.length : 0;
-      let mediaMI = arrayVotoMI.length > 0 ? arrayVotoMI.reduce((a, b) => a + b, 0) / arrayVotoMI.length : 0;
-      let mediaRO = arrayVotoRO.length > 0 ? arrayVotoRO.reduce((a, b) => a + b, 0) / arrayVotoRO.length : 0;
+    let mediaFCL =
+      arrayVotoFCL.length > 0
+        ? arrayVotoFCL.reduce((a, b) => a + b, 0) / arrayVotoFCL.length
+        : 0;
+    let mediaFCC =
+      arrayVotoFCC.length > 0
+        ? arrayVotoFCC.reduce((a, b) => a + b, 0) / arrayVotoFCC.length
+        : 0;
+    let mediaMI =
+      arrayVotoMI.length > 0
+        ? arrayVotoMI.reduce((a, b) => a + b, 0) / arrayVotoMI.length
+        : 0;
+    let mediaRO =
+      arrayVotoRO.length > 0
+        ? arrayVotoRO.reduce((a, b) => a + b, 0) / arrayVotoRO.length
+        : 0;
 
-      
-    
-      this.#mv = mediaFCL.toFixed(2);
+    this.#mv = mediaFCL.toFixed(2);
     return this.#mv;
   }
   get getMvUltime5() {
@@ -140,12 +241,11 @@ class Giocatore {
     return this.#statisticheDiGiornata;
   }
 
-// IN CLASSE GIOCATORE:
+  // IN CLASSE GIOCATORE:
   get getGoalTotali() {
     let totale = 0;
-    this.#statisticheDiGiornata.forEach(statistica => {
-      
-      totale += statistica.getGoal; 
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getGoal + statistica.getRigoreSegnato;
     });
     this.#goalTotali = totale;
     return this.#goalTotali;
@@ -153,15 +253,12 @@ class Giocatore {
 
   get getAssistTotali() {
     let totale = 0;
-    this.#statisticheDiGiornata.forEach(statistica => {
-      
-      totale += statistica.getAssistLI; 
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getAssistLI;
     });
     this.#assistTotali = totale;
     return this.#assistTotali;
   }
-
-  
 
   //setter Giocatore
   set setId(id) {
@@ -229,14 +326,14 @@ class Giocatore {
 
     this.#quotazione = quotazione;
   }
- 
+
   set setFvm(fvm) {
     this.#fvm = this.#setFloatValue(fvm);
   }
   set setFvmUltime5(fvmUltime5) {
     this.#fvmUltime5 = this.#setFloatValue(fvmUltime5);
   }
-  
+
   set setMvUltime5(mvUltime5) {
     this.#mvUltime5 = this.#setFloatValue(mvUltime5);
   }
@@ -424,8 +521,8 @@ class Rosa {
       return 0;
     }
     const slotTrovato = this.getTuttiGliSlot.find((slotCorrente) => {
-      if(slotCorrente != null)
-      return slotCorrente.getDatiGiocatore.getNome == giocatore.getNome;
+      if (slotCorrente != null)
+        return slotCorrente.getDatiGiocatore.getNome == giocatore.getNome;
     });
 
     return slotTrovato.getCostoDiAcquisto;
@@ -662,7 +759,7 @@ class StatisticaDiGiornata {
     this.setAutorete = autorete;
     this.setAmmonizione = ammonizione;
     this.setEspulsione = espulsione;
-    this.setIbattuta = imbattuta;
+    this.setImbattuta = imbattuta;
     this.setGoalDecisivoVittoria = goalDecisivoVittoria;
   }
 
@@ -733,7 +830,7 @@ class StatisticaDiGiornata {
   get getEspulsione() {
     return this.#espulsione;
   }
-  get getIbattuta() {
+  get getImbattuta() {
     return this.#imbattuta;
   }
   get getGoalDecisivoVittoria() {
@@ -762,7 +859,7 @@ class StatisticaDiGiornata {
   set setVotoRO(voto) {
     this.#votoRO = voto;
   }
-set setAssistLI(assist) {
+  set setAssistLI(assist) {
     this.#assistLI = parseInt(assist);
     if (isNaN(this.#assistLI)) {
       this.#assistLI = 0;
@@ -794,7 +891,6 @@ set setAssistLI(assist) {
     }
   }
 
-
   set setGoalSubiti(goalSubiti) {
     this.#goalSubiti = goalSubiti;
   }
@@ -816,8 +912,7 @@ set setAssistLI(assist) {
   set setEspulsione(espulsione) {
     this.#espulsione = espulsione;
   }
-  set setIbattuta(imbattuta) {
-    
+  set setImbattuta(imbattuta) {
     if (isNaN(this.#imbattuta)) {
       this.#imbattuta = 0;
     }

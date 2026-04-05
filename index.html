@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="source/css/filtri.css" />
     <link rel="stylesheet" href="source/css/menu.css" />
     <link rel="stylesheet" href="source/css/mercatoSvincola.css" />
+    <link rel="stylesheet" href="source/css/login.css" />
     
     <link rel="icon" href="Assets/icone/logodl.ico" />
     <script src="./source/js/script.js" type="module" defer></script>
@@ -20,11 +21,14 @@
   <body>
     <main id="main">
       <div id="popup-caricamento">
-        <h3>Caricamento Dati in corso ...Attendere Prego!!!</h3>
+        <div class="caricamento"> 
+              <div>Caricamento Dati in corso ... </div>
+              <div> <img src="Assets/image/generici/Loading Lottie Animation.gif"/> </div>
+              <div> Attendere Prego!!! </div> 
+        </div>
       </div>
       <nav id="navbar">
-        <!-- vista dashboard -->
-        
+          
           <img
             src="Assets/image/logo.png"
             alt="LogoDifferentLeague"
@@ -32,8 +36,10 @@
             id="logo-sito"
           />
        
-        <h1 id="titolo">Different League</h1>
-        <div id="nome-presidente"></div>
+        <div>
+          <h1 id="titolo">Different League</h1>
+          <div id="nome-presidente"></div>
+        </div>
         <div id="contenitore-menu">
           <ul>
             <li data-action="apri-dashboard">

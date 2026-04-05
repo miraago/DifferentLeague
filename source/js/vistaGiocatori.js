@@ -31,87 +31,9 @@ export function stampaListaGiocatori(
 
   // console.log("Stampa lista giocatori in corso...");
 
-  const arrayFiltrato = cbApplicaFiltriGiocatori();
-  TAG_H2.textContent = `LISTA GIOCATORI - Giocatori caricati ${arrayFiltrato.length}`;
+  creaTabellaGiocatori(cbApplicaFiltriGiocatori);
 
-  //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
-  if (arrayFiltrato.length !== 0) {
-    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
 
-    //SCORIAMO LA LISTA DI TUTTI I GIOCATORI FILTRATI
-    arrayFiltrato.forEach((p) => {
-      let rigaSquadre = "";
-
-      //per ogni giocatore andiamo a controllare le squadre che lo posseggono
-      acquisti.forEach((record) => {
-        if (record.getRifNomeGiocatore == p.getNome) {
-          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${
-            record.getCostoDiAcquisto
-          })</td>`;
-        }
-      });
-
-      const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
-      const asterisco = classefuorilista.length > 1 ? "(*)" : "";
-      let riganuova = "";
-
-      riganuova = `<tr ${classefuorilista} data-nome="${p.getNome}" data-squadra="${p.getSquadraDiAppartenenza}">
-        <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
-        <td>${toCapitalize(p.getNome)}${asterisco}</td>`;
-
-      if (p.getFuoriLista) {
-        riganuova += "<td></td>";
-      } else {
-        riganuova += `<td class="cella-squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span></td>`;
-      }
-      riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
-        <td>${p.getPresenze}</td>
-        <td>${p.getGoalTotali}</td>
-        <td>${p.getAssistTotali}</td>
-        <td>${p.getMv}</td>
-        <td>${p.getFvm}</td>
-        <td>${p.getSommaBonusMalus}</td>
-        <td class="colonna-MV5">${p.getMvUltime5}</td>
-        <td class="colonna-FMV5">${p.getFvmUltime5}</td>
-        <td class="colonna-BM5">${p.getSommaBonusMalusUltime5}</td>
-        ${rigaSquadre}
-      </tr>`;
-
-      //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
-      rigaHTML += riganuova; //caso2 ok
-    });
-
-    //CREAZIONE TABELLA
-
-    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
-    const thead = `<tr class="intestazione-colonne">
-        <th>R</th>
-        <th>Nome</th>
-        <th>Squ</th>
-        <th>Qt</th>
-        <th>Pre</th>
-        <th>Gol</th>
-        <th>Ass</th>
-        <th>MV</th>
-        <th>Fmv</th>
-        <th>Sm B/M </th>
-        <th class="colonna-MV5">MV 5</th>
-        <th class="colonna-FMV5">FMV 5</th>
-        <th class="colonna-BM5">BM 5 </th>
-        </tr>`;
-    TAG_THEAD.innerHTML = thead;
-
-    containerTable.appendChild(TAG_TABLE);
-    TAG_TBODY.innerHTML = rigaHTML;
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
-  } else {
-    containerTable.textContent =
-      "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
-  }
-
-  //console.log("Stampa lista giocatori completata.");
 }
 
 export function stampaListaAppartenenze(
@@ -733,4 +655,87 @@ function creaTabellaStatistiche(giocatore) {
   </div>`;
 
   return tabellaStatistiche;
+}
+
+
+function creaTabellaGiocatori(cbApplicaFiltriGiocatori) {
+  const arrayFiltrato = cbApplicaFiltriGiocatori();
+  TAG_H2.textContent = `LISTA GIOCATORI - Giocatori caricati ${arrayFiltrato.length}`;
+
+  //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
+  if (arrayFiltrato.length !== 0) {
+    let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
+
+    //SCORIAMO LA LISTA DI TUTTI I GIOCATORI FILTRATI
+    arrayFiltrato.forEach((p) => {
+      let rigaSquadre = "";
+
+      //per ogni giocatore andiamo a controllare le squadre che lo posseggono
+      acquisti.forEach((record) => {
+        if (record.getRifNomeGiocatore == p.getNome) {
+          rigaSquadre += `<td> ${toCapitalize(record.getRifNomeRosa)} (${
+            record.getCostoDiAcquisto
+          })</td>`;
+        }
+      });
+
+      const classefuorilista = p.getFuoriLista ? "class='fuorilista'" : "";
+      const asterisco = classefuorilista.length > 1 ? "(*)" : "";
+      let riganuova = "";
+
+      riganuova = `<tr ${classefuorilista} data-nome="${p.getNome}" data-squadra="${p.getSquadraDiAppartenenza}">
+        <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
+        <td>${toCapitalize(p.getNome)}${asterisco}</td>`;
+
+      if (p.getFuoriLista) {
+        riganuova += "<td></td>";
+      } else {
+        riganuova += `<td class="cella-squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span></td>`;
+      }
+      riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
+        <td>${p.getPresenze}</td>
+        <td>${p.getGoalTotali}</td>
+        <td>${p.getAssistTotali}</td>
+        <td>${p.getMv}</td>
+        <td>${p.getFvm}</td>
+        <td>${p.getSommaBonusMalus}</td>
+        <td class="colonna-MV5">${p.getMvUltime5}</td>
+        <td class="colonna-FMV5">${p.getFvmUltime5}</td>
+        <td class="colonna-BM5">${p.getSommaBonusMalusUltime5}</td>
+        ${rigaSquadre}
+      </tr>`;
+
+      //se il giocatore attuale è un fuorilista e nelle impostazioni caricafuorilista è true
+      rigaHTML += riganuova; //caso2 ok
+    });
+
+    //CREAZIONE TABELLA
+
+    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
+    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
+    const thead = `<tr class="intestazione-colonne">
+        <th title="Ruolo del giocatore">R</th>
+        <th title="Nome del giocatore">Nome</th>
+        <th title="Squadra di appartenenza">Squ</th>
+        <th title="Quotazione">Qt</th>
+        <th title="Presenze">Pre</th>
+        <th title="Goal totali">Gol</th>
+        <th title="Assist totali">Ass</th>
+        <th title="Media Voto">MV</th>
+        <th title="Forma Media Voto">Fmv</th>
+        <th title="Somma Bonus/Malus">Sm B/M </th>
+        <th class="colonna-MV5" title="Media Voto Ultime 5">MV 5</th>
+        <th class="colonna-FMV5" title="Fanta Media Voto Ultime 5">FMV 5</th>
+        <th class="colonna-BM5" title="Somma Bonus/Malus Ultime 5">BM 5 </th>
+        </tr>`;
+    TAG_THEAD.innerHTML = thead;
+
+    containerTable.appendChild(TAG_TABLE);
+    TAG_TBODY.innerHTML = rigaHTML;
+    TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
+  } else {
+    containerTable.textContent =
+      "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
+  }
 }

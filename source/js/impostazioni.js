@@ -45,7 +45,8 @@ export const IMPOSTAZIONI = {
     RIGORESBAGLIATO: -3,
     RIGOREPARATO: 3,
     GOALSUBITO: -1,
-    CLEENSHEET: 1,
+    CLEENSHEET: 0.5,
+    GOALDECISIVO: 0.5,
     AUTOGOAL: -2,
   },
   // 5. Opzioni di gioco

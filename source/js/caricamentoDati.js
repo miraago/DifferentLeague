@@ -1,5 +1,10 @@
 // source/js/caricamentoDati.js
-import { Giocatore, Rosa, RecordAcquisto, StatisticaDiGiornata} from "./classiFanta.js";
+import {
+  Giocatore,
+  Rosa,
+  RecordAcquisto,
+  StatisticaDiGiornata,
+} from "./classiFanta.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 import { player } from "./script.js";
 
@@ -11,16 +16,13 @@ export async function caricaTuttiIDati() {
       caricaGiocatori(),
     ]);
 
-    
-
     // 2. Carica gli acquisti passando gli array
     // NOTA: Passiamo datiGiocatori.lista perché ora è un oggetto!
     const listaAcquisti = await caricaAcquisti(
       listaPresidenti,
       datiGiocatori.lista,
     );
-    datiGiocatori.lista=await personalizzaRuoliGiocatori(datiGiocatori.lista); //modifica i ruoli personalizzati dei giocatori, se presenti, altrimenti lascia quelli originali
-    
+    datiGiocatori.lista = await personalizzaRuoliGiocatori(datiGiocatori.lista); //modifica i ruoli personalizzati dei giocatori, se presenti, altrimenti lascia quelli originali
 
     //carichiamo i voti
     await caricaVoti(datiGiocatori.lista);
@@ -31,7 +33,6 @@ export async function caricaTuttiIDati() {
       giocatori: datiGiocatori.lista,
       acquisti: listaAcquisti,
     };
-
   } catch (errore) {
     console.error("Errore fatale nel caricamento dati:", errore);
     throw errore;
@@ -61,13 +62,11 @@ async function caricaPresidenti() {
 }
 
 async function caricaGiocatori() {
-
-  
   //caricahiamo i dati della giornata attuale
   const response = await fetch(
     `Assets/file/quotazioni/quotazioni_gg${IMPOSTAZIONI.GIORNATAATTUALE.giornata}.txt`,
   );
-  if (!response.ok) throw new Error("Errore Caricamento Quotazioni");//in caso di errore
+  if (!response.ok) throw new Error("Errore Caricamento Quotazioni"); //in caso di errore
 
   const datiGiocatori = (await response.text())
     .replaceAll("\t", "|") //rimpiazziamo i tab con pipe per facilitare lo split
@@ -75,9 +74,6 @@ async function caricaGiocatori() {
 
   let player = []; //array vuoto che andremo a riempire con i giocatori validi
   let recordInvalidi = 0;
-
-  
-
 
   let arrayGiocatori = datiGiocatori.split("\n"); //creiamo un array di stringhe, ogni stringa è una riga del file txt
 
@@ -88,7 +84,7 @@ async function caricaGiocatori() {
       if (temp.length < 14) {
         recordInvalidi++;
         continue;
-      }     
+      }
 
       player.push(
         new Giocatore(
@@ -100,11 +96,9 @@ async function caricaGiocatori() {
           temp[5], //Fuori lista
           temp[6], //Quotazione
           temp[9], //Media recente
-          temp[10], //Media pagella
           temp[11], //Media recente pagella
           temp[12], //Somma bonus malus
           temp[13], //Somma bonus malus ultime 5
-          
         ),
       );
     }
@@ -158,52 +152,81 @@ async function caricaAcquisti(presidenti, player) {
   return acquisti; // <--- MANCAVA! Restituiamo l'array riempito
 }
 
-async function caricaVoti(player)
-{
- 
+async function caricaVoti(player) {
   console.log("Modulo Dati: caricaVoti");
   //carichiamo i dati .json della giornata 1
-  for(let giornata=1; giornata<IMPOSTAZIONI.GIORNATAATTUALE.giornata; giornata++)
-  {
-  let response = await fetch (`Assets/file/voti/giornata_${giornata}.json`);
-  if (!response.ok) 
-    {
-      throw new Error(`Errore network - non siamo riusciti a caricare i voti della giornata ${giornata}`);
+  for (
+    let giornata = 1;
+    giornata < IMPOSTAZIONI.GIORNATAATTUALE.giornata;
+    giornata++
+  ) {
+    let response = await fetch(`Assets/file/voti/giornata_${giornata}.json`);
+    if (!response.ok) {
+      throw new Error(
+        `Errore network - non siamo riusciti a caricare i voti della giornata ${giornata}`,
+      );
     }
 
-  const datiVoti = await response.json();
-  //scorriamo le statistiche di giornata
-  datiVoti.forEach(dt => {
-    //statistca corrente
-    const statistica = new StatisticaDiGiornata(dt.nome, giornata, dt.partita, dt.votoFCL, dt.votoFCC, dt.votoMI, dt.votoRO, dt.assistLI, dt.assistFC, dt.assistMI, dt.assistFE, dt.minuti_giocati, dt.entrato, dt.sostituito, dt.goal, dt.goal_subiti, dt.rigore_segnato, dt.rigore_sbagliato, dt.rigore_parato, dt.autorete, dt.ammonizione, dt.espulsione, dt.imbattuta, dt.goaldecisivovittoria);
-    
-    //troviamo tra i giocatori a chi appartiene la statistica
-    const trovaGiocatore = player.find(p => {
-      return p.getNome == statistica.getNomeGiocatore;
+    const datiVoti = await response.json();
+    //scorriamo le statistiche di giornata
+    datiVoti.forEach((dt) => {
+      //statistca corrente
+      const statistica = new StatisticaDiGiornata(
+        dt.nome,
+        giornata,
+        dt.partita,
+        dt.votoFCL,
+        dt.votoFCC,
+        dt.votoMI,
+        dt.votoRO,
+        dt.assistLI,
+        dt.assistFC,
+        dt.assistMI,
+        dt.assistFE,
+        dt.minuti_giocati,
+        dt.entrato,
+        dt.sostituito,
+        dt.goal,
+        dt.goal_subiti,
+        dt.rigore_segnato,
+        dt.rigore_sbagliato,
+        dt.rigore_parato,
+        dt.autorete,
+        dt.ammonizione,
+        dt.espulsione,
+        dt.imbattuta,
+        dt.goaldecisivovittoria,
+      );
+
+      //troviamo tra i giocatori a chi appartiene la statistica
+      const trovaGiocatore = player.find((p) => {
+        return p.getNome == statistica.getNomeGiocatore;
+      });
+
+      if (trovaGiocatore) {
+        trovaGiocatore.addStatisticheDiGiornata(statistica);
+      }
     });
-
-    if(trovaGiocatore)
-    {
-    trovaGiocatore.addStatisticheDiGiornata(statistica);
-    }
-        
-  });
-} 
-
+  }
 }
-
 
 async function personalizzaRuoliGiocatori(listaGiocatoriOriginale) {
   try {
-    const response = await fetch("Assets/file/quotazioni/personalizzazioneRuoli.txt");
-    
+    const response = await fetch(
+      "Assets/file/quotazioni/personalizzazioneRuoli.txt",
+    );
+
     // 1. Se il file non esiste (è opzionale!), non blocchiamo il caricamento
     if (!response.ok) {
-      console.log("Nessun file personalizzazioneRuoli.txt trovato. Uso i dati standard.");
-      return listaGiocatoriOriginale; 
+      console.log(
+        "Nessun file personalizzazioneRuoli.txt trovato. Uso i dati standard.",
+      );
+      return listaGiocatoriOriginale;
     }
 
-    const testoFile = (await response.text()).replaceAll("\t", "|").toUpperCase();
+    const testoFile = (await response.text())
+      .replaceAll("\t", "|")
+      .toUpperCase();
     let righe = testoFile.split("\n");
 
     // 2. Scorriamo le righe del file testuale
@@ -211,28 +234,29 @@ async function personalizzaRuoliGiocatori(listaGiocatoriOriginale) {
       let temp = righe[i].split("|");
 
       // Verifichiamo che la riga abbia almeno le colonne necessarie
-      if (temp.length >= 7) { 
+      if (temp.length >= 7) {
         const nomeCustom = temp[1].trim();
         const ruoloCustom = temp[3].trim();
         const quotazioneCustom = temp[6].trim();
 
         // 3. Cerchiamo il giocatore nella lista PRINCIPALE
-        const giocatoreDaModificare = listaGiocatoriOriginale.find(g => g.getNome === nomeCustom);
+        const giocatoreDaModificare = listaGiocatoriOriginale.find(
+          (g) => g.getNome === nomeCustom,
+        );
 
         // 4. Se esiste, gli sovrascriviamo il ruolo e la quotazione!
         if (giocatoreDaModificare) {
-          giocatoreDaModificare.setRuolo= ruoloCustom;
-          giocatoreDaModificare.setQuotazione=quotazioneCustom;
+          giocatoreDaModificare.setRuolo = ruoloCustom;
+          giocatoreDaModificare.setQuotazione = quotazioneCustom;
         }
       }
     }
 
     console.log("Ruoli e quotazioni personalizzate applicate con successo!");
     return listaGiocatoriOriginale;
-
   } catch (error) {
     console.error("Errore durante la personalizzazione: ", error);
     // In caso di errore strano, restituiamo comunque la lista originale intatta
-    return listaGiocatoriOriginale; 
+    return listaGiocatoriOriginale;
   }
 }
