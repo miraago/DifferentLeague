@@ -1,18 +1,20 @@
 #vista-mercato {
   width: 80%;
+  display: none;
   margin: 0 auto;
   background-color: rgb(200, 200, 200);
   padding: 10px;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
+
   o {
   }
 
   #container-giocatori {
-    width: calc(70% - 10px); /* 10px sono di gap */
+    width: calc(50% - 10px); /* 10px sono di gap */
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -20,7 +22,7 @@
     gap: 5px;
   }
   #container-riepilogo {
-    width: calc(30% - 10px); /* 10px sono di gap */
+    width: calc(50% - 10px); /* 10px sono di gap */
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -67,7 +69,7 @@
   }
   /*CARD GIOCATORE */
   .card-giocatore {
-    width: 80%;
+    width: 49%;
     background-color: rgb(255, 255, 255);
     position: relative;
     display: flex;
@@ -84,7 +86,7 @@
     border: 1px solid rgb(61, 61, 61);
   }
   .card-vuota {
-    width: 80%;
+    width: 49%;
     min-height: 50px;
     background-color: rgb(255, 255, 255);
     display: flex;
@@ -104,14 +106,7 @@
     background-color: azure;
   }
 
-  .card-doppia {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-  }
+
 
   /* BOX SX ruolo e squadra */
   .in-card-box-sx {
@@ -131,13 +126,13 @@
     text-align: center;
   }
   .squadra img {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     display: block;
   }
   img {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: block;
     cursor: pointer;
   }
@@ -254,8 +249,7 @@
 
   /* CONTENITORE INFO SQUADRA */
 
-  #container-info-squadra,
-  #container-bottoni {
+  #container-info-squadra {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -273,14 +267,13 @@
     justify-content: center;
   }
   #container-info-squadra #box-info #nome-presidente {
-    font-size: large;
-    letter-spacing: 15px;
-    font-style: oblique;
+    font-size: 24px;
+     font-style: oblique;
     text-align: center;
   }
   #container-info-squadra #box-info #nome-squadra {
     color: rgb(0, 35, 76);
-    font-size: 6em;
+    font-size: 40px;
     font-weight: 700;
     text-align: center;
   }

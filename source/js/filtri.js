@@ -18,6 +18,16 @@ export const STATO_FILTRI = {
     max: 0,
     minSelezionato: 0,
   },
+  goal: {
+    min: 0,
+    max: 0,
+    minSelezionato: 0,
+  },
+  assist: {
+    min: 0,
+    max: 0,
+    minSelezionato: 0,
+  },
   ruolo: [], //filtro ruolo
   lega: [], //filtro lega, tiene traccia del campionato cliccato
   squadraSA: [], //filtro squadra serie A selezionata
@@ -100,6 +110,15 @@ export function applicaFiltriGiocatori(player) {
       giocatoreCorrente.getPresenze >= STATO_FILTRI.presenze.minSelezionato
     );
   });
+  // filtro per goal minimi
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    return giocatoreCorrente.getGoalTotali >= STATO_FILTRI.goal.minSelezionato;
+  });
+  // filtro per assist minimi
+  arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
+    return giocatoreCorrente.getAssistTotali >= STATO_FILTRI.assist.minSelezionato;
+  });
+
 
   // filto per escludere o meno i fuorilista
   if (!STATO_FILTRI.caricaFuoriLista) {
@@ -391,6 +410,61 @@ export function creaFiltroFuoriLista() {
   // filtro fuori lista aggiunto senza ricreare il contenuto esistente
 }
 
+export function creaFiltroGoalMinimi(){
+  let selectGoalMinimiHTML = ""; //partiamo da 0 fino al max goal tra i giocatori
+
+  for (let i = 0; i <= STATO_FILTRI.goal.max; i++) {
+    selectGoalMinimiHTML += `<option>${i}</option>`;
+  }
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `<section class="box-filtro">    
+      <label title="Goal Minimi">Goal Min.</label>
+        <select id="select-goal-minimi">
+          ${selectGoalMinimiHTML}
+        </select>          
+    </section>`,
+  );
+}
+
+export function gestisciFiltroGoalMinimi(evento) {
+  console.log("function gestisciFiltroGoalMinimi(evento)");
+  // capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal select con id select-goal-minimi
+
+  const TAG = evento.target;
+  if (TAG.id == "select-goal-minimi") {
+    //verifichiamo che il change provenga dal filtro goal minimi
+    STATO_FILTRI.goal.minSelezionato = parseInt(TAG.value);
+  }
+}
+
+export function creaFiltroAssistMinimi(){
+  let selectAssistMinimiHTML = ""; //partiamo da 0 fino al max assist tra i giocatori
+  for (let i = 0; i <= STATO_FILTRI.assist.max; i++) {
+    selectAssistMinimiHTML += `<option>${i}</option>`;
+  }
+  containerFiltri.insertAdjacentHTML(
+    "beforeend",
+    `<section class="box-filtro">    
+      <label title="Assist Minimi">Assist Min.</label>
+        <select id="select-assist-minimi">
+          ${selectAssistMinimiHTML}
+        </select>          
+    </section>`,
+  );
+}
+
+export function gestisciFiltroAssistMinimi(evento) {
+  console.log("function gestisciFiltroAssistMinimi(evento)");
+  // capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal select con id select-assist-minimi
+  const TAG = evento.target;
+  if (TAG.id == "select-assist-minimi") {//verifichiamo che il change provenga dal filtro assist minimi
+    
+    STATO_FILTRI.assist.minSelezionato = parseInt(TAG.value);
+  }
+}
+
+
 export function gestisciFiltroFuoriLista(evento) {
   console.log("function gestisciFiltroFuoriLista(evento)");
   //capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal radiobutton con nome carica-FuoriLista
@@ -414,6 +488,9 @@ export function azzeraFiltri() {
   STATO_FILTRI.lega = [];
   STATO_FILTRI.squadraSA = [];
   STATO_FILTRI.presenze.minSelezionato = 0;
+  STATO_FILTRI.goal.minSelezionato = 0;
+  STATO_FILTRI.assist.minSelezionato = 0;
+
   containerFiltri.innerHTML = "";
 }
 
@@ -423,8 +500,10 @@ export function creaFiltriPaginaGiocatoriSeMancante(player) {
     creaFiltroRuolo();
     creaFiltroQuotazioneMinEMax();
     creaFiltroPresenzeMinime();
-    creaFiltroFuoriLista();
+    creaFiltroGoalMinimi();
+    creaFiltroAssistMinimi();
     creaFiltroTeam(player);
+    creaFiltroFuoriLista();
   }
 }
 export function creaFiltriPaginaSvincolatiSeMancante(player) {
@@ -433,16 +512,23 @@ export function creaFiltriPaginaSvincolatiSeMancante(player) {
     creaFiltroRuolo();
     creaFiltroQuotazioneMinEMax();
     creaFiltroPresenzeMinime();
+    creaFiltroGoalMinimi();
+    creaFiltroAssistMinimi();
     creaFiltroTeam(player);
   }
 }
 
 export function inizializzaFiltri(player) {
   //inizializzazione filtro quotazione min e max
+  //inizializziamo le presenze max
+  //inizializziamo goal max
+  //inizializziamo assist max
 
   player.forEach((playerCorrente) => {
     const quotazione = playerCorrente.getQuotazione; //quotazione del giocatore corrente
     const presenze = playerCorrente.getPresenze; //presenze del giocatore corrente
+    const goal = playerCorrente.getGoalTotali; //goal totali del giocatore corrente
+    const assist = playerCorrente.getAssistTotali; //assist totali del giocatore corrente
 
     if (quotazione > STATO_FILTRI.qt.max) {
       STATO_FILTRI.qt.max = quotazione;
@@ -450,13 +536,19 @@ export function inizializzaFiltri(player) {
     if (STATO_FILTRI.presenze.max < presenze) {
       STATO_FILTRI.presenze.max = presenze; //presenze massime del giocatore
     }
+    if (STATO_FILTRI.goal.max < goal) {
+      STATO_FILTRI.goal.max = goal; //goal massimi del giocatore
+    }
+    if (STATO_FILTRI.assist.max < assist) {
+      STATO_FILTRI.assist.max = assist; //assist massimi del giocatore
+    }
   });
 
   STATO_FILTRI.qt.maxSelezionato = STATO_FILTRI.qt.max;
 }
 
 function checkQuotazione(quotazione = 0) {
-  console.log("function checkQuotazione(quotazione = 0)");
+  
   if (
     quotazione >= STATO_FILTRI.qt.minSelezionato &&
     quotazione <= STATO_FILTRI.qt.maxSelezionato

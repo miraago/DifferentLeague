@@ -239,16 +239,18 @@ export function stampaListaSvincolati(
           <td>${pl.getPresenze}</td>
           <td>${pl.getMv}</td>
           <td>${pl.getFvm}</td>
+          <td>${pl.getGoalTotali}</td>
+          <td>${pl.getAssistTotali}</td>
           <td>${pl.getSommaBonusMalus}</td>
           <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
-          <td><img src="Assets/image/ricerca_possessi.png" class="icona-ricerca-possessi" title="${pl.getNome} ha ${pl.getCopieDisponibili} copie disponibili"/> </td>
+          
         </tr>`;
       contaGiocatori++;
     }
   });
   TAG_H2.textContent = `LISTA GIOCATORI SVINCOLATI- Giocatori caricati ${contaGiocatori}`;
   if (contaGiocatori > 0) {
-    const theadTemp = `<tr><th colspan="10">LISTA GIOCATORI SVINCOLATI</tr>
+    const theadTemp = `
       <tr class="intestazione-colonne">
       <th>Ruolo</th>
       <th>Nome</th>
@@ -257,9 +259,11 @@ export function stampaListaSvincolati(
       <th>Presenze</th>
       <th>MV</th>
       <th>FVM</th>
+      <th>Goal</th>
+      <th>Assist</th>
       <th>Somma Bonus/Malus</th>
       <th>Posseduto</th>
-      <th>Info</th>
+      
       </tr>`;
     //per ogni ruolo creiamo una tabella
     const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
@@ -365,13 +369,13 @@ export function popupStatisticheGiocatore(giocatore) {
       </div>
 
       <div class="campo">
-         <div class="valore">${giocatore.getGoalTotali}</div>
-         <div class="etichetta">Goal</div>          
+         <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getGoalTotali : giocatore.getGoalSubitiTotali}</div>
+         <div class="etichetta">${giocatore.getRuolo != "P" ? "Goal" : "Goal Subiti"}</div>          
       </div>
 
       <div class="campo">
-         <div class="valore">${giocatore.getAssistTotali}</div>
-         <div class="etichetta">Assist</div>          
+         <div class="valore">${giocatore.getRuolo != "P" ?giocatore.getAssistTotali : giocatore.getRigoriParatiTotali}</div>
+         <div class="etichetta">${giocatore.getRuolo != "P" ? "Assist" : "Rigori Parati"}</div>          
       </div>
     </div>
 

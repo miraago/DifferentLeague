@@ -67,10 +67,10 @@ function creaContainer() {
       `;
   vistaMercato.append(containerInfoSquadra);
 
-  //contenitore bottone invia
-  containerBottoni = document.createElement("section");
-  containerBottoni.id = "container-bottoni";
-  vistaMercato.append(containerBottoni);
+  // //contenitore bottone invia
+  // containerBottoni = document.createElement("section");
+  // containerBottoni.id = "container-bottoni";
+  // vistaMercato.append(containerBottoni);
 
   //contenitore giocatori
   containerGiocatori = document.createElement("section");

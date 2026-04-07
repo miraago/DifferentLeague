@@ -37,6 +37,9 @@ import {
   creaFiltroRuolo,
   creaFiltroRicercaGiocatore,
   creaFiltroTeam,
+  gestisciFiltroGoalMinimi,
+  gestisciFiltroAssistMinimi,
+
 } from "./filtri.js";
 
 import { caricaTuttiIDati } from "./caricamentoDati.js";
@@ -64,6 +67,8 @@ containerFiltri.addEventListener("change", (evento) => {
   gestisciFiltroFuoriLista(evento);
   gestisciFiltroQuotazioneMinEMax(evento);
   gestisciFiltroPresenzeMinime(evento);
+  gestisciFiltroGoalMinimi(evento);
+  gestisciFiltroAssistMinimi(evento);
   gestisciFiltroRosa(evento);
   chiamaPaginaCliccata();
 });

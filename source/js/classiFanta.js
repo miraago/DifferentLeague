@@ -11,6 +11,7 @@ class Giocatore {
   #fuoriLista;
   #quotazione;
   #presenze = 0; //presenza intesa come giocato almeno un minuto in una giornata
+  #presenzeAVoto = 0; //presenza intesa come giocato almeno un minuto in una giornata in cui ha ricevuto un voto
   #fvm;
   #fvmUltime5;
   #mv = 0;
@@ -21,6 +22,10 @@ class Giocatore {
   #statisticheDiGiornata = [];
   #goalTotali = 0;
   #assistTotali = 0;
+  #goalSubitiTotali = 0;
+  #rigoriParatiTotali = 0;
+  #rigoriSbagliatiTotali = 0;
+  #rigoriSegnatiTotali = 0;
 
   //costruttore
   constructor(
@@ -33,10 +38,9 @@ class Giocatore {
     quotazione = "",
     fvmUltime5 = "",
     mvUltime5 = "",
-    sommaBonusMalus = "",
     sommaBonusMalusUltime5 = "",
   ) {
-    // Use property assignment so the defined setters are invoked
+    
     this.setId = id;
     this.setNome = nome;
     this.setSquadraDiAppartenenza = squadraDiAppartenenza;
@@ -46,7 +50,6 @@ class Giocatore {
     this.setQuotazione = quotazione;
     this.setFvmUltime5 = fvmUltime5;
     this.setMvUltime5 = mvUltime5;
-    this.setSommaBonusMalus = sommaBonusMalus;
     this.setSommaBonusMalusUltime5 = sommaBonusMalusUltime5;
   }
 
@@ -82,6 +85,17 @@ class Giocatore {
     this.#presenze = tempPresenze;
     return this.#presenze;
   }
+  
+  get getPresenzeAVoto() {
+    let tempPresenzeAVoto = 0;
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      if (statistica.getMinutiGiocati > 0 && statistica.getVotoFC_L != "") {
+        tempPresenzeAVoto++;
+      }
+    });
+    this.#presenzeAVoto = tempPresenzeAVoto;
+    return this.#presenzeAVoto;
+  }
   get getFvm() {
     let arrayVotoFCL = [];
     let arrayVotoFCC = [];
@@ -101,17 +115,17 @@ class Giocatore {
           temp += statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
         }
         if (statisticaCorrente.getAmmonizione != "") {
-          temp -=
+          temp +=
             statisticaCorrente.getAmmonizione *
             IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
         }
         if (statisticaCorrente.getEspulsione != "") {
-          temp -=
+          temp +=
             statisticaCorrente.getEspulsione *
             IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
         }
         if (statisticaCorrente.getGoalSubiti != "") {
-          temp -=
+          temp +=
             statisticaCorrente.getGoalSubiti *
             IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
         }
@@ -126,7 +140,7 @@ class Giocatore {
             IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
         }
         if (statisticaCorrente.getRigoreSbagliato != "") {
-          temp -=
+          temp +=
             statisticaCorrente.getRigoreSbagliato *
             IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
         }
@@ -136,7 +150,7 @@ class Giocatore {
             IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
         }
         if (statisticaCorrente.getAutorete != "") {
-          temp -=
+          temp +=
             statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
         }
         if (statisticaCorrente.getRigoreSegnato != "") {
@@ -228,6 +242,24 @@ class Giocatore {
     return this.#mvUltime5;
   }
   get getSommaBonusMalus() {
+    let contatoreBonusMalus = 0;
+    this.#statisticheDiGiornata.forEach((statisticaCorrente) => {
+      if (statisticaCorrente.getVotoFC_L != "") {
+        contatoreBonusMalus += statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
+        contatoreBonusMalus += statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
+        contatoreBonusMalus += statisticaCorrente.getAmmonizione * IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
+        contatoreBonusMalus += statisticaCorrente.getEspulsione * IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
+        contatoreBonusMalus += statisticaCorrente.getRigoreSegnato * IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
+        contatoreBonusMalus += statisticaCorrente.getRigoreSbagliato * IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
+        contatoreBonusMalus += statisticaCorrente.getRigoreParato * IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
+        contatoreBonusMalus += statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
+        contatoreBonusMalus += statisticaCorrente.getGoalSubiti * IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
+        contatoreBonusMalus += statisticaCorrente.getImbattuta * IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
+        contatoreBonusMalus += statisticaCorrente.getGoalDecisivoVittoria * IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+      }
+    });
+    this.#sommaBonusMalus = contatoreBonusMalus;
+
     return this.#sommaBonusMalus;
   }
   get getSommaBonusMalusUltime5() {
@@ -250,7 +282,14 @@ class Giocatore {
     this.#goalTotali = totale;
     return this.#goalTotali;
   }
-
+  get getGoalSubitiTotali() {
+    let totale = 0;
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getGoalSubiti;
+    });
+    this.#goalSubitiTotali = totale;
+    return this.#goalSubitiTotali;
+  }
   get getAssistTotali() {
     let totale = 0;
     this.#statisticheDiGiornata.forEach((statistica) => {
@@ -258,6 +297,30 @@ class Giocatore {
     });
     this.#assistTotali = totale;
     return this.#assistTotali;
+  }
+  get getRigoriParatiTotali() {
+    let totale = 0;
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getRigoreParato;
+    });
+    this.#rigoriParatiTotali = totale;
+    return this.#rigoriParatiTotali;
+  }
+  get getRigoriSbagliatiTotali() {
+    let totale = 0;
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getRigoreSbagliato;
+    });
+    this.#rigoriSbagliatiTotali = totale;
+    return this.#rigoriSbagliatiTotali;
+  }
+  get getRigoriSegnatiTotali() {
+    let totale = 0;
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      totale += statistica.getRigoreSegnato;
+    });
+    this.#rigoriSegnatiTotali = totale;
+    return this.#rigoriSegnatiTotali;
   }
 
   //setter Giocatore

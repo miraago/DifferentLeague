@@ -97,7 +97,6 @@ async function caricaGiocatori() {
           temp[6], //Quotazione
           temp[9], //Media recente
           temp[11], //Media recente pagella
-          temp[12], //Somma bonus malus
           temp[13], //Somma bonus malus ultime 5
         ),
       );

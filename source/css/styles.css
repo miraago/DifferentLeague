@@ -117,8 +117,16 @@ table tbody tr {
 }
 table tbody tr td,
 table thead tr th {
-  text-align: left;
+  text-align: center;
   padding: 5px;
+  
+}
+table tbody tr td:nth-child(1),
+table tbody tr td:nth-child(2),
+table tbody tr td:nth-child(3){
+  text-align: left;
+  padding-left: 5px;
+  width: max-content;
 }
 table tbody tr:hover td {
   background-color: rgb(236, 243, 253);
@@ -318,7 +326,7 @@ div #contenitore-nome {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7); /* fondo nero un pò trasparente */
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -333,7 +341,7 @@ div #contenitore-nome {
   flex-direction: column;
   z-index: 9999;
   background-color: white;
-  width: 30vw;
+  width: 90%;
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0px 0px 50px var(--background_primario);
@@ -343,12 +351,14 @@ div #contenitore-nome {
 }
 #popup-statistiche div {
   width: 100%;
-  padding: 5px;
+  position:relative;
+  
 }
 /*bottone x */
 #popup-statistiche .x {
-  position: sticky;
-  top: 2px; /* Distanza dal bordo superiore del popup durante lo scroll */
+  position: absolute;
+  top: -20px; /* Distanza dal bordo superiore del popup durante lo scroll */
+  right:-20px;
   align-self: flex-end; /* La spinge tutto a destra nel layout flex */
   margin-left: auto; /* Spinge la X tutto a destra */
   margin-right: 2px; /* Evita che appiccichi al bordo destro */
@@ -371,8 +381,8 @@ div #contenitore-nome {
 }
 
 .icona-statistiche {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   text-align: center;
 }
 
@@ -460,5 +470,16 @@ td {
   .colonna-FMV5,
   .colonna-BM5 {
     display: table-cell;
+  }
+  #popup-statistiche {
+    width: 50%;
+    top:10px;
+  }
+}
+@media all and (min-width: 1000px) {
+  
+  #popup-statistiche {
+    width: 500px;
+    top:10px;
   }
 }
