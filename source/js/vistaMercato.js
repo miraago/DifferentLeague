@@ -13,7 +13,7 @@ let cbPlayer = [];
 let cbPresidenti = [];
 let presidenteUtenteLoggato = "";
 let containerInfoSquadra = null;
-let containerBottoni = null;
+
 let containerGiocatori = null;
 let containerRiepilogo = null;
 let apriPopupSvincolatiEsterno = cbApriPopupSvincolati;

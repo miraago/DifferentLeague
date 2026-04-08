@@ -95,9 +95,6 @@ async function caricaGiocatori() {
           temp[4], //Ruolo Mod. Av.
           temp[5], //Fuori lista
           temp[6], //Quotazione
-          temp[9], //Media recente
-          temp[11], //Media recente pagella
-          temp[13], //Somma bonus malus ultime 5
         ),
       );
     }
@@ -160,10 +157,12 @@ async function caricaVoti(player) {
     giornata++
   ) {
     let response = await fetch(`Assets/file/voti/giornata_${giornata}.json`);
+
     if (!response.ok) {
-      throw new Error(
-        `Errore network - non siamo riusciti a caricare i voti della giornata ${giornata}`,
-      );
+      alert(
+        `Attenzione: non siamo riusciti a caricare i voti della giornata ${giornata}. I dati potrebbero essere incompleti, ma puoi comunque esplorare il sito!`,
+      ); //avviso all'utente
+      continue; //passiamo alla giornata precedente senza bloccare tutto
     }
 
     const datiVoti = await response.json();
@@ -171,8 +170,8 @@ async function caricaVoti(player) {
     datiVoti.forEach((dt) => {
       //statistca corrente
       const statistica = new StatisticaDiGiornata(
+        dt.giornata,
         dt.nome,
-        giornata,
         dt.partita,
         dt.votoFCL,
         dt.votoFCC,

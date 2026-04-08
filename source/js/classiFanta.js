@@ -12,12 +12,17 @@ class Giocatore {
   #quotazione;
   #presenze = 0; //presenza intesa come giocato almeno un minuto in una giornata
   #presenzeAVoto = 0; //presenza intesa come giocato almeno un minuto in una giornata in cui ha ricevuto un voto
-  #fvm;
-  #fvmUltime5;
-  #mv = 0;
-  #mvUltime5;
+  #mv = 0; //media voto di base
+  #fvm = 0; //media voto con bonus
   #sommaBonusMalus;
-  #sommaBonusMalusUltime5;
+
+  /* Ultime 5 giocate */
+  #presenzeUltime5;
+  #fvmUltime5 = 0;
+  #mvUltime5 = 0;
+  #sommaBonusMalusUltime5 = 0;
+  /*----------------------------*/
+
   #possessi = [];
   #statisticheDiGiornata = [];
   #goalTotali = 0;
@@ -36,11 +41,7 @@ class Giocatore {
     ruoloMantra = "",
     fuoriLista = "",
     quotazione = "",
-    fvmUltime5 = "",
-    mvUltime5 = "",
-    sommaBonusMalusUltime5 = "",
   ) {
-    
     this.setId = id;
     this.setNome = nome;
     this.setSquadraDiAppartenenza = squadraDiAppartenenza;
@@ -48,9 +49,6 @@ class Giocatore {
     this.setRuoloMantra = ruoloMantra;
     this.setFuoriLista = fuoriLista;
     this.setQuotazione = quotazione;
-    this.setFvmUltime5 = fvmUltime5;
-    this.setMvUltime5 = mvUltime5;
-    this.setSommaBonusMalusUltime5 = sommaBonusMalusUltime5;
   }
 
   //getter Giocatore
@@ -85,7 +83,7 @@ class Giocatore {
     this.#presenze = tempPresenze;
     return this.#presenze;
   }
-  
+
   get getPresenzeAVoto() {
     let tempPresenzeAVoto = 0;
     this.#statisticheDiGiornata.forEach((statistica) => {
@@ -194,9 +192,44 @@ class Giocatore {
     this.#fvm = mediaFCL.toFixed(2);
     return this.#fvm;
   }
-  get getFvmUltime5() {
-    return this.#fvmUltime5;
+  get getSommaBonusMalus() {
+    let contatoreBonusMalus = 0;
+    this.#statisticheDiGiornata.forEach((statisticaCorrente) => {
+      if (statisticaCorrente.getVotoFC_L != "") {
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAmmonizione *
+          IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
+        contatoreBonusMalus +=
+          statisticaCorrente.getEspulsione * IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreSegnato *
+          IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreSbagliato *
+          IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreParato *
+          IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoalSubiti * IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getImbattuta * IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoalDecisivoVittoria *
+          IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+      }
+    });
+    this.#sommaBonusMalus = contatoreBonusMalus;
+
+    return this.#sommaBonusMalus;
   }
+
   get getMv() {
     let arrayVotoFCL = [];
     let arrayVotoFCC = [];
@@ -238,31 +271,228 @@ class Giocatore {
     this.#mv = mediaFCL.toFixed(2);
     return this.#mv;
   }
-  get getMvUltime5() {
-    return this.#mvUltime5;
-  }
-  get getSommaBonusMalus() {
-    let contatoreBonusMalus = 0;
-    this.#statisticheDiGiornata.forEach((statisticaCorrente) => {
-      if (statisticaCorrente.getVotoFC_L != "") {
-        contatoreBonusMalus += statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
-        contatoreBonusMalus += statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
-        contatoreBonusMalus += statisticaCorrente.getAmmonizione * IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
-        contatoreBonusMalus += statisticaCorrente.getEspulsione * IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
-        contatoreBonusMalus += statisticaCorrente.getRigoreSegnato * IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
-        contatoreBonusMalus += statisticaCorrente.getRigoreSbagliato * IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
-        contatoreBonusMalus += statisticaCorrente.getRigoreParato * IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
-        contatoreBonusMalus += statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
-        contatoreBonusMalus += statisticaCorrente.getGoalSubiti * IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
-        contatoreBonusMalus += statisticaCorrente.getImbattuta * IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
-        contatoreBonusMalus += statisticaCorrente.getGoalDecisivoVittoria * IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+  get getPresenzeUltime5() {
+    let tempPresenze = 0;
+    const giornataAttuale = IMPOSTAZIONI.GIORNATAATTUALE.giornata - 1;
+
+    this.#statisticheDiGiornata.forEach((statistica) => {
+      if (
+        statistica.getMinutiGiocati > 0 &&
+        statistica.getGiornata > giornataAttuale - 5
+      ) {
+        tempPresenze++;
       }
     });
-    this.#sommaBonusMalus = contatoreBonusMalus;
-
-    return this.#sommaBonusMalus;
+    this.#presenzeUltime5 = tempPresenze;
+    return this.#presenzeUltime5;
   }
+  get getMvUltime5() {
+    let arrayVotoFCL = [];
+    let arrayVotoFCC = [];
+    let arrayVotoMI = [];
+    let arrayVotoRO = [];
+    const giornataAttuale = IMPOSTAZIONI.GIORNATAATTUALE.giornata - 1;
+    for (
+      let i = this.#statisticheDiGiornata.length - 1;
+      i >= 0 && i >= this.#statisticheDiGiornata.length - 5;
+      i--
+    ) {
+      let statisticaCorrente = this.#statisticheDiGiornata[i];
+      //Prendo solo le ultime 5 giornate, e non le ultime 5 giocate dal giocatore
+      if (statisticaCorrente.getGiornata > giornataAttuale - 5) {
+        if (statisticaCorrente.getVotoFC_L != "") {
+          arrayVotoFCL.push(parseFloat(statisticaCorrente.getVotoFC_L));
+        }
+        if (statisticaCorrente.getVotoFC_C != "") {
+          arrayVotoFCC.push(parseFloat(statisticaCorrente.getVotoFC_C));
+        }
+        if (statisticaCorrente.getVoto_MI != "") {
+          arrayVotoMI.push(parseFloat(statisticaCorrente.getVoto_MI));
+        }
+        if (statisticaCorrente.getVotoRO != "") {
+          arrayVotoRO.push(parseFloat(statisticaCorrente.getVotoRO));
+        }
+      }
+    }
+
+    let mediaFCL =
+      arrayVotoFCL.length > 0
+        ? arrayVotoFCL.reduce((a, b) => a + b, 0) / arrayVotoFCL.length
+        : 0;
+    let mediaFCC =
+      arrayVotoFCC.length > 0
+        ? arrayVotoFCC.reduce((a, b) => a + b, 0) / arrayVotoFCC.length
+        : 0;
+    let mediaMI =
+      arrayVotoMI.length > 0
+        ? arrayVotoMI.reduce((a, b) => a + b, 0) / arrayVotoMI.length
+        : 0;
+    let mediaRO =
+      arrayVotoRO.length > 0
+        ? arrayVotoRO.reduce((a, b) => a + b, 0) / arrayVotoRO.length
+        : 0;
+
+    this.#mvUltime5 = mediaFCL.toFixed(2);
+
+    return this.#mvUltime5;
+  }
+
+  get getFvmUltime5() {
+    let arrayVotoFCL = [];
+    let arrayVotoFCC = [];
+    let arrayVotoMI = [];
+    let arrayVotoRO = [];
+    let temp = 0;
+    const giornataAttuale = IMPOSTAZIONI.GIORNATAATTUALE.giornata - 1;
+
+    for (
+      let i = this.#statisticheDiGiornata.length - 1;
+      i >= 0 && i >= this.#statisticheDiGiornata.length - 5;
+      i--
+    ) {
+      let statisticaCorrente = this.#statisticheDiGiornata[i];
+      temp = 0; //variabile temporanea per calcolare il bonus/malus da aggiungere al voto
+      //Prendo solo le ultime 5 giornate, e non le ultime 5 giocate dal giocatore
+      if (statisticaCorrente.getGiornata > giornataAttuale - 5) {
+        if (statisticaCorrente.getVotoFC_L != "") {
+          //se c'è un voto valido per FC_L allora calcolo il bonus/malus e lo aggiungo al voto
+          if (statisticaCorrente.getAssistLI != "") {
+            temp +=
+              statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
+          }
+          if (statisticaCorrente.getGoal != "") {
+            temp += statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
+          }
+          if (statisticaCorrente.getAmmonizione != "") {
+            temp +=
+              statisticaCorrente.getAmmonizione *
+              IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
+          }
+          if (statisticaCorrente.getEspulsione != "") {
+            temp +=
+              statisticaCorrente.getEspulsione *
+              IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
+          }
+          if (statisticaCorrente.getGoalSubiti != "") {
+            temp +=
+              statisticaCorrente.getGoalSubiti *
+              IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
+          }
+          if (statisticaCorrente.getImbattuta != "") {
+            temp +=
+              statisticaCorrente.getImbattuta *
+              IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
+          }
+          if (statisticaCorrente.getGoalDecisivoVittoria != "") {
+            temp +=
+              statisticaCorrente.getGoalDecisivoVittoria *
+              IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+          }
+          if (statisticaCorrente.getRigoreSbagliato != "") {
+            temp +=
+              statisticaCorrente.getRigoreSbagliato *
+              IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
+          }
+          if (statisticaCorrente.getRigoreParato != "") {
+            temp +=
+              statisticaCorrente.getRigoreParato *
+              IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
+          }
+          if (statisticaCorrente.getAutorete != "") {
+            temp +=
+              statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
+          }
+          if (statisticaCorrente.getRigoreSegnato != "") {
+            temp +=
+              statisticaCorrente.getRigoreSegnato *
+              IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
+          }
+
+          if (statisticaCorrente.getVotoFC_L != "") {
+            arrayVotoFCL.push(
+              parseFloat(statisticaCorrente.getVotoFC_L) + temp,
+            );
+          }
+          if (statisticaCorrente.getVotoFC_C != "") {
+            arrayVotoFCC.push(
+              parseFloat(statisticaCorrente.getVotoFC_C) + temp,
+            );
+          }
+          if (statisticaCorrente.getVoto_MI != "") {
+            arrayVotoMI.push(parseFloat(statisticaCorrente.getVoto_MI) + temp);
+          }
+          if (statisticaCorrente.getVotoRO != "") {
+            arrayVotoRO.push(parseFloat(statisticaCorrente.getVotoRO) + temp);
+          }
+        }
+      }
+    }
+
+    let mediaFCL =
+      arrayVotoFCL.length > 0
+        ? arrayVotoFCL.reduce((a, b) => a + b, 0) / arrayVotoFCL.length
+        : 0;
+    let mediaFCC =
+      arrayVotoFCC.length > 0
+        ? arrayVotoFCC.reduce((a, b) => a + b, 0) / arrayVotoFCC.length
+        : 0;
+    let mediaMI =
+      arrayVotoMI.length > 0
+        ? arrayVotoMI.reduce((a, b) => a + b, 0) / arrayVotoMI.length
+        : 0;
+    let mediaRO =
+      arrayVotoRO.length > 0
+        ? arrayVotoRO.reduce((a, b) => a + b, 0) / arrayVotoRO.length
+        : 0;
+
+    this.#fvmUltime5 = mediaFCL.toFixed(2);
+
+    return this.#fvmUltime5;
+  }
+
   get getSommaBonusMalusUltime5() {
+    let contatoreBonusMalus = 0;
+    const giornataAttuale = IMPOSTAZIONI.GIORNATAATTUALE.giornata - 1; //riferimento alla giornata attuale
+    for (
+      let i = this.#statisticheDiGiornata.length - 1;
+      i >= 0 && i >= this.#statisticheDiGiornata.length - 5;
+      i--
+    ) {
+      const statisticaCorrente = this.#statisticheDiGiornata[i];
+      if (
+        statisticaCorrente.getVotoFC_L != "" &&
+        statisticaCorrente.getGiornata > giornataAttuale - 5
+      ) {
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoal * IMPOSTAZIONI.BONUSMALUS.GOAL;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAssistLI * IMPOSTAZIONI.BONUSMALUS.ASSIST;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAmmonizione *
+          IMPOSTAZIONI.BONUSMALUS.AMMONIZIONE;
+        contatoreBonusMalus +=
+          statisticaCorrente.getEspulsione * IMPOSTAZIONI.BONUSMALUS.ESPULSIONE;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreSegnato *
+          IMPOSTAZIONI.BONUSMALUS.RIGORESEGNATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreSbagliato *
+          IMPOSTAZIONI.BONUSMALUS.RIGORESBAGLIATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getRigoreParato *
+          IMPOSTAZIONI.BONUSMALUS.RIGOREPARATO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getAutorete * IMPOSTAZIONI.BONUSMALUS.AUTOGOAL;
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoalSubiti * IMPOSTAZIONI.BONUSMALUS.GOALSUBITO;
+        contatoreBonusMalus +=
+          statisticaCorrente.getImbattuta * IMPOSTAZIONI.BONUSMALUS.CLEENSHEET;
+        contatoreBonusMalus +=
+          statisticaCorrente.getGoalDecisivoVittoria *
+          IMPOSTAZIONI.BONUSMALUS.GOALDECISIVO;
+      }
+    }
+    this.#sommaBonusMalusUltime5 = contatoreBonusMalus;
     return this.#sommaBonusMalusUltime5;
   }
 
@@ -749,8 +979,8 @@ class RecordAcquisto {
 
 //CLASS STATISTICA DI GIORNATA**************************************************************
 class StatisticaDiGiornata {
-  #nomeGiocatore;
   #giornata;
+  #nomeGiocatore;
   #partita;
   #votoFC_L;
   #votoFC_C;
@@ -775,8 +1005,8 @@ class StatisticaDiGiornata {
   #goalDecisivoVittoria;
 
   constructor(
-    nomeGiocatore,
     giornata,
+    nomeGiocatore,
     partita,
     votoFC_L,
     votoFC_C,
@@ -800,8 +1030,8 @@ class StatisticaDiGiornata {
     imbattuta,
     goalDecisivoVittoria,
   ) {
-    this.setNomeGiocatore = nomeGiocatore;
     this.setGiornata = giornata;
+    this.setNomeGiocatore = nomeGiocatore;
     this.setPartita = partita;
     this.setVotoFC_L = votoFC_L;
     this.setVotoFC_C = votoFC_C;
@@ -827,6 +1057,9 @@ class StatisticaDiGiornata {
   }
 
   //getter
+  get getGiornata() {
+    return this.#giornata;
+  }
   get getNomeGiocatore() {
     return this.#nomeGiocatore;
   }
@@ -901,6 +1134,10 @@ class StatisticaDiGiornata {
   }
 
   //setter
+
+  set setGiornata(giornata) {
+    this.#giornata = giornata;
+  }
   set setNomeGiocatore(nome) {
     this.#nomeGiocatore = nome;
   }

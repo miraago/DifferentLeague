@@ -24,8 +24,8 @@ main {
   position: relative;
 }
 
-.caricamento{
-  display: flex;;
+.caricamento {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -66,7 +66,7 @@ h2 {
 #container-table {
   display: flex;
   align-content: center;
-  width: 95%;
+  max-width: 95%;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
@@ -77,6 +77,36 @@ h2 {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+}
+table > tbody tr > td:nth-child(14),
+table > tbody tr > td:nth-child(13),
+table > tbody tr > td:nth-child(12),
+table > tbody tr > td:nth-child(11) {
+  width: 55px;
+  background-color: rgba(132, 154, 175, 0.2);
+}
+table > tbody tr > td:nth-child(7),
+table > tbody tr > td:nth-child(6) {
+  width: 55px;
+  color: var(--background_primario);
+}
+
+table > tbody tr > td:nth-child(8),
+table > tbody tr > td:nth-child(9) {
+  width: 55px;
+  color: green;
+}
+
+table > tbody tr > td:nth-child(10),
+table > tbody tr > td:nth-child(6),
+table > tbody tr > td:nth-child(5),
+table > tbody tr > td:nth-child(4),
+table > tbody tr > td:nth-child(1) {
+  width: 55px;
+}
+table > tbody tr > td:nth-child(2),
+table > tbody tr > td:nth-child(3) {
+  width: 80px;
 }
 
 .vista-modale {
@@ -119,11 +149,10 @@ table tbody tr td,
 table thead tr th {
   text-align: center;
   padding: 5px;
-  
 }
 table tbody tr td:nth-child(1),
 table tbody tr td:nth-child(2),
-table tbody tr td:nth-child(3){
+table tbody tr td:nth-child(3) {
   text-align: left;
   padding-left: 5px;
   width: max-content;
@@ -222,17 +251,6 @@ table thead tr.intestazione-colonne th:hover {
 
   box-sizing: border-box;
 }
-/* #logo-sito:hover {
-  scale: 1.2;
-
-  border: 2px solid var(--background_primario);
-} */
-
-/* #logo-sito .selected {
-  background-color: white;
-  border: 2px solid var(--background_primario);
-  scale: 1.2;
-} */
 
 .squadra-di-appartenenza {
   font-style: italic;
@@ -290,8 +308,6 @@ div #contenitore-nome {
   justify-content: center;
   align-items: center;
 }
-
-
 
 /* Trasforma qualsiasi contenitore in un popup gigante sopra lo schermo */
 .modal-attivo {
@@ -351,14 +367,13 @@ div #contenitore-nome {
 }
 #popup-statistiche div {
   width: 100%;
-  position:relative;
-  
+  position: relative;
 }
 /*bottone x */
 #popup-statistiche .x {
   position: absolute;
   top: -20px; /* Distanza dal bordo superiore del popup durante lo scroll */
-  right:-20px;
+  right: -20px;
   align-self: flex-end; /* La spinge tutto a destra nel layout flex */
   margin-left: auto; /* Spinge la X tutto a destra */
   margin-right: 2px; /* Evita che appiccichi al bordo destro */
@@ -401,14 +416,14 @@ div #contenitore-nome {
   gap: 5px;
 }
 .campo-nome {
-  font-size: 32px;
+  font-size: 22px;
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
-  width: 100%;
+  color: var(--background_primario);
 }
 .campo-squadra {
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
   color: rgb(0, 35, 76);
 }
@@ -420,7 +435,7 @@ div #contenitore-nome {
 }
 
 .campo {
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -432,10 +447,11 @@ div #contenitore-nome {
   text-align: center;
 }
 .valore {
-  font-size: 35px;
+  font-size: 18px;
   font-weight: bold;
   color: rgb(35, 36, 39);
   text-align: center;
+  color: var(--background_primario);
 }
 
 td {
@@ -453,33 +469,38 @@ td {
 
 .colonna-MV5,
 .colonna-FMV5,
-.colonna-BM5 {
+.colonna-BM5,
+.colonna-pre5,
+.colonna-possesso {
   /* Stili per le colonne delle statistiche delle ultime 5 partite non visibili sui cellulari*/
   display: none;
 }
 
 /* quando si supera i 490px di larghezza, mostra nome squadra, immagine soldi e colonne MV5, FMV5, BM5 */
-@media all and (min-width: 490px) {
+@media all and (min-width: 600px) {
+  .colonna-MV5,
+  .colonna-FMV5,
+  .colonna-BM5,
+  .colonna-pre5,
+  .colonna-possesso {
+    display: table-cell;
+  }
+  #popup-statistiche {
+    width: 50%;
+    top: 10px;
+  }
+}
+@media all and (min-width: 1000px) {
+  #popup-statistiche {
+    width: 500px;
+    top: 10px;
+  }
+}
+@media all and (min-width: 1090px) {
   .nome-squadra {
     display: inline;
   }
   .cella-quotazione img {
     display: inline;
-  }
-  .colonna-MV5,
-  .colonna-FMV5,
-  .colonna-BM5 {
-    display: table-cell;
-  }
-  #popup-statistiche {
-    width: 50%;
-    top:10px;
-  }
-}
-@media all and (min-width: 1000px) {
-  
-  #popup-statistiche {
-    width: 500px;
-    top:10px;
   }
 }

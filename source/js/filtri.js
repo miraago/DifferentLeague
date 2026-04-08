@@ -116,9 +116,10 @@ export function applicaFiltriGiocatori(player) {
   });
   // filtro per assist minimi
   arrayFiltrato = arrayFiltrato.filter((giocatoreCorrente) => {
-    return giocatoreCorrente.getAssistTotali >= STATO_FILTRI.assist.minSelezionato;
+    return (
+      giocatoreCorrente.getAssistTotali >= STATO_FILTRI.assist.minSelezionato
+    );
   });
-
 
   // filto per escludere o meno i fuorilista
   if (!STATO_FILTRI.caricaFuoriLista) {
@@ -410,7 +411,7 @@ export function creaFiltroFuoriLista() {
   // filtro fuori lista aggiunto senza ricreare il contenuto esistente
 }
 
-export function creaFiltroGoalMinimi(){
+export function creaFiltroGoalMinimi() {
   let selectGoalMinimiHTML = ""; //partiamo da 0 fino al max goal tra i giocatori
 
   for (let i = 0; i <= STATO_FILTRI.goal.max; i++) {
@@ -438,7 +439,7 @@ export function gestisciFiltroGoalMinimi(evento) {
   }
 }
 
-export function creaFiltroAssistMinimi(){
+export function creaFiltroAssistMinimi() {
   let selectAssistMinimiHTML = ""; //partiamo da 0 fino al max assist tra i giocatori
   for (let i = 0; i <= STATO_FILTRI.assist.max; i++) {
     selectAssistMinimiHTML += `<option>${i}</option>`;
@@ -458,12 +459,12 @@ export function gestisciFiltroAssistMinimi(evento) {
   console.log("function gestisciFiltroAssistMinimi(evento)");
   // capiamo da dove viene il click e gestiamo solo se proviene da un elemento proveniente dal select con id select-assist-minimi
   const TAG = evento.target;
-  if (TAG.id == "select-assist-minimi") {//verifichiamo che il change provenga dal filtro assist minimi
-    
+  if (TAG.id == "select-assist-minimi") {
+    //verifichiamo che il change provenga dal filtro assist minimi
+
     STATO_FILTRI.assist.minSelezionato = parseInt(TAG.value);
   }
 }
-
 
 export function gestisciFiltroFuoriLista(evento) {
   console.log("function gestisciFiltroFuoriLista(evento)");
@@ -548,7 +549,6 @@ export function inizializzaFiltri(player) {
 }
 
 function checkQuotazione(quotazione = 0) {
-  
   if (
     quotazione >= STATO_FILTRI.qt.minSelezionato &&
     quotazione <= STATO_FILTRI.qt.maxSelezionato

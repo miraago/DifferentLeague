@@ -1,5 +1,6 @@
 [
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PROVEDEL",
     "votoFCL": "6.5",
@@ -25,6 +26,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "GILA",
     "votoFCL": "6.5",
@@ -50,6 +52,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "LAZZARI",
     "votoFCL": "6.5",
@@ -75,6 +78,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "MARUSIC",
     "votoFCL": "6.5",
@@ -100,6 +104,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PELLEGRINI LU.",
     "votoFCL": "6.0",
@@ -125,6 +130,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PROVSTGAARD",
     "votoFCL": "6.0",
@@ -150,6 +156,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ROMAGNOLI",
     "votoFCL": "5.5",
@@ -175,6 +182,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "BASIC",
     "votoFCL": "5.5",
@@ -200,6 +208,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "CATALDI",
     "votoFCL": "6.5",
@@ -225,6 +234,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "GUENDOUZI",
     "votoFCL": "7.0",
@@ -250,6 +260,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "VECINO",
     "votoFCL": "6.0",
@@ -275,6 +286,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "DIA",
     "votoFCL": "5.5",
@@ -300,6 +312,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ISAKSEN",
     "votoFCL": "7.5",
@@ -325,6 +338,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "NOSLIN",
     "votoFCL": "",
@@ -350,6 +364,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PEDRO",
     "votoFCL": "",
@@ -375,6 +390,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ZACCAGNI",
     "votoFCL": "7.5",
@@ -400,6 +416,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "SARRI",
     "votoFCL": "7.0",
@@ -425,6 +442,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "CAPRILE",
     "votoFCL": "6.0",
@@ -450,6 +468,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "IDRISSI",
     "votoFCL": "5.5",
@@ -475,6 +494,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "LUPERTO",
     "votoFCL": "5.5",
@@ -500,6 +520,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "MINA",
     "votoFCL": "5.5",
@@ -525,6 +546,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ZAPPA",
     "votoFCL": "5.5",
@@ -550,6 +572,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ADOPO",
     "votoFCL": "5.5",
@@ -575,6 +598,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "ESPOSITO SE.",
     "votoFCL": "5.5",
@@ -600,6 +624,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "FOLORUNSHO",
     "votoFCL": "5.5",
@@ -625,6 +650,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "GAETANO",
     "votoFCL": "5.5",
@@ -650,6 +676,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PALESTRA",
     "votoFCL": "5.5",
@@ -675,6 +702,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PRATI",
     "votoFCL": "5.0",
@@ -700,6 +728,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "BORRELLI",
     "votoFCL": "5.0",
@@ -725,6 +754,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "FELICI",
     "votoFCL": "5.5",
@@ -750,6 +780,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "KILICSOY",
     "votoFCL": "5.5",
@@ -775,6 +806,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "LUVUMBO",
     "votoFCL": "5.5",
@@ -800,6 +832,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PAVOLETTI",
     "votoFCL": "5.5",
@@ -825,6 +858,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Lazio - Cagliari",
     "nome": "PISACANE",
     "votoFCL": "5.5",
@@ -850,6 +884,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MURIC",
     "votoFCL": "6.0",
@@ -875,6 +910,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "COULIBALY WO.",
     "votoFCL": "5.5",
@@ -900,6 +936,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "DOIG",
     "votoFCL": "6.0",
@@ -925,6 +962,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "IDZES",
     "votoFCL": "5.5",
@@ -950,6 +988,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MUHAREMOVIC",
     "votoFCL": "5.5",
@@ -975,6 +1014,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "WALUKIEWICZ",
     "votoFCL": "5.5",
@@ -1000,6 +1040,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "KONE IS.",
     "votoFCL": "5.5",
@@ -1025,6 +1066,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MATIC",
     "votoFCL": "6.0",
@@ -1050,6 +1092,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "THORSTVEDT",
     "votoFCL": "6.0",
@@ -1075,6 +1118,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "VRANCKX",
     "votoFCL": "5.5",
@@ -1100,6 +1144,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "BERARDI",
     "votoFCL": "6.5",
@@ -1125,6 +1170,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "CHEDDIRA",
     "votoFCL": "5.5",
@@ -1150,6 +1196,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "FADERA",
     "votoFCL": "5.5",
@@ -1175,6 +1222,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "LAURIENTE",
     "votoFCL": "5.5",
@@ -1200,6 +1248,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MORO LU.",
     "votoFCL": "",
@@ -1225,6 +1274,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "PINAMONTI",
     "votoFCL": "5.0",
@@ -1250,6 +1300,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "GROSSO",
     "votoFCL": "5.5",
@@ -1275,6 +1326,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "LEALI",
     "votoFCL": "7.0",
@@ -1300,6 +1352,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MARCANDALLI",
     "votoFCL": "5.5",
@@ -1325,6 +1378,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MARTIN",
     "votoFCL": "7.0",
@@ -1350,6 +1404,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "NORTON-CUFFY",
     "votoFCL": "6.5",
@@ -1375,6 +1430,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "OSTIGARD",
     "votoFCL": "7.0",
@@ -1400,6 +1456,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "VASQUEZ",
     "votoFCL": "6.0",
@@ -1425,6 +1482,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "ELLERTSSON",
     "votoFCL": "6.0",
@@ -1450,6 +1508,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "FRENDRUP",
     "votoFCL": "6.0",
@@ -1475,6 +1534,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "GRONBAEK",
     "votoFCL": "",
@@ -1500,6 +1560,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MALINOVSKYI",
     "votoFCL": "7.0",
@@ -1525,6 +1586,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MASINI",
     "votoFCL": "6.0",
@@ -1550,6 +1612,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "THORSBY",
     "votoFCL": "6.0",
@@ -1575,6 +1638,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "COLOMBO",
     "votoFCL": "5.5",
@@ -1600,6 +1664,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "EKUBAN",
     "votoFCL": "6.0",
@@ -1625,6 +1690,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "MESSIAS",
     "votoFCL": "6.0",
@@ -1650,6 +1716,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "VITINHA",
     "votoFCL": "5.5",
@@ -1675,6 +1742,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Sassuolo - Genoa",
     "nome": "VIEIRA",
     "votoFCL": "7.0",
@@ -1700,6 +1768,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "MAIGNAN",
     "votoFCL": "7.5",
@@ -1725,6 +1794,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "ATHEKAME",
     "votoFCL": "",
@@ -1750,6 +1820,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "BARTESAGHI",
     "votoFCL": "6.0",
@@ -1775,6 +1846,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "DE WINTER",
     "votoFCL": "6.5",
@@ -1800,6 +1872,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "GABBIA",
     "votoFCL": "6.5",
@@ -1825,6 +1898,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "PAVLOVIC",
     "votoFCL": "7.5",
@@ -1850,6 +1924,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "TOMORI",
     "votoFCL": "",
@@ -1875,6 +1950,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "FOFANA",
     "votoFCL": "5.5",
@@ -1900,6 +1976,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "LOFTUS-CHEEK",
     "votoFCL": "",
@@ -1925,6 +2002,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "MODRIC",
     "votoFCL": "7.0",
@@ -1950,6 +2028,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "RICCI",
     "votoFCL": "6.5",
@@ -1975,6 +2054,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "SAELEMAEKERS",
     "votoFCL": "7.0",
@@ -2000,6 +2080,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "LEAO",
     "votoFCL": "7.0",
@@ -2025,6 +2106,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "NKUNKU",
     "votoFCL": "6.0",
@@ -2050,6 +2132,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "ALLEGRI",
     "votoFCL": "7.0",
@@ -2075,6 +2158,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "SVILAR",
     "votoFCL": "6.5",
@@ -2100,6 +2184,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "CELIK",
     "votoFCL": "5.5",
@@ -2125,6 +2210,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "HERMOSO",
     "votoFCL": "5.5",
@@ -2150,6 +2236,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "MANCINI",
     "votoFCL": "5.5",
@@ -2175,6 +2262,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "N'DICKA",
     "votoFCL": "5.5",
@@ -2200,6 +2288,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "TSIMIKAS",
     "votoFCL": "",
@@ -2225,6 +2314,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "WESLEY",
     "votoFCL": "5.5",
@@ -2250,6 +2340,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "BAILEY",
     "votoFCL": "5.5",
@@ -2275,6 +2366,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "BALDANZI",
     "votoFCL": "",
@@ -2300,6 +2392,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "CRISTANTE",
     "votoFCL": "5.5",
@@ -2325,6 +2418,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "EL AYNAOUI",
     "votoFCL": "5.0",
@@ -2350,6 +2444,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "KONE KO.",
     "votoFCL": "5.5",
@@ -2375,6 +2470,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "PELLEGRINI LO.",
     "votoFCL": "6.0",
@@ -2400,6 +2496,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "DOVBYK",
     "votoFCL": "5.5",
@@ -2425,6 +2522,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "DYBALA",
     "votoFCL": "4.5",
@@ -2450,6 +2548,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "SOULE",
     "votoFCL": "5.0",
@@ -2475,6 +2574,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Milan - Roma",
     "nome": "GASPERINI",
     "votoFCL": "5.5",
@@ -2500,6 +2600,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "SUZUKI",
     "votoFCL": "6.0",
@@ -2525,6 +2626,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "BRITSCHGI",
     "votoFCL": "6.0",
@@ -2550,6 +2652,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "CIRCATI",
     "votoFCL": "5.5",
@@ -2575,6 +2678,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "DEL PRATO",
     "votoFCL": "5.5",
@@ -2600,6 +2704,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "NDIAYE NI.",
     "votoFCL": "5.5",
@@ -2625,6 +2730,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "VALENTI",
     "votoFCL": "5.5",
@@ -2650,6 +2756,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "BERNABE",
     "votoFCL": "6.5",
@@ -2675,6 +2782,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ESTEVEZ",
     "votoFCL": "5.5",
@@ -2700,6 +2808,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "HERNANI",
     "votoFCL": "5.5",
@@ -2725,6 +2834,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "KEITA",
     "votoFCL": "6.0",
@@ -2750,6 +2860,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ORDONEZ",
     "votoFCL": "4.5",
@@ -2775,6 +2886,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "SORENSEN",
     "votoFCL": "5.5",
@@ -2800,6 +2912,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "BENEDYCZAK",
     "votoFCL": "5.5",
@@ -2825,6 +2938,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "CUTRONE",
     "votoFCL": "5.5",
@@ -2850,6 +2964,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "DJURIC",
     "votoFCL": "5.5",
@@ -2875,6 +2990,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "PELLEGRINO",
     "votoFCL": "5.5",
@@ -2900,6 +3016,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ANTON CUESTA",
     "votoFCL": "5.5",
@@ -2925,6 +3042,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "SKORUPSKI",
     "votoFCL": "6.0",
@@ -2950,6 +3068,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "HEGGEM",
     "votoFCL": "6.5",
@@ -2975,6 +3094,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "HOLM",
     "votoFCL": "6.5",
@@ -3000,6 +3120,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "LUCUMI",
     "votoFCL": "6.5",
@@ -3025,6 +3146,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "MIRANDA",
     "votoFCL": "7.0",
@@ -3050,6 +3172,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "FABBIAN",
     "votoFCL": "6.0",
@@ -3075,6 +3198,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "FREULER",
     "votoFCL": "5.5",
@@ -3100,6 +3224,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "MORO NI.",
     "votoFCL": "6.0",
@@ -3125,6 +3250,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "POBEGA",
     "votoFCL": "6.5",
@@ -3150,6 +3276,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ROWE",
     "votoFCL": "6.5",
@@ -3175,6 +3302,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "BERNARDESCHI",
     "votoFCL": "",
@@ -3200,6 +3328,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "CAMBIAGHI",
     "votoFCL": "6.5",
@@ -3225,6 +3354,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "CASTRO",
     "votoFCL": "7.5",
@@ -3250,6 +3380,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "DALLINGA",
     "votoFCL": "6.0",
@@ -3275,6 +3406,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ODGAARD",
     "votoFCL": "5.5",
@@ -3300,6 +3432,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ORSOLINI",
     "votoFCL": "6.5",
@@ -3325,6 +3458,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Parma - Bologna",
     "nome": "ITALIANO",
     "votoFCL": "7.0",
@@ -3350,6 +3484,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "DE GEA",
     "votoFCL": "6.0",
@@ -3375,6 +3510,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "COMUZZO",
     "votoFCL": "5.5",
@@ -3400,6 +3536,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "DODO",
     "votoFCL": "5.5",
@@ -3425,6 +3562,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "FORTINI",
     "votoFCL": "6.0",
@@ -3450,6 +3588,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "PONGRACIC",
     "votoFCL": "5.5",
@@ -3475,6 +3614,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "RANIERI",
     "votoFCL": "5.5",
@@ -3500,6 +3640,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "FAGIOLI",
     "votoFCL": "5.0",
@@ -3525,6 +3666,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "FAZZINI",
     "votoFCL": "5.5",
@@ -3550,6 +3692,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "MANDRAGORA",
     "votoFCL": "6.0",
@@ -3575,6 +3718,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "NDOUR",
     "votoFCL": "4.5",
@@ -3600,6 +3744,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "NICOLUSSI CAVIGLIA",
     "votoFCL": "5.5",
@@ -3625,6 +3770,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "SOHM",
     "votoFCL": "5.5",
@@ -3650,6 +3796,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "DZEKO",
     "votoFCL": "5.0",
@@ -3675,6 +3822,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "GUDMUNDSSON",
     "votoFCL": "5.5",
@@ -3700,6 +3848,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "KEAN",
     "votoFCL": "5.5",
@@ -3725,6 +3874,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "PICCOLI",
     "votoFCL": "5.5",
@@ -3750,6 +3900,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "PIOLI",
     "votoFCL": "5.5",
@@ -3775,6 +3926,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "FALCONE",
     "votoFCL": "6.5",
@@ -3800,6 +3952,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "GALLO",
     "votoFCL": "6.0",
@@ -3825,6 +3978,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "GASPAR",
     "votoFCL": "6.5",
@@ -3850,6 +4004,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "TIAGO GABRIEL",
     "votoFCL": "6.5",
@@ -3875,6 +4030,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "VEIGA",
     "votoFCL": "6.5",
@@ -3900,6 +4056,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "BERISHA",
     "votoFCL": "7.5",
@@ -3925,6 +4082,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "COULIBALY LA.",
     "votoFCL": "6.5",
@@ -3950,6 +4108,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "KABA",
     "votoFCL": "",
@@ -3975,6 +4134,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "MALEH",
     "votoFCL": "5.5",
@@ -4000,6 +4160,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "RAMADANI",
     "votoFCL": "6.5",
@@ -4025,6 +4186,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "BANDA",
     "votoFCL": "5.5",
@@ -4050,6 +4212,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "CAMARDA",
     "votoFCL": "",
@@ -4075,6 +4238,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "MORENTE TE.",
     "votoFCL": "6.0",
@@ -4100,6 +4264,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "PIEROTTI",
     "votoFCL": "5.5",
@@ -4125,6 +4290,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "STULIC",
     "votoFCL": "5.5",
@@ -4150,6 +4316,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Fiorentina - Lecce",
     "nome": "DI FRANCESCO",
     "votoFCL": "7.0",
@@ -4175,6 +4342,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "PALEARI",
     "votoFCL": "6.0",
@@ -4200,6 +4368,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "BIRAGHI",
     "votoFCL": "6.0",
@@ -4225,6 +4394,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "COCO",
     "votoFCL": "5.5",
@@ -4250,6 +4420,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "ISMAJLI",
     "votoFCL": "5.5",
@@ -4275,6 +4446,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "MARIPAN",
     "votoFCL": "5.5",
@@ -4300,6 +4472,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "CASADEI",
     "votoFCL": "5.5",
@@ -4325,6 +4498,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "GINEITIS",
     "votoFCL": "6.0",
@@ -4350,6 +4524,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "ILIC IV.",
     "votoFCL": "6.0",
@@ -4375,6 +4550,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "LAZARO",
     "votoFCL": "5.5",
@@ -4400,6 +4576,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "PEDERSEN",
     "votoFCL": "6.0",
@@ -4425,6 +4602,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "TAMEZE",
     "votoFCL": "6.0",
@@ -4450,6 +4628,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "VLASIC",
     "votoFCL": "5.5",
@@ -4475,6 +4654,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "ADAMS",
     "votoFCL": "7.0",
@@ -4500,6 +4680,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "NGONGE",
     "votoFCL": "5.5",
@@ -4525,6 +4706,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "SIMEONE",
     "votoFCL": "7.0",
@@ -4550,6 +4732,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "ZAPATA",
     "votoFCL": "5.5",
@@ -4575,6 +4758,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "BARONI",
     "votoFCL": "6.0",
@@ -4600,6 +4784,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "SEMPER",
     "votoFCL": "6.0",
@@ -4625,6 +4810,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "ANGORI",
     "votoFCL": "6.0",
@@ -4650,6 +4836,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "CALABRESI",
     "votoFCL": "6.0",
@@ -4675,6 +4862,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "CANESTRELLI",
     "votoFCL": "6.0",
@@ -4700,6 +4888,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "CARACCIOLO",
     "votoFCL": "6.0",
@@ -4725,6 +4914,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "AEBISCHER",
     "votoFCL": "6.0",
@@ -4750,6 +4940,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "AKINSANMIRO",
     "votoFCL": "6.5",
@@ -4775,6 +4966,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "CUADRADO",
     "votoFCL": "",
@@ -4800,6 +4992,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "HOJHOLT",
     "votoFCL": "5.5",
@@ -4825,6 +5018,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "MARIN MA.",
     "votoFCL": "",
@@ -4850,6 +5044,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "TOURE ID.",
     "votoFCL": "5.5",
@@ -4875,6 +5070,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "VURAL",
     "votoFCL": "6.0",
@@ -4900,6 +5096,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "LERIS",
     "votoFCL": "6.0",
@@ -4925,6 +5122,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "MEISTER",
     "votoFCL": "6.0",
@@ -4950,6 +5148,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "MOREO",
     "votoFCL": "7.5",
@@ -4975,6 +5174,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "N'ZOLA",
     "votoFCL": "5.5",
@@ -5000,6 +5200,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Torino - Pisa",
     "nome": "GILARDINO",
     "votoFCL": "6.0",
@@ -5025,6 +5226,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "MONTIPO",
     "votoFCL": "6.0",
@@ -5050,6 +5252,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BELGHALI",
     "votoFCL": "6.0",
@@ -5075,6 +5278,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BELLA-KOTCHAP",
     "votoFCL": "5.5",
@@ -5100,6 +5304,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BRADARIC",
     "votoFCL": "5.5",
@@ -5125,6 +5330,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "FRESE",
     "votoFCL": "5.0",
@@ -5150,6 +5356,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "NELSSON",
     "votoFCL": "6.0",
@@ -5175,6 +5382,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "AKPA AKPRO",
     "votoFCL": "6.0",
@@ -5200,6 +5408,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BERNEDE",
     "votoFCL": "5.5",
@@ -5225,6 +5434,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "GAGLIARDINI",
     "votoFCL": "6.0",
@@ -5250,6 +5460,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "HARROUI",
     "votoFCL": "",
@@ -5275,6 +5486,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "NIASSE",
     "votoFCL": "5.5",
@@ -5300,6 +5512,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "GIOVANE",
     "votoFCL": "7.0",
@@ -5325,6 +5538,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "MOSQUERA",
     "votoFCL": "5.5",
@@ -5350,6 +5564,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "ORBAN",
     "votoFCL": "6.0",
@@ -5375,6 +5590,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "SARR AM.",
     "votoFCL": "5.5",
@@ -5400,6 +5616,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "ZANETTI",
     "votoFCL": "6.0",
@@ -5425,6 +5642,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "SOMMER",
     "votoFCL": "6.5",
@@ -5450,6 +5668,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "AKANJI",
     "votoFCL": "6.0",
@@ -5475,6 +5694,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BASTONI",
     "votoFCL": "6.0",
@@ -5500,6 +5720,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BISSECK",
     "votoFCL": "6.0",
@@ -5525,6 +5746,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "CARLOS AUGUSTO",
     "votoFCL": "5.5",
@@ -5550,6 +5772,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "DIMARCO",
     "votoFCL": "6.0",
@@ -5575,6 +5798,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "DUMFRIES",
     "votoFCL": "6.0",
@@ -5600,6 +5824,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BARELLA",
     "votoFCL": "6.0",
@@ -5625,6 +5850,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "CALHANOGLU",
     "votoFCL": "6.5",
@@ -5650,6 +5876,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "FRATTESI",
     "votoFCL": "",
@@ -5675,6 +5902,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "LUIS HENRIQUE",
     "votoFCL": "5.5",
@@ -5700,6 +5928,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "SUCIC",
     "votoFCL": "6.0",
@@ -5725,6 +5954,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "ZIELINSKI",
     "votoFCL": "7.0",
@@ -5750,6 +5980,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "BONNY",
     "votoFCL": "5.5",
@@ -5775,6 +6006,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "ESPOSITO PIO",
     "votoFCL": "5.5",
@@ -5800,6 +6032,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "MARTINEZ LA.",
     "votoFCL": "5.5",
@@ -5825,6 +6058,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Verona - Inter",
     "nome": "CHIVU",
     "votoFCL": "6.5",
@@ -5850,6 +6084,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "AUDERO",
     "votoFCL": "6.0",
@@ -5875,6 +6110,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "BARBIERI",
     "votoFCL": "5.5",
@@ -5900,6 +6136,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "BASCHIROTTO",
     "votoFCL": "5.5",
@@ -5925,6 +6162,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "BIANCHETTI",
     "votoFCL": "5.5",
@@ -5950,6 +6188,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "FAYE",
     "votoFCL": "6.0",
@@ -5975,6 +6214,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "FLORIANI",
     "votoFCL": "5.5",
@@ -6000,6 +6240,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "TERRACCIANO FI.",
     "votoFCL": "4.5",
@@ -6025,6 +6266,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "BONDO",
     "votoFCL": "5.5",
@@ -6050,6 +6292,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "PAYERO",
     "votoFCL": "5.5",
@@ -6075,6 +6318,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "SARMIENTO",
     "votoFCL": "5.5",
@@ -6100,6 +6344,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "VANDEPUTTE",
     "votoFCL": "5.0",
@@ -6125,6 +6370,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "VAZQUEZ",
     "votoFCL": "6.0",
@@ -6150,6 +6396,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "BONAZZOLI",
     "votoFCL": "5.5",
@@ -6175,6 +6422,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "JOHNSEN",
     "votoFCL": "5.5",
@@ -6200,6 +6448,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "VARDY",
     "votoFCL": "6.5",
@@ -6225,6 +6474,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "NICOLA",
     "votoFCL": "5.5",
@@ -6250,6 +6500,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "DI GREGORIO",
     "votoFCL": "6.5",
@@ -6275,6 +6526,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "CAMBIASO",
     "votoFCL": "7.5",
@@ -6300,6 +6552,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "GATTI",
     "votoFCL": "5.5",
@@ -6325,6 +6578,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "JOAO MARIO",
     "votoFCL": "6.0",
@@ -6350,6 +6604,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "KALULU",
     "votoFCL": "6.0",
@@ -6375,6 +6630,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "RUGANI",
     "votoFCL": "",
@@ -6400,6 +6656,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "ADZIC",
     "votoFCL": "6.0",
@@ -6425,6 +6682,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "CONCEICAO",
     "votoFCL": "6.0",
@@ -6450,6 +6708,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "KOOPMEINERS",
     "votoFCL": "6.0",
@@ -6475,6 +6734,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "KOSTIC",
     "votoFCL": "7.5",
@@ -6500,6 +6760,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "LOCATELLI",
     "votoFCL": "7.0",
@@ -6525,6 +6786,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "MCKENNIE",
     "votoFCL": "6.5",
@@ -6550,6 +6812,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "THURAM KHE.",
     "votoFCL": "6.0",
@@ -6575,6 +6838,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "DAVID",
     "votoFCL": "",
@@ -6600,6 +6864,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "OPENDA",
     "votoFCL": "5.5",
@@ -6625,6 +6890,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "VLAHOVIC",
     "votoFCL": "6.0",
@@ -6650,6 +6916,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Cremonese - Juventus",
     "nome": "SPALLETTI",
     "votoFCL": "7.0",
@@ -6675,6 +6942,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "MILINKOVIC SAVIC",
     "votoFCL": "6.5",
@@ -6700,6 +6968,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "BUONGIORNO",
     "votoFCL": "6.5",
@@ -6725,6 +6994,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "DI LORENZO",
     "votoFCL": "6.0",
@@ -6750,6 +7020,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "GUTIERREZ",
     "votoFCL": "6.0",
@@ -6775,6 +7046,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "RRAHMANI",
     "votoFCL": "6.5",
@@ -6800,6 +7072,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "SPINAZZOLA",
     "votoFCL": "5.5",
@@ -6825,6 +7098,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "ANGUISSA",
     "votoFCL": "6.0",
@@ -6850,6 +7124,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "ELMAS",
     "votoFCL": "6.0",
@@ -6875,6 +7150,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "GILMOUR",
     "votoFCL": "6.0",
@@ -6900,6 +7176,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "LOBOTKA",
     "votoFCL": "",
@@ -6925,6 +7202,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "MCTOMINAY",
     "votoFCL": "6.5",
@@ -6950,6 +7228,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "HOJLUND",
     "votoFCL": "6.0",
@@ -6975,6 +7254,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "LANG",
     "votoFCL": "6.0",
@@ -7000,6 +7280,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "LUCCA",
     "votoFCL": "",
@@ -7025,6 +7306,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "NERES",
     "votoFCL": "5.5",
@@ -7050,6 +7332,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "POLITANO",
     "votoFCL": "6.0",
@@ -7075,6 +7358,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "CONTE",
     "votoFCL": "6.0",
@@ -7100,6 +7384,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "BUTEZ",
     "votoFCL": "7.0",
@@ -7125,6 +7410,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "DIEGO CARLOS",
     "votoFCL": "6.0",
@@ -7150,6 +7436,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "KEMPF",
     "votoFCL": "",
@@ -7175,6 +7462,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "POSCH",
     "votoFCL": "5.5",
@@ -7200,6 +7488,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "RAMON",
     "votoFCL": "6.0",
@@ -7225,6 +7514,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "SMOLCIC",
     "votoFCL": "5.5",
@@ -7250,6 +7540,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "VALLE",
     "votoFCL": "6.0",
@@ -7275,6 +7566,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "ADDAI",
     "votoFCL": "5.5",
@@ -7300,6 +7592,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "CAQUERET",
     "votoFCL": "6.0",
@@ -7325,6 +7618,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "DA CUNHA",
     "votoFCL": "6.0",
@@ -7350,6 +7644,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "NICO PAZ",
     "votoFCL": "6.0",
@@ -7375,6 +7670,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "PERRONE",
     "votoFCL": "6.0",
@@ -7400,6 +7696,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "DIAO",
     "votoFCL": "6.0",
@@ -7425,6 +7722,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "DOUVIKAS",
     "votoFCL": "",
@@ -7450,6 +7748,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "MORATA",
     "votoFCL": "5.5",
@@ -7475,6 +7774,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "RODRIGUEZ JE.",
     "votoFCL": "",
@@ -7500,6 +7800,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Napoli - Como",
     "nome": "FABREGAS",
     "votoFCL": "6.0",
@@ -7525,6 +7826,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "OKOYE",
     "votoFCL": "6.0",
@@ -7550,6 +7852,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "BERTOLA",
     "votoFCL": "6.5",
@@ -7575,6 +7878,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "EHIZIBUE",
     "votoFCL": "6.0",
@@ -7600,6 +7904,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "KABASELE",
     "votoFCL": "6.5",
@@ -7625,6 +7930,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "KAMARA",
     "votoFCL": "6.5",
@@ -7650,6 +7956,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "PALMA",
     "votoFCL": "6.0",
@@ -7675,6 +7982,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "SOLET",
     "votoFCL": "6.5",
@@ -7700,6 +8008,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ZANOLI",
     "votoFCL": "6.0",
@@ -7725,6 +8034,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ATTA",
     "votoFCL": "6.5",
@@ -7750,6 +8060,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "EKKELENKAMP",
     "votoFCL": "5.5",
@@ -7775,6 +8086,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "KARLSTROM",
     "votoFCL": "6.5",
@@ -7800,6 +8112,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "PIOTROWSKI",
     "votoFCL": "6.0",
@@ -7825,6 +8138,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ZANIOLO",
     "votoFCL": "7.5",
@@ -7850,6 +8164,7 @@
     "goaldecisivovittoria": 1
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ZARRAGA",
     "votoFCL": "",
@@ -7875,6 +8190,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "BAYO",
     "votoFCL": "5.5",
@@ -7900,6 +8216,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "BUKSA",
     "votoFCL": "5.5",
@@ -7925,6 +8242,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "RUNJAIC",
     "votoFCL": "7.0",
@@ -7950,6 +8268,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "CARNESECCHI",
     "votoFCL": "6.0",
@@ -7975,6 +8294,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "BELLANOVA",
     "votoFCL": "5.5",
@@ -8000,6 +8320,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "DJIMSITI",
     "votoFCL": "5.5",
@@ -8025,6 +8346,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "HIEN",
     "votoFCL": "6.0",
@@ -8050,6 +8372,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "KOSSOUNOU",
     "votoFCL": "5.5",
@@ -8075,6 +8398,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ZAPPACOSTA",
     "votoFCL": "6.0",
@@ -8100,6 +8424,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "BRESCIANINI",
     "votoFCL": "",
@@ -8125,6 +8450,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "DE KETELAERE",
     "votoFCL": "5.5",
@@ -8150,6 +8476,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "EDERSON",
     "votoFCL": "5.5",
@@ -8175,6 +8502,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "PASALIC",
     "votoFCL": "5.5",
@@ -8200,6 +8528,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "SAMARDZIC",
     "votoFCL": "5.5",
@@ -8225,6 +8554,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "ZALEWSKI",
     "votoFCL": "5.5",
@@ -8250,6 +8580,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "KRSTOVIC",
     "votoFCL": "5.5",
@@ -8275,6 +8606,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "LOOKMAN",
     "votoFCL": "5.5",
@@ -8300,6 +8632,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "SCAMACCA",
     "votoFCL": "5.0",
@@ -8325,6 +8658,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "SULEMANA KA.",
     "votoFCL": "5.0",
@@ -8350,6 +8684,7 @@
     "goaldecisivovittoria": 0
   },
   {
+    "giornata": 10,
     "partita": "Udinese - Atalanta",
     "nome": "JURIC",
     "votoFCL": "5.5",

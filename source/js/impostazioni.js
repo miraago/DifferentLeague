@@ -55,6 +55,6 @@ export const IMPOSTAZIONI = {
     NUMERO_GIORNATE: 38,
   },
   GIORNATAATTUALE: {
-    giornata: 31,
+    giornata: 32,
   },
 };

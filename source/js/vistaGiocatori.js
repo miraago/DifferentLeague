@@ -23,17 +23,15 @@ export function stampaListaGiocatori(
     cbAzzeraFiltri();
   }
   TAG_H2.dataset.action = "apri-lista-giocatori";
-  TAG_H2.textContent = "LISTA GIOCATORI";
+  //TAG_H2.textContent = "LISTA GIOCATORI";
 
   //creiamo i filtri per la pagina giocatori
   cbCreaFiltriPaginaGiocatoriSeMancante();
   cbAzzeraTabelle();
 
   // console.log("Stampa lista giocatori in corso...");
-
-  creaTabellaGiocatori(cbApplicaFiltriGiocatori);
-
-
+  const arrayDaStampare = cbApplicaFiltriGiocatori();
+  creaTabellaGiocatori(arrayDaStampare, "Lista Giocatori");
 }
 
 export function stampaListaAppartenenze(
@@ -198,7 +196,7 @@ export function stampaListaSvincolati(
 
   cbAzzeraTabelle();
 
-  const arrayFiltrato = cbApplicaFiltriGiocatori();
+  let arrayFiltrato = cbApplicaFiltriGiocatori();
 
   /************************************PRENDIAMO IL RIFERIMENTO ALLA SQUADRA LOGGATA
    * SE LA SQUADRA LOGGATA HA UN GIOCATORE DALLA LISTA SVINCOLATI, LO ESCLUDIAMO
@@ -207,6 +205,7 @@ export function stampaListaSvincolati(
     return presidenteCorrente.getNomeRosa == SQUADRA_UTENTE;
   });
   //presidenteLoggato è il riferimento al presidente
+
   let arrayGiocatoriPresidente = [];
   presidenteLoggato.getTuttiGliSlot.forEach((giocatoreCorrente) => {
     if (giocatoreCorrente != null) {
@@ -215,71 +214,19 @@ export function stampaListaSvincolati(
   });
   //********************************************************************************** */
 
-  let rigaHTML = ""; //azzeriamo la riga che andremo ad inserire successivamente nel body
-
-  let contaGiocatori = 0; //contatore giocatori
-
-  arrayFiltrato.forEach((pl) => {
+  let arrayFiltratoSoloSvincolati = [];
+  arrayFiltrato.forEach((giocatoreCorrente) => {
     if (
-      pl.getCopieDisponibili > 0 &&
-      pl.getFuoriLista == false &&
-      !arrayGiocatoriPresidente.includes(pl)
+      //se c'è almeno una copia disponibile e non è un fuori lista e non è presente nella squadra loggata puoi salvare
+      giocatoreCorrente.getCopieDisponibili > 0 &&
+      giocatoreCorrente.getFuoriLista == false &&
+      !arrayGiocatoriPresidente.includes(giocatoreCorrente)
     ) {
-      //se c'è almeno una copia disponibile e non è un fuori lista e non è presente nella squadra loggata puoi stampare
-
-      rigaHTML += `<tr data-nome="${pl.getNome}" data-squadra="${pl.getSquadraDiAppartenenza}">
-          <td><span class="${pl.getRuolo}">${pl.getRuolo}</span></td>
-          <td data-name="${pl.getNome}">${pl.getNome}</td>`;
-      rigaHTML +=
-        pl.getSquadraDiAppartenenza == ""
-          ? "<td></td>"
-          : `<td class="squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${pl.getSquadraDiAppartenenza.toLowerCase()}.png"/> ${toCapitalize(pl.getSquadraDiAppartenenza)}</td>`;
-      rigaHTML += `          
-          <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${pl.getQuotazione}</td>
-          <td>${pl.getPresenze}</td>
-          <td>${pl.getMv}</td>
-          <td>${pl.getFvm}</td>
-          <td>${pl.getGoalTotali}</td>
-          <td>${pl.getAssistTotali}</td>
-          <td>${pl.getSommaBonusMalus}</td>
-          <td>${pl.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${pl.getCopieDisponibili}</td>
-          
-        </tr>`;
-      contaGiocatori++;
+      arrayFiltratoSoloSvincolati.push(giocatoreCorrente);
     }
   });
-  TAG_H2.textContent = `LISTA GIOCATORI SVINCOLATI- Giocatori caricati ${contaGiocatori}`;
-  if (contaGiocatori > 0) {
-    const theadTemp = `
-      <tr class="intestazione-colonne">
-      <th>Ruolo</th>
-      <th>Nome</th>
-      <th>Squadra</th>
-      <th>Quotazione</th>
-      <th>Presenze</th>
-      <th>MV</th>
-      <th>FVM</th>
-      <th>Goal</th>
-      <th>Assist</th>
-      <th>Somma Bonus/Malus</th>
-      <th>Posseduto</th>
-      
-      </tr>`;
-    //per ogni ruolo creiamo una tabella
-    const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
-    const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
-    TAG_THEAD.innerHTML = theadTemp;
-    const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
 
-    containerTable.appendChild(TAG_TABLE); //aggiungiamo la tabella nel contenitore passato
-    TAG_TBODY.innerHTML = rigaHTML; //inseriamo il contenuto del tbody
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
-  } else {
-    containerTable.textContent =
-      "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
-  }
-
-  //console.log("Stampa lista svincolaticompletata.");
+  creaTabellaGiocatori(arrayFiltratoSoloSvincolati, "Lista Svincolati");
 }
 
 function gestisciClickRigaGiocatore(e) {
@@ -334,6 +281,7 @@ export function popupStatisticheGiocatore(giocatore) {
 
     //costruiamo la tabella
     tabella = `<table>
+                  <caption> Squadre che posseggono ${giocatore.getNome}</caption>
                   <thead>
                     <th>Squadra</th>
                     <th>Campionato</th>
@@ -352,9 +300,11 @@ export function popupStatisticheGiocatore(giocatore) {
     <div>
       <div class="x"> X </div>
       <div class="container-info-giocatore">
-      <div class="campo-ruolo"><span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
+      <div class="campo-ruolo">
+        <span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
       <div class="campo-nome">${giocatore.getNome}</div>
-      <div class="campo-squadra"><img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png" class="icona-statistiche" title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
+      <div class="campo-squadra">
+        <img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png" class="icona-statistiche" title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
     </div>
 
     <div class="container-statistiche-giocatore">
@@ -374,7 +324,7 @@ export function popupStatisticheGiocatore(giocatore) {
       </div>
 
       <div class="campo">
-         <div class="valore">${giocatore.getRuolo != "P" ?giocatore.getAssistTotali : giocatore.getRigoriParatiTotali}</div>
+         <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getAssistTotali : giocatore.getRigoriParatiTotali}</div>
          <div class="etichetta">${giocatore.getRuolo != "P" ? "Assist" : "Rigori Parati"}</div>          
       </div>
     </div>
@@ -393,12 +343,31 @@ export function popupStatisticheGiocatore(giocatore) {
       
       
       <hr></hr>
+      <div class="container-statistiche-giocatore">
+      <div class="campo">
+        <div class="valore">${giocatore.getPresenzeUltime5}</div>
+        <div class="etichetta">Presenze ultime 5</div>
+      </div>
       
+      <div class="campo">
+        <div class="valore">${giocatore.getMvUltime5}</div>
+        <div class="etichetta">MV ultime 5</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getFvmUltime5}</div>
+        <div class="etichetta">FMV ultime 5</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getSommaBonusMalusUltime5}</div>
+        <div class="etichetta">B/M ultime 5</div>
+      </div>
+      </div>
+    </div>
 
+    <hr></hr>
 
       <div> ${creaTabellaStatistiche(giocatore)}</div>
       <hr></hr>
-      <div> Squadre che lo posseggono </div>
       ${tabella}
     </div>`;
 }
@@ -433,14 +402,14 @@ function creaTabellaStatistiche(giocatore) {
 
   //TH TABELLA STATISTICHE
   const thTabellaStatistiche = `<tr>
-  <th>Gio</th>
-  <th>Part</th>
-  <th>Vt</th>
-  <th>Min Gio</th>
-  <th>Ent</th>
-  <th>Sos</th>  
-  <th>Bon/Mal</th> 
-  <th>Amm/Esp</th>
+  <th title="Giornata di riferimento">Gio</th>
+  <th title="Incontro">Part</th>
+  <th title="Voto Base">Vt</th>
+  <th title="Minuti Giocati">Min Gio</th>
+  <th title="Entrato al minuto">Ent</th>
+  <th title="Sostituito al minuto">Sos</th>  
+  <th title="Bonus Malus">B/</th> 
+  <th title="Ammonizione o Espulsione">Amm/Esp</th>
   </tr>`;
 
   //RIGHE TABELLA STATISTICHE
@@ -483,8 +452,7 @@ function creaTabellaStatistiche(giocatore) {
     if (assist != " ") {
       let tempAssist = "";
       for (let i = 0; i < assist; i++) {
-        tempAssist +=
-          "<img src='Assets/image/imageStatistiche/assist.png' class='icona-statistiche' title='Assist'/>";
+        tempAssist += `<img src='Assets/image/imageStatistiche/assist.png' class='icona-statistiche' title='Assist'/>`;
       }
       assist = tempAssist;
     }
@@ -495,8 +463,7 @@ function creaTabellaStatistiche(giocatore) {
     if (goal != " ") {
       let tempGoal = "";
       for (let i = 0; i < goal; i++) {
-        tempGoal +=
-          "<img src='Assets/image/imageStatistiche/golFatto.png' class='icona-statistiche' title='Goal'/>";
+        tempGoal += `<img src='Assets/image/imageStatistiche/golFatto.png' class='icona-statistiche' title='Goal ${IMPOSTAZIONI.BONUSMALUS.GOAL}'/>`;
       }
       goal = tempGoal;
     }
@@ -621,17 +588,6 @@ function creaTabellaStatistiche(giocatore) {
       goalDecisivoVittoria = tempGoalDecisivoVittoria;
     }
 
-    `<tr>
-  <th>Gio</th>
-  <th>Partita</th>
-  <th>Voto</th>
-  <th>Min Gio</th>
-  <th>Ent</th>
-  <th>Sost</th>  
-  <th>Bon/Mal</th> 
-  <th>Amm/Esp</th>
-  </tr>`;
-
     righeTabellaStatistiche += `<tr>
                         <td> ${giornata}</td> 
                         <td> ${partita}</td>
@@ -640,31 +596,27 @@ function creaTabellaStatistiche(giocatore) {
                         <td> ${entrato}</td>
                         <td> ${sostituito}</td>                      
                         <td> ${autorete}${goalSubiti}${rigoreParato}${imbattuta}${goal}${assist}${rigoreSegnato}${rigoreSbagliato}${goalDecisivoVittoria}</td> 
-                        <td> ${ammonizione}${espulsione}</td>
-                                                     
+                        <td> ${ammonizione}${espulsione}</td>                                                     
                       </tr>`;
   });
 
-  const tabellaStatistiche = `<div>
-  <h3>Statistiche di giornata</h3>
-  <table>
-    <thead>
-      ${thTabellaStatistiche}
-    </thead>
-    <tbody>
-      ${righeTabellaStatistiche}
-    </tbody>
-  </table>
-      
+  const tabellaStatistiche = `<div>  
+    <table>
+      <caption> Statistiche ${giocatore.getNome} </caption>
+      <thead>
+        ${thTabellaStatistiche}
+      </thead>
+      <tbody>
+        ${righeTabellaStatistiche}
+      </tbody>
+    </table>      
   </div>`;
 
   return tabellaStatistiche;
 }
 
-
-function creaTabellaGiocatori(cbApplicaFiltriGiocatori) {
-  const arrayFiltrato = cbApplicaFiltriGiocatori();
-  TAG_H2.textContent = `LISTA GIOCATORI - Giocatori caricati ${arrayFiltrato.length}`;
+function creaTabellaGiocatori(arrayFiltrato, titoloTabella = "Lista") {
+  //TAG_H2.textContent = `${titoloTabella} - Giocatori caricati:  ${arrayFiltrato.length}`;
 
   //SE DOPO I FILTRI APPLICATI C'è ALMENO UN GIOCATORE
   if (arrayFiltrato.length !== 0) {
@@ -703,9 +655,11 @@ function creaTabellaGiocatori(cbApplicaFiltriGiocatori) {
         <td>${p.getMv}</td>
         <td>${p.getFvm}</td>
         <td>${p.getSommaBonusMalus}</td>
+        <td class="colonna-pre5">${p.getPresenzeUltime5}</td>
         <td class="colonna-MV5">${p.getMvUltime5}</td>
         <td class="colonna-FMV5">${p.getFvmUltime5}</td>
         <td class="colonna-BM5">${p.getSommaBonusMalusUltime5}</td>
+        <td class="colonna-possesso">${p.getCopieOccupate}/${IMPOSTAZIONI.REGOLE.MAX_POSSEDUTO} - liberi:${p.getCopieDisponibili}</td>
         ${rigaSquadre}
       </tr>`;
 
@@ -716,6 +670,7 @@ function creaTabellaGiocatori(cbApplicaFiltriGiocatori) {
     //CREAZIONE TABELLA
 
     const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+    const TAG_CAPTION = document.createElement("caption"); //creiamo il titolo della tabella
     const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
     const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
     const thead = `<tr class="intestazione-colonne">
@@ -729,15 +684,19 @@ function creaTabellaGiocatori(cbApplicaFiltriGiocatori) {
         <th title="Media Voto">MV</th>
         <th title="Forma Media Voto">Fmv</th>
         <th title="Somma Bonus/Malus">Sm B/M </th>
-        <th class="colonna-MV5" title="Media Voto Ultime 5">MV 5</th>
-        <th class="colonna-FMV5" title="Fanta Media Voto Ultime 5">FMV 5</th>
-        <th class="colonna-BM5" title="Somma Bonus/Malus Ultime 5">BM 5 </th>
+        <th class="colonna-pre5" title="Presenze ultime 5 giornate"> PRE 5 </th>
+        <th class="colonna-MV5" title="Media Voto Ultime 5 giornate">MV 5</th>
+        <th class="colonna-FMV5" title="Fanta Media Voto Ultime 5 giornate">FMV 5</th>
+        <th class="colonna-BM5" title="Somma Bonus/Malus Ultime 5 giornate">BM 5 </th>
+        <th class="colonna-possesso" title="Squadre che lo posseggono">Posseduto</th>
         </tr>`;
     TAG_THEAD.innerHTML = thead;
 
+    TAG_CAPTION.innerHTML = `${titoloTabella} - Giocatori caricati:  ${arrayFiltrato.length}`;
+
     containerTable.appendChild(TAG_TABLE);
     TAG_TBODY.innerHTML = rigaHTML;
-    TAG_TABLE.append(TAG_THEAD, TAG_TBODY);
+    TAG_TABLE.append(TAG_CAPTION, TAG_THEAD, TAG_TBODY);
   } else {
     containerTable.textContent =
       "⚠ ⚠ ⚠ ... Nessun giocatore corrisponde ai filtri impostati";
