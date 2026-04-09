@@ -39,7 +39,6 @@ import {
   creaFiltroTeam,
   gestisciFiltroGoalMinimi,
   gestisciFiltroAssistMinimi,
-
 } from "./filtri.js";
 
 import { caricaTuttiIDati } from "./caricamentoDati.js";
@@ -47,6 +46,13 @@ import { caricaTuttiIDati } from "./caricamentoDati.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 
 import { toCapitalize } from "./funzioniAgo.js";
+import { gestisciClickNomeGiocatore } from "./popupStatisticheGiocatori.js";
+
+//Ogni click nel main viene catturato e se contiene una riga con un dataset.nome di un giocatore,
+// //compare un popup delle statistiche del giocatore
+document
+  .querySelector("main")
+  .addEventListener("click", gestisciClickNomeGiocatore);
 
 export let player = []; //lista giocatori
 export let acquisti = [];
@@ -308,7 +314,7 @@ function stampaRose() {
           const asterisco = classfuoriLista.length > 1 ? " (*)" : "";
 
           rigaHtml += `
-              <tr ${classfuoriLista}>
+              <tr ${classfuoriLista} data-nome="${toCapitalize(giocatoreCorrente.getDatiGiocatore.getNome)}">
                 <td><span class="${giocatoreCorrente.getDatiGiocatore.getRuolo}">${giocatoreCorrente.getDatiGiocatore.getRuolo}</span></td>
                 <td>${toCapitalize(
                   giocatoreCorrente.getDatiGiocatore.getNome,
@@ -343,6 +349,7 @@ function stampaRose() {
       //CREAZIONI ELEMENTI TABELLA
       //per ogni presifente con almeno un giocatore creiamo una tabella
       const TAG_TABLE = document.createElement("table"); //creazione tabella
+      TAG_TABLE.classList.add("tabella-squadra"); // gestibile nel css listaSquadre.css
       const TAG_TBODY = document.createElement("tbody"); //creazione tbody
       const TAG_THEAD = document.createElement("thead"); //creazione thead
       const TAG_TFOOT = document.createElement("tfoot"); //creazione thead

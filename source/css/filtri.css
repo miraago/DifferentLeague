@@ -65,7 +65,7 @@
   }
 
   & .box-filtro:hover {
-    border-color: 1px solid var(--background_primario);
+    border: 1px solid var(--background_primario);
     color: var(--background_primario);
   }
 
@@ -147,7 +147,6 @@
     color: white;
   }
   select {
-    /* width: 100%; */
     padding: 5px;
     text-align: center;
     font-family: "Barlow Condensed", sans-serif;
@@ -160,8 +159,7 @@
     background: #fff;
     color: #1a2236;
     cursor: pointer;
-    /* appearance: none; */
-    /* -webkit-appearance: none; */
+
     transition:
       border-color 0.2s,
       box-shadow 0.2s;
@@ -177,5 +175,12 @@
     pointer-events: none;
     opacity: 0.5; /* Li fa sembrare "spenti" o grigi */
     filter: grayscale(100%); /* Opzionale: li fa diventare in bianco e nero */
+  }
+}
+
+@media all and (min-width: 900px) {
+  #container-filtri #id-box-team {
+    margin-left: 0;
+    margin-right: 0;
   }
 }

@@ -76,13 +76,13 @@ function creaContainer() {
   containerGiocatori = document.createElement("section");
   containerGiocatori.id = "container-giocatori";
   vistaMercato.append(containerGiocatori);
-  containerGiocatori.innerHTML = `<h2> LISTA GIOCATORI ${SQUADRA_UTENTE} </h2>`;
+  containerGiocatori.innerHTML = `<h3> LISTA GIOCATORI ${SQUADRA_UTENTE} </h3>`;
 
   //contenitore riepilogo
   containerRiepilogo = document.createElement("section");
   containerRiepilogo.id = "container-riepilogo";
   vistaMercato.append(containerRiepilogo);
-  containerRiepilogo.innerHTML = `<h3> Riepilogo Mercato </h2>`;
+  containerRiepilogo.innerHTML = `<h3> Riepilogo Mercato ${SQUADRA_UTENTE}</h2>`;
 }
 
 export function mercatoSvincola(
@@ -165,32 +165,32 @@ function creaCardGiocatore(giocatore, index) {
         </div>
         <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
 
-  //2)box contenitore statistiche
-  const inCardBoxStatistiche = document.createElement("div");
-  inCardBoxStatistiche.classList.add("in-card-box-statistiche");
+  // //2)box contenitore statistiche
+  // const inCardBoxStatistiche = document.createElement("div");
+  // inCardBoxStatistiche.classList.add("in-card-box-statistiche");
 
-  //2A interno contenitore statistiche
-  inCardBoxStatistiche.innerHTML = `<div class="presenze, statistica">              
-          <div class="valore">${giocatore.getDatiGiocatore.getPresenze}</div>
-          <div class="etichetta"> Presenze </div>
-        </div>
-        <div class="quotazione, statistica">              
-          <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
-          <div class="etichetta"> Quotazione </div>
-        </div>
-        <div class="media-voto, statistica">              
-          <div class="valore">${giocatore.getDatiGiocatore.getMv}</div>
-          <div class="etichetta"> M.V.</div>
-        </div>
-        <div class="fanta-media-voto, statistica">              
-          <div class="valore">${giocatore.getDatiGiocatore.getFvm}</div>
-          <div class="etichetta"> F.M.V.</div>
-        </div>
-        <div class="prezzo-pagato, statistica">              
-          <div class="valore">${giocatore.getCostoDiAcquisto}</div>
-          <div class="etichetta"> Costo Pagato</div>
-        </div>                  
-      </div>`;
+  // //2A interno contenitore statistiche
+  // inCardBoxStatistiche.innerHTML = `<div class="presenze, statistica">
+  //         <div class="valore">${giocatore.getDatiGiocatore.getPresenze}</div>
+  //         <div class="etichetta"> Presenze </div>
+  //       </div>
+  //       <div class="quotazione, statistica">
+  //         <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
+  //         <div class="etichetta"> Quotazione </div>
+  //       </div>
+  //       <div class="media-voto, statistica">
+  //         <div class="valore">${giocatore.getDatiGiocatore.getMv}</div>
+  //         <div class="etichetta"> M.V.</div>
+  //       </div>
+  //       <div class="fanta-media-voto, statistica">
+  //         <div class="valore">${giocatore.getDatiGiocatore.getFvm}</div>
+  //         <div class="etichetta"> F.M.V.</div>
+  //       </div>
+  //       <div class="prezzo-pagato, statistica">
+  //         <div class="valore">${giocatore.getCostoDiAcquisto}</div>
+  //         <div class="etichetta"> Pagato</div>
+  //       </div>
+  //     </div>`;
 
   //3)box contenitore a destra
   const inCardBoxDx = document.createElement("div");
@@ -199,7 +199,7 @@ function creaCardGiocatore(giocatore, index) {
   //3A interno contenitore destra
   inCardBoxDx.innerHTML = `<div class="costo-cessione">              
           <div class="valore"> + ${valoreCard}</div>
-          <div class="etichetta"> Costo Cessione</div>
+          <div class="etichetta"> Cessione</div>
         </div>`;
 
   //4) box contenitore pulsanti o icone
@@ -207,13 +207,13 @@ function creaCardGiocatore(giocatore, index) {
   inCardBoxIcone.classList.add("in-card-box-icone");
 
   //4A interno contenitore icone o pulsanti
-  inCardBoxIcone.innerHTML = `<div class="bottone-svincola">Svincola</div>
-        <div class="bottone-promessa">Promessa</div>
+  inCardBoxIcone.innerHTML = `<div class="bottone-svincola"><img src="Assets/image/icona-bidone.png" title="SVINCOLA DEFINITIVAMENTE" alt="svincola"/></div>
+        <div class="bottone-promessa"><img src="Assets/image/icona-promessa.png" title="PROMETTI DI SVINCOLARE SE VINCI LA BUSTA" alt="PROMETTI"/></div>
         <div class="bottone-annulla">❌</div>`;
 
   //5 inseriamo il contenuto nella card
   tagCard.append(inCardBoxSx);
-  tagCard.append(inCardBoxStatistiche);
+  // tagCard.append(inCardBoxStatistiche);
   tagCard.append(inCardBoxDx);
   tagCard.append(inCardBoxIcone);
 
