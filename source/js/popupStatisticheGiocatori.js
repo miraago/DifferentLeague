@@ -70,15 +70,20 @@ function popupStatisticheGiocatore(giocatore) {
   }
 
   popupStatistiche.innerHTML = `
+  <div class="x"> X </div>
     <div>
-      <div class="x"> X </div>
+      
       <div class="container-info-giocatore">
-      <div class="campo-ruolo">
-        <span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
-      <div class="campo-nome">${giocatore.getNome}</div>
-      <div class="campo-squadra">
-        <img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png" class="icona-statistiche" title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
-    </div>
+        <div class="campo-nome">${giocatore.getNome}</div>
+        <div>
+          <div class="campo-ruolo">
+          <span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
+        
+          <div class="campo-squadra">
+          <img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png"  title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
+      
+        </div>
+      </div>
 
     <div class="container-statistiche-giocatore">
       <div class="campo">
@@ -139,7 +144,7 @@ function popupStatisticheGiocatore(giocatore) {
 
     <hr></hr>
 
-      <div> ${creaTabellaStatistiche(giocatore)}</div>
+      ${creaTabellaStatistiche(giocatore)}
       <hr></hr>
       ${tabella}
     </div>`;
@@ -191,13 +196,15 @@ function creaTabellaStatistiche(giocatore) {
 
     let minuti =
       statisticaCorrente.getMinutiGiocati != 0
-        ? statisticaCorrente.getMinutiGiocati
+        ? statisticaCorrente.getMinutiGiocati + "'"
         : " ";
     let entrato =
-      statisticaCorrente.getEntrato != 0 ? statisticaCorrente.getEntrato : " ";
+      statisticaCorrente.getEntrato != 0
+        ? statisticaCorrente.getEntrato + "'"
+        : " ";
     let sostituito =
       statisticaCorrente.getSostituito != 0
-        ? statisticaCorrente.getSostituito
+        ? statisticaCorrente.getSostituito + "'"
         : " ";
     let voto =
       statisticaCorrente.getVotoFC_L != 0
@@ -386,5 +393,9 @@ function nomeToGiocatore(nomeGiocatore) {
   const giocatoreTrovato = player.find((giocatoreCorrente) => {
     return giocatoreCorrente.getNome == nomeGiocatore;
   });
+  if (!giocatoreTrovato) {
+    return;
+  }
+
   return giocatoreTrovato;
 }

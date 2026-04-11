@@ -22,7 +22,6 @@ export function stampaListaGiocatori(
     cbAzzeraFiltri();
   }
   TAG_H2.dataset.action = "apri-lista-giocatori";
-  //TAG_H2.textContent = "LISTA GIOCATORI";
 
   //creiamo i filtri per la pagina giocatori
   cbCreaFiltriPaginaGiocatoriSeMancante();
@@ -142,6 +141,7 @@ export function stampaListaAppartenenze(
 
   //creiamo una tabella
   const TAG_TABLE = document.createElement("table");
+  TAG_TABLE.classList.add("tabella-giocatori");
   const TAG_THEAD = document.createElement("thead");
   const TAG_TBODY = document.createElement("tbody");
 
@@ -283,6 +283,7 @@ function creaTabellaGiocatori(arrayFiltrato, titoloTabella = "Lista") {
     //CREAZIONE TABELLA
 
     const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+    TAG_TABLE.classList.add("tabella-giocatori");
     const TAG_CAPTION = document.createElement("caption"); //creiamo il titolo della tabella
     const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
     const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody

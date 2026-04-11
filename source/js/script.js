@@ -218,11 +218,13 @@ function stampaInfoSquadre() {
     //costruiamo la riga con tutte le squadre
     //per ogni squadra  salviamo una riga con i dati che ci servono
     //cioè Nome squadra | Nome presidente | crediti Residui
+    const campionato = toCapitalize(teamsAttuale.getCampionatoDiAppartenenza);
+    const immagineCampionato = `./Assets/image/logo_leghe/Logo_${campionato.toLowerCase().replace(" ", "_")}.png`;
     tbody += `
         <tr>
         <td>${toCapitalize(teamsAttuale.getNomeRosa)}</td>
         <td>${toCapitalize(teamsAttuale.getNomePresidente)}</td>
-        <td>${toCapitalize(teamsAttuale.getCampionatoDiAppartenenza)}</td>
+        <td><img src="${immagineCampionato}"/>${campionato}</td>
         <td>${teamsAttuale.getCreditiResidui}</td>
         <td>${teamsAttuale.getValoreRosa}</td>
         <td>${teamsAttuale.getCreditiSpesi}</td>
@@ -248,25 +250,28 @@ function stampaInfoSquadre() {
 
   //creare la tabella, thead, tbody
   const TAG_TABLE = document.createElement("table"); //creiamo l'elemento table
+  TAG_TABLE.classList.add("tabella-info-squadre");
+  const TAG_CAPTION = document.createElement("caption");
+  TAG_CAPTION.innerText = "Informazioni squadre";
   const TAG_THEAD = document.createElement("thead"); //creiamo l'elemento thead
   const TAG_TBODY = document.createElement("tbody"); //creiamo l'elemento tbody
   TAG_TBODY.innerHTML = tbody;
   TAG_THEAD.innerHTML = `
         <tr class="intestazione-colonne">
-          <th>Squadra</th>
-          <th>Nome Presidente</th>
-          <th>Lega di Appartenenza </th>
-          <th>Crediti Residui</th>
-          <th>Valore Rosa</th>
-          <th>Crediti Spesi</th>
-          <th>P</th>
-          <th>D</th>
-          <th>C</th>
-          <th>A</th>
+          <th title="nome Squadra">Squ.</th>
+          <th title="nome Presidente">Pres.</th>
+          <th title="Lega di Appartenenza">Lega </th>
+          <th title="Crediti Residui">C.R.</th>
+          <th title="Valore Rosa">V.R.</th>
+          <th title="Crediti Spesi">C.S.</th>
+          <th title="Portieri in rosa">P</th>
+          <th title="Difensori in rosa">D</th>
+          <th title="Centrocampisti in rosa">C</th>
+          <th title="Attaccanti in rosa">A</th>
         </tr>`;
 
   containerTable.appendChild(TAG_TABLE); //inseriamo la tabella nel contenitore
-  TAG_TABLE.append(TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
+  TAG_TABLE.append(TAG_CAPTION, TAG_THEAD, TAG_TBODY); //inseriamo thead e tbody nella tabella
 
   //console.log("Stampa lista crediti residui Terminata");
 }
@@ -277,12 +282,8 @@ function stampaRose() {
   if (TAG_H2.dataset.action != "apri-tutte-le-rose") {
     //se viene da un'altra pagina possiamo azzerare i filtri
     azzeraFiltri();
-    creaFiltroRicercaGiocatore();
+
     creaFiltroSelezionaCampionato();
-    creaFiltroRuolo();
-    creaFiltroQuotazioneMinEMax();
-    creaFiltroTeam(player); //
-    creaFiltroFuoriLista();
   }
 
   TAG_H2.textContent = "LISTA SQUADRE";
@@ -319,16 +320,22 @@ function stampaRose() {
                 <td>${toCapitalize(
                   giocatoreCorrente.getDatiGiocatore.getNome,
                 )}${asterisco}</td>                
-                <td  class="squadra-di-appartenenza">`;
+                <td class="squadra-di-appartenenza">`;
           if (
             giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza == ""
           ) {
             rigaHtml += `</td>`;
           } else {
-            rigaHtml += `<img src="Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
+            rigaHtml += `
+              
+                <img src="Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
+             
+              
                 ${toCapitalize(
                   giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza,
-                )}</td>`;
+                )}
+                
+              </td>`;
           }
 
           rigaHtml += `
@@ -352,9 +359,11 @@ function stampaRose() {
       TAG_TABLE.classList.add("tabella-squadra"); // gestibile nel css listaSquadre.css
       const TAG_TBODY = document.createElement("tbody"); //creazione tbody
       const TAG_THEAD = document.createElement("thead"); //creazione thead
+      const TAG_CAPTION = document.createElement("caption"); //caption Tabella
       const TAG_TFOOT = document.createElement("tfoot"); //creazione thead
-      TAG_THEAD.innerHTML += `<tr>
-        <th colspan="6"> 
+
+      //SECTION
+      TAG_CAPTION.innerHTML += `        
           <section class="box-thead">
             <div id="contenitore-nome">
               <div class="campo-nome-squadra">${toCapitalize(rosaCorrente.getNomeRosa)}</div>
@@ -363,12 +372,19 @@ function stampaRose() {
             <div class="campo-campionato-di-appartenenza">
               <img class="logo_lega" src="Assets/image/logo_leghe/Logo_${rosaCorrente.getCampionatoDiAppartenenza.toLowerCase().replace(" ", "_")}.png">
             </div>
-          </section> 
-        </th>
-      </tr>
-          <tr class="intestazione-colonne">
-      <th>Ruolo</th><th>Nome</th><th>Squadra</th><th>Qt</th><th>Costo Acq.</th><th>Costo Svi.</th>
-    </tr>`;
+          </section> `;
+      //THEAD
+      TAG_THEAD.innerHTML = `
+      <tr  class="intestazione-colonne">        
+        <th title="Ruolo"> R </th>
+        <th title="Nome Giocatore"> Nome  </th>
+        <th title="Squadra"> Squadra </th>
+        <th title="Quotazione Attuale"> Qt </th>
+        <th title="Costo Pagato"> C.P. </th>
+        <th title="Costo Svincolo"> C.S. </th>    
+      </tr>`;
+
+      //TFOOT
       TAG_TFOOT.innerHTML = `<tr>
       <td colspan="6">Crediti residui : ${rosaCorrente.getCreditiResidui}</td>
     </tr>
@@ -384,7 +400,7 @@ function stampaRose() {
     `;
       //INSERIMENTO TABELLA
       TAG_TBODY.innerHTML = rigaHtml;
-      TAG_TABLE.append(TAG_THEAD, TAG_TBODY, TAG_TFOOT);
+      TAG_TABLE.append(TAG_CAPTION, TAG_THEAD, TAG_TBODY, TAG_TFOOT);
       containerTable.appendChild(TAG_TABLE);
     }
 
@@ -437,13 +453,13 @@ function stampaListaGiocatoriDaSvincolare() {
 
   //inseriamo l'intestazione della tabella
   TAG_THEAD.innerHTML = `
-      <tr  class="intestazione-colonne">
-        <th> Squadra </th>
-        <th> Ruolo </th>
-        <th> Nome  </th>
-        <th> Quotazione </th>
-        <th> Costo Pagato </th>
-        <th> Costo di svincolo </th>    
+      <tr  class="intestazione-colonne">        
+        <th title="Ruolo"> R </th>
+        <th title="Nome Giocatore"> Nome  </th>
+        <th title="Squadra"> Squadra </th>
+        <th title="Quotazione Attuale"> Qt </th>
+        <th title="Costo Pagato"> C.P. </th>
+        <th title="Costo Svincolo"> C.S. </th>    
     </tr>`;
 
   TAG_TBODY.innerHTML = rigaHTML;

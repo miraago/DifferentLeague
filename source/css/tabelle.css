@@ -1,0 +1,266 @@
+#container-table {
+  padding: 0;
+  margin: 0;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.cella-quotazione {
+  color: var(--background_primario);
+  font-weight: bold;
+}
+
+/* TUTTE LE TABELLE IN CONTAINER TABLE*/
+table {
+  border-collapse: collapse;
+
+  margin: 0 auto;
+  box-shadow: 10px 10px 5px #b5cae0;
+  /* TUTTI I CAPTION DELLE TABELLE */
+  caption {
+    font-family: Calibri, "Trebuchet MS", sans-serif;
+    font-size: large;
+    font-weight: 200;
+    padding: 5px;
+    color: var(--background_primario);
+  }
+  /* TUTTI I THEAD DELLE TABELLE */
+  thead {
+    max-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    background-color: rgb(2, 87, 156);
+    color: white;
+
+    tr.intestazione-colonne th {
+      padding: 10px;
+      text-align: center;
+      font-weight: 100;
+      font-variant: small-caps;
+      font-size: small;
+      font-family: monospace;
+      cursor: pointer;
+    }
+    tr.intestazione-colonne th:hover {
+      text-decoration: underline;
+      color: aqua;
+    }
+  }
+  /* TBODY DI TUTTE LE TABELLE */
+  tbody {
+    /* TUTTE LE RIGHE IN TBODY */
+    tr {
+      padding: 5px;
+      /* TUTTE I TD DELLE RIGHE IN TBODY */
+      td {
+        border-bottom: 1px solid rgb(202, 202, 202);
+        padding: 5px;
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    tr:nth-child(even) {
+      background-color: rgb(246, 248, 252);
+    }
+  }
+  /* TFOOT DI TUTTE LE TABELLE */
+  tfoot {
+    padding: 5px;
+  }
+
+  th[data-order="asc"]::after {
+    content: " ↑";
+  }
+  th[data-order="desc"]::after {
+    content: " ↓";
+  }
+}
+.colonna-MV5,
+.colonna-FMV5,
+.colonna-BM5,
+.colonna-pre5,
+.colonna-possesso {
+  /* Stili per le colonne delle statistiche delle ultime 5 partite non visibili sui cellulari*/
+  display: none;
+}
+
+.box-thead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+/* TABELLA VISTA TUTTE LE ROSE */
+table.tabella-squadra {
+  padding: 2px;
+
+  tr {
+    td:nth-child(1) {
+      width: 8%;
+    }
+    td:nth-child(2) {
+      width: 25%;
+    }
+    td:nth-child(3) {
+      width: 25%;
+    }
+    td:nth-child(4) {
+      width: 14px;
+    }
+    td:nth-child(5),
+    td:nth-child(6) {
+      width: 9px;
+    }
+  }
+}
+
+/* TABELLA VISTA LISTA GIOCATORI */
+/* TABELLA VISTA LISTA SVINCOLATI */
+
+table.tabella-giocatori {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-spacing: 10px 15px;
+
+  tbody tr > td:nth-child(14),
+  tbody tr > td:nth-child(13),
+  tbody tr > td:nth-child(12),
+  tbody tr > td:nth-child(11) {
+    width: 55px;
+    background-color: rgba(132, 154, 175, 0.2);
+  }
+  tbody tr > td:nth-child(7),
+  tbody tr > td:nth-child(6) {
+    width: 55px;
+    color: var(--background_primario);
+  }
+
+  tbody tr > td:nth-child(8),
+  tbody tr > td:nth-child(9) {
+    width: 55px;
+    color: green;
+  }
+
+  tbody tr > td:nth-child(10),
+  tbody tr > td:nth-child(6),
+  tbody tr > td:nth-child(5),
+  tbody tr > td:nth-child(4),
+  tbody tr > td:nth-child(1) {
+    width: 55px;
+  }
+  tbody tr > td:nth-child(2),
+  tbody tr > td:nth-child(3) {
+    width: 80px;
+  }
+
+  tbody tr {
+    font-size: 15px;
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(35, 36, 39);
+  }
+  tbody tr td,
+  thead tr th {
+    text-align: center;
+    padding: 5px;
+  }
+  tbody tr td:nth-child(1),
+  tbody tr td:nth-child(2),
+  tbody tr td:nth-child(3) {
+    text-align: left;
+    padding-left: 5px;
+    width: max-content;
+  }
+  tbody tr:hover td {
+    background-color: rgb(236, 243, 253);
+  }
+  tr:nth-child(even) td {
+    background-color: rgb(245, 247, 250);
+  }
+  .nome-squadra {
+  /* sui cellulari non visibile */
+  display: none;
+}
+.cella-quotazione img {
+  /* immagine soldo sui cellulari non visibile */
+  display: none;
+}
+}
+
+/* TABELLA INFO SQUADRE */
+table.tabella-info-squadre {
+  thead {
+    tr {
+      th {
+        padding: 5px;
+        text-align: center;
+      }
+    }
+  }
+  /* TBODY INFO SQUADRE */
+  tbody {
+    /* TR NEL TBODY DI INFO SQUADRE */
+    tr {
+      td {
+        font-size: 14px;
+      }
+
+      td:nth-child(1) {
+        width: 150px;
+        text-align: left;
+        overflow: hidden;
+        color: var(--background_primario);
+      }
+      td:nth-child(2) {
+        width: 150px;
+        text-align: left;
+        font-style: italic;
+        font-weight: 100;
+      }
+
+      td:nth-child(4),
+      td:nth-child(5),
+      td:nth-child(6) {
+        width: 45px;
+        text-align: center;
+      }
+      td:nth-child(7),
+      td:nth-child(8),
+      td:nth-child(9),
+      td:nth-child(10) {
+        width: 30px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+/* quando si supera i 490px di larghezza, mostra nome squadra, immagine soldi e colonne MV5, FMV5, BM5 */
+@media all and (min-width: 600px) {
+  .colonna-MV5,
+  .colonna-FMV5,
+  .colonna-BM5,
+  .colonna-pre5,
+  .colonna-possesso {
+    display: table-cell;
+  }
+  @media all and (min-width: 1090px) {
+    .nome-squadra {
+      display: inline;
+    }
+    .cella-quotazione img {
+      display: inline;
+    }
+  }
+}

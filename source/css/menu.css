@@ -11,8 +11,7 @@
   color: var(--colore_primario);
   flex-wrap: wrap;
 
-  #prova {
-  }
+  
   #nome-presidente {
     font-size: 12px;
     font-weight: 100;
