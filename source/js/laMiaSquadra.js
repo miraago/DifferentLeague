@@ -1,4 +1,4 @@
-import { SQUADRA_UTENTE } from "./gestioneUtente.js";
+import { UTENTELOGGATO } from "./gestioneUtente.js";
 import { toCapitalize } from "./funzioniAgo.js";
 
 const LOGO_BASE_PATH = "Assets/image/loghi_team_serie_A/";
@@ -114,14 +114,14 @@ export function stampaLaMiaSquadra(
   TAG_CONTENITORE_ROSA.id = "contenitore-rosa";
 
   // 2. DETERMINIAMO QUALE SQUADRA MOSTRARE
-  // Logica: Se c'è una select, usiamo il suo valore. Altrimenti usiamo SQUADRA_UTENTE.
+  // Logica: Se c'è una select, usiamo il suo valore. Altrimenti usiamo UTENTELOGGATO.nomeSquadraUtenteLoggato.
   const selectEsistente = document.getElementById("select-scelta-squadra");
   let nomeSquadraTarget = "";
 
   if (selectEsistente) {
     nomeSquadraTarget = selectEsistente.value;
   } else {
-    nomeSquadraTarget = SQUADRA_UTENTE;
+    nomeSquadraTarget = UTENTELOGGATO.nomeSquadraUtenteLoggato;
   }
 
   // 3. RECUPERIAMO L'OGGETTO SQUADRA REALE DALL'ARRAY

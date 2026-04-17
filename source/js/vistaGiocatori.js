@@ -2,7 +2,7 @@ import { Giocatore, Rosa, RecordAcquisto } from "./classiFanta.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 import { toCapitalize } from "./funzioniAgo.js";
 import { STATO_FILTRI } from "./filtri.js";
-import { SQUADRA_UTENTE } from "./gestioneUtente.js";
+import { UTENTELOGGATO } from "./gestioneUtente.js";
 import { player, acquisti, presidenti } from "../js/script.js";
 
 const containerTable = document.getElementById("container-table");
@@ -201,7 +201,9 @@ export function stampaListaSvincolati(
    * SE LA SQUADRA LOGGATA HA UN GIOCATORE DALLA LISTA SVINCOLATI, LO ESCLUDIAMO
    */
   const presidenteLoggato = presidenti.find((presidenteCorrente) => {
-    return presidenteCorrente.getNomeRosa == SQUADRA_UTENTE;
+    return (
+      presidenteCorrente.getNomeRosa == UTENTELOGGATO.nomeSquadraUtenteLoggato
+    );
   });
   //presidenteLoggato è il riferimento al presidente
 

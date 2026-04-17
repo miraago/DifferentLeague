@@ -1,3 +1,5 @@
+/*  */
+
 * {
   padding: 0;
   margin: 0;
@@ -7,18 +9,30 @@ body {
   background-image: url("../../Assets/image/sfondo.png");
   background-repeat: repeat;
   background-size: 100vh;
+  position: relative;
+  padding-bottom: 60px;
 }
 footer {
   width: 100%;
   height: 60px;
-  position: sticky;
+  position: fixed;
   bottom: 0;
 
   left: 0;
   background-repeat: repeat-x;
   background-image: url(/Assets/image/erba.png);
-  background-size: 300px;
+  background-size: contain;
+
+  background-repeat: repeat-x; /* Ripete l'erba in orizzontale */
+  background-position: bottom;
+  background-size: contain; /* Assicura che l'erba mantenga le proporzioni */
+
+  z-index: 9999; /* La tiene sopra ogni altro elemento */
+  pointer-events: none; /* FONDAMENTALE: permette di cliccare i link "sotto" l'erba */
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
 }
+/* spazio che serve a non far sovrapporre l'erba alla scritta quando è lunga */
 
 h1,
 h2,

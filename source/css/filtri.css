@@ -107,10 +107,7 @@
   }
   & #id-box-team {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    /* grid-template-columns: repeat(10, 1fr); */
     margin-left: 5%;
     margin-right: 5%;
   }

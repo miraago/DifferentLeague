@@ -1,8 +1,17 @@
 import { toCapitalize } from "./funzioniAgo.js";
 
+let presidenti;
+
+export let UTENTELOGGATO = {
+  presidenteUtenteLoggato: null,
+  nomeSquadraUtenteLoggato: null,
+  nomeCampionatoUtenteLoggato: null,
+};
+
 // Questa variabile conterrà il nome della squadra loggata
 // La esportiamo così gli altri file possono leggerla!
-export let SQUADRA_UTENTE =
+
+UTENTELOGGATO.nomeSquadraUtenteLoggato =
   localStorage.getItem("fanta_squadra_corrente") || null;
 
 const modalLogin = document.getElementById("modal-login");
@@ -14,24 +23,28 @@ const btnEntra = document.getElementById("btn-entra");
  * Se sì -> non fa nulla e ritorna true.
  * Se no -> Mostra il popup di login e ritorna false.
  */
-export function controllaAccesso(presidenti, callbackSuccesso) {
+export function controllaAccesso(cbPresidenti, callbackSuccesso) {
   // 1. Cerchiamo se c'è già un dato salvato
+  presidenti = cbPresidenti;
+
   if (
-    SQUADRA_UTENTE &&
-    presidenti.some((p) => p.getNomeRosa.toLowerCase() === SQUADRA_UTENTE)
+    UTENTELOGGATO.nomeSquadraUtenteLoggato &&
+    cbPresidenti.some(
+      (p) => p.getNomeRosa === UTENTELOGGATO.nomeSquadraUtenteLoggato,
+    )
   ) {
-    console.log("Utente già loggato come:", SQUADRA_UTENTE);
+    inizializzaUTENTELOGGATO();
     return true; // Accesso consentito
   }
 
   // 2. Se non c'è, mostriamo il login
-  console.log("Utente non loggato. Mostro login.");
+
   modalLogin.style.display = "flex";
 
   // Popoliamo la select
   let options = `<option value="" disabled selected>-- Scegli la tua rosa --</option>`;
-  presidenti.forEach((team) => {
-    options += `<option value="${team.getNomeRosa.toLowerCase()}">${toCapitalize(team.getNomeRosa)}</option>`;
+  cbPresidenti.forEach((team) => {
+    options += `<option value="${team.getNomeRosa.toUpperCase()}">${toCapitalize(team.getNomeRosa)}</option>`;
   });
   selectLogin.innerHTML = options;
 
@@ -40,8 +53,10 @@ export function controllaAccesso(presidenti, callbackSuccesso) {
     const scelta = selectLogin.value;
     if (scelta) {
       // SALVIAMO NEL BROWSER!
-      localStorage.setItem("fanta_squadra_corrente", scelta.toUpperCase());
-      SQUADRA_UTENTE = scelta.toUpperCase();
+      localStorage.setItem("fanta_squadra_corrente", scelta);
+      UTENTELOGGATO.nomeSquadraUtenteLoggato = scelta;
+
+      inizializzaUTENTELOGGATO();
 
       // Chiudiamo il modal
       modalLogin.style.display = "none";
@@ -57,9 +72,28 @@ export function controllaAccesso(presidenti, callbackSuccesso) {
 }
 
 /**
- * Funzione per fare il Logout (se vorrai mettere un tasto "Cambia Squadra")
+ * Funzione per fare il Logout
  */
 export function logout() {
   localStorage.removeItem("fanta_squadra_corrente");
+  UTENTELOGGATO.nomeCampionatoUtenteLoggato =
+    UTENTELOGGATO.nomeSquadraUtenteLoggato =
+    UTENTELOGGATO.presidenteUtenteLoggato =
+      null;
   location.reload(); // Ricarica la pagina per far riapparire il login
+}
+
+function inizializzaUTENTELOGGATO() {
+  //prendiamo il riferimento all'utente loggato
+  UTENTELOGGATO.presidenteUtenteLoggato = presidenti.find(
+    (presidenteCorrente) => {
+      return (
+        presidenteCorrente.getNomeRosa == UTENTELOGGATO.nomeSquadraUtenteLoggato
+      );
+    },
+  );
+
+  //prendiamo il riferimento il campionato dell'utente loggato
+  UTENTELOGGATO.nomeCampionatoUtenteLoggato =
+    UTENTELOGGATO.presidenteUtenteLoggato.getCampionatoDiAppartenenza;
 }

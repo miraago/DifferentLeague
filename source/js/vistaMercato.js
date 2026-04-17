@@ -1,7 +1,5 @@
-import { SQUADRA_UTENTE } from "./gestioneUtente.js";
-import { toCapitalize } from "./funzioniAgo.js";
-import { IMPOSTAZIONI } from "./impostazioni.js";
-import { stampaListaSvincolati } from "./vistaGiocatori.js";
+import { UTENTELOGGATO } from "./gestioneUtente.js";
+import { paginaDaRendereVisibile } from "./script.js";
 
 const vistaMercato = document.getElementById("vista-mercato");
 
@@ -28,7 +26,8 @@ export function inizializzaMercato(players, presidenti, cbApriPopup) {
   //ricavo tutte le info del presidente loggato
   presidenteUtenteLoggato = cbPresidenti.find((squadraAttuale) => {
     return (
-      squadraAttuale.getNomeRosa.toUpperCase() == SQUADRA_UTENTE.toUpperCase()
+      squadraAttuale.getNomeRosa.toUpperCase() ==
+      UTENTELOGGATO.nomeSquadraUtenteLoggato.toUpperCase()
     );
   });
 }
@@ -43,7 +42,7 @@ function creaContainer() {
   containerInfoSquadra.innerHTML = `
   <div id="box-info">
     <div id='nome-squadra'>
-      ${SQUADRA_UTENTE} 
+      ${UTENTELOGGATO.nomeSquadraUtenteLoggato} 
     </div>
     <div id="nome-presidente">${presidenteUtenteLoggato.getNomePresidente} </div>
   </div>
@@ -76,26 +75,21 @@ function creaContainer() {
   containerGiocatori = document.createElement("section");
   containerGiocatori.id = "container-giocatori";
   vistaMercato.append(containerGiocatori);
-  containerGiocatori.innerHTML = `<h3> LISTA GIOCATORI ${SQUADRA_UTENTE} </h3>`;
+  containerGiocatori.innerHTML = `<h3> LISTA GIOCATORI ${UTENTELOGGATO.nomeSquadraUtenteLoggato} </h3>`;
 
   //contenitore riepilogo
   containerRiepilogo = document.createElement("section");
   containerRiepilogo.id = "container-riepilogo";
   vistaMercato.append(containerRiepilogo);
-  containerRiepilogo.innerHTML = `<h3> Riepilogo Mercato ${SQUADRA_UTENTE}</h2>`;
+  containerRiepilogo.innerHTML = `<h3> Riepilogo Mercato ${UTENTELOGGATO.nomeSquadraUtenteLoggato}</h2>`;
 }
 
-export function mercatoSvincola(
-  TAG_H2,
-  cbPresidenti,
-  cbPaginaDaRendereVisibile,
-  cbAzzeraTabelle,
-  cbAzzeraFiltri,
-) {
+export function mercatoSvincola() {
+  const TAG_H2 = document.querySelector("h2");
   if (TAG_H2.dataset.action != "apri-mercato") {
     TAG_H2.innerText = "MERCATO - Svincola Giocatori";
     TAG_H2.dataset.action = "apri-mercato";
-    cbPaginaDaRendereVisibile("mercato");
+    paginaDaRendereVisibile("mercato");
   }
 
   vistaMercato.innerText = ""; //Azzeriamo la vista e la ricostruiamo
@@ -165,33 +159,6 @@ function creaCardGiocatore(giocatore, index) {
         </div>
         <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
 
-  // //2)box contenitore statistiche
-  // const inCardBoxStatistiche = document.createElement("div");
-  // inCardBoxStatistiche.classList.add("in-card-box-statistiche");
-
-  // //2A interno contenitore statistiche
-  // inCardBoxStatistiche.innerHTML = `<div class="presenze, statistica">
-  //         <div class="valore">${giocatore.getDatiGiocatore.getPresenze}</div>
-  //         <div class="etichetta"> Presenze </div>
-  //       </div>
-  //       <div class="quotazione, statistica">
-  //         <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
-  //         <div class="etichetta"> Quotazione </div>
-  //       </div>
-  //       <div class="media-voto, statistica">
-  //         <div class="valore">${giocatore.getDatiGiocatore.getMv}</div>
-  //         <div class="etichetta"> M.V.</div>
-  //       </div>
-  //       <div class="fanta-media-voto, statistica">
-  //         <div class="valore">${giocatore.getDatiGiocatore.getFvm}</div>
-  //         <div class="etichetta"> F.M.V.</div>
-  //       </div>
-  //       <div class="prezzo-pagato, statistica">
-  //         <div class="valore">${giocatore.getCostoDiAcquisto}</div>
-  //         <div class="etichetta"> Pagato</div>
-  //       </div>
-  //     </div>`;
-
   //3)box contenitore a destra
   const inCardBoxDx = document.createElement("div");
   inCardBoxDx.classList.add("in-card-box-dx");
@@ -222,7 +189,7 @@ function creaCardGiocatore(giocatore, index) {
 
 /**
  *crea una card giocatore vuota con una + al centro
- * @param {string} ruoloG la stringa contenente il ruolo del giocatore da aggiungere
+ * @param {string} ruoloG la stringa contenente il ruolo dello slot mancante
  * @param {number} index l'index del giocatore da aggiungere
  * @returns card vuota
  */

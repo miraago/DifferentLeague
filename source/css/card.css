@@ -1,0 +1,54 @@
+.card-giocatore {
+  width: 160px;
+  height: 30px;
+
+  border-radius: 10px;
+
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--background_primario);
+  color: white;
+  padding: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .ruolo,
+  .squadra,
+  .costo-acquisto {
+    padding: 1px;
+    width: 15%;
+  }
+  .ruolo {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .nome-giocatore {
+    padding: 1px;
+    width: 55%;
+    text-align: left;
+    font-size: smaller;
+  }
+  .squadra {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
+  span {
+    display: block;
+  }
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,43 @@
+#vista-scambi {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 150px;
+
+  a {
+  }
+  #container-squadra-utente,
+  #container-squadra-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    width: calc(50% - 10px);
+  }
+  #container-squadra-2 {
+    width: calc(50% - 10px);
+  }
+  #container-seleziona-squadra {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px;
+
+    select {
+      margin: 5px;
+      display: block;
+      padding: 5px;
+      width: 60%;
+      font-size: large;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+}
