@@ -11,12 +11,11 @@
   color: var(--colore_primario);
   flex-wrap: wrap;
 
-  
   #nome-presidente {
     font-size: 12px;
     font-weight: 100;
-    font-style: italic; 
-    
+    font-style: italic;
+
     text-align: center;
     width: 100%;
   }
@@ -37,7 +36,7 @@
     font-size: x-small;
     color: var(--colore_primario);
   }
-  >div{
+  > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +51,7 @@
   }
 
   #titolo {
-    text-align: center;    
+    text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
     color: white;
@@ -84,8 +83,6 @@
     background-color: var(--background_menu);
     flex-wrap: wrap; /* Permette al menu di andare a capo se lo spazio è insufficiente */
   }
-
-
 
   /* 3. Voci Principali: devono essere il riferimento (relative) */
   #contenitore-menu > ul > li {
@@ -119,9 +116,9 @@
 
   /* 5. Elementi della tendina: rimuoviamo posizionamenti assoluti interni */
   #contenitore-menu > ul > li > ul > li {
-    position: static; 
+    position: static;
     width: 100%; /* Prende tutta la larghezza della tendina */
-    
+
     box-sizing: border-box;
     text-align: center;
     cursor: inherit;
@@ -153,10 +150,5 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    
-   
   }
-  
-  
 }
-

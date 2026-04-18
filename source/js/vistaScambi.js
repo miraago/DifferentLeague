@@ -136,7 +136,7 @@ function controllaDoppioni() {
 
   let arrayNomiSquadra2 = [];
   elementiSquadra2.forEach((el) => arrayNomiSquadra2.push(el.dataset.card)); //inserisco tutti i nomi di squadra 2 in un array
-  //scorro squadra utente per capire se c'è un doppione che non deve essere selezionato, e lo disabilito
+  //scorro squadra utente per capire se c'è un doppione che non deve essere selezionato, e lo disabilitod
   elementiSquadraUtente.forEach((cardAttuale) => {
     if (
       arrayNomiSquadra2.some(

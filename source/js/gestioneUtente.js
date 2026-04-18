@@ -84,7 +84,7 @@ export function logout() {
 }
 
 function inizializzaUTENTELOGGATO() {
-  //prendiamo il riferimento all'utente loggato
+  //prendiamo il riferimento all'utente loggatoo
   UTENTELOGGATO.presidenteUtenteLoggato = presidenti.find(
     (presidenteCorrente) => {
       return (

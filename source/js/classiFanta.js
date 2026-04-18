@@ -832,6 +832,7 @@ class Rosa {
   }
   get getValoreRosa() {
     let sommaQuotazioni = 0;
+
     this.getTuttiGliSlot.forEach((rec) => {
       if (rec) {
         sommaQuotazioni += rec.getDatiGiocatore.getQuotazione;

@@ -28,6 +28,7 @@ function logoHTML(nomeSquadra) {
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
       <span class="logo-squadra-placeholder">${sigla}</span>
     </div>
+    
   `;
 }
 

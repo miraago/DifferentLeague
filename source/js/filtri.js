@@ -134,7 +134,7 @@ export function applicaFiltriGiocatori(player) {
 export function applicaFiltroTeams(presidenti) {
   let arraySquadre = [...presidenti];
 
-  //filtro per selezionare la squadra scelta nel filtro select
+  //filtro per selezionare la squadra scelta nel filtro selectx
   if (STATO_FILTRI.rosaPresidente != "tutte") {
     arraySquadre = presidenti.filter((teamCorrente) => {
       return (

@@ -86,6 +86,7 @@ function popupStatisticheGiocatore(giocatore) {
       </div>
 
     <div class="container-statistiche-giocatore">
+    
       <div class="campo">
          <div class="valore">${giocatore.getQuotazione}</div>
          <div class="etichetta">Quotazione</div>          

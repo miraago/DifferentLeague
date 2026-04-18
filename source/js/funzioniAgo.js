@@ -27,7 +27,7 @@ export function toCapitalize(stringa) {
           }
         }
       }
-      return stringa; // ritorniamo la stringa trasformata
+      return stringa; // ritorniamo la stringa trasformataa
     }
   }
   return "";

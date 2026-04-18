@@ -94,7 +94,7 @@ async function caricaGiocatori() {
           temp[3], //Ruolo
           temp[4], //Ruolo Mod. Av.
           temp[5], //Fuori lista
-          temp[6], //Quotazione
+          temp[6], //Quotazionee
         ),
       );
     }

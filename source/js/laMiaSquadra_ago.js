@@ -72,7 +72,7 @@ export function stampaLaMiaSquadra(
     const containerFiltri = document.getElementById("container-filtri");
     creaFiltroSelezionaSquadraDaSelect(presidenti, containerFiltri);
 
-    // Assegnamo il valore di default
+    // Assegnamo il valore di defaultt
     const selectAppenaCreata = document.getElementById("select-scelta-squadra");
     if (selectAppenaCreata) {
       selectAppenaCreata.value = presidenti[5].getNomeRosa;

@@ -39,6 +39,7 @@ export const IMPOSTAZIONI = {
   BONUSMALUS: {
     GOAL: 3,
     ASSIST: 1,
+
     AMMONIZIONE: -0.5,
     ESPULSIONE: -1,
     RIGORESEGNATO: 3,

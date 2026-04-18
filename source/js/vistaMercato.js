@@ -21,7 +21,7 @@ export let operazioneInCorso = null;
 export function inizializzaMercato(players, presidenti, cbApriPopup) {
   cbPlayer = players;
   cbPresidenti = presidenti;
-  apriPopupSvincolatiEsterno = cbApriPopup; // La salviamo per usarla dopo!
+  apriPopupSvincolatiEsterno = cbApriPopup; // La salviamo per usarla dopo!z
 
   //ricavo tutte le info del presidente loggato
   presidenteUtenteLoggato = cbPresidenti.find((squadraAttuale) => {

@@ -34,7 +34,7 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
       card.classList.add("disabled");
     }
     card.dataset.card = dati.getNome; //nome giocatore
-    card.dataset.index = index; //index giocatore
+    card.dataset.index = index; //index giocatoree
     card.innerHTML = `
     <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
       <div class="nome-giocatore">${dati.getNome}</div>

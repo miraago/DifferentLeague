@@ -10,7 +10,7 @@ body {
   background-repeat: repeat;
   background-size: 100vh;
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 60px; /**/
 }
 footer {
   width: 100%;

@@ -1,18 +1,26 @@
-
 import { IMPOSTAZIONI } from "./impostazioni.js";
 import { toCapitalize } from "./funzioniAgo.js";
-import { player, acquisti, presidenti, azzeraTabelle,paginaDaRendereVisibile} from "./script.js";
-import { applicaFiltroTeams,creaFiltroSelezionaCampionato, applicaFiltriGiocatori,azzeraFiltri } from "./filtri.js";
+import {
+  player,
+  acquisti,
+  presidenti,
+  azzeraTabelle,
+  paginaDaRendereVisibile,
+} from "./script.js";
+import {
+  applicaFiltroTeams,
+  creaFiltroSelezionaCampionato,
+  applicaFiltriGiocatori,
+  azzeraFiltri,
+} from "./filtri.js";
 
 const TAG_H2 = document.querySelector("h2");
- const containerFiltri = document.getElementById("container-filtri");
-  const containerTable = document.getElementById("container-table");
+const containerFiltri = document.getElementById("container-filtri");
+const containerTable = document.getElementById("container-table");
 
 /* info di tutte le squadre */
 export function stampaInfoSquadre() {
   paginaDaRendereVisibile("dati");
-  
- 
 
   if (TAG_H2.dataset.action != "apri-info-squadre") {
     //se viene da un'altra pagina possiamo azzerare i filtri
@@ -102,9 +110,6 @@ export function stampaInfoSquadre() {
 
   //console.log("Stampa lista crediti residui Terminata");
 }
-
-
-
 
 /* stampa tutte le rose */
 export function stampaRose() {

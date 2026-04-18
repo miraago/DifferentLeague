@@ -49,7 +49,7 @@ document
 
 export let player = []; //lista giocatori
 export let acquisti = [];
-export let presidenti = []; //lista presidenti
+export let presidenti = []; //lista presidentii
 
 const TAG_H2 = document.querySelector("h2");
 

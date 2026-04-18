@@ -188,13 +188,13 @@ table.tabella-giocatori {
     background-color: rgb(245, 247, 250);
   }
   .nome-squadra {
-  /* sui cellulari non visibile */
-  display: none;
-}
-.cella-quotazione img {
-  /* immagine soldo sui cellulari non visibile */
-  display: none;
-}
+    /* sui cellulari non visibile */
+    display: none;
+  }
+  .cella-quotazione img {
+    /* immagine soldo sui cellulari non visibile */
+    display: none;
+  }
 }
 
 /* TABELLA INFO SQUADRE */
@@ -244,7 +244,6 @@ table.tabella-info-squadre {
     }
   }
 }
-
 
 /* quando si supera i 490px di larghezza, mostra nome squadra, immagine soldi e colonne MV5, FMV5, BM5 */
 @media all and (min-width: 600px) {

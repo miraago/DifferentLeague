@@ -23,6 +23,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+
     justify-content: flex-end;
     align-items: center;
     margin: 5px;

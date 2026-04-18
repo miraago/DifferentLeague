@@ -27,7 +27,7 @@ export function stampaListaGiocatori(
   cbCreaFiltriPaginaGiocatoriSeMancante();
   cbAzzeraTabelle();
 
-  // console.log("Stampa lista giocatori in corso...");
+  // console.log("Stampa lista giocatori in corso...");.
   const arrayDaStampare = cbApplicaFiltriGiocatori();
   creaTabellaGiocatori(arrayDaStampare, "Lista Giocatori");
 }

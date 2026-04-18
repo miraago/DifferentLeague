@@ -11,7 +11,7 @@
   margin-bottom: 20px;
   text-align: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /**/
   width: 95%;
   background-color: white;
   box-shadow: 3px 3px 10px rgba(22, 25, 44, 0.2);
