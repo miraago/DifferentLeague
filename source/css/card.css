@@ -1,3 +1,15 @@
+/* card disattivata */
+.card-giocatore.disabled {
+  opacity: 0.5; /* Effetto visivo di disabilitazione */
+  cursor: not-allowed; /* Mostra il cursore "divieto" */
+}
+.card-giocatore.selected {
+  background-color: rgb(0, 130, 28);
+  margin-left: 10px;
+}
+.card-giocatore.selected .nome-giocatore {
+  color: rgb(246, 255, 0);
+}
 .card-giocatore {
   width: 160px;
   height: 30px;

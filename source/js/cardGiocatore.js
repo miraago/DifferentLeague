@@ -23,17 +23,21 @@ export function creaCardGiocatoreVuotoSostituibile() {
   //logica per creare una card vuota con una + utile per fare una busta
 }
 
-//crea una card giocatore
-export function creaCardGiocatore(giocatore, index) {
+export function creaCardGiocatore(giocatore, index, option = 0) {
+  //option = 0 cardGiocatore semplice
+  //option = 1 cardGiocatore disabled
   if (giocatore) {
     const dati = giocatore.getDatiGiocatore;
     const card = document.createElement("div");
     card.classList.add("card-giocatore");
+    if (option == 1) {
+      card.classList.add("disabled");
+    }
     card.dataset.card = dati.getNome; //nome giocatore
     card.dataset.index = index; //index giocatore
     card.innerHTML = `
     <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
-      <div class="nome-giocatore">${card.dataset.card}</div>
+      <div class="nome-giocatore">${dati.getNome}</div>
       <div class="squadra"><img src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/></div>
       <div title="Costo di acquisto" class="costo-acquisto">${giocatore.getCostoDiAcquisto}</div>
       `;
