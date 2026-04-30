@@ -1,0 +1,222 @@
+/* CONTAINER GENERALE DELLE TABELLE */
+#container-table {
+  max-width: 98%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: var(
+    --bg-site
+  ); /* Sfondo leggero per far risaltare le tabelle bianche */
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* STILE BASE DI TUTTE LE TABELLE */
+table {
+  background-color: var(--surface);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  caption {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px;
+    color: var(--primary-dark);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  thead {
+    tr.intestazione-colonne th {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: var(--primary-dark);
+      color: var(--text-on-primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      padding: 12px 10px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: var(--primary);
+        text-decoration: none;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.2s ease;
+
+      td {
+        border-bottom: 1px solid var(--border);
+        padding: 10px 8px;
+        color: var(--text-main);
+        font-size: 0.9rem;
+        vertical-align: middle;
+
+        img {
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
+        }
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: rgba(
+          2,
+          87,
+          156,
+          0.05
+        ) !important; /* Leggero richiamo al tuo primario */
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--surface-alt);
+    }
+  }
+
+  /* INDICATORI ORDINAMENTO */
+  th[data-order="asc"]::after {
+    content: " ↑";
+    opacity: 0.8;
+  }
+  th[data-order="desc"]::after {
+    content: " ↓";
+    opacity: 0.8;
+  }
+}
+
+/* --- TABELLA VISTA LISTA GIOCATORI --- */
+/* --- TABELLA VISTA LISTA GIOCATORI --- */
+table.tabella-giocatori {
+  width: 100%;
+  border: 1px solid var(--border);
+  table-layout: auto; /* Permette alla tabella di adattarsi al contenuto */
+
+  thead tr th,
+  tbody tr td {
+    text-align: center;
+    padding: 8px 5px;
+  }
+
+  /* Allineamento a sinistra per info testuali */
+  tbody tr td:nth-child(1), /* Ruolo */
+  tbody tr td:nth-child(2), /* Nome Giocatore */
+  tbody tr td:nth-child(3) {
+    /* Nome Squadra */
+    text-align: left;
+    padding-left: 10px;
+    white-space: nowrap; /* Evita che il nome vada a capo */
+  }
+
+  /* Larghezze per i nomi: diamo spazio ma evitiamo sovrapposizioni */
+  tbody tr td:nth-child(2) {
+    min-width: 120px;
+  } /* Giocatore */
+  tbody tr td:nth-child(3) {
+    min-width: 100px;
+  } /* Squadra */
+
+  /* Colonne Statistiche (le 4 finali) */
+  tbody tr > td:nth-child(11),
+  tbody tr > td:nth-child(12),
+  tbody tr > td:nth-child(13),
+  tbody tr > td:nth-child(14) {
+    width: 50px; /* Larghezza fissa per numeri piccoli */
+    background-color: rgba(132, 154, 175, 0.1);
+    font-weight: bold;
+  }
+
+  /* Colonne Crediti / Quotazione (7 e 6) */
+  tbody tr > td:nth-child(6),
+  tbody tr > td:nth-child(7) {
+    width: 60px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  /* Bonus (8 e 9) */
+  tbody tr > td:nth-child(8),
+  tbody tr > td:nth-child(9) {
+    width: 50px;
+    color: var(--bonus);
+  }
+
+  /* Effetto Hover e Zebra */
+  tbody tr:hover td {
+    background-color: rgba(2, 87, 156, 0.05);
+  }
+
+  tr:nth-child(even) td {
+    background-color: var(--surface-alt);
+  }
+}
+
+/* --- TABELLA INFO SQUADRE --- */
+table.tabella-info-squadre {
+  tbody tr {
+    td:nth-child(1) {
+      color: var(--primary-dark);
+      font-weight: bold;
+      width: 160px;
+    }
+    td:nth-child(2) {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+  }
+}
+
+/* --- GESTIONE RESPONSIVE --- */
+
+/* Nascondi colonne extra su mobile */
+.colonna-MV5,
+.colonna-FMV5,
+.colonna-BM5,
+.colonna-pre5,
+.colonna-possesso,
+.nome-squadra,
+.cella-quotazione img {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .colonna-MV5,
+  .colonna-FMV5,
+  .colonna-BM5,
+  .colonna-pre5,
+  .colonna-possesso {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nome-squadra,
+  .cella-quotazione img {
+    display: inline-block;
+  }
+
+  table.tabella-giocatori {
+    font-size: 1rem;
+  }
+}

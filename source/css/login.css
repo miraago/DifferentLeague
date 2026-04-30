@@ -24,7 +24,6 @@
 }
 #login-container button {
   margin-top: 20px;
-
   padding: 10px 20px;
   background-color: green;
   color: white;
@@ -75,7 +74,7 @@
 }
 
 .box-login button {
-  background-color: var(--background_primario, blue);
+  background-color: var(--primary-dark, blue);
   color: white;
   padding: 10px 30px;
   border: none;

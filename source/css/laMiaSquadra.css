@@ -1,19 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;600&display=swap");
 
-:root {
-  --bg-vista: #dde1e8;
-  --bg-card: #000d1d;
-  --bg-card-hover: #212d42;
-  --text-primary: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.42);
-  --border-card: rgba(255, 255, 255, 0.08);
 
-  /* Colori per ruolo */
-  --col-P: hsl(40, 94%, 52%);
-  --col-D: hsl(96, 70%, 46%);
-  --col-C: hsl(217, 93%, 52%);
-  --col-A: hsl(351, 89%, 53%);
-}
 
 span {
   color: rgb(0, 0, 0);

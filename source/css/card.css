@@ -7,9 +7,11 @@
   background-color: rgb(0, 130, 28);
   margin-left: 10px;
 }
-.card-giocatore.selected .nome-giocatore {
+.card-giocatore.selected .nome-giocatore,
+.card-giocatore.selected .costo-acquisto {
   color: rgb(246, 255, 0);
 }
+
 .card-giocatore {
   width: 160px;
   height: 30px; /**/
@@ -21,7 +23,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--background_primario);
+  background-color: var(--primary-dark);
   color: white;
   padding: 2px;
   cursor: pointer;
@@ -29,7 +31,8 @@
 
   .ruolo,
   .squadra,
-  .costo-acquisto {
+  .costo-acquisto,
+  .costo-attuale {
     padding: 1px;
     width: 15%;
   }

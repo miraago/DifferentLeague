@@ -1,44 +1,271 @@
 #vista-scambi {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 150px;
   a {
   }
+
+  #totale-scambi {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    grid-column: 1 / -1;
+    display: grid;
+    font-size: small;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    color: rgb(0, 0, 0);
+    padding: 3px;
+    a {
+    }
+
+    #valore-totale-quotazioni-squadra1 {
+      grid-column: 1 / 2;
+    }
+    #totale-differenza-crediti {
+      grid-column: 2 / 3;
+    }
+    #valore-totale-quotazioni-squadra2 {
+      grid-column: 3 / 4;
+    }
+  }
+  img {
+    width: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  #ruoli-squadra1 span,
+  #ruoli-squadra2 span {
+    display: block;
+    text-align: center;
+  }
+
+  #ruoli-squadra1,
+  #ruoli-squadra2 {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #ruoli-squadra1 > div,
+  #ruoli-squadra2 > div {
+    padding: 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  #container-riepilogo-scambio {
+    padding: 5px;
+    text-align: center;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: var(--primary-dark);
+    color: white;
+    border-radius: 20px;
+    margin: 5px;
+    padding-bottom: 15px;
+  }
+
+  #titolo-riepilogo-scambio {
+    grid-column: 1 / -1;
+    font-size: large;
+    white-space: 10px;
+    margin-bottom: 5px;
+  }
+
+  #container-regole-scambi {
+    grid-column: 1 / 2;
+    text-align: left;
+    color: yellow;
+    font-size: xx-small;
+  }
+
+  #container-ruoli {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    a {
+      text-align: center;
+    }
+    #ruoli-squadra1 span,
+    #ruoli-squadra2 span {
+      display: block;
+      text-align: center;
+    }
+
+    #ruoli-squadra1,
+    #ruoli-squadra2 {
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    #ruoli-squadra1 > div,
+    #ruoli-squadra2 > div {
+      padding: 2px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #ruoli-squadra1 {
+      grid-column: 1 / 2;
+    }
+    #ruoli-squadra2 {
+      grid-column: 3 / 4;
+    }
+    .spazio-vuoto {
+      grid-column: 2 / 3;
+    }
+
+    #totale-giocatori-scambi {
+      text-align: center;
+      grid-column: 1 / -1;
+      display: grid;
+      font-size: small;
+      grid-template-columns: 0.5fr 2fr 0.5fr;
+      padding: 3px;
+
+      color: rgb(92, 222, 255);
+
+      a {
+      }
+
+      #valore-totale-cambi-squadra1 {
+        grid-column: 1 / 2;
+      }
+      #totale-cambi {
+        grid-column: 2 / 3;
+      }
+      #valore-totale-cambi-squadra2 {
+        grid-column: 3 / 4;
+      }
+    }
+  }
+  #container-crediti-aggiuntivi {
+    grid-column: 1 / 2;
+    font-size: small;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 10px;
+    a {
+    }
+  }
+  #container-bottoni-riepilogo-scambi {
+    grid-column: 2 / 3;
+    text-align: right;
+  }
+  button {
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  #container-squadra-utente {
+    pointer-events: none;
+  }
   #container-squadra-utente,
-  #container-squadra-2 {
+  #container-squadra-2,
+  #container-seleziona-squadra-2,
+  #container-nome-squadra-utente {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 4px;
-    width: calc(50% - 10px);
   }
-  #container-squadra-2 {
-    width: calc(50% - 10px);
-  }
-  #container-seleziona-squadra {
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
 
-    justify-content: flex-end;
-    align-items: center;
-    margin: 5px;
-
-    select {
-      margin: 5px;
-      display: block;
+  select{
+    display: block;
       padding: 5px;
-      width: 60%;
-      font-size: large;
+      width: 100%;
+      color: var(--primary-dark);
+      
+      font-size: small;
       border-radius: 10px;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       -ms-border-radius: 10px;
       -o-border-radius: 10px;
+
+  }
+    #container-nome-squadra-utente {
+      grid-column: 1 / 2;
+      
     }
+    #container-seleziona-squadra-2 {
+      grid-column: 2 / 3;
+      
+    }
+  }
+
+  #box-riepilogo-giocatori-squadra1 > div:nth-child(1),
+  #box-riepilogo-giocatori-squadra2 > div:nth-child(1) {
+    color: yellow;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+  }
+  #box-riepilogo-giocatori-squadra1 > div,
+  #box-riepilogo-giocatori-squadra2 > div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #box-riepilogo-giocatori-squadra1,
+  #box-riepilogo-giocatori-squadra2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: x-small;
+    text-align: center;
+
+    div {
+      text-align: center;
+    }
+  }
+
+  #box-riepilogo-giocatori-squadra1 > div,
+  #box-riepilogo-giocatori-squadra2 > div {
+    display: grid;
+    gap: 5px;
+    text-align: center;
+
+    grid-template-columns: 0.5fr 3fr 1fr 1fr;
+  }
+  #info-squadra-2 {
+    grid-column: 2 / 3;
+  }
+  #info-squadra-1 {
+    grid-column: 1 / 2;
+  }
+
+  #info-squadra-2,
+  #info-squadra-1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
   }
 }

@@ -719,6 +719,15 @@ class Rosa {
     C: [], //record di cc
     A: [], //record di att
   };
+  //memorizzazione degli scambi effettuati, con la squadra specificae conteggio degli scambi effettuati
+  #scambiEffettuati = [
+    {
+      squadra: {
+        nome: "",
+        conteggio: 0,
+      },
+    },
+  ];
 
   constructor(nome = "", presidente = "", campionato = "", creditiRes = "") {
     this.setNomeRosa = nome;

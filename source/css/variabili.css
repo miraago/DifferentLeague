@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 :root {
-  --background_primario: rgb(2, 87, 156);
-  --colore_primario: white;
-
-  --background_menu: rgb(0, 35, 76);
-
   --font-titolo: "Teko", sans-serif;
   --font-menu: "Oswald", sans-serif;
   --font-tabellone: "Montserrat", sans-serif;
@@ -13,5 +8,44 @@
 
   --weight-bold: 700;
   --weight-regular: 400;
-  /* variabili */
+
+  /*NUOVI*/
+
+  /* --- COLORI PRINCIPALI (BRAND) --- */
+  --primary: #02579c; /* Il tuo colore preferito: usato per bottoni principali e loghi */
+  --primary-dark: #01184a; /* Blu profondo: ideale per Navbar, Sidebar e testi dei titoli */
+  --primary-light: #0077c2; /* Versione più chiara: per stati hover e icone attive */
+
+  /* --- SFONDI E SUPERFICI --- */
+  --bg-site: #f4f7f9; /* Sfondo generale della pagina (riposante per l'occhio) */
+  --surface: #ffffff; /* Sfondo di card, moduli e righe delle tabelle */
+  --surface-alt: #f8f9fa; /* Grigio chiarissimo per zebra-striping nelle tabelle */
+
+  /* --- TESTO E TIPOGRAFIA --- */
+  --text-main: #01184a; /* Colore per i testi principali (nomi calciatori, titoli) */
+  --text-muted: #6c757d; /* Colore per info secondarie (squadra di appartenenza, ruolo) */
+  --text-on-primary: #ffffff; /* Testo da usare sopra i bottoni o menu blu */
+
+  /* --- STATI E FEEDBACK (TIPICI FANTACALCIO) --- */
+  --bonus: #2dc653; /* Verde: per i +3, voti alti e giocatori schierati */
+  --malus: #e63946; /* Rosso: per i -1, espulsioni e infortuni */
+  --warning: #ffb703; /* Giallo/Arancio: per ammonizioni e ballottaggi */
+  --border: #dee2e6; /* Colore bordi tabelle e separatori */
+
+  /* --- ACCENTI --- */
+  --accent: #00bbf9; /* Azzurro vivido per link o piccoli badge dinamici */
+
+  /* Colori per ruolo */
+  --col-P: hsl(40, 94%, 52%);
+  --col-D: hsl(96, 70%, 46%);
+  --col-C: hsl(217, 93%, 52%);
+  --col-A: hsl(351, 89%, 53%);
+
+
+    --bg-vista: #dde1e8;
+  --bg-card: #000d1d;
+  --bg-card-hover: #212d42;
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.42);
+  --border-card: rgba(255, 255, 255, 0.08);
 }

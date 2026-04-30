@@ -7,8 +7,8 @@
   position: sticky; /* sempre visibile */
   top: 0;
   z-index: 10;
-  background-color: var(--background_menu);
-  color: var(--colore_primario);
+  background-color: var(--primary-dark);
+  color: var(--bg-site);
   flex-wrap: wrap;
 
   #nome-presidente {
@@ -34,7 +34,7 @@
   }
   .etichetta {
     font-size: x-small;
-    color: var(--colore_primario);
+    color: var(--bg-site);
   }
   > div {
     display: flex;
@@ -80,7 +80,7 @@
     list-style: none;
 
     border-top-left-radius: 10px;
-    background-color: var(--background_menu);
+    background-color: var(--primary-dark);
     flex-wrap: wrap; /* Permette al menu di andare a capo se lo spazio è insufficiente */
   }
 
@@ -106,7 +106,7 @@
     width: 100%;
     min-width: 100%;
     /*ForzalastessalarghezzadelLIpadre*/
-    background-color: var(--background_menu);
+    background-color: var(--primary-dark);
     padding: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-bottom-left-radius: 10px;
@@ -136,7 +136,7 @@
     text-align: center;
   }
   #contenitore-menu a {
-    color: var(--colore_primario);
+    color: var(--bg-site);
   }
   .icona img {
     width: 15px;

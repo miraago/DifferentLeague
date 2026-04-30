@@ -38,8 +38,9 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     card.innerHTML = `
     <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
       <div class="nome-giocatore">${dati.getNome}</div>
-      <div class="squadra"><img src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/></div>
       <div title="Costo di acquisto" class="costo-acquisto">${giocatore.getCostoDiAcquisto}</div>
+      <div class="squadra"><img src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/></div>
+      <div title="Costo Attuale" class="costo-attuale">${giocatore.getDatiGiocatore.getQuotazione}</div>
       `;
 
     return card;

@@ -1,11 +1,11 @@
 :root {
-  --background_primario: rgb(2, 87, 156);
+  --primary-dark: rgb(2, 87, 156);
   --color-scuro: rgb(1, 22, 53);
   --color_primario: white;
 }
 
 #vista-la-mia-squadra {
-  background-color: var(--background_primario);
+  background-color: var(--primary-dark);
   color: var(--color_primario);
   display: flex;
   flex-direction: row;
@@ -166,10 +166,10 @@
   /* padding: 5px; Un po' di respiro interno */
   /* margin-top: 5px; Lo distanzia dall'etichetta superiore */
   /* font-size: 14px; */
-  /* border: 1px solid var(--background_primario);
+  /* border: 1px solid var(--primary-dark);
   border-radius: 5px; */
   /* background-color: white; */
-  color: var(--background_primario);
+  color: var(--primary-dark);
   /* cursor: pointer; */
   width: 100%;
   padding: 8px;
@@ -178,7 +178,7 @@
   border: 1px solid #ccc;
   cursor: pointer;
   background-color: white;
-  color: var(--background_primario);
+  color: var(--primary-dark);
   font-weight: bold;
 }
 

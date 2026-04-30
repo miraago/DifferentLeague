@@ -58,4 +58,8 @@ export const IMPOSTAZIONI = {
   GIORNATAATTUALE: {
     giornata: 32,
   },
+  REGOLE_SCAMBI: {
+    DIFFERENZA_MAX: 6,
+    MOVIMENTI_MAX_STESSA_SQUADRA: 4,
+  },
 };

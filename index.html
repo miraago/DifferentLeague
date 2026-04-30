@@ -174,7 +174,107 @@
           <div id="container-table"></div>
         </div>
         <!-- vista scambi contiene la vista del mercato scambi  -->  
-        <div class="pagina" data-pagina="scambi" id="vista-scambi"></div>
+        <div class="pagina" data-pagina="scambi" id="vista-scambi">
+          
+          <section id="container-nome-squadra-utente">
+            <div>La mia squadra</div> 
+            <select id="select-la-mia-squadra">
+            </select> 
+          </section>
+
+          <section id="container-seleziona-squadra-2">
+            <div>Proposte di scambio per:</div>
+            <select id="select-scelta-squadra"></select>            
+          </section>
+          <div id="info-squadra-1">
+              <div id="ruoli-squadra1">              
+                <div>
+                  <span class="P">P</span> 
+                  <div id="tot-P-s1">0</div>
+                </div>
+                <div>
+                  <span class="D">D</span> 
+                  <div id="tot-D-s1">0</div>
+                </div>
+                <div>
+                  <span class="C">C</span> 
+                  <div id="tot-C-s1">0</div>
+                </div>
+                <div>
+                  <span class="A">A</span> 
+                  <div id="tot-A-s1">0</div>
+                </div>
+              </div>
+              <div>
+                <div><img src="./Assets/icone/soldi.png" alt="Crediti" title="Crediti"/></div>
+                <div id="crediti-residui-squadra-1">0</div>
+              </div>
+              <div>
+                <div><img src="./Assets/icone/scambi.png" alt="Scambi" title="Scambi con la stessa squadra"/></div>
+                <div id="scambi-stessa-squadra-1">0</div>
+              </div>
+            </div>
+          <div id="info-squadra-2">
+              <div id="ruoli-squadra2">
+                  <div>
+                    <span class="P">P</span> 
+                    <div id="tot-P-s2">0</div>
+                  </div>
+                  
+                  <div>
+                    <span class="D">D</span> 
+                    <div id="tot-D-s2">0</div>
+                  </div>
+                  <div>
+                    <span class="C">C</span> 
+                    <div id="tot-C-s2">0</div>
+                  </div>
+                  <div>
+                    <span class="A">A</span> 
+                    <div id="tot-A-s2">0</div>
+                  </div>
+            </div>
+            <div>
+                <div><img src="./Assets/icone/scambi.png" alt="Scambi" title="Scambi con la stessa squadra"/></div>
+                <div id="scambi-stessa-squadra-2">0</div>
+              </div>
+            <div>
+              <div><img src="./Assets/icone/soldi.png" alt="Crediti" title="Crediti"/></div>
+              <div id="crediti-residui-squadra-2">0</div>
+            </div>
+            </div>
+          <section id="totale-scambi">                
+                <div>Tot.Qt. giocatori selezionati</div>
+                <div id="differenza-crediti">Differenza</div>
+                <div>Tot. Qt. giocatori selezionati</div>
+                <div class="conteggio" id="valore-totale-quotazioni-squadra1">0</div>
+                <div class="conteggio" id="totale-differenza-crediti">0</div>
+                <div class="conteggio" id="valore-totale-quotazioni-squadra2">0</div>
+          </section>
+          <section id="container-squadra-utente"></section>
+          <section id="container-squadra-2"></section>
+          <section id="container-riepilogo-scambio">
+            <div id="titolo-riepilogo-scambio">Riepilogo Scambio : </div>     
+
+            <div id="box-riepilogo-giocatori-squadra1"></div>            
+            <div id="box-riepilogo-giocatori-squadra2"></div> 
+            
+              <div id=container-crediti-aggiuntivi>                
+                  <div><input type="radio" name="richiesta-crediti">Aggiungi</radio></div>
+                  <div><input type="radio" name="richiesta-crediti">Richiedi</radio></div>                  
+                  <input type="number" placeholder="0" max="300" maxlength="3"/> Crediti
+              </div>
+          
+                
+               
+          
+            <div id="container-bottoni-riepilogo-scambi">
+                <button id="invia-proposta" class="disabled">Invia Proposta</button>
+            </div>  
+                     
+
+          </section>
+        </div>
         <!-- vista mercato contiene la vista del mercato  -->  
         <div class="pagina" data-pagina="mercato" id="vista-mercato"></div>
         <!-- vista la mia squadra contiene la vista della propria squadra -->  

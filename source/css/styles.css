@@ -4,13 +4,36 @@
   padding: 0;
   margin: 0;
 }
+.disabled {
+  opacity: 0.5; /* Effetto visivo di disabilitazione */
+  cursor: not-allowed; /* Mostra il cursore "divieto" */
+}
+.errore {
+  border: 2px solid red !important;
+  border-radius: 10px;
+  font-weight: bold;
+  color: red !important;
+}
+button {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--primary);
+  color: var(--surface);
+  font-weight: 700;
+}
+button:hover {
+  background-color: var(--primary-light);
+}
+
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-image: url("../../Assets/image/sfondo.png");
   background-repeat: repeat;
   background-size: 100vh;
   position: relative;
-  padding-bottom: 60px; /**/
+  padding-bottom: 60px;
 }
 footer {
   width: 100%;
@@ -108,7 +131,7 @@ h2 {
 }
 
 #popup-caricamento {
-  background-color: var(--background_primario);
+  background-color: var(--primary-dark);
   color: white;
   z-index: 1000;
   width: 100%;
@@ -132,7 +155,7 @@ h2 {
 .selected {
   font-weight: bold;
   color: white;
-  background-color: var(--background_primario);
+  background-color: var(--primary-dark);
 }
 span {
   display: flex;
@@ -213,7 +236,7 @@ div #contenitore-nome {
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
-  color: var(--background_primario);
+  color: var(--primary-dark);
 }
 .campo-squadra {
   font-size: 16px;
@@ -223,6 +246,6 @@ div #contenitore-nome {
 .campo-quotazione {
   font-size: 18px;
   font-weight: bold;
-  color: var(--background_primario);
+  color: var(--primary-dark);
   text-align: center;
 }

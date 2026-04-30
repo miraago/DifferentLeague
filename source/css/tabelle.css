@@ -10,48 +10,63 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .cella-quotazione {
-  color: var(--background_primario);
+  color: var(--primary-dark);
   font-weight: bold;
 }
 
 /* TUTTE LE TABELLE IN CONTAINER TABLE*/
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 
   margin: 0 auto;
-  box-shadow: 10px 10px 5px #b5cae0;
+
   /* TUTTI I CAPTION DELLE TABELLE */
   caption {
     font-family: Calibri, "Trebuchet MS", sans-serif;
     font-size: large;
     font-weight: 200;
     padding: 5px;
-    color: var(--background_primario);
+    color: var(--primary-dark);
   }
   /* TUTTI I THEAD DELLE TABELLE */
   thead {
     max-height: 40px;
-    text-align: center;
     font-size: 14px;
-    background-color: rgb(2, 87, 156);
     color: white;
 
     tr.intestazione-colonne th {
-      padding: 10px;
-      text-align: center;
-      font-weight: 100;
-      font-variant: small-caps;
-      font-size: small;
+      background-color: var(--primary-dark);
+      color: var(--text-on-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 15px;
+      text-align: left;
+      border: none;
+      font-size: 0.75rem;
       font-family: monospace;
       cursor: pointer;
     }
+    tr.intestazione-colonne {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
     tr.intestazione-colonne th:hover {
       text-decoration: underline;
-      color: aqua;
+      background-color: var(
+        --primary
+      ); /* Il blu vira sul primario al passaggio */
+      cursor: pointer;
+      transition: background 0.2s;
     }
   }
   /* TBODY DI TUTTE LE TABELLE */
@@ -70,7 +85,7 @@ table {
       }
     }
     tr:nth-child(even) {
-      background-color: rgb(246, 248, 252);
+      background-color: var(--surface-alt);
     }
   }
   /* TFOOT DI TUTTE LE TABELLE */
@@ -143,7 +158,7 @@ table.tabella-giocatori {
   tbody tr > td:nth-child(7),
   tbody tr > td:nth-child(6) {
     width: 55px;
-    color: var(--background_primario);
+    color: var(--primary-dark);
   }
 
   tbody tr > td:nth-child(8),
@@ -185,7 +200,7 @@ table.tabella-giocatori {
     background-color: rgb(236, 243, 253);
   }
   tr:nth-child(even) td {
-    background-color: rgb(245, 247, 250);
+    background-color: var(--surface-alt);
   }
   .nome-squadra {
     /* sui cellulari non visibile */
@@ -219,7 +234,7 @@ table.tabella-info-squadre {
         width: 150px;
         text-align: left;
         overflow: hidden;
-        color: var(--background_primario);
+        color: var(--primary-dark);
       }
       td:nth-child(2) {
         width: 150px;

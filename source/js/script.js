@@ -398,6 +398,10 @@ export function paginaDaRendereVisibile(pagina = "") {
     PAGINE.forEach((paginacorrente) => {
       if (paginacorrente.dataset.pagina == pagina) {
         paginacorrente.style.display = "flex";
+        if (pagina == "scambi")
+        {
+          paginacorrente.style.display = "grid";
+        }
       } else {
         paginacorrente.style.display = "none";
       }
