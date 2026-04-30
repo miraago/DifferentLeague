@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "G:/Il mio Drive/Programmazione/ProgettoDifferntLeague"
+	},
+	{
+		"path": "G:/Il mio Drive/Programmazione/node"
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "ProgettoDifferntLeague"
+  }
+}
