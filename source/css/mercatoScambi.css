@@ -169,7 +169,8 @@
     grid-column: 2 / 3;
     text-align: right;
   }
-  button {
+  
+  #invia-proposta{
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
@@ -177,6 +178,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+
   }
 
   #container-squadra-utente {
@@ -268,4 +270,4 @@
     border-radius: 20px;
     padding: 10px;
   }
-}
+

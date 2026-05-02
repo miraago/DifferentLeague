@@ -43,7 +43,7 @@ footer {
 
   left: 0;
   background-repeat: repeat-x;
-  background-image: url(/Assets/image/erba.png);
+  background-image: url("../../Assets/image/erba.png");
   background-size: contain;
 
   background-repeat: repeat-x; /* Ripete l'erba in orizzontale */

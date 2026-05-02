@@ -413,15 +413,26 @@ function aggiornaConteggioRuoli() {
   switchBottoneInvia();
 }
 
-//funzione che controlla se ci sono errori nei conteggi e disabilita il bottone invia proposta se c'è almeno un errore
+//funzione che controlla se ci sono errori nei conteggi 
+// e disabilita il bottone invia proposta se c'è almeno un errore 
+// o se non è stata selezionata una squadra 2, altrimenti lo abilita
 function switchBottoneInvia() {
+  //riferimento al container vista scambi
   const vistaScambi = document.getElementById("vista-scambi");
+  //riferimento al bottone invia proposta
   const bottoneInvia = document.getElementById("invia-proposta");
-  if (vistaScambi.querySelectorAll(".errore").length > 0) {
+
+  //controlliamo se ci sono errori
+  if ((vistaScambi.querySelectorAll(".errore").length > 0) || 
+      (document.getElementById("select-scelta-squadra").value == "0") || 
+      (selezionatiSquadra1.length + selezionatiSquadra2.length == 0)) {
     //c'è un errore disabilita bottone invia proposta
     bottoneInvia.classList.add("disabled");
   } else {
-    //non c'è un errore disabilita bottone invia proposta
+    //non c'è un errore 
+    // è selezionata almeno una squadra nella select
+    // c'è almeno un giocatore selezionato
+    // quindi abilitiamo il pulsante errore
     bottoneInvia.classList.remove("disabled");
   }
 }
@@ -570,4 +581,51 @@ function resetErrori() {
   //rimuove la classe errore da tutti gli elementi che la contengono
   const elementiConErrore = vistaScambi.querySelectorAll(".errore");
   elementiConErrore.forEach((el) => el.classList.remove("errore"));
+}
+
+
+function inviaProposta(){
+  //creazione oggetto proposta di scambio con tutte le informazioni necessarie
+  const propostaScambio = {
+    squadra1: UTENTELOGGATO.presidenteUtenteLoggato,
+    squadra2: cbPresidenti.find((presidentecorrente) => {
+      return (
+        presidentecorrente.getNomeRosa ==
+        document.getElementById("select-scelta-squadra").value
+      );
+    }),
+    selezionatiSquadra1: selezionatiSquadra1,
+    selezionatiSquadra2: selezionatiSquadra2,
+    dataProposta: new Date(),
+
+      
+  };
+ 
+}
+function controlloInvioProposta(){
+  //controlliamo che i dati interni della proposta sono corretti, non ci fidiamo dell'html, potrebbe essere stato manomesso da un utente esperto in informatica, quindi controlliamo
+  //differenza crediti che sia <= del valore impostato nelle regole
+  const totaleQuotazioniSquadra1 = selezionatiSquadra1.reduce((acc, s) => acc + s.giocatore.getQuotazione, 0);
+  const totaleQuotazioniSquadra2 = selezionatiSquadra2.reduce((acc, s) => acc + s.giocatore.getQuotazione, 0);
+  const differenza = Math.abs(totaleQuotazioniSquadra1 - totaleQuotazioniSquadra2);
+
+  if (differenza > IMPOSTAZIONI.REGOLE_SCAMBI.DIFFERENZA_MAX) {
+    return false;
+  }
+  //controlliamo che non ci siano più giocatori per ruolo rispetto al massimo consentito dalle regole
+
+    let conteggioRuoli = {
+    P: 0,
+    D: 0,
+    C: 0,
+    A: 0,
+  };
+  //aggiungiamo al conteggio della squadra 1 i giocatori della squadra 2 che andrebbero ad accupare gli slot della squadra 1
+  selezionatiSquadra2.forEach((s) => {
+    conteggioRuoli[s.giocatore.getRuolo] += 1;
+  });
+
+
+  return true;
+
 }
