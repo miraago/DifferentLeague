@@ -146,7 +146,7 @@ table.tabella-squadra {
 table.tabella-giocatori {
   width: 100%;
   border: 1px solid lightgray;
-  border-spacing: 10px 15px;
+  border-spacing: 2px 2px;
 
   tbody tr > td:nth-child(14),
   tbody tr > td:nth-child(13),
