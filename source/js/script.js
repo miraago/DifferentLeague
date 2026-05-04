@@ -2,8 +2,7 @@
 import { controllaAccesso, UTENTELOGGATO, logout } from "./gestioneUtente.js";
 import { stampaInfoSquadre, stampaRose } from "./squadre.js";
 import {
-  stampaLaMiaSquadra,
-  gestisciFiltroSelezionaSquadraDaSelect,
+  mostraLaMiaSquadra,
 } from "./laMiaSquadra.js";
 
 import { inizializzaScambi, scambiaGiocatore } from "./vistaScambi.js";
@@ -312,13 +311,8 @@ function chiamaPaginaCliccata(evento) {
       stampaInfoSquadre();
       break;
     case "apri-la-mia-squadra":
-      stampaLaMiaSquadra(
-        presidenti,
-        tagVistaLaMiaSquadra,
-        TAG_H2,
-        azzeraFiltri,
-        paginaDaRendereVisibile,
-        containerTable,
+      mostraLaMiaSquadra(       
+        paginaDaRendereVisibile,       
       );
       break;
     case "apri-tutte-le-rose":
@@ -398,7 +392,7 @@ export function paginaDaRendereVisibile(pagina = "") {
     PAGINE.forEach((paginacorrente) => {
       if (paginacorrente.dataset.pagina == pagina) {
         paginacorrente.style.display = "flex";
-        if (pagina == "scambi")
+        if (pagina == "scambi" || pagina == "la-mia-squadra") 
         {
           paginacorrente.style.display = "grid";
         }

@@ -67,3 +67,8 @@
     height: 20px;
   }
 }
+
+.card-giocatore:hover {
+  background-color: var(--primary);
+ 
+}
