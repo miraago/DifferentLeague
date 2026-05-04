@@ -1,135 +1,119 @@
-#vista-la-mia-squadra{
-    background-color: var(--surface);
-    color: var(--primary-dark);
+#vista-la-mia-squadra {
+  background-color: var(--surface);
+  color: var(--primary-dark);
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "nome-squadra nome-squadra nome-presidente crediti-residui"
+    "info-ruoli info-ruoli info-ruoli info-ruoli"
+    "container-rosa container-rosa container-rosa container-rosa";
+
+  a {
+  }
+  #nome-squadra {
+    grid-area: nome-squadra;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #nome-presidente {
+    grid-area: nome-presidente;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #info-ruoli {
+    grid-area: info-ruoli;
+    margin: 0 auto;
+    text-align: center;
     display: grid;
-    
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-template-areas: "nome-squadra nome-squadra nome-presidente crediti-residui"
-                         "info-ruoli info-ruoli info-ruoli info-ruoli"                         
-                         "container-rosa container-rosa container-rosa container-rosa";
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 3px;
 
-
-    a{
-
+    #totale-portieri {
+      border-bottom: 3px solid var(--col-P);
+      padding: 5px;
     }
-    #nome-squadra{
-        grid-area: nome-squadra;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: bold; 
-        display: flex;
-        justify-content: center;
-        align-items: center;       
-        
-
+    #totale-difensori {
+      border-bottom: 3px solid var(--col-D);
+      padding: 5px;
     }
-    #nome-presidente{
-        grid-area: nome-presidente;
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: lighter;
-        font-style: italic;
-        display: flex;
-        justify-content: center;
-        align-items: center;  
-        
+    #totale-centrocampisti {
+      border-bottom: 3px solid var(--col-C);
+      padding: 5px;
     }
-    #info-ruoli{
-        grid-area:info-ruoli;
-        margin:0 auto;
-        text-align: center;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-        padding: 3px;
-
-        #totale-portieri{
-            border-bottom: 3px solid var(--col-P);
-            padding:5px;
-        }
-        #totale-difensori{
-            border-bottom: 3px solid var(--col-D);
-            padding:5px;
-        }
-        #totale-centrocampisti{
-            border-bottom: 3px solid var(--col-C);
-            padding:5px;
-        }
-        #totale-attaccanti{
-            border-bottom: 3px solid var(--col-A);
-            padding:5px;
-        }
-        
-            
-    
+    #totale-attaccanti {
+      border-bottom: 3px solid var(--col-A);
+      padding: 5px;
     }
+  }
 
-    #container-rosa{
-        grid-area: container-rosa;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        width: fit-content;
-        margin: 0 auto;
-        gap: 1rem;
-        padding: 1rem;
-        justify-content: center;
-        align-items: start;
-        
-        #container-portieri{
-            border-top: 3px solid var(--col-P);
-            padding-top:8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            gap: 0.5rem;
-        }
-        #container-difensori{
-            border-top: 3px solid var(--col-D);
-            padding-top:8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            gap: 0.5rem;
-        }
-        #container-centrocampisti{
-            border-top: 3px solid var(--col-C);
-            padding-top:8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            gap: 0.5rem;
-        }
-        #container-attaccanti{
-            border-top: 3px solid var(--col-A);
-            padding-top:8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-            gap: 0.5rem;
-        }
+  #container-rosa {
+    grid-area: container-rosa;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: fit-content;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: start;
+
+    #container-portieri {
+      border-top: 3px solid var(--col-P);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      gap: 0.5rem;
     }
+    #container-difensori {
+      border-top: 3px solid var(--col-D);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-    #crediti-residui{
-        grid-area: crediti-residui;
-        display: flex;
-        justify-content: center;
-        align-items: center;  
-        img{
-            width: 20px;
-            height: 20px;
-            
-        }
-        
+      gap: 0.5rem;
     }
+    #container-centrocampisti {
+      border-top: 3px solid var(--col-C);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
+      gap: 0.5rem;
+    }
+    #container-attaccanti {
+      border-top: 3px solid var(--col-A);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
+      gap: 0.5rem;
+    }
+  }
 
-
-
-
-
+  #crediti-residui {
+    grid-area: crediti-residui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

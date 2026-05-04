@@ -11,16 +11,42 @@
 .card-giocatore.selected .costo-acquisto {
   color: rgb(246, 255, 0);
 }
+#container-portieri .nome-giocatore {
+  color: var(--col-P);
+}
+#container-difensori .nome-giocatore {
+  color: var(--col-D);
+}
+#container-centrocampisti .nome-giocatore {
+  color: var(--col-C);
+}
+#container-attaccanti .nome-giocatore {
+  color: var(--col-A);
+}
+#container-portieri .card-giocatore {
+  border-left: 5px solid var(--col-P);
+}
+#container-difensori .card-giocatore {
+  border-left: 5px solid var(--col-D);
+}
+#container-centrocampisti .card-giocatore {
+  border-left: 5px solid var(--col-C);
+}
+#container-attaccanti .card-giocatore {
+  border-left: 5px solid var(--col-A);
+}
 
 .card-giocatore {
-  width: 160px;
-  height: 30px; /**/
-
+  height: 60px;
   border-radius: 10px;
+  display: grid;
+  grid-template-columns: 30px auto 30px 30px 30px;
+  grid-template-rows: 30px 30px;
+  grid-template-areas:
+    "ruolo nome-giocatore mv costo-acquisto costo-svincolo"
+    "img-squadra nome-squadra fvm costo-attuale costo-svincolo";
 
   font-size: small;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   background-color: var(--primary-dark);
@@ -28,47 +54,70 @@
   padding: 2px;
   cursor: pointer;
   transition: all 0.3s ease;
-
-  .ruolo,
-  .squadra,
-  .costo-acquisto,
-  .costo-attuale {
-    padding: 1px;
-    width: 15%;
+  a {
   }
   .ruolo {
+    grid-area: ruolo;
     width: 20px;
     height: 20px;
     line-height: 20px;
   }
   .nome-giocatore {
-    padding: 1px;
-    width: 55%;
+    grid-area: nome-giocatore;
+    font-weight: bold;
     text-align: left;
-    font-size: smaller;
-  }
-  .squadra {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    padding: 2px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
   }
 
-  span {
-    display: block;
+  .squadra {
+    grid-area: squadra;
+    font-weight: 100;
+
+    img.img-squadra {
+      display: block;
+      grid-area: img-squadra;
+      width: 20px;
+      height: 20px;
+    }
   }
+  .costo-acquisto {
+    grid-area: costo-acquisto;
+  }
+  .costo-attuale {
+    grid-area: costo-attuale;
+  }
+  .mv {
+    grid-area: mv;
+    display: flex;
+    flex-direction: column;
+  }
+  .fvm {
+    grid-area: fvm;
+  }
+  .costo-svincolo {
+    grid-area: costo-svincolo;
+  }
+  .nome-squadra {
+    grid-area: nome-squadra;
+    font-size: smaller;
+    font-weight: lighter;
+    text-align: left;
+  }
+
   img {
     width: 20px;
     height: 20px;
   }
 }
 
+.etichetta {
+  font-size: xx-small;
+  font-weight: lighter;
+  color: var(--text-muted);
+}
+.valore {
+  font-size: smaller;
+  font-weight: bold;
+}
 .card-giocatore:hover {
   background-color: var(--primary);
- 
 }

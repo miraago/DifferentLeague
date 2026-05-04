@@ -4,6 +4,8 @@
  * @param {number} posizioneSlot è la posizione dello slot
  * @returns card vuota
  */
+
+import { toCapitalize } from "./funzioniAgo.js";
 export function creaSlotVuoto(ruoloDaAccupare, posizioneSlot) {
   const slotVuoto = document.createElement("div");
   slotVuoto.classList.add("slot-vuoto");
@@ -26,7 +28,13 @@ export function creaCardGiocatoreVuotoSostituibile() {
 export function creaCardGiocatore(giocatore, index, option = 0) {
   //option = 0 cardGiocatore semplice
   //option = 1 cardGiocatore disabled
+
   if (giocatore) {
+    const costoSvincolo = Math.ceil(
+      (giocatore.getCostoDiAcquisto +
+        giocatore.getDatiGiocatore.getQuotazione) /
+        2,
+    );
     const dati = giocatore.getDatiGiocatore;
     const card = document.createElement("div");
     card.classList.add("card-giocatore");
@@ -36,11 +44,31 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     card.dataset.card = dati.getNome; //nome giocatore
     card.dataset.index = index; //index giocatoree
     card.innerHTML = `
-    <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
+    
+      <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
       <div class="nome-giocatore">${dati.getNome}</div>
-      <div title="Costo di acquisto" class="costo-acquisto">${giocatore.getCostoDiAcquisto}</div>
-      <div class="squadra"><img src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/></div>
-      <div title="Costo Attuale" class="costo-attuale">${giocatore.getDatiGiocatore.getQuotazione}</div>
+      <img class="img-squadra" src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
+      <div class="nome-squadra">  ${toCapitalize(dati.getSquadraDiAppartenenza)}</div>
+      <div class="mv" title="Media voto">
+          <div class="etichetta">MV</div>
+          <div class="valore">${dati.getMv}</div>
+      </div>
+      <div class="fmv" title="Media fantavoto">
+          <div class="etichetta">FVM</div>
+          <div class="valore">${dati.getFvm}</div>
+      </div>
+      <div title="Costo di acquisto" class="costo-acquisto">
+          <div class="etichetta">C.A.</div>
+          <div class="valore">${giocatore.getCostoDiAcquisto}</div>
+      </div>
+      <div title="Costo Attuale" class="costo-attuale">
+          <div class="etichetta">Qt</div>
+          <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
+      </div>
+      <div title="Costo di Svincolo" class="costo-svincolo">
+          <div class="etichetta">C.S.</div>
+          <div class="valore">${costoSvincolo}</div>
+      </div>
       `;
 
     return card;
