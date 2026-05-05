@@ -11,28 +11,28 @@
 .card-giocatore.selected .costo-acquisto {
   color: rgb(246, 255, 0);
 }
-#container-portieri .nome-giocatore {
+.P.nome-giocatore {
   color: var(--col-P);
 }
-#container-difensori .nome-giocatore {
+.D.nome-giocatore {
   color: var(--col-D);
 }
-#container-centrocampisti .nome-giocatore {
-  color: var(--col-C);
+.C.nome-giocatore {
+  color: hsl(217, 93%, 66%);
 }
-#container-attaccanti .nome-giocatore {
+.A.nome-giocatore {
   color: var(--col-A);
 }
-#container-portieri .card-giocatore {
+.P.card-giocatore {
   border-left: 5px solid var(--col-P);
 }
-#container-difensori .card-giocatore {
+.D.card-giocatore {
   border-left: 5px solid var(--col-D);
 }
-#container-centrocampisti .card-giocatore {
+.C.card-giocatore {
   border-left: 5px solid var(--col-C);
 }
-#container-attaccanti .card-giocatore {
+.A.card-giocatore {
   border-left: 5px solid var(--col-A);
 }
 
@@ -53,19 +53,26 @@
   color: white;
   padding: 2px;
   cursor: pointer;
+
   transition: all 0.3s ease;
   a {
   }
   .ruolo {
     grid-area: ruolo;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: xx-small;
   }
   .nome-giocatore {
     grid-area: nome-giocatore;
     font-weight: bold;
     text-align: left;
+    cursor: pointer;
+  }
+  .nome-giocatore:hover {
+    text-decoration: underline;
+    filter: brightness(0.8);
   }
 
   .squadra {

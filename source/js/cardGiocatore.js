@@ -43,10 +43,11 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     }
     card.dataset.card = dati.getNome; //nome giocatore
     card.dataset.index = index; //index giocatoree
+    card.classList.add(dati.getRuolo);
     card.innerHTML = `
     
       <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
-      <div class="nome-giocatore">${dati.getNome}</div>
+      <div class="nome-giocatore ${dati.getRuolo}">${dati.getNome}</div>
       <img class="img-squadra" src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
       <div class="nome-squadra">  ${toCapitalize(dati.getSquadraDiAppartenenza)}</div>
       <div class="mv" title="Media voto">
