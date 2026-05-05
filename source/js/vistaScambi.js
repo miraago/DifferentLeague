@@ -1,11 +1,13 @@
 import { UTENTELOGGATO } from "./gestioneUtente.js";
-import { paginaDaRendereVisibile } from "./script.js";
+import { paginaDaRendereVisibile , player} from "./script.js";
 import { creaCardGiocatore } from "./cardGiocatore.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
+import { popupStatisticheGiocatore } from "./popupStatisticheGiocatori.js";
 
 const vistaScambi = document.getElementById("vista-scambi");
 vistaScambi.addEventListener("change", gestisciSelezionaSquadra);
 vistaScambi.addEventListener("click", gestisciClickCard);
+vistaScambi.addEventListener("click", gestisciClickStatisticaGiocatore);
 
 let cbPlayer = [];
 let cbPresidenti = [];
@@ -628,4 +630,12 @@ function controlloInvioProposta(){
 
   return true;
 
+}
+
+
+function gestisciClickStatisticaGiocatore(e) {
+  const nomeGiocatoreCliccata = e.target.closest(".nome-giocatore");
+  if (!nomeGiocatoreCliccata) return;
+  console.log("Hai cliccato sulla statistica del giocatore: " + nomeGiocatoreCliccata.innerText);
+  popupStatisticheGiocatore(player.find((g) => g.getNome == nomeGiocatoreCliccata.innerText));
 }

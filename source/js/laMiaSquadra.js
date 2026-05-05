@@ -2,6 +2,8 @@ import { UTENTELOGGATO } from "./gestioneUtente.js";
 import { paginaDaRendereVisibile } from "./script.js";
 import { toCapitalize } from "./funzioniAgo.js";
 import { creaCardGiocatore } from "./cardGiocatore.js";
+import { popupStatisticheGiocatore } from "./popupStatisticheGiocatori.js";
+import { player } from "./script.js";
 
 const vistaLaMiaSquadra = document.getElementById("vista-la-mia-squadra");
 
@@ -22,6 +24,8 @@ export function mostraLaMiaSquadra() {
   vistaLaMiaSquadra.querySelector("#totale-difensori").textContent = `Dif.${UTENTELOGGATO.presidenteUtenteLoggato.getContaD}`;
   vistaLaMiaSquadra.querySelector("#totale-centrocampisti").textContent = `Cen.${UTENTELOGGATO.presidenteUtenteLoggato.getContaC}`;
   vistaLaMiaSquadra.querySelector("#totale-attaccanti").textContent = `Att.${UTENTELOGGATO.presidenteUtenteLoggato.getContaA}`;
+  const containerRosa= vistaLaMiaSquadra.querySelector("#container-rosa");
+  containerRosa.addEventListener("click", gestioneClickInCardGiocatore);
 
 
 const containerPortieri = document.getElementById("container-portieri");
@@ -59,6 +63,18 @@ UTENTELOGGATO.presidenteUtenteLoggato.getTuttiGliSlot.forEach((element,index) =>
 
     
 });
+
+
+
+function gestioneClickInCardGiocatore(event) {
+    const nomeGiocatore = event.target.closest(".nome-giocatore");
+    if (nomeGiocatore) {
+        // apriamo la statistica del giocatore
+        console.log(`Hai cliccato sul giocatore: ${nomeGiocatore.textContent}`);
+        popupStatisticheGiocatore(player.find(giocatoreCorrente => giocatoreCorrente.getNome == nomeGiocatore.textContent));
+    }
+
+}
 
 
 }

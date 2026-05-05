@@ -12,7 +12,7 @@ export function gestisciClickNomeGiocatore(e) {
   //logica per chiamare la card del giocatore
 }
 
-function popupStatisticheGiocatore(giocatore) {
+export function popupStatisticheGiocatore(giocatore) {
   if (!giocatore) return; //controllo sicurezza
 
   // 1. Controlliamo se il popup esiste già nel documento
