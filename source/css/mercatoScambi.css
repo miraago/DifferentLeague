@@ -1,6 +1,12 @@
 #vista-scambi {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "container-nome-squadra-utente container-seleziona-squadra-2"
+    "info-squadra-1 info-squadra-2" "totale-scambi totale-scambi"
+    "container-squadra-utente container-squadra-2"
+    "container-riepilogo-scambio container-riepilogo-scambio";
+
   gap: 10px;
 
   justify-content: center;
@@ -9,16 +15,50 @@
   a {
   }
 
+  #container-nome-squadra-utente {
+    grid-area: container-nome-squadra-utente;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  #container-seleziona-squadra-2 {
+    grid-area: container-seleziona-squadra-2;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  #info-squadra-1 {
+    grid-area: info-squadra-1;
+  }
+  #info-squadra-2 {
+    grid-area: info-squadra-2;
+  }
+  #totale-scambi {
+    grid-area: totale-scambi;
+  }
+  #container-squadra-utente {
+    grid-area: container-squadra-utente;
+  }
+  #container-squadra-2 {
+    grid-area: container-squadra-2;
+  }
+  #container-riepilogo-scambio {
+    grid-area: container-riepilogo-scambio;
+  }
+
   #totale-scambi {
     text-align: center;
-    border: 1px solid black;
-    border-radius: 20px;
-    grid-column: 1 / -1;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    border-radius: 10px;
     display: grid;
     font-size: small;
     grid-template-columns: 1fr 0.5fr 1fr;
     color: rgb(0, 0, 0);
     padding: 3px;
+
     a {
     }
 
@@ -32,9 +72,10 @@
       grid-column: 3 / 4;
     }
   }
-  img {
-    width: 18px;
-    height: 18px;
+  #info-squadra-1 img,
+  #info-squadra-2 img {
+    width: 25px;
+    height: 25px;
     text-align: center;
   }
   #ruoli-squadra1 span,
@@ -63,7 +104,6 @@
   #container-riepilogo-scambio {
     padding: 5px;
     text-align: center;
-    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -80,13 +120,6 @@
     font-size: large;
     white-space: 10px;
     margin-bottom: 5px;
-  }
-
-  #container-regole-scambi {
-    grid-column: 1 / 2;
-    text-align: left;
-    color: yellow;
-    font-size: xx-small;
   }
 
   #container-ruoli {
@@ -184,12 +217,9 @@
     pointer-events: none;
   }
   #container-squadra-utente,
-  #container-squadra-2,
-  #container-seleziona-squadra-2,
-  #container-nome-squadra-utente {
+  #container-squadra-2 {
     display: grid;
-    max-width: 300px;
-    min-width: 180px;
+
     margin: 0 auto;
     align-items: center;
     gap: 3px;
@@ -207,12 +237,6 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-  }
-  #container-nome-squadra-utente {
-    grid-column: 1 / 2;
-  }
-  #container-seleziona-squadra-2 {
-    grid-column: 2 / 3;
   }
 }
 
@@ -250,20 +274,27 @@
 
   grid-template-columns: 0.5fr 3fr 1fr 1fr;
 }
-#info-squadra-2 {
-  grid-column: 2 / 3;
-}
-#info-squadra-1 {
-  grid-column: 1 / 2;
-}
 
 #info-squadra-2,
 #info-squadra-1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid black;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 10px;
+  background-color: var(--surface);
+
+  > div {
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
 }

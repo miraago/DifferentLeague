@@ -37,14 +37,17 @@
 }
 
 .card-giocatore {
-  height: 60px;
+  padding: 5px;
+  min-width: 170px;
+  height: 70px;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 30px auto 30px 30px 30px;
-  grid-template-rows: 30px 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 20px 15px 30px;
   grid-template-areas:
-    "ruolo nome-giocatore mv costo-acquisto costo-svincolo"
-    "img-squadra nome-squadra fvm costo-attuale costo-svincolo";
+    "ruolo nome-giocatore nome-giocatore nome-giocatore img-squadra"
+    " . nome-squadra nome-squadra nome-squadra img-squadra"
+    "mv fmv costo-acquisto costo-attuale costo-svincolo";
 
   font-size: small;
   align-items: center;
@@ -75,17 +78,6 @@
     filter: brightness(0.8);
   }
 
-  .squadra {
-    grid-area: squadra;
-    font-weight: 100;
-
-    img.img-squadra {
-      display: block;
-      grid-area: img-squadra;
-      width: 20px;
-      height: 20px;
-    }
-  }
   .costo-acquisto {
     grid-area: costo-acquisto;
   }
@@ -97,22 +89,21 @@
     display: flex;
     flex-direction: column;
   }
-  .fvm {
-    grid-area: fvm;
+  .fmv {
+    grid-area: fmv;
+    display: flex;
+    flex-direction: column;
   }
   .costo-svincolo {
     grid-area: costo-svincolo;
+    display: flex;
+    flex-direction: column;
   }
   .nome-squadra {
     grid-area: nome-squadra;
     font-size: smaller;
     font-weight: lighter;
     text-align: left;
-  }
-
-  img {
-    width: 20px;
-    height: 20px;
   }
 }
 
@@ -127,4 +118,18 @@
 }
 .card-giocatore:hover {
   background-color: var(--primary);
+}
+
+.img-squadra {
+  grid-area: img-squadra;
+  padding: 2px;
+  display: block;
+  width: 33px;
+  height: 33px;
+}
+.box-st {
+  margin: 1px;
+
+  background-color: #162239;
+  border-radius: 5px;
 }

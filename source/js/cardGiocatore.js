@@ -50,23 +50,23 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
       <div class="nome-giocatore ${dati.getRuolo}">${dati.getNome}</div>
       <img class="img-squadra" src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
       <div class="nome-squadra">  ${toCapitalize(dati.getSquadraDiAppartenenza)}</div>
-      <div class="mv" title="Media voto">
+      <div class="mv box-st" title="Media voto">
           <div class="etichetta">MV</div>
           <div class="valore">${dati.getMv}</div>
       </div>
-      <div class="fmv" title="Media fantavoto">
+      <div class="fmv box-st" title="Media fantavoto">
           <div class="etichetta">FVM</div>
           <div class="valore">${dati.getFvm}</div>
       </div>
-      <div title="Costo di acquisto" class="costo-acquisto">
+      <div title="Costo di acquisto" class="costo-acquisto box-st">
           <div class="etichetta">C.A.</div>
           <div class="valore">${giocatore.getCostoDiAcquisto}</div>
       </div>
-      <div title="Costo Attuale" class="costo-attuale">
+      <div title="Costo Attuale" class="costo-attuale box-st">
           <div class="etichetta">Qt</div>
           <div class="valore">${giocatore.getDatiGiocatore.getQuotazione}</div>
       </div>
-      <div title="Costo di Svincolo" class="costo-svincolo">
+      <div title="Costo di Svincolo" class="costo-svincolo box-st">
           <div class="etichetta">C.S.</div>
           <div class="valore">${costoSvincolo}</div>
       </div>
