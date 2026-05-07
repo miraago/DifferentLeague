@@ -60,7 +60,7 @@
   #container-rosa {
     grid-area: container-rosa;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     width: fit-content;
     margin: 0 auto;
     gap: 1rem;
@@ -117,3 +117,12 @@
     }
   }
 }
+
+@media all and (min-width: 800px){
+  #vista-la-mia-squadra {#container-rosa {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+}
+  
+
