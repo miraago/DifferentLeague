@@ -114,10 +114,9 @@
     gap: 2px;
   }
   & #id-box-team {
-    display: flex;
-    /* grid-template-columns: repeat(10, 1fr); */
-    margin-left: 5%;
-    margin-right: 5%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 5px;
   }
   & .box-team p {
     display: block;
@@ -185,9 +184,11 @@
   }
 }
 
-@media all and (min-width: 900px) {
+@media all and (max-width: 640px) {
   #container-filtri #id-box-team {
-    margin-left: 0;
-    margin-right: 0;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
+    gap: 5px;
   }
 }

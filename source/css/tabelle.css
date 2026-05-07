@@ -40,6 +40,7 @@ table {
   thead {
     max-height: 40px;
     font-size: 14px;
+    background-color: var(--primary-dark);
     color: white;
 
     tr.intestazione-colonne th {
@@ -145,16 +146,30 @@ table.tabella-squadra {
 
 table.tabella-giocatori {
   width: 100%;
+  margin: 10px auto;
   border: 1px solid lightgray;
   border-spacing: 2px 2px;
+  font-size: xx-small;
 
-  tbody tr > td:nth-child(14),
+  tbody tr > td:nth-child(10),
   tbody tr > td:nth-child(13),
   tbody tr > td:nth-child(12),
-  tbody tr > td:nth-child(11) {
+  tbody tr > td:nth-child(11),
+  tbody tr > td:nth-child(14),
+  tbody tr > td:nth-child(15),
+  thead tr > th:nth-child(13),
+  thead tr > th:nth-child(12),
+  thead tr > th:nth-child(11),
+  thead tr > th:nth-child(14),
+  thead tr > th:nth-child(10),
+  thead tr > th:nth-child(15) {
+    display: none;
     width: 55px;
-    background-color: rgba(132, 154, 175, 0.2);
   }
+  tbody tr > td:nth-child(10) {
+    color: var(--primary);
+  }
+
   tbody tr > td:nth-child(7),
   tbody tr > td:nth-child(6) {
     width: 55px;
@@ -167,7 +182,6 @@ table.tabella-giocatori {
     color: green;
   }
 
-  tbody tr > td:nth-child(10),
   tbody tr > td:nth-child(6),
   tbody tr > td:nth-child(5),
   tbody tr > td:nth-child(4),
@@ -205,6 +219,8 @@ table.tabella-giocatori {
   .nome-squadra {
     /* sui cellulari non visibile */
     display: none;
+    color: var(--primary-dark);
+    font-size: x-small;
   }
   .cella-quotazione img {
     /* immagine soldo sui cellulari non visibile */
@@ -251,8 +267,7 @@ table.tabella-info-squadre {
       }
       td:nth-child(7),
       td:nth-child(8),
-      td:nth-child(9),
-      td:nth-child(10) {
+      td:nth-child(9) {
         width: 30px;
         text-align: center;
       }
@@ -261,15 +276,47 @@ table.tabella-info-squadre {
 }
 
 /* quando si supera i 490px di larghezza, mostra nome squadra, immagine soldi e colonne MV5, FMV5, BM5 */
-@media all and (min-width: 600px) {
-  .colonna-MV5,
-  .colonna-FMV5,
-  .colonna-BM5,
-  .colonna-pre5,
-  .colonna-possesso {
-    display: table-cell;
+@media all and (min-width: 480px) {
+  table.tabella-giocatori {
+    tbody tr > td:nth-child(15),
+    thead tr > th:nth-child(15) {
+      font-size: xx-small;
+      display: table-cell;
+    }
   }
-  @media all and (min-width: 1090px) {
+}
+@media all and (min-width: 550px) {
+  table.tabella-giocatori {
+    tbody tr > td:nth-child(10),
+    thead tr > th:nth-child(10) {
+      display: table-cell;
+    }
+  }
+}
+@media all and (min-width: 660px) {
+  table.tabella-giocatori {
+    tbody tr > td:nth-child(11),
+    thead tr > th:nth-child(11) {
+      display: table-cell;
+    }
+  }
+}
+@media all and (min-width: 750px) {
+  table.tabella-giocatori {
+    tbody tr > td:nth-child(12),
+    thead tr > th:nth-child(12),
+    tbody tr > td:nth-child(13),
+    thead tr > th:nth-child(13),
+    tbody tr > td:nth-child(14),
+    thead tr > th:nth-child(14),
+    tbody tr > td:nth-child(15),
+    thead tr > th:nth-child(15) {
+      display: table-cell;
+    }
+  }
+}
+@media all and (min-width: 890px) {
+  table.tabella-giocatori {
     .nome-squadra {
       display: inline;
     }
