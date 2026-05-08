@@ -175,7 +175,7 @@ export function stampaRose() {
           }
 
           rigaHtml += `
-                <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${giocatoreCorrente.getDatiGiocatore.getQuotazione}</td>
+                <td class="cella-quotazione"><img src="./Assets/image/generic/dollar.png>${giocatoreCorrente.getDatiGiocatore.getQuotazione}</td>
                 <td>${giocatoreCorrente.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
                   (giocatoreCorrente.getCostoDiAcquisto +

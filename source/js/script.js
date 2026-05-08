@@ -1,9 +1,7 @@
 // ... altri import ...
 import { controllaAccesso, UTENTELOGGATO, logout } from "./gestioneUtente.js";
 import { stampaInfoSquadre, stampaRose } from "./squadre.js";
-import {
-  mostraLaMiaSquadra,
-} from "./laMiaSquadra.js";
+import { mostraLaMiaSquadra } from "./laMiaSquadra.js";
 
 import { inizializzaScambi, scambiaGiocatore } from "./vistaScambi.js";
 
@@ -204,7 +202,7 @@ function stampaListaGiocatoriDaSvincolare() {
         <td> ${teamCorrente.getNomeRosa} </td>
         <td> ${playerCorrente.getDatiGiocatore.getRuolo}  </td>
         <td> ${toCapitalize(playerCorrente.getDatiGiocatore.getNome)}</td>
-        <td class="cella-quotazione"><img src="Assets/icone/soldi.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
+        <td class="cella-quotazione"><img src="./Assets/image/generic/icone/dollar.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
         <td> ${playerCorrente.getCostoDiAcquisto} </td>
         
         <td> ${Math.ceil(
@@ -311,9 +309,7 @@ function chiamaPaginaCliccata(evento) {
       stampaInfoSquadre();
       break;
     case "apri-la-mia-squadra":
-      mostraLaMiaSquadra(       
-        paginaDaRendereVisibile,       
-      );
+      mostraLaMiaSquadra(paginaDaRendereVisibile);
       break;
     case "apri-tutte-le-rose":
       stampaRose();
@@ -392,8 +388,7 @@ export function paginaDaRendereVisibile(pagina = "") {
     PAGINE.forEach((paginacorrente) => {
       if (paginacorrente.dataset.pagina == pagina) {
         paginacorrente.style.display = "flex";
-        if (pagina == "scambi" || pagina == "la-mia-squadra") 
-        {
+        if (pagina == "scambi" || pagina == "la-mia-squadra") {
           paginacorrente.style.display = "grid";
         }
       } else {

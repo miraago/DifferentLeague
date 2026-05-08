@@ -113,7 +113,7 @@ export function stampaListaAppartenenze(
     }
 
     rigaHTML += `
-        <td  class="cella-quotazione"><img src="Assets/icone/soldi.png"/>
+        <td  class="cella-quotazione"><img src="./Assets/image/generic/icone/dollar.png"/>
          ${playerCorrente.getQuotazione}
         </td>
         <td>
@@ -263,7 +263,7 @@ function creaTabellaGiocatori(arrayFiltrato, titoloTabella = "Lista") {
       } else {
         riganuova += `<td class="cella-squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span></td>`;
       }
-      riganuova += `<td class="cella-quotazione"><img src="Assets/icone/soldi.png"/>${p.getQuotazione}</td>
+      riganuova += `<td class="cella-quotazione"><img src="./Assets/image/generic/icone/dollar.png"/>${p.getQuotazione}</td>
         <td>${p.getPresenze}</td>
         <td>${p.getGoalTotali}</td>
         <td>${p.getAssistTotali}</td>

@@ -120,6 +120,7 @@ table {
 /* TABELLA VISTA TUTTE LE ROSE */
 table.tabella-squadra {
   padding: 2px;
+  max-width: 50%;
 
   tr {
     td:nth-child(1) {
