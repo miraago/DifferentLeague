@@ -1,5 +1,5 @@
 import { UTENTELOGGATO } from "./gestioneUtente.js";
-import { paginaDaRendereVisibile , player} from "./script.js";
+import { paginaDaRendereVisibile, player } from "./script.js";
 import { creaCardGiocatore } from "./cardGiocatore.js";
 import { IMPOSTAZIONI } from "./impostazioni.js";
 import { popupStatisticheGiocatore } from "./popupStatisticheGiocatori.js";
@@ -182,7 +182,9 @@ function gestisciClickCard(e) {
         (g) => g.getNome == cardGiocatoreCliccata.dataset.card,
       ), //prendo il riferimento al giocatore,
       costoDiAcquisto: parseInt(
-        cardGiocatoreCliccata.querySelector(".costo-acquisto").innerHTML.trim(),
+        cardGiocatoreCliccata
+          .querySelector(".costo-acquisto .valore")
+          .innerHTML.trim(),
       ), //prendo l'intero costo di acquisto
       index: cardGiocatoreCliccata.dataset.index,
     };
@@ -415,8 +417,8 @@ function aggiornaConteggioRuoli() {
   switchBottoneInvia();
 }
 
-//funzione che controlla se ci sono errori nei conteggi 
-// e disabilita il bottone invia proposta se c'è almeno un errore 
+//funzione che controlla se ci sono errori nei conteggi
+// e disabilita il bottone invia proposta se c'è almeno un errore
 // o se non è stata selezionata una squadra 2, altrimenti lo abilita
 function switchBottoneInvia() {
   //riferimento al container vista scambi
@@ -425,13 +427,15 @@ function switchBottoneInvia() {
   const bottoneInvia = document.getElementById("invia-proposta");
 
   //controlliamo se ci sono errori
-  if ((vistaScambi.querySelectorAll(".errore").length > 0) || 
-      (document.getElementById("select-scelta-squadra").value == "0") || 
-      (selezionatiSquadra1.length + selezionatiSquadra2.length == 0)) {
+  if (
+    vistaScambi.querySelectorAll(".errore").length > 0 ||
+    document.getElementById("select-scelta-squadra").value == "0" ||
+    selezionatiSquadra1.length + selezionatiSquadra2.length == 0
+  ) {
     //c'è un errore disabilita bottone invia proposta
     bottoneInvia.classList.add("disabled");
   } else {
-    //non c'è un errore 
+    //non c'è un errore
     // è selezionata almeno una squadra nella select
     // c'è almeno un giocatore selezionato
     // quindi abilitiamo il pulsante errore
@@ -585,8 +589,7 @@ function resetErrori() {
   elementiConErrore.forEach((el) => el.classList.remove("errore"));
 }
 
-
-function inviaProposta(){
+function inviaProposta() {
   //creazione oggetto proposta di scambio con tutte le informazioni necessarie
   const propostaScambio = {
     squadra1: UTENTELOGGATO.presidenteUtenteLoggato,
@@ -599,24 +602,29 @@ function inviaProposta(){
     selezionatiSquadra1: selezionatiSquadra1,
     selezionatiSquadra2: selezionatiSquadra2,
     dataProposta: new Date(),
-
-      
   };
- 
 }
-function controlloInvioProposta(){
+function controlloInvioProposta() {
   //controlliamo che i dati interni della proposta sono corretti, non ci fidiamo dell'html, potrebbe essere stato manomesso da un utente esperto in informatica, quindi controlliamo
   //differenza crediti che sia <= del valore impostato nelle regole
-  const totaleQuotazioniSquadra1 = selezionatiSquadra1.reduce((acc, s) => acc + s.giocatore.getQuotazione, 0);
-  const totaleQuotazioniSquadra2 = selezionatiSquadra2.reduce((acc, s) => acc + s.giocatore.getQuotazione, 0);
-  const differenza = Math.abs(totaleQuotazioniSquadra1 - totaleQuotazioniSquadra2);
+  const totaleQuotazioniSquadra1 = selezionatiSquadra1.reduce(
+    (acc, s) => acc + s.giocatore.getQuotazione,
+    0,
+  );
+  const totaleQuotazioniSquadra2 = selezionatiSquadra2.reduce(
+    (acc, s) => acc + s.giocatore.getQuotazione,
+    0,
+  );
+  const differenza = Math.abs(
+    totaleQuotazioniSquadra1 - totaleQuotazioniSquadra2,
+  );
 
   if (differenza > IMPOSTAZIONI.REGOLE_SCAMBI.DIFFERENZA_MAX) {
     return false;
   }
   //controlliamo che non ci siano più giocatori per ruolo rispetto al massimo consentito dalle regole
 
-    let conteggioRuoli = {
+  let conteggioRuoli = {
     P: 0,
     D: 0,
     C: 0,
@@ -627,15 +635,17 @@ function controlloInvioProposta(){
     conteggioRuoli[s.giocatore.getRuolo] += 1;
   });
 
-
   return true;
-
 }
-
 
 function gestisciClickStatisticaGiocatore(e) {
   const nomeGiocatoreCliccata = e.target.closest(".nome-giocatore");
   if (!nomeGiocatoreCliccata) return;
-  console.log("Hai cliccato sulla statistica del giocatore: " + nomeGiocatoreCliccata.innerText);
-  popupStatisticheGiocatore(player.find((g) => g.getNome == nomeGiocatoreCliccata.innerText));
+  console.log(
+    "Hai cliccato sulla statistica del giocatore: " +
+      nomeGiocatoreCliccata.innerText,
+  );
+  popupStatisticheGiocatore(
+    player.find((g) => g.getNome == nomeGiocatoreCliccata.innerText),
+  );
 }

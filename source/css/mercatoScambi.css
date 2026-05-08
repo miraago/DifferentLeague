@@ -106,6 +106,10 @@
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titolo-riepilogo-scambio titolo-riepilogo-scambio"
+      "box-riepilogo-giocatori-squadra1 box-riepilogo-giocatori-squadra2"
+      "container-crediti-aggiuntivi container-bottoni-riepilogo-scambi";
     gap: 10px;
     margin-bottom: 20px;
     background-color: var(--primary-dark);
@@ -116,7 +120,7 @@
   }
 
   #titolo-riepilogo-scambio {
-    grid-column: 1 / -1;
+    grid-area: titolo-riepilogo-scambio;
     font-size: large;
     white-space: 10px;
     margin-bottom: 5px;
@@ -188,18 +192,16 @@
     }
   }
   #container-crediti-aggiuntivi {
-    grid-column: 1 / 2;
+    grid-area: container-crediti-aggiuntivi;
     font-size: small;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     gap: 10px;
-    a {
-    }
   }
   #container-bottoni-riepilogo-scambi {
-    grid-column: 2 / 3;
+    grid-area: container-bottoni-riepilogo-scambi;
     text-align: right;
   }
 
@@ -248,9 +250,19 @@
 }
 #box-riepilogo-giocatori-squadra1 > div,
 #box-riepilogo-giocatori-squadra2 > div {
+  display: grid;
+  gap: 5px;
+  text-align: center;
+  grid-template-columns: 0.5fr 3fr 1fr 1fr;
   justify-content: center;
   align-items: center;
-  text-align: center;
+}
+
+#box-riepilogo-giocatori-squadra2 {
+  grid-area: box-riepilogo-giocatori-squadra2;
+}
+#box-riepilogo-giocatori-squadra1 {
+  grid-area: box-riepilogo-giocatori-squadra1;
 }
 
 #box-riepilogo-giocatori-squadra1,
@@ -264,15 +276,6 @@
   div {
     text-align: center;
   }
-}
-
-#box-riepilogo-giocatori-squadra1 > div,
-#box-riepilogo-giocatori-squadra2 > div {
-  display: grid;
-  gap: 5px;
-  text-align: center;
-
-  grid-template-columns: 0.5fr 3fr 1fr 1fr;
 }
 
 #info-squadra-2,

@@ -21,7 +21,7 @@
 /* TUTTE LE TABELLE IN CONTAINER TABLE*/
 table {
   border-collapse: separate;
-  border-spacing: 0;
+
   border-radius: 10px;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -247,13 +247,13 @@ table.tabella-info-squadre {
       }
 
       td:nth-child(1) {
-        width: 150px;
+        /* width: fit-content; */
         text-align: left;
         overflow: hidden;
         color: var(--primary-dark);
       }
       td:nth-child(2) {
-        width: 150px;
+        /* width: fit-content; */
         text-align: left;
         font-style: italic;
         font-weight: 100;
@@ -262,13 +262,13 @@ table.tabella-info-squadre {
       td:nth-child(4),
       td:nth-child(5),
       td:nth-child(6) {
-        width: 45px;
+        /* width: fit-content; */
         text-align: center;
       }
       td:nth-child(7),
       td:nth-child(8),
       td:nth-child(9) {
-        width: 30px;
+        /* width: 30px; */
         text-align: center;
       }
     }
