@@ -275,11 +275,20 @@
             <div id="box-riepilogo-giocatori-squadra1"></div>            
             <div id="box-riepilogo-giocatori-squadra2"></div> 
             
-              <div id=container-crediti-aggiuntivi>                
-                  <div><input type="radio" name="richiesta-crediti">Aggiungi</radio></div>
-                  <div><input type="radio" name="richiesta-crediti">Richiedi</radio></div>                  
-                  <input type="number" placeholder="0" max="300" maxlength="3"/> Crediti
-              </div>
+              <div id="container-crediti-aggiuntivi">                
+            <div>
+              <label>Aggiungi</label>
+              <input type="radio" name="richiesta-crediti" value="aggiungi" checked>
+            </div>
+            <div>
+              <label>Richiedi</label>
+              <input type="radio" name="richiesta-crediti" value="richiedi">
+            </div>
+            <select id="select-crediti">
+              <option value="0">0</option>
+            </select>                
+            Crediti
+          </div>
           
                 
                

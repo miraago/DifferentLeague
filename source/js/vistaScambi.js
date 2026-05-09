@@ -8,6 +8,7 @@ const vistaScambi = document.getElementById("vista-scambi");
 vistaScambi.addEventListener("change", gestisciSelezionaSquadra);
 vistaScambi.addEventListener("click", gestisciClickCard);
 vistaScambi.addEventListener("click", gestisciClickStatisticaGiocatore);
+vistaScambi.addEventListener("change", gestisciAggiungiRichiediCrediti);
 
 let cbPlayer = [];
 let cbPresidenti = [];
@@ -648,4 +649,15 @@ function gestisciClickStatisticaGiocatore(e) {
   popupStatisticheGiocatore(
     player.find((g) => g.getNome == nomeGiocatoreCliccata.innerText),
   );
+}
+
+function gestisciAggiungiRichiediCrediti(e) {
+  // 1. FILTRO: Se l'elemento che è cambiato NON si chiama "richiesta-crediti", fermati qui.
+  if (e.target.name !== "richiesta-crediti") return;
+
+  // 2. LOGICA: Se siamo arrivati qui, è sicuramente il radio button!
+  const valoreScelto = e.target.value; // Sarà "aggiungi" o "richiedi"
+  console.log("BOOM! Hai cliccato il radio button! Valore:", valoreScelto);
+
+  // Da qui puoi far apparire/scomparire elementi o aggiornare le variabili
 }
