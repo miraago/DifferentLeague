@@ -202,7 +202,8 @@ function stampaListaGiocatoriDaSvincolare() {
         <td> ${teamCorrente.getNomeRosa} </td>
         <td> ${playerCorrente.getDatiGiocatore.getRuolo}  </td>
         <td> ${toCapitalize(playerCorrente.getDatiGiocatore.getNome)}</td>
-        <td class="cella-quotazione"><img src="./Assets/image/generic/icone/dollar.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
+        <td class="cella-quotazione"><img src="./Assets/image/generici/dollar.png"/> ${playerCorrente.getDatiGiocatore.getQuotazione} </td> 
+        
         <td> ${playerCorrente.getCostoDiAcquisto} </td>
         
         <td> ${Math.ceil(

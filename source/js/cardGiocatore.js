@@ -22,7 +22,16 @@ export function creaSlotVuoto(ruoloDaAccupare, posizioneSlot) {
 }
 
 export function creaCardGiocatoreVuotoSostituibile() {
-  //logica per creare una card vuota con una + utile per fare una busta
+  //logica per creare una card vuota con una + utile
+  
+
+
+
+
+
+  
+  
+
 }
 
 export function creaCardGiocatore(giocatore, index, option = 0) {

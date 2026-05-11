@@ -8,12 +8,14 @@ const vistaScambi = document.getElementById("vista-scambi");
 vistaScambi.addEventListener("change", gestisciSelezionaSquadra);
 vistaScambi.addEventListener("click", gestisciClickCard);
 vistaScambi.addEventListener("click", gestisciClickStatisticaGiocatore);
+vistaScambi.addEventListener("click", inviaProposta);
 vistaScambi.addEventListener("change", gestisciAggiungiRichiediCrediti);
 
 let cbPlayer = [];
 let cbPresidenti = [];
 let selezionatiSquadra1 = [];
 let selezionatiSquadra2 = [];
+let presidenteSquadra2 = null;
 
 export function inizializzaScambi(players, presidenti) {
   cbPlayer = players;
@@ -34,8 +36,7 @@ export function scambiaGiocatore() {
   resetErrori();
   resetContainerSquadra1();
   resetContainerSquadra2();
-  // resetRuoliSquadra1();
-  // resetRuoliSquadra2();
+  
   resetDifferenzaCrediti();
   creaSelectSquadre();
   aggiornaRuoliECreditiResiduiSquadra2();
@@ -71,6 +72,10 @@ function stampaSquadra(squadraDaStampare, container) {
 function gestisciSelezionaSquadra(e) {
   if (!e.target.closest("select")) return; //se il cambio non è avvenuto su una select esci dalla funzione
 
+  if(e.target.id!=="select-scelta-squadra") return; //controlliamo che sia la select che ci occorre per questa funzione
+  
+  
+
   resetSelected(); //resettiamo eventuali card selezionate in azioni precedenti
   selezionatiSquadra1 = [];
   selezionatiSquadra2 = [];
@@ -98,7 +103,7 @@ function gestisciSelezionaSquadra(e) {
     return;
   }
 
-  const presidenteSquadra2 = cbPresidenti.find((presidentecorrente) => {
+  presidenteSquadra2 = cbPresidenti.find((presidentecorrente) => {
     return presidentecorrente.getNomeRosa == squadraSelezionata;
   });
 
@@ -590,7 +595,11 @@ function resetErrori() {
   elementiConErrore.forEach((el) => el.classList.remove("errore"));
 }
 
-function inviaProposta() {
+function inviaProposta(e) {
+  //controlliamo che il clic provenga sul bottone invia proposta
+  if (e.target.name !== "invia-proposta") return;
+
+
   //creazione oggetto proposta di scambio con tutte le informazioni necessarie
   const propostaScambio = {
     squadra1: UTENTELOGGATO.presidenteUtenteLoggato,
@@ -604,6 +613,10 @@ function inviaProposta() {
     selezionatiSquadra2: selezionatiSquadra2,
     dataProposta: new Date(),
   };
+  if (controlloInvioProposta()) {
+    console.log("Proposta inviata con successo");
+    console.log(propostaScambio);
+  }
 }
 function controlloInvioProposta() {
   //controlliamo che i dati interni della proposta sono corretti, non ci fidiamo dell'html, potrebbe essere stato manomesso da un utente esperto in informatica, quindi controlliamo
@@ -655,9 +668,29 @@ function gestisciAggiungiRichiediCrediti(e) {
   // 1. FILTRO: Se l'elemento che è cambiato NON si chiama "richiesta-crediti", fermati qui.
   if (e.target.name !== "richiesta-crediti") return;
 
+
   // 2. LOGICA: Se siamo arrivati qui, è sicuramente il radio button!
   const valoreScelto = e.target.value; // Sarà "aggiungi" o "richiedi"
-  console.log("BOOM! Hai cliccato il radio button! Valore:", valoreScelto);
+  let rigaOption="";
 
-  // Da qui puoi far apparire/scomparire elementi o aggiornare le variabili
+  if(valoreScelto == "aggiungi")
+  {
+    //popoliamo il select con un numero massimo di crediti residui della squadra
+    for(let i=0; i<UTENTELOGGATO.presidenteUtenteLoggato.getCreditiResidui+1; i++)
+    {
+      rigaOption += `<option value='${i}'>${i}</option>`;    
+    }
+  }
+  else
+  {
+    // popoliamo la select con il massimo di numeri di crediti della squadra avversaria
+    for(let i=0; i<presidenteSquadra2.getCreditiResidui+1; i++)
+    {
+      rigaOption += `<option value='${i}'>${i}</option>`; 
+    }
+
+  }
+
+  document.getElementById("select-richiesta-crediti").innerHTML = rigaOption;
+
 }

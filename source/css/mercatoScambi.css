@@ -117,6 +117,11 @@
     border-radius: 20px;
     margin: 5px;
     padding-bottom: 15px;
+
+    #select-richiesta-crediti {
+      width:fit-content;
+    }
+
   }
 
   #titolo-riepilogo-scambio {
