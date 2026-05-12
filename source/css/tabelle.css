@@ -1,29 +1,25 @@
 #container-table {
-  padding: 0;
+  padding: 10px;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 95%;
+  width: 95%;
   margin: 0 auto;
-  
-  
+
   gap: 10px;
   align-content: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
-  /* overflow: hidden; */
 }
 
 .cella-quotazione {
   color: var(--primary-dark);
   font-weight: bold;
-  
 }
-.cella-quotazione img{
+.cella-quotazione img {
   display: block;
   margin-right: 2px;
-  
 }
 
 /* TUTTE LE TABELLE IN CONTAINER TABLE*/
@@ -128,7 +124,7 @@ table {
 /* TABELLA VISTA TUTTE LE ROSE */
 table.tabella-squadra {
   padding: 2px;
-  
+
   span.P,
   span.D,
   span.C,
@@ -136,33 +132,29 @@ table.tabella-squadra {
     display: block;
     text-align: center;
     font-size: small;
-
   }
 
-  td{
-    
+  td {
     text-align: center;
   }
 
-  caption{
-    .campo-nome-squadra{
-      text-align:left;
+  caption {
+    .campo-nome-squadra {
+      text-align: left;
       font-size: x-large;
       font-weight: bold;
       padding: 5px;
       color: var(--primary-dark);
     }
-    .campo-nome-presidente{
+    .campo-nome-presidente {
       font-size: small;
       font-style: oblique;
       text-align: left;
       padding: 5px;
       color: var(--primary-dark);
     }
-
   }
-  .squadra-di-appartenenza
-  {
+  .squadra-di-appartenenza {
     font-size: smaller;
   }
 }
@@ -171,6 +163,7 @@ table.tabella-squadra {
 /* TABELLA VISTA LISTA SVINCOLATI */
 
 table.tabella-giocatori {
+  grid-column: 1 / -1;
   width: 100%;
   margin: 10px auto;
   border: 1px solid lightgray;
@@ -256,6 +249,10 @@ table.tabella-giocatori {
 
 /* TABELLA INFO SQUADRE */
 table.tabella-info-squadre {
+  width: 100%;
+  border: 1px solid var(--border);
+  grid-column: 1 / -1;
+
   thead {
     tr {
       th {
@@ -291,11 +288,17 @@ table.tabella-info-squadre {
         /* width: fit-content; */
         text-align: center;
       }
-      td:nth-child(7),
+      /* cella numero portieri */
+      td:nth-child(7), 
+      /* cella numero difensori */
       td:nth-child(8),
-      td:nth-child(9) {
-        /* width: 30px; */
+      /* cella numero centrocampisti */
+      td:nth-child(9),
+      /* cella numero attaccanti */
+      td:nth-child(10) {
+        width: 20px;
         text-align: center;
+        background-color: var(--surface-alt);
       }
     }
   }
