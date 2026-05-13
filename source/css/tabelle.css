@@ -84,8 +84,8 @@ table {
         border-bottom: 1px solid rgb(202, 202, 202);
         padding: 2px;
         img {
-          width: 13px;
-          height: 13px;
+          width: 18px;
+          height: 18px;
         }
       }
     }
@@ -124,18 +124,13 @@ table {
 /* TABELLA VISTA TUTTE LE ROSE */
 table.tabella-squadra {
   padding: 2px;
-
+  width: 100%;
   span.P,
   span.D,
   span.C,
   span.A {
-    display: block;
-    text-align: center;
+    text-align: left;
     font-size: small;
-  }
-
-  td {
-    text-align: center;
   }
 
   caption {

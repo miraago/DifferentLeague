@@ -4,6 +4,12 @@
   padding: 0;
   margin: 0;
 }
+.centrato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .disabled {
   opacity: 0.5; /* Effetto visivo di disabilitazione */
   cursor: not-allowed; /* Mostra il cursore "divieto" */
