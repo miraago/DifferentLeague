@@ -163,7 +163,7 @@ h2 {
   color: white;
   background-color: var(--primary-dark);
 }
-span {
+span.ruolo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,6 +173,17 @@ span {
   color: white;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+span.testo-nome-giocatore {
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+span.testo-nome-giocatore:hover {
+  scale: 1.1px;
+  text-decoration: underline;
+  color: var(--primary-light);
 }
 span.P {
   background-color: hsl(40, 94%, 52%, 1);

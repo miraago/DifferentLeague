@@ -1,6 +1,6 @@
 #vista-la-mia-squadra {
-  background-color: var(--surface);
   color: var(--primary-dark);
+
   display: grid;
 
   grid-template-columns: 1fr;
@@ -120,15 +120,14 @@
   }
 }
 
-@media all and (min-width: 800px){
-  #vista-la-mia-squadra {#container-rosa {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-    "nome-squadra nome-squadra nome-presidente crediti-residui"
-    "info-ruoli info-ruoli info-ruoli info-ruoli"
-    "container-rosa container-rosa container-rosa container-rosa";
+@media all and (min-width: 800px) {
+  #vista-la-mia-squadra {
+    #container-rosa {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "nome-squadra nome-squadra nome-presidente crediti-residui"
+        "info-ruoli info-ruoli info-ruoli info-ruoli"
+        "container-rosa container-rosa container-rosa container-rosa";
+    }
   }
 }
-}
-  
-

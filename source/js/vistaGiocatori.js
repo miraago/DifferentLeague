@@ -256,7 +256,7 @@ function creaTabellaGiocatori(arrayFiltrato, titoloTabella = "Lista") {
 
       riganuova = `<tr ${classefuorilista} data-nome="${p.getNome}" data-squadra="${p.getSquadraDiAppartenenza}">
         <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
-        <td>${toCapitalize(p.getNome)}${asterisco}</td>`;
+        <td><span class="testo-nome-giocatore">${toCapitalize(p.getNome)}${asterisco}</span></td>`;
 
       if (p.getFuoriLista) {
         riganuova += "<td></td>";

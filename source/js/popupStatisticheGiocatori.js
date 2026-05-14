@@ -3,14 +3,24 @@ import { IMPOSTAZIONI } from "./impostazioni.js";
 let modalStatistiche = null;
 
 export function gestisciClickNomeGiocatore(e) {
-  const trCliccata = e.target.closest("tr");
-  // Se non c'è una riga (tr) OPPURE se la riga non ha l'attributo data-nome, interrompi.
-  if (!trCliccata || !trCliccata.dataset.nome) return;
+  const elSpan = event.target.closest(".testo-nome-giocatore"); //il nome del giocatore è dentro uno span con la classe testo-nome-giocatore
 
-  popupStatisticheGiocatore(nomeToGiocatore(trCliccata.dataset.nome));
+  if (elSpan) {
+    //se esiste l'elemento span con quella classe
+    // apriamo la statistica del giocatore
 
-  //logica per chiamare la card del giocatore
+    //passiamo il giocatore al popup
+    popupStatisticheGiocatore(nomeToGiocatore(elSpan.innerText));
+  }
 }
+
+// const trCliccata = e.target.closest("tr");
+// // Se non c'è una riga (tr) OPPURE se la riga non ha l'attributo data-nome, interrompi.
+// if (!trCliccata || !trCliccata.dataset.nome) return;
+
+// popupStatisticheGiocatore();
+
+// //logica per chiamare la card del giocatore
 
 export function popupStatisticheGiocatore(giocatore) {
   if (!giocatore) return; //controllo sicurezza

@@ -23,15 +23,6 @@ export function creaSlotVuoto(ruoloDaAccupare, posizioneSlot) {
 
 export function creaCardGiocatoreVuotoSostituibile() {
   //logica per creare una card vuota con una + utile
-  
-
-
-
-
-
-  
-  
-
 }
 
 export function creaCardGiocatore(giocatore, index, option = 0) {
@@ -56,7 +47,9 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     card.innerHTML = `
     
       <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
-      <div class="nome-giocatore ${dati.getRuolo}">${dati.getNome}</div>
+      <div class="nome-giocatore ${dati.getRuolo}">
+        <span class="testo-nome-giocatore">${dati.getNome}</span>
+      </div>
       <img class="img-squadra" src="Assets/image/loghi_team_serie_A/${dati.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
       <div class="nome-squadra">  ${toCapitalize(dati.getSquadraDiAppartenenza)}</div>
       <div class="mv box-st" title="Media voto">

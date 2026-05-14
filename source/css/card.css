@@ -52,8 +52,11 @@
   font-size: small;
   align-items: center;
   text-align: center;
-  background-color: var(--primary-dark);
-  color: white;
+  background-color: var(--surface);
+  color: var(--primary-dark);
+  border-top: 1px solid var(border);
+  border-bottom: 1px solid var(border);
+  border-right: 1px solid var(border);
   padding: 2px;
   cursor: pointer;
 
@@ -73,9 +76,11 @@
     grid-area: nome-giocatore;
     font-weight: bold;
     text-align: left;
+  }
+  .nome-giocatore > span.testo-nome-giocatore {
     cursor: pointer;
   }
-  .nome-giocatore:hover {
+  .nome-giocatore > span.testo-nome-giocatore:hover {
     text-decoration: underline;
     filter: brightness(0.8);
   }
