@@ -10,6 +10,13 @@
   align-items: center;
   text-align: center;
 }
+.a-sinistra
+{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+}
 .disabled {
   opacity: 0.5; /* Effetto visivo di disabilitazione */
   cursor: not-allowed; /* Mostra il cursore "divieto" */
