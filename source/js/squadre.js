@@ -164,18 +164,18 @@ export function stampaRose() {
           } else {
             rigaHtml += `
               
-                <div class="centrato"><img src="./Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
+                <div><img src="./Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
              
               
                 ${toCapitalize(
                   giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza,
                 )}
                 
-              </div></td>`;
+              </td>`;
           }
 
           rigaHtml += `
-                <td class="cella-quotazione"><div class="centrato"><img src="./Assets/image/generici/dollar.png"/>${giocatoreCorrente.getDatiGiocatore.getQuotazione}</div></td>
+                <td class="cella-quotazione"><div><img src="./Assets/image/generici/dollar.png"/>${giocatoreCorrente.getDatiGiocatore.getQuotazione}</td>
                 <td>${giocatoreCorrente.getCostoDiAcquisto}</td>
                 <td>${Math.ceil(
                   (giocatoreCorrente.getCostoDiAcquisto +

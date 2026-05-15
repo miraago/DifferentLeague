@@ -125,6 +125,7 @@ table {
 table.tabella-squadra {
   padding: 2px;
   width: 100%;
+
   span.P,
   span.D,
   span.C,
@@ -132,6 +133,19 @@ table.tabella-squadra {
     text-align: left;
     font-size: small;
   }
+  /* cella ruolo */
+  td:nth-child(1) {
+    width:19px;
+    text-align: center;
+  }
+  td:nth-child(5),
+  td:nth-child(6)
+  {
+    width:25px;
+    text-align: center;
+
+  }
+
 
   caption {
     .campo-nome-squadra {
@@ -149,8 +163,14 @@ table.tabella-squadra {
       color: var(--primary-dark);
     }
   }
-  .squadra-di-appartenenza {
+  .squadra-di-appartenenza > div,
+  .cella-quotazione > div{
+    flex-wrap: nowrap;
     font-size: smaller;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
   }
 }
 
@@ -337,6 +357,13 @@ table.tabella-info-squadre {
     thead tr > th:nth-child(15) {
       display: table-cell;
     }
+  }
+ 
+}
+/* sotto gli 850px il contenitore tabelle diventa ad una colonna */
+@media all and (max-width: 850px) {
+ #container-table {
+    grid-template-columns: 1fr;
   }
 }
 @media all and (min-width: 890px) {
