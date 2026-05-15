@@ -172,12 +172,20 @@ export function stampaRose() {
 
           rigaHtml += `
                 <td class="cella-quotazione"><div><img src="./Assets/image/generici/dollar.png"/>${giocatoreCorrente.getDatiGiocatore.getQuotazione}</td>
-                <td>${giocatoreCorrente.getCostoDiAcquisto}</td>
-                <td>${Math.ceil(
-                  (giocatoreCorrente.getCostoDiAcquisto +
-                    giocatoreCorrente.getDatiGiocatore.getQuotazione) /
-                    2,
-                )}</td>
+                <td>
+                  <div>
+                    <img src="./Assets/image/generici/costo_pagato.png"/>
+                    ${giocatoreCorrente.getCostoDiAcquisto}</td>
+                  </div>
+                <td>
+                  <div>
+                    <img src="./Assets/image/generici/dollar_exit.png"/>
+                    ${Math.ceil(
+                      (giocatoreCorrente.getCostoDiAcquisto +
+                        giocatoreCorrente.getDatiGiocatore.getQuotazione) /
+                        2,
+                    )}</div>
+                </td>
               </tr>`;
           contaGiocatori++;
         }
