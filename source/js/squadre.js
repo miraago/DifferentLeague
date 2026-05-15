@@ -152,25 +152,21 @@ export function stampaRose() {
 
           rigaHtml += `
               <tr ${classfuoriLista} data-nome="${toCapitalize(giocatoreCorrente.getDatiGiocatore.getNome)}">
-                <td><span class="${giocatoreCorrente.getDatiGiocatore.getRuolo}">${giocatoreCorrente.getDatiGiocatore.getRuolo}</span></td>
+                <td><span class="ruolo ${giocatoreCorrente.getDatiGiocatore.getRuolo}">${giocatoreCorrente.getDatiGiocatore.getRuolo}</span></td>
                 <td>${toCapitalize(
                   giocatoreCorrente.getDatiGiocatore.getNome,
                 )}${asterisco}</td>                
-                <td class="squadra-di-appartenenza">`;
+                <td class="cella-squadra-di-appartenenza">
+                  <div>`;
           if (
             giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza == ""
           ) {
-            rigaHtml += `</td>`;
+            rigaHtml += `</td> </div>`;
           } else {
-            rigaHtml += `
-              
-                <div><img src="./Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
-             
-              
-                ${toCapitalize(
-                  giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza,
-                )}
-                
+            rigaHtml += `            
+              <img src="./Assets/image/loghi_team_serie_A/${giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"/>
+              ${toCapitalize(giocatoreCorrente.getDatiGiocatore.getSquadraDiAppartenenza)}
+              </div> 
               </td>`;
           }
 

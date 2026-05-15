@@ -62,15 +62,42 @@ async function caricaPresidenti() {
 }
 
 async function caricaGiocatori() {
-  //caricahiamo i dati della giornata attuale
-  const response = await fetch(
-    `Assets/file/quotazioni/quotazioni_gg${IMPOSTAZIONI.GIORNATAATTUALE.giornata}.txt`,
-  );
-  if (!response.ok) throw new Error("Errore Caricamento Quotazioni"); //in caso di errore
+  // Variabile per salvare i dati una volta trovati
+  let datiGiocatori = null;
 
-  const datiGiocatori = (await response.text())
-    .replaceAll("\t", "|") //rimpiazziamo i tab con pipe per facilitare lo split
-    .toUpperCase(); //rimpiazziamo tutto con maiuscolo per uniformare i dati e facilitare le ricerche
+  // Partiamo dal massimo (es. 38) e scendiamo
+  for (let i = IMPOSTAZIONI.OPZIONI_LEGHE.NUMERO_GIORNATE; i > 0; i--) {
+    // 1. Usiamo la variabile "i" per cercare il file giusto
+    const response = await fetch(
+      `Assets/file/quotazioni/quotazioni_gg${i}.txt`,
+    );
+
+    if (response.ok) {
+      console.log(`✅ Caricamento giornata ${i} riuscito!`);
+
+      // 2. Estraiamo e formattiamo i dati QUI, perché il file esiste!
+      datiGiocatori = (await response.text())
+        .replaceAll("\t", "|")
+        .toUpperCase();
+
+      // 3. Aggiorniamo l'impostazione globale, così il resto dell'app
+      // sa in automatico a che giornata siamo arrivati!
+      IMPOSTAZIONI.GIORNATAATTUALE.giornata = i;
+
+      // 4. FRENO A MANO! Abbiamo trovato l'ultimo file, fermiamo il ciclo.
+      break;
+    } else {
+      // Il file non c'è (errore 404). Il ciclo andrà avanti col prossimo numero (i - 1)
+      console.log(`Giornata ${i} non trovata, cerco la ${i - 1}...`);
+    }
+  }
+
+  // Controllo di sicurezza finale: e se non esiste nemmeno il file della giornata 1?
+  if (!datiGiocatori) {
+    throw new Error(
+      "❌ ERRORE CRITICO: Nessun file quotazioni trovato nella cartella!",
+    );
+  }
 
   let player = []; //array vuoto che andremo a riempire con i giocatori validi
   let recordInvalidi = 0;
@@ -153,7 +180,7 @@ async function caricaVoti(player) {
   //carichiamo i dati .json della giornata 1
   for (
     let giornata = 1;
-    giornata < IMPOSTAZIONI.GIORNATAATTUALE.giornata;
+    giornata < IMPOSTAZIONI.GIORNATAATTUALE.giornata + 1;
     giornata++
   ) {
     let response = await fetch(`Assets/file/voti/giornata_${giornata}.json`);

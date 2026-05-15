@@ -95,7 +95,7 @@ export function stampaListaAppartenenze(
 
     rigaHTML += `
       <tr ${classFuoriLista}>
-        <td><span class="${playerCorrente.getRuolo}"</span>
+        <td><span class="ruolo ${playerCorrente.getRuolo}"</span>
           ${playerCorrente.getRuolo}
         </td>
         <td>
@@ -106,15 +106,20 @@ export function stampaListaAppartenenze(
     } else {
       rigaHTML += `
 
-        <td class="squadra-di-appartenenza"> 
-          <img src="Assets/image/loghi_team_serie_A/${playerCorrente.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
-          ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}          
+        <td class="cella-squadra-di-appartenenza"> 
+          <div>
+            <img src="Assets/image/loghi_team_serie_A/${playerCorrente.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
+            ${toCapitalize(playerCorrente.getSquadraDiAppartenenza)}
+          </div>          
         </td>`;
     }
 
     rigaHTML += `
-        <td  class="cella-quotazione"><img src="./Assets/image/generici/icone/dollar.png"/>
-         ${playerCorrente.getQuotazione}
+        <td  class="cella-quotazione">
+          <div>
+            <img src="./Assets/image/generici/icone/dollar.png"/>
+            ${playerCorrente.getQuotazione}
+          </div>
         </td>
         <td>
           ${playerCorrente.getCopieOccupate}
@@ -255,15 +260,24 @@ function creaTabellaGiocatori(arrayFiltrato, titoloTabella = "Lista") {
       let riganuova = "";
 
       riganuova = `<tr ${classefuorilista} data-nome="${p.getNome}" data-squadra="${p.getSquadraDiAppartenenza}">
-        <td><span class="${p.getRuolo}">${p.getRuolo}</span></td>
+        <td><span class="ruolo ${p.getRuolo}">${p.getRuolo}</span></td>
         <td><span class="testo-nome-giocatore">${toCapitalize(p.getNome)}${asterisco}</span></td>`;
 
       if (p.getFuoriLista) {
         riganuova += "<td></td>";
       } else {
-        riganuova += `<td class="cella-squadra-di-appartenenza"><img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span></td>`;
+        riganuova += `<td class="cella-squadra-di-appartenenza">
+                        <div>
+                          <img src="Assets/image/loghi_team_serie_A/${p.getSquadraDiAppartenenza.toLowerCase()}.png"/> 
+                          <span class="nome-squadra">${toCapitalize(p.getSquadraDiAppartenenza)}</span>
+                        <div>
+                      </td>`;
       }
-      riganuova += `<td class="cella-quotazione"><img src="./Assets/image/generici/dollar.png"/>${p.getQuotazione}</td>
+      riganuova += `<td class="cella-quotazione">
+                        <div>
+                          <img src="./Assets/image/generici/dollar.png"/>
+                          ${p.getQuotazione}
+                        </td>
         <td>${p.getPresenze}</td>
         <td>${p.getGoalTotali}</td>
         <td>${p.getAssistTotali}</td>

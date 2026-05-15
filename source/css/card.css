@@ -24,16 +24,24 @@
   color: var(--col-A);
 }
 .P.card-giocatore {
+  border: 1px solid var(--col-P);
   border-left: 5px solid var(--col-P);
+  box-shadow: 1px 1px 3px var(--col-P);
 }
 .D.card-giocatore {
+  border: 1px solid var(--col-D);
   border-left: 5px solid var(--col-D);
+  box-shadow: 1px 1px 3px var(--col-D);
 }
 .C.card-giocatore {
+  border: 1px solid var(--col-C);
   border-left: 5px solid var(--col-C);
+  box-shadow: 1px 1px 3px var(--col-C);
 }
 .A.card-giocatore {
+  border: 1px solid var(--col-A);
   border-left: 5px solid var(--col-A);
+  box-shadow: 1px 1px 3px var(--col-A);
 }
 
 .card-giocatore {
@@ -58,7 +66,6 @@
   border-bottom: 1px solid var(border);
   border-right: 1px solid var(border);
   padding: 2px;
-  cursor: pointer;
 
   transition: all 0.3s ease;
   a {
@@ -117,14 +124,15 @@
 .etichetta {
   font-size: xx-small;
   font-weight: lighter;
-  color: var(--text-muted);
+  color: var(--text-main);
 }
+
 .valore {
   font-size: smaller;
   font-weight: bold;
 }
 .card-giocatore:hover {
-  background-color: var(--primary);
+  background-color: var(--border);
 }
 
 .img-squadra {
@@ -137,6 +145,9 @@
 .box-st {
   margin: 1px;
 
-  background-color: #162239;
+  background-color: var(--border);
   border-radius: 5px;
+}
+.card-giocatore:hover .box-st {
+  background-color: white;
 }

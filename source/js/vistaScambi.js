@@ -36,7 +36,7 @@ export function scambiaGiocatore() {
   resetErrori();
   resetContainerSquadra1();
   resetContainerSquadra2();
-  
+
   resetDifferenzaCrediti();
   creaSelectSquadre();
   aggiornaRuoliECreditiResiduiSquadra2();
@@ -72,9 +72,7 @@ function stampaSquadra(squadraDaStampare, container) {
 function gestisciSelezionaSquadra(e) {
   if (!e.target.closest("select")) return; //se il cambio non è avvenuto su una select esci dalla funzione
 
-  if(e.target.id!=="select-scelta-squadra") return; //controlliamo che sia la select che ci occorre per questa funzione
-  
-  
+  if (e.target.id !== "select-scelta-squadra") return; //controlliamo che sia la select che ci occorre per questa funzione
 
   resetSelected(); //resettiamo eventuali card selezionate in azioni precedenti
   selezionatiSquadra1 = [];
@@ -276,10 +274,16 @@ function aggiornaContainerRiepilogoScambi() {
   const totaleDifferenzaCrediti = document.getElementById(
     "totale-differenza-crediti",
   );
-  totaleDifferenzaCrediti.innerHTML =
+
+  let differenzaCrediti =
     totaleQuotazioniSquadra1 > totaleQuotazioniSquadra2
       ? totaleQuotazioniSquadra1 - totaleQuotazioniSquadra2
       : totaleQuotazioniSquadra2 - totaleQuotazioniSquadra1;
+
+  totaleDifferenzaCrediti.innerHTML =
+    differenzaCrediti <= IMPOSTAZIONI.REGOLE_SCAMBI.DIFFERENZA_MAX
+      ? differenzaCrediti + " ✅"
+      : differenzaCrediti + " ❌";
 
   //coloriamo il testo della riga dove viene calcolata la differenza
   // di verde se è <= del valore impostato nelle regole
@@ -288,11 +292,11 @@ function aggiornaContainerRiepilogoScambi() {
   const eleDifferenzaCrediti = document.getElementById(
     "totale-differenza-crediti",
   );
-  if (differenza > IMPOSTAZIONI.REGOLE_SCAMBI.DIFFERENZA_MAX) {
-    eleDifferenzaCrediti.classList.add("errore");
-  } else {
-    eleDifferenzaCrediti.classList.remove("errore");
-  }
+  // if (differenza > IMPOSTAZIONI.REGOLE_SCAMBI.DIFFERENZA_MAX) {
+  //   eleDifferenzaCrediti.classList.add("errore");
+  // } else {
+  //   eleDifferenzaCrediti.classList.remove("errore");
+  // }
 
   aggiornaConteggioRuoli();
 }
@@ -599,7 +603,6 @@ function inviaProposta(e) {
   //controlliamo che il clic provenga sul bottone invia proposta
   if (e.target.name !== "invia-proposta") return;
 
-
   //creazione oggetto proposta di scambio con tutte le informazioni necessarie
   const propostaScambio = {
     squadra1: UTENTELOGGATO.presidenteUtenteLoggato,
@@ -668,29 +671,25 @@ function gestisciAggiungiRichiediCrediti(e) {
   // 1. FILTRO: Se l'elemento che è cambiato NON si chiama "richiesta-crediti", fermati qui.
   if (e.target.name !== "richiesta-crediti") return;
 
-
   // 2. LOGICA: Se siamo arrivati qui, è sicuramente il radio button!
   const valoreScelto = e.target.value; // Sarà "aggiungi" o "richiedi"
-  let rigaOption="";
+  let rigaOption = "";
 
-  if(valoreScelto == "aggiungi")
-  {
+  if (valoreScelto == "aggiungi") {
     //popoliamo il select con un numero massimo di crediti residui della squadra
-    for(let i=0; i<UTENTELOGGATO.presidenteUtenteLoggato.getCreditiResidui+1; i++)
-    {
-      rigaOption += `<option value='${i}'>${i}</option>`;    
+    for (
+      let i = 0;
+      i < UTENTELOGGATO.presidenteUtenteLoggato.getCreditiResidui + 1;
+      i++
+    ) {
+      rigaOption += `<option value='${i}'>${i}</option>`;
     }
-  }
-  else
-  {
+  } else {
     // popoliamo la select con il massimo di numeri di crediti della squadra avversaria
-    for(let i=0; i<presidenteSquadra2.getCreditiResidui+1; i++)
-    {
-      rigaOption += `<option value='${i}'>${i}</option>`; 
+    for (let i = 0; i < presidenteSquadra2.getCreditiResidui + 1; i++) {
+      rigaOption += `<option value='${i}'>${i}</option>`;
     }
-
   }
 
   document.getElementById("select-richiesta-crediti").innerHTML = rigaOption;
-
 }

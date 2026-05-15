@@ -37,7 +37,11 @@
   }
   #totale-scambi {
     grid-area: totale-scambi;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
+
   #container-squadra-utente {
     grid-area: container-squadra-utente;
   }
@@ -46,6 +50,8 @@
   }
   #container-riepilogo-scambio {
     grid-area: container-riepilogo-scambio;
+    position: sticky;
+    bottom: 40px;
   }
 
   #totale-scambi {
@@ -119,9 +125,8 @@
     padding-bottom: 15px;
 
     #select-richiesta-crediti {
-      width:fit-content;
+      width: fit-content;
     }
-
   }
 
   #titolo-riepilogo-scambio {
@@ -281,6 +286,11 @@
   div {
     text-align: center;
   }
+}
+#box-riepilogo-giocatori-squadra1 > div > div,
+#box-riepilogo-giocatori-squadra2 > div > div {
+  /* grandezza del ruolo */
+  width: 16px;
 }
 
 #info-squadra-2,

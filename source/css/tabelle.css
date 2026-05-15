@@ -135,17 +135,14 @@ table.tabella-squadra {
   }
   /* cella ruolo */
   td:nth-child(1) {
-    width:19px;
+    width: 19px;
     text-align: center;
   }
   td:nth-child(5),
-  td:nth-child(6)
-  {
-    width:25px;
+  td:nth-child(6) {
+    width: 25px;
     text-align: center;
-
   }
-
 
   caption {
     .campo-nome-squadra {
@@ -162,15 +159,6 @@ table.tabella-squadra {
       padding: 5px;
       color: var(--primary-dark);
     }
-  }
-  .squadra-di-appartenenza > div,
-  .cella-quotazione > div{
-    flex-wrap: nowrap;
-    font-size: smaller;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 5px;
   }
 }
 
@@ -319,6 +307,16 @@ table.tabella-info-squadre {
   }
 }
 
+table tbody .cella-squadra-di-appartenenza > div,
+table tbody .cella-quotazione > div {
+  flex-wrap: nowrap;
+  font-size: smaller;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+}
+
 /* quando si supera i 490px di larghezza, mostra nome squadra, immagine soldi e colonne MV5, FMV5, BM5 */
 @media all and (min-width: 480px) {
   table.tabella-giocatori {
@@ -358,11 +356,10 @@ table.tabella-info-squadre {
       display: table-cell;
     }
   }
- 
 }
 /* sotto gli 850px il contenitore tabelle diventa ad una colonna */
 @media all and (max-width: 850px) {
- #container-table {
+  #container-table {
     grid-template-columns: 1fr;
   }
 }
