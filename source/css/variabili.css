@@ -41,8 +41,12 @@
   --col-C: hsl(217, 93%, 52%);
   --col-A: hsl(351, 89%, 53%);
 
-
-    --bg-vista: #dde1e8;
+  /* CARD */
+  --background-card: #ffffff;
+  --background-card-hover: #e5e9ee;
+  --background-box-st: #edf1f7; /* sfonfo box statistica */
+  --background-box-st-hover: white; /* sfonfo box statistica al passaggio del mouse*/
+  --bg-vista: #dde1e8;
   --bg-card: #000d1d;
   --bg-card-hover: #212d42;
   --text-primary: #ffffff;

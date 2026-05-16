@@ -132,7 +132,7 @@
   font-weight: bold;
 }
 .card-giocatore:hover {
-  background-color: var(--border);
+  background-color: var(--background-card-hover);
 }
 
 .img-squadra {
@@ -144,9 +144,9 @@
 }
 .box-st {
   margin: 1px;
-
-  background-color: var(--border);
+  background-color: var(--background-box-st);
   border-radius: 5px;
+  border: 1px solid var(--border);
 }
 .card-giocatore:hover .box-st {
   background-color: white;
