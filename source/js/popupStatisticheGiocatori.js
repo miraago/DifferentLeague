@@ -22,6 +22,7 @@ export function gestisciClickNomeGiocatore(e) {
 
 // //logica per chiamare la card del giocatore
 
+
 export function popupStatisticheGiocatore(giocatore) {
   if (!giocatore) return; //controllo sicurezza
 
@@ -81,65 +82,88 @@ export function popupStatisticheGiocatore(giocatore) {
 
   popupStatistiche.innerHTML = `
   <div class="x"> X </div>
-  <div id="info-st">
-    <div class="campo-nome">
-      ${giocatore.getNome}
+    <div>
+      
+      <div class="container-info-giocatore">
+        <div class="campo-nome">${giocatore.getNome}</div>
+        <div>
+          <div class="campo-ruolo">
+          <span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span></div>
+        
+          <div class="campo-squadra">
+          <img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png"  title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}</div>
+      
+        </div>
+      </div>
+
+    <div class="container-statistiche-giocatore">
+    
+      <div class="campo">
+         <div class="valore">${giocatore.getQuotazione}</div>
+         <div class="etichetta">Quotazione</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getPresenze}</div>
+         <div class="etichetta">Presenze</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getGoalTotali : giocatore.getGoalSubitiTotali}</div>
+         <div class="etichetta">${giocatore.getRuolo != "P" ? "Goal" : "Goal Subiti"}</div>          
+      </div>
+
+      <div class="campo">
+         <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getAssistTotali : giocatore.getRigoriParatiTotali}</div>
+         <div class="etichetta">${giocatore.getRuolo != "P" ? "Assist" : "Rigori Parati"}</div>          
+      </div>
     </div>
-    <div class="campo-ruolo">
-      <span class="${giocatore.getRuolo}">${giocatore.getRuolo}</span>
-    </div>        
-    <div class="campo-squadra">
-      <img src="Assets/image/loghi_team_serie_A/${giocatore.getSquadraDiAppartenenza.toLowerCase()}.png"  title="${giocatore.getSquadraDiAppartenenza}"/> ${giocatore.getSquadraDiAppartenenza}
-    </div>         
-    <div class="campo .qt">
-      <div class="valore">${giocatore.getQuotazione}</div>
-      <div class="etichetta">Quotazione</div>          
+
+
+    <div class="container-statistiche-giocatore">
+      <div class="campo">
+        <div class="valore">${giocatore.getMv}</div>
+        <div class="etichetta">Media Voto</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getFvm}</div>
+        <div class="etichetta">Fanta Media Voto</div>
+      </div>
     </div>
-    <div class="campo .pre">
-      <div class="valore">${giocatore.getPresenze}</div>
-      <div class="etichetta">Presenze</div>          
+      
+      
+      <hr></hr>
+      <div class="container-statistiche-giocatore">
+      <div class="campo">
+        <div class="valore">${giocatore.getPresenzeUltime5}</div>
+        <div class="etichetta">Presenze ultime 5</div>
+      </div>
+      
+      <div class="campo">
+        <div class="valore">${giocatore.getMvUltime5}</div>
+        <div class="etichetta">MV ultime 5</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getFvmUltime5}</div>
+        <div class="etichetta">FMV ultime 5</div>
+      </div>
+      <div class="campo">
+        <div class="valore">${giocatore.getSommaBonusMalusUltime5}</div>
+        <div class="etichetta">B/M ultime 5</div>
+      </div>
+      </div>
     </div>
-    <div class="campo .goal">
-      <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getGoalTotali : giocatore.getGoalSubitiTotali}</div>
-      <div class="etichetta">${giocatore.getRuolo != "P" ? "Goal" : "Goal Subiti"}</div>          
-    </div>
-    <div class="campo .assist">
-      <div class="valore">${giocatore.getRuolo != "P" ? giocatore.getAssistTotali : giocatore.getRigoriParatiTotali}</div>
-      <div class="etichetta">${giocatore.getRuolo != "P" ? "Assist" : "Rigori Parati"}</div>          
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getMv}</div>
-      <div class="etichetta">Media Voto</div>
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getFvm}</div>
-      <div class="etichetta">Fanta Media Voto</div>
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getPresenzeUltime5}</div>
-      <div class="etichetta">Presenze ultime 5</div>
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getMvUltime5}</div>
-      <div class="etichetta">MV ultime 5</div>
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getFvmUltime5}</div>
-      <div class="etichetta">FMV ultime 5</div>
-    </div>
-    <div class="campo">
-      <div class="valore">${giocatore.getSommaBonusMalusUltime5}</div>
-      <div class="etichetta">B/M ultime 5</div>
-    </div>
-    <div id="campo-tabella">
+
+    <hr></hr>
+
       ${creaTabellaStatistiche(giocatore)}
+      <hr></hr>
       ${tabella}
-    </div>
-  </div>`;
+    </div>`;
 }
 
 function gestisciClickAnnulla(e) {
-  console.log(e);
+ 
   if (!e.target.closest(".x") && e.key != "Escape") return; //controllo sicurezza
 
   const popupStatistiche = document.getElementById("popup-statistiche");
