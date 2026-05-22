@@ -7,6 +7,9 @@
   background-color: rgb(0, 130, 28);
   margin-left: 10px;
 }
+.card-giocatore.in-svincolo {
+  background-color: rgb(255, 209, 209);
+}
 .card-giocatore.selected .nome-giocatore,
 .card-giocatore.selected .costo-acquisto {
   color: rgb(246, 255, 0);
@@ -43,20 +46,26 @@
   border-left: 5px solid var(--col-A);
   box-shadow: 1px 1px 3px var(--col-A);
 }
+.card-giocatore.option-svincolo {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "ruolo nome-giocatore nome-giocatore nome-giocatore img-squadra icone"
+    " . nome-squadra nome-squadra nome-squadra img-squadra icone "
+    "mv fmv costo-acquisto costo-attuale costo-svincolo icone";
+}
 
 .card-giocatore {
+  transition: 1s;
   padding: 5px;
   min-width: 170px;
+  max-width: max-content;
   height: 70px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 20px 15px 30px;
-  grid-template-areas:
-    "ruolo nome-giocatore nome-giocatore nome-giocatore img-squadra"
-    " . nome-squadra nome-squadra nome-squadra img-squadra"
-    "mv fmv costo-acquisto costo-attuale costo-svincolo";
-
+  grid-template-areas: "ruolo nome-giocatore nome-giocatore nome-giocatore img-squadra" " . nome-squadra nome-squadra nome-squadra img-squadra" "mv fmv costo-acquisto costo-attuale costo-svincolo";
+  align-items: center;
   font-size: small;
   align-items: center;
   text-align: center;
@@ -66,7 +75,6 @@
   border-bottom: 1px solid var(border);
   border-right: 1px solid var(border);
   padding: 2px;
-
   transition: all 0.3s ease;
   a {
     color: purple;
@@ -150,4 +158,30 @@
 }
 .card-giocatore:hover .box-st {
   background-color: white;
+}
+
+.bottone-annulla {
+  /* inizialmente invisibile poi tramite js compare */
+  display: none;
+}
+.bottone-svincola,
+.bottone-annulla,
+.bottone-promessa {
+  /* display: block; */
+  width: 20px;
+  cursor: pointer;
+}
+.bottone-svincola:hover,
+.bottone-annulla:hover,
+.bottone-promessa:hover {
+  scale: 1.2;
+}
+
+.container-icona {
+  grid-area: icone;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }

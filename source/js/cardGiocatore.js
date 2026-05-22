@@ -28,6 +28,7 @@ export function creaCardGiocatoreVuotoSostituibile() {
 export function creaCardGiocatore(giocatore, index, option = 0) {
   //option = 0 cardGiocatore semplice
   //option = 1 cardGiocatore disabled
+  //option = 3 cardGiocatore per svincolo
 
   if (giocatore) {
     const costoSvincolo = Math.ceil(
@@ -44,6 +45,15 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     card.dataset.card = dati.getNome; //nome giocatore
     card.dataset.index = index; //index giocatoree
     card.classList.add(dati.getRuolo);
+    if (option == 3) card.classList.add("option-svincolo"); //aggiunge questa classe per aggiungere le icone di svincolo
+
+    //creiamo il div con i tre bottoni
+    const tagDivConBottoniHTML = `<div class='container-icona'>
+                                    <img class='bottone-svincola' title="Svincola Giocatore" alt="->"src='/Assets/image/card/icona-bidone.png'/>
+                                    <img class='bottone-annulla' title="Annulla Operazione"alt="❌" src='/Assets/image/card/icona-annulla.png'/>
+                                    <img class='bottone-promessa' title="Prometti Svincolo" alt="-><-" src='/Assets/image/card/icona-promessa.png''/>
+                                  </div>`;
+
     card.innerHTML = `
     
       <span class="ruolo ${dati.getRuolo}">${dati.getRuolo}</span>
@@ -72,6 +82,8 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
           <div class="etichetta">C.S.</div>
           <div class="valore">${costoSvincolo}</div>
       </div>
+      ${option == 3 ? tagDivConBottoniHTML : ""}
+      
       `;
 
     return card;

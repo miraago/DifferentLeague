@@ -389,7 +389,11 @@ export function paginaDaRendereVisibile(pagina = "") {
     PAGINE.forEach((paginacorrente) => {
       if (paginacorrente.dataset.pagina == pagina) {
         paginacorrente.style.display = "flex";
-        if (pagina == "scambi" || pagina == "la-mia-squadra") {
+        if (
+          pagina == "scambi" ||
+          pagina == "la-mia-squadra" ||
+          pagina == "mercato"
+        ) {
           paginacorrente.style.display = "grid";
         }
       } else {

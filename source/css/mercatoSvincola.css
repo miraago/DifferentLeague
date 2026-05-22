@@ -1,367 +1,53 @@
 #vista-mercato {
   width: 95%;
-  max-width: 1200px;
-  display: none;
-  margin: 0 auto;
-  background-color: rgb(200, 200, 200);
-  padding: 10px;
-  /* display: flex; */
-  flex-direction: row;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-  o {
-  }
-
-  #container-giocatori {
-    width: calc(50% - 10px); /* 10px sono di gap */
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 5px;
-  }
-  #container-riepilogo {
-    width: calc(50% - 10px); /* 10px sono di gap */
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 5px;
-
-    x {
-    }
-    /* LA CARD SE SI TROVA NEL CONTAINER RIEPILOGO
-      DEVE MOSTRARE SOLO UNA PARTE DELLA CARD */
-    #container-riepilogo .card-giocatore {
-      width: 70%;
-      background-color: white;
-      font-size: small;
-      border: none;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-    .card-giocatore .nome-giocatore,
-    .card-giocatore .valore {
-      font-size: x-small;
-    }
-    .card-giocatore .etichetta {
-      display: none;
-    }
-    .card-giocatore img {
-      width: 20px;
-      height: 20px;
-    }
-    .in-card-box-icone {
-      position: static;
-      order: 3;
-      display: flex;
-      text-align: center;
-    }
-    .in-card-box-statistiche {
-      display: none;
-    }
-    .in-svincolo,
-    .in-promessa {
-      flex-wrap: nowrap;
-    }
-  }
-  /*CARD GIOCATORE */
-  .card-giocatore {
-    width: 100%;
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border: 1px solid rgb(61, 61, 61);
-  }
-  .card-vuota {
-    width: 100%;
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border: 1px solid rgb(61, 61, 61);
-    cursor: pointer;
-  }
-
-  .card-giocatore:hover {
-    background-color: azure;
-  }
-
-  /* BOX SX ruolo e squadra */
-  .in-card-box-sx {
-    width: calc(70% - 10px);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    height: 100%;
-    gap: 2px;
-    order: 1;
-  }
-  .ruolo {
-    display: flex;
-    padding: 5px;
-    align-items: center;
-    text-align: center;
-    font-size: xx-small;
-  }
-  .squadra img {
-    width: 18px;
-    height: 18px;
-    display: block;
-  }
-  img {
-    width: 20px;
-    height: 20px;
-    display: block;
-    cursor: pointer;
-  }
-  img:hover {
-    scale: 1.4;
-  }
-
-  /* BOX centrale nome sopra e statistiche sotto */
-  #box-centrale {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  #box-centrale > div {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
-  .quotazione,
-  .prezzo-pagato,
-  .media-voto,
-  .fanta-media-voto,
-  .presenze {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: calc(100% / 6);
-    height: 100%;
-  }
-  .costo-cessione {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-
-  .costo-cessione div {
-    color: rgb(0, 92, 23);
-    font-weight: bolder;
-  }
-
-  .costo-cessione .valore {
-    font-size: 16px;
-  }
-  .etichetta {
-    color: rgb(51, 51, 51);
-    font-size: xx-small;
-    white-space: wrap;
-    text-align: center;
-  }
-  .valore {
-    color: rgb(0, 0, 54);
-    font-family: "Arial Narrow Bold", sans-serif;
-    font-size: x-small;
-    text-align: center;
-
-    /* height: 80%; */
-  }
-
-  .in-card-box-dx {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: calc(30% - 10px); /**/
-    flex-wrap: nowrap;
-    gap: 10px;
-    height: 100%;
-
-    order: 2;
-  }
-  .nome-giocatore {
-    color: rgb(2, 2, 2);
-    font-size: 10px;
-    font-family: "Trebuchet MS", sans-serif;
-    font-weight: bold;
-    text-align: left;
-    text-overflow: ellipsis;
-  }
-
-  .in-card-box-statistiche {
-    padding: 0;
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    order: 3;
-  }
-
-  .in-card-box-icone {
-    /* position: absolute;
-    top: 10%;
-    left: 102%; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: right;
-    gap: 1px;
-    flex-direction: row;
-    order: 4;
-  }
-  .statistica {
-    /* statistiche 5 */
-    width: calc(100% / 5);
-  }
-
-  .icona {
-    display: block;
-    width: 30px;
-    height: 30px;
-  }
-
-  /* CONTENITORE INFO SQUADRA */
+  max-width: 1200px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "box-informazioni box-informazioni"
+    "container-giocatori container-riepilogo";
 
   #container-info-squadra {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 50px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    padding: 10px;
+    grid-area: box-informazioni;
+    gap: 10px;
   }
   #box-info {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  #container-info-squadra #box-info #nome-presidente {
-    font-size: 24px;
-    font-style: oblique;
-    text-align: center;
-  }
-  #container-info-squadra #box-info #nome-squadra {
-    color: rgb(0, 35, 76);
-    font-size: 40px;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  #container-info-squadra #box-calcoli {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
-  #container-info-squadra #box-calcoli div {
-    padding: 5px;
+  #box-calcoli {
     display: flex;
-    flex-direction: column-reverse;
-  }
-
-  #container-info-squadra #box-calcoli .etichetta {
-    font-size: small;
-  }
-  #container-info-squadra #box-calcoli .valore {
-    font-size: 25pt;
-    color: rgb(7, 137, 0);
-  }
-  button {
+    gap: 20px;
     padding: 10px;
-    font-size: large;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    > div {
+      min-width: 100px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      text-align: center;
+      padding: 10px;
+      background-color: var(--background-card);
+    }
   }
-
-  .card-vuota {
-    border: 1px dashed black;
-    background-color: rgb(255, 255, 255);
-  }
-
-  .in-promessa {
-    border: 3px solid orange;
-  }
-  .in-svincolo {
-    border: 3px solid red;
-  }
-  .in-svincolo .in-card-box-sx,
-  .in-svincolo .in-card-box-statistiche {
-    opacity: 0.8; /* Li fa sembrare "spenti" o grigi */
-    color: rgb(53, 53, 53);
-    filter: grayscale(100%);
-  }
-
-  .bottone-svincola {
-    padding: 3px;
-    color: white;
-    font-size: small;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 17px;
-    height: 17px;
+  #container-giocatori {
+    grid-area: container-giocatori;
     text-align: center;
   }
-  .bottone-promessa {
-    padding: 3px;
-    color: white;
-
-    font-size: small;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
+  #container-riepilogo {
+    grid-area: container-riepilogo;
     text-align: center;
-  }
-  .bottone-annulla {
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    text-align: center;
-    padding: 4px;
-    border-radius: 10px;
-    font-size: xx-small;
-    cursor: pointer;
-    display: none;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
   }
 }

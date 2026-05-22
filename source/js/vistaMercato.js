@@ -1,5 +1,6 @@
 import { UTENTELOGGATO } from "./gestioneUtente.js";
 import { paginaDaRendereVisibile } from "./script.js";
+import { creaCardGiocatore } from "./cardGiocatore.js";
 
 const vistaMercato = document.getElementById("vista-mercato");
 
@@ -7,6 +8,7 @@ vistaMercato.addEventListener("click", gestisciClickDaSvincolare);
 vistaMercato.addEventListener("click", gestisciClickDapromettere);
 vistaMercato.addEventListener("click", gestisciClickDaAnnullare);
 vistaMercato.addEventListener("click", gestisciOffertaSlotVuoto);
+
 let cbPlayer = [];
 let cbPresidenti = [];
 let presidenteUtenteLoggato = "";
@@ -117,7 +119,7 @@ export function mercatoSvincola() {
 
     if (element) {
       // se element esiste e non è null crea card giocatore
-      boxSlot.append(creaCardGiocatore(element, index));
+      boxSlot.append(creaCardGiocatore(element, index, 3)); //opzione 3 crea con bottone svincola promessa annulla
     } else {
       //situazione di slot vuoto
       boxSlot.append(creaCardGiocatoreVuota(temp, index));
@@ -127,65 +129,65 @@ export function mercatoSvincola() {
   });
 }
 
-//crea una card giocatore
-function creaCardGiocatore(giocatore, index) {
-  const valoreCard = calcolaCostoSvincolo(giocatore);
+// //crea una card giocatore
+// function creaCardGiocatore(giocatore, index) {
+//   const valoreCard = calcolaCostoSvincolo(giocatore);
 
-  //card
-  const tagCard = document.createElement("div");
-  tagCard.classList.add("card-giocatore");
-  tagCard.dataset.card = giocatore.getDatiGiocatore.getNome; //nome giocatore
-  tagCard.dataset.index = index; //index giocatore
-  tagCard.dataset.valore = valoreCard; //costo di svincolo
-  tagCard.dataset.ruolo = giocatore.getDatiGiocatore.getRuolo;
-  // fine card
+//   //card
+//   const tagCard = document.createElement("div");
+//   tagCard.classList.add("card-giocatore");
+//   tagCard.dataset.card = giocatore.getDatiGiocatore.getNome; //nome giocatore
+//   tagCard.dataset.index = index; //index giocatore
+//   tagCard.dataset.valore = valoreCard; //costo di svincolo
+//   tagCard.dataset.ruolo = giocatore.getDatiGiocatore.getRuolo;
+//   // fine card
 
-  //adesso costruiamo l'interno della card
+//   //adesso costruiamo l'interno della card
 
-  //1)box contenitore a sinistra
-  const inCardBoxSx = document.createElement("div");
-  inCardBoxSx.classList.add("in-card-box-sx");
+//   //1)box contenitore a sinistra
+//   const inCardBoxSx = document.createElement("div");
+//   inCardBoxSx.classList.add("in-card-box-sx");
 
-  //1A interno contenitore sx
-  inCardBoxSx.innerHTML = `
-        <div class="ruolo">
-          <span class="${giocatore.getDatiGiocatore.getRuolo}">${giocatore.getDatiGiocatore.getRuolo}</span>
-        </div>
-        <div class="squadra">
-          <img 
-            src="Assets/image/loghi_team_serie_A/${giocatore.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"
-            title="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"
-            alt="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"/>
-        </div>
-        <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
+//   //1A interno contenitore sx
+//   inCardBoxSx.innerHTML = `
+//         <div class="ruolo">
+//           <span class="${giocatore.getDatiGiocatore.getRuolo}">${giocatore.getDatiGiocatore.getRuolo}</span>
+//         </div>
+//         <div class="squadra">
+//           <img
+//             src="Assets/image/loghi_team_serie_A/${giocatore.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"
+//             title="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"
+//             alt="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"/>
+//         </div>
+//         <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
 
-  //3)box contenitore a destra
-  const inCardBoxDx = document.createElement("div");
-  inCardBoxDx.classList.add("in-card-box-dx");
+//   //3)box contenitore a destra
+//   const inCardBoxDx = document.createElement("div");
+//   inCardBoxDx.classList.add("in-card-box-dx");
 
-  //3A interno contenitore destra
-  inCardBoxDx.innerHTML = `<div class="costo-cessione">              
-          <div class="valore"> + ${valoreCard}</div>
-          <div class="etichetta"> Cessione</div>
-        </div>`;
+//   //3A interno contenitore destra
+//   inCardBoxDx.innerHTML = `<div class="costo-cessione">
+//           <div class="valore"> + ${valoreCard}</div>
+//           <div class="etichetta"> Cessione</div>
+//         </div>`;
 
-  //4) box contenitore pulsanti o icone
-  const inCardBoxIcone = document.createElement("div");
-  inCardBoxIcone.classList.add("in-card-box-icone");
+//   //4) box contenitore pulsanti o icone
+//   const inCardBoxIcone = document.createElement("div");
+//   inCardBoxIcone.classList.add("in-card-box-icone");
 
-  //4A interno contenitore icone o pulsanti
-  inCardBoxIcone.innerHTML = `<div class="bottone-svincola"><img src="Assets/image/icona-bidone.png" title="SVINCOLA DEFINITIVAMENTE" alt="svincola"/></div>
-        <div class="bottone-promessa"><img src="Assets/image/icona-promessa.png" title="PROMETTI DI SVINCOLARE SE VINCI LA BUSTA" alt="PROMETTI"/></div>
-        <div class="bottone-annulla">❌</div>`;
+//   //4A interno contenitore icone o pulsanti
+//   inCardBoxIcone.innerHTML = `<div class="bottone-svincola"><img src="Assets/image/icona-bidone.png" title="SVINCOLA DEFINITIVAMENTE" alt="svincola"/></div>
+//         <div class="bottone-promessa"><img src="Assets/image/icona-promessa.png" title="PROMETTI DI SVINCOLARE SE VINCI LA BUSTA" alt="PROMETTI"/></div>
+//         <div class="bottone-annulla">❌</div>`;
 
-  //5 inseriamo il contenuto nella card
-  tagCard.append(inCardBoxSx);
-  // tagCard.append(inCardBoxStatistiche);
-  tagCard.append(inCardBoxDx);
-  tagCard.append(inCardBoxIcone);
+//   //5 inseriamo il contenuto nella card
+//   tagCard.append(inCardBoxSx);
+//   // tagCard.append(inCardBoxStatistiche);
+//   tagCard.append(inCardBoxDx);
+//   tagCard.append(inCardBoxIcone);
 
-  return tagCard;
-}
+//   return tagCard;
+// }
 
 /**
  *crea una card giocatore vuota con una + al centro
