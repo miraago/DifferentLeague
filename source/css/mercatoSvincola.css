@@ -44,10 +44,18 @@
   }
   #container-giocatori {
     grid-area: container-giocatori;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin: 0 auto;
   }
   #container-riepilogo {
     grid-area: container-riepilogo;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin: 0 auto;
   }
 }
