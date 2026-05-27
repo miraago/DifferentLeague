@@ -58,7 +58,7 @@
   transition: 1s;
   padding: 5px;
   min-width: 170px;
-  max-width: max-content;
+
   height: 70px;
   border-radius: 10px;
   display: grid;
@@ -184,4 +184,21 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+.card-giocatore.vuota {
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-giocatore.sostituibile {
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: x-large;
+  font-weight: bold;
 }

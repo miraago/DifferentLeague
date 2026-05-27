@@ -21,8 +21,44 @@ export function creaSlotVuoto(ruoloDaAccupare, posizioneSlot) {
   return slotVuoto;
 }
 
-export function creaCardGiocatoreVuotoSostituibile() {
-  //logica per creare una card vuota con una + utile
+export function creaCardGiocatoreVuotoSostituibile(ruoloG, index) {
+  //logica per creare una card vuota con una + per essere sostituita
+  const cardSostituibile = document.createElement("div");
+  cardSostituibile.classList.add("card-giocatore");
+  cardSostituibile.classList.add("sostituibile");
+  cardSostituibile.classList.add(ruoloG);
+  cardSostituibile.dataset.index = index;
+  cardSostituibile.dataset.valore = 0;
+  cardSostituibile.dataset.ruolo = ruoloG;
+  cardSostituibile.style.order = index;
+
+  cardSostituibile.innerHTML = `<div id="box-centrale">      
+                + ${ruoloG}               
+      </div>`;
+
+  return cardSostituibile;
+}
+/**
+ *crea una card giocatore vuota con una + al centro
+ * @param {string} ruoloG la stringa contenente il ruolo dello slot mancante
+ * @param {number} index l'index del giocatore da aggiungere
+ * @returns card vuota
+ */
+export function creaCardGiocatoreVuota(ruoloG, index) {
+  const cardVuota = document.createElement("div");
+  cardVuota.classList.add("card-giocatore");
+  cardVuota.classList.add("vuota");
+  cardVuota.classList.add(ruoloG);
+  cardVuota.dataset.index = index;
+  cardVuota.dataset.valore = 0;
+  cardVuota.dataset.ruolo = ruoloG;
+  cardVuota.style.order = index;
+
+  cardVuota.innerHTML = `<div id="box-centrale">      
+                + ${ruoloG}               
+      </div>`;
+
+  return cardVuota;
 }
 
 export function creaCardGiocatore(giocatore, index, option = 0) {
@@ -39,6 +75,7 @@ export function creaCardGiocatore(giocatore, index, option = 0) {
     const dati = giocatore.getDatiGiocatore;
     const card = document.createElement("div");
     card.classList.add("card-giocatore");
+    card.dataset.valore = costoSvincolo;
     if (option == 1) {
       card.classList.add("disabled");
     }

@@ -1,6 +1,9 @@
 import { UTENTELOGGATO } from "./gestioneUtente.js";
 import { paginaDaRendereVisibile } from "./script.js";
-import { creaCardGiocatore } from "./cardGiocatore.js";
+import {
+  creaCardGiocatore,
+  creaCardGiocatoreVuotoSostituibile,
+} from "./cardGiocatore.js";
 
 const vistaMercato = document.getElementById("vista-mercato");
 
@@ -122,92 +125,11 @@ export function mercatoSvincola() {
       boxSlot.append(creaCardGiocatore(element, index, 3)); //opzione 3 crea con bottone svincola promessa annulla
     } else {
       //situazione di slot vuoto
-      boxSlot.append(creaCardGiocatoreVuota(temp, index));
+      boxSlot.append(creaCardGiocatoreVuotoSostituibile(temp, index));
     }
 
     containerGiocatori.append(boxSlot);
   });
-}
-
-// //crea una card giocatore
-// function creaCardGiocatore(giocatore, index) {
-//   const valoreCard = calcolaCostoSvincolo(giocatore);
-
-//   //card
-//   const tagCard = document.createElement("div");
-//   tagCard.classList.add("card-giocatore");
-//   tagCard.dataset.card = giocatore.getDatiGiocatore.getNome; //nome giocatore
-//   tagCard.dataset.index = index; //index giocatore
-//   tagCard.dataset.valore = valoreCard; //costo di svincolo
-//   tagCard.dataset.ruolo = giocatore.getDatiGiocatore.getRuolo;
-//   // fine card
-
-//   //adesso costruiamo l'interno della card
-
-//   //1)box contenitore a sinistra
-//   const inCardBoxSx = document.createElement("div");
-//   inCardBoxSx.classList.add("in-card-box-sx");
-
-//   //1A interno contenitore sx
-//   inCardBoxSx.innerHTML = `
-//         <div class="ruolo">
-//           <span class="${giocatore.getDatiGiocatore.getRuolo}">${giocatore.getDatiGiocatore.getRuolo}</span>
-//         </div>
-//         <div class="squadra">
-//           <img
-//             src="Assets/image/loghi_team_serie_A/${giocatore.getDatiGiocatore.getSquadraDiAppartenenza.toLowerCase()}.png"
-//             title="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"
-//             alt="${giocatore.getDatiGiocatore.getSquadraDiAppartenenza}"/>
-//         </div>
-//         <div class="nome-giocatore"> ${giocatore.getDatiGiocatore.getNome} </div>`;
-
-//   //3)box contenitore a destra
-//   const inCardBoxDx = document.createElement("div");
-//   inCardBoxDx.classList.add("in-card-box-dx");
-
-//   //3A interno contenitore destra
-//   inCardBoxDx.innerHTML = `<div class="costo-cessione">
-//           <div class="valore"> + ${valoreCard}</div>
-//           <div class="etichetta"> Cessione</div>
-//         </div>`;
-
-//   //4) box contenitore pulsanti o icone
-//   const inCardBoxIcone = document.createElement("div");
-//   inCardBoxIcone.classList.add("in-card-box-icone");
-
-//   //4A interno contenitore icone o pulsanti
-//   inCardBoxIcone.innerHTML = `<div class="bottone-svincola"><img src="Assets/image/icona-bidone.png" title="SVINCOLA DEFINITIVAMENTE" alt="svincola"/></div>
-//         <div class="bottone-promessa"><img src="Assets/image/icona-promessa.png" title="PROMETTI DI SVINCOLARE SE VINCI LA BUSTA" alt="PROMETTI"/></div>
-//         <div class="bottone-annulla">❌</div>`;
-
-//   //5 inseriamo il contenuto nella card
-//   tagCard.append(inCardBoxSx);
-//   // tagCard.append(inCardBoxStatistiche);
-//   tagCard.append(inCardBoxDx);
-//   tagCard.append(inCardBoxIcone);
-
-//   return tagCard;
-// }
-
-/**
- *crea una card giocatore vuota con una + al centro
- * @param {string} ruoloG la stringa contenente il ruolo dello slot mancante
- * @param {number} index l'index del giocatore da aggiungere
- * @returns card vuota
- */
-function creaCardGiocatoreVuota(ruoloG, index) {
-  const cardVuota = document.createElement("div");
-  cardVuota.classList.add("card-vuota");
-  cardVuota.dataset.index = index;
-  cardVuota.dataset.valore = 0;
-  cardVuota.dataset.ruolo = ruoloG;
-  cardVuota.style.order = index;
-
-  cardVuota.innerHTML = `<div id="box-centrale">      
-                + ${ruoloG}               
-      </div>`;
-
-  return cardVuota;
 }
 
 //gestisce il bottone svincola
@@ -238,12 +160,12 @@ function gestisciClickDaSvincolare(e) {
   cardCliccata.querySelector(".bottone-promessa").style.display = "none";
   cardCliccata.querySelector(".bottone-annulla").style.display = "block";
 
-  const cardVuota = creaCardGiocatoreVuota(
+  const cardSostituibile = creaCardGiocatoreVuotoSostituibile(
     ruoloDiRiferimento,
     cardCliccata.dataset.index,
   );
 
-  slotCliccato.append(cardVuota);
+  slotCliccato.append(cardSostituibile);
 
   aggiornaValoriNelBoxInfo();
 }
@@ -276,7 +198,7 @@ function gestisciClickDapromettere(e) {
   cardCliccata.querySelector(".bottone-promessa").style.display = "none";
   cardCliccata.querySelector(".bottone-annulla").style.display = "block";
 
-  const cardVuota = creaCardGiocatoreVuota(
+  const cardVuota = creaCardGiocatoreVuotoSostituibile(
     ruoloDiRiferimento,
     cardCliccata.dataset.index,
   );
@@ -303,17 +225,7 @@ function gestisciClickDaAnnullare(e) {
   const iconaCliccata = e.target.closest(".bottone-annulla"); // se è stato fatto click sull'icona annulla
 
   if (!iconaCliccata) return; // se non ho cliccato sul pulsante annulla esci
-
   const cardCliccata = e.target.closest(".card-giocatore"); //prendiamo il riferimento alla card cliccata
-
-  cardCliccata.classList.remove("in-svincolo"); //rimuoviamo la classe in svincolo
-
-  //rimettiamo i pulsanti di svincola e di sostituisci, il giocatore
-  cardCliccata.querySelector(".bottone-svincola").style.display = "block";
-  cardCliccata.querySelector(".bottone-promessa").style.display = "block";
-  cardCliccata.querySelector(".bottone-annulla").style.display = "none";
-
-  //rimettiamo la card in rosa
 
   //cerchiamo lo slot del giocatore
   const tuttiGliSlot = containerGiocatori.querySelectorAll(".box-slot"); //prendiamo tutti gli slot
@@ -326,14 +238,25 @@ function gestisciClickDaAnnullare(e) {
     }
   });
 
-  //se nel frattempo lo slot è stato rimpiazzato da un giocatore non possiamo svincolare
-  if (slotDaRimpiazzare.querySelector(".card-giocatore")) {
-    //logica per avvisare l'utente a dover eliminare prima la card
+  if (slotDaRimpiazzare.querySelector(".card-giocatore.sostituibile")) {
+    //se c'è una card sostituibile la rimuovi ed inserisci la card annullata
+
+    //rimettiamo la card in rosa
+    cardCliccata.classList.remove("in-svincolo"); //rimuoviamo la classe in svincolo
+
+    //rimettiamo i pulsanti di svincola e di sostituisci, il giocatore
+    cardCliccata.querySelector(".bottone-svincola").style.display = "block";
+    cardCliccata.querySelector(".bottone-promessa").style.display = "block";
+    cardCliccata.querySelector(".bottone-annulla").style.display = "none";
+
+    //rimuovi card SOSTITUIBILE
+    slotDaRimpiazzare.querySelector(".card-giocatore.sostituibile").remove();
+    //inserisci la card annullata
+    slotDaRimpiazzare.append(cardCliccata);
   } else {
-    //card vuota da eliminare
-    slotDaRimpiazzare.querySelector(".card-vuota").remove();
+    //lo slot è occupato da una card
+    //logica per avvisare l'utente a dover eliminare prima la card
   }
-  slotDaRimpiazzare.append(cardCliccata);
 
   aggiornaValoriNelBoxInfo();
 }
