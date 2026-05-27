@@ -57,7 +57,7 @@ export const IMPOSTAZIONI = {
   },
   GIORNATAATTUALE: {
     //giornata da effettuare
-    giornata: 37,
+    giornata: 39,
   },
   REGOLE_SCAMBI: {
     DIFFERENZA_MAX: 6,
