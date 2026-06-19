@@ -2,6 +2,7 @@
 import { controllaAccesso, UTENTELOGGATO, logout } from "./gestioneUtente.js";
 import { stampaInfoSquadre, stampaRose } from "./squadre.js";
 import { mostraLaMiaSquadra } from "./laMiaSquadra.js";
+import { inizializzaNavbar } from "./menu.js";
 
 import { inizializzaScambi, scambiaGiocatore } from "./vistaScambi.js";
 
@@ -146,6 +147,7 @@ function avviaApplicazione() {
   document.getElementById("nome-presidente").textContent =
     UTENTELOGGATO.nomeSquadraUtenteLoggato + " di " + nomePresidente;
   stampaDashboard();
+  inizializzaNavbar();
   inizializzaScambi(player, presidenti);
   inizializzaMercato(player, presidenti, (ruoloCercato) => {
     // 1. Troviamo la TUA VERA pagina che contiene le tabelle (data-pagina="dati")
