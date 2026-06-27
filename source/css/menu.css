@@ -106,11 +106,20 @@
     }
   }
   #icona-menu {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    background-color: var(--primary-light);
     transition: 1s;
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -ms-transition: 1s;
     -o-transition: 1s;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
   }
 }
 #navbar.chiuso {

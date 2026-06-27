@@ -1,5 +1,81 @@
 import { IMPOSTAZIONI } from "./impostazioni.js";
+//CLASS LEGA
+// class Lega {
+//   //attributi
+//   #id;
+//   #nome;
+//   #logo;
+//   #admin;
+//   #campionati=[];
+//   costructor(id="", nome="",logo="",admin=""){
+//     this.#id = id;
+//     this.nome=this.setNome(nome);
+//     this.logo=this.setLogo(logo);
+//     this.admin=setAdmin(admin);
 
+//   }
+
+//   set setNome (nome)
+//   {
+//     if(nome && nome.length>3)
+//     {
+//         #nome=nome;
+//     }
+//     else
+//       {
+//         //gestione errore
+//       }
+//   }
+//   set setAdmin (nomeAdmin)
+//   {
+//     if(nomeAdmin && nomeAdmin.length>3)
+//     {
+//         #nomeAdmin=nomeAdmin;
+//     }
+//     else
+//       {
+//         //gestione errore
+//       }
+//   }
+
+//   set setLogo (percorsoImmagine)
+//   {
+//     if(percorsoImmagine)
+//     {
+//       #logo=percorsoImmagine;
+//     }
+//   }
+
+//   addCampionato (nomeCampionato){
+//     if(nomeCampionato && nomeCampionato.length>3)
+//     {
+//       this.#campionati.push(nomeCampionato);
+//     }
+//   }
+
+//   get getNome(){
+//     return this.#nome;
+//   }
+//   get getAdmin(){
+//     return this.#admin;
+//   }
+//   get getLogo(){
+//     return this.#logo;
+//   }
+//   get getId(){
+//     return this.#id;
+//   }
+// }
+
+// //CLASS CAMPIONATO
+// class Campionato {
+//   //attributi
+//   #id;
+//   #nome;
+//   #logo;
+//   #numeroCampionati=0;
+//   #rose=[];
+// }
 //CLASS GIOCATORE**************************************************************
 class Giocatore {
   //attributi

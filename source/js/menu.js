@@ -12,10 +12,10 @@ function gestisciClickNavbar(event) {
     console.log("gestione click navbar :");
     if (nav.classList.contains("chiuso")) {
       nav.classList.remove("chiuso");
-      iconaMenu.src = "./Assets/image/menu/freccia.png";
+      iconaMenu.src = "./Assets/image/menu/freccia_sx.png";
     } else {
       nav.classList.add("chiuso");
-      iconaMenu.src = "./Assets/image/menu/menuWhite.png";
+      iconaMenu.src = "./Assets/image/menu/freccia_dx.png";
     }
   }
 }
