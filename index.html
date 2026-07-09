@@ -28,9 +28,17 @@
   <body>
     <header>
       <nav id="navbar">
-          <div id="menu">
-            <div><img id="icona-menu" class="chiuso" src="./Assets/image/menu/freccia_dx.png"/></div>
+          <!-- 1) bottoni MENU -->
+          <div id="container-btn-menu">
+            <div class="btn" id="btn-riduci"> _ </div>
+            <div class="btn" id="btn-freccia-apri-chiudi" class="chiuso"> < </div>  
             
+          
+                      
+          </div>
+
+          
+          <!-- 2) LOGO -->
           <div>
             <img
             class="item-nav"
@@ -40,59 +48,63 @@
             id="logo-sito"            
             />
           </div>
-       
-        <div class="item-nav">
-          <h1 id="titolo">Different League</h1>
-          <div id="nome-presidente"></div>
-        </div>
-        <div id="contenitore-menu" class="item-nav">
-          <ul>
-            <li data-action="apri-dashboard">
-              
-              <span class="icona">
-                <img src="./Assets/image/iconGeneric.png"/>
-              </span> 
-              <span class="etichetta">
-                Home
-              </span>             
-            </li>
-            <li data-action="apri-squadre">
-              <span class="icona">
-                <img src="./Assets/image/menu/squadra-white.png"/>
-              </span>
-              <span class="etichetta">
-                Squadre
-              </span>
-              
+
+
+          <!-- 3) NOME LEGA -->
+          <h1 id="titolo">
+            Different League
+          </h1>
+          
+          <!-- 4) SQUADRA E PRESIDENTE -->
+          <div id="nome-presidente">
+          </div>
+          
+          <!-- 5) MENU -->
+          <div class="item-nav">
+            <div id="contenitore-menu" class="item-nav">
               <ul>
-                <li data-action="apri-la-mia-squadra">
-                  
+                <li data-action="apri-dashboard">              
                   <span class="icona">
                     <img src="./Assets/image/iconGeneric.png"/>
+                  </span> 
+                  <span class="etichetta">
+                    Home
+                  </span>             
+                </li>
+                <li data-action="apri-squadre">
+                  <span class="icona">
+                    <img src="./Assets/image/menu/squadra-white.png"/>
                   </span>
                   <span class="etichetta">
-                    La mia squadra
+                    Squadre
                   </span>
+                  <ul>
+                    <li data-action="apri-la-mia-squadra">
+                      <span class="icona">
+                        <img src="./Assets/image/iconGeneric.png"/>
+                      </span>
+                      <span class="etichetta">
+                        La mia squadra
+                      </span>
+                    </li>
+                    <li data-action="apri-info-squadre">
+                      <span class="icona"> <img src="./Assets/image/iconGeneric.png"/></span>
+                      <span class="etichetta"> Info Squadre </span>                  
+                    </li>
+                    <li data-action="apri-tutte-le-rose">
+                      <span class="icona">
+                        <img src="./Assets/image/iconGeneric.png"/>
+                      </span>
+                      <span class="etichetta">                    
+                        Tutte Le Rose
+                      </span>
+                    </li>
+                  </ul>
                 </li>
-                <li data-action="apri-info-squadre">
-                  <span class="icona"> <img src="./Assets/image/iconGeneric.png"/></span>
-                  <span class="etichetta"> Info Squadre </span>                  
-                </li>
-                <li data-action="apri-tutte-le-rose">
-                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
-                  <span class="etichetta">                    
-                    Tutte Le Rose
-                  </span>
-                  
-                    
-                  
-                </li>
-              </ul>
-            </li>
-            <li data-action="apri-lista-giocatori">
+                <li data-action="apri-lista-giocatori">
               
-              <span class="icona"><img src="./Assets/image/menu/lista-white.png"/></span>    
-              <span class="etichetta">Giocatori</span>
+                  <span class="icona"><img src="./Assets/image/menu/lista-white.png"/></span>    
+                  <span class="etichetta">Giocatori</span>
                             
               <ul>
                 <li data-action="apri-lista-giocatori">
@@ -108,54 +120,63 @@
                   
                 </li>
               </ul>
-            </li>
-            <li data-action="apri-mercato">
-              <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                </span><span class="etichetta">Mercato</span>
-                
-              <ul>
-                <li data-action="apri-mercato-svincola">
-                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                  </span><span class="etichetta">Svincola Giocatori</span>
-                  
                 </li>
-                <li data-action="apri-scambi-1-a-molti">
+                <li data-action="apri-mercato">
                   <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                    </span><span class="etichetta">Scambi 1 a molti</span>
+                    </span><span class="etichetta">Mercato</span>
                     
-                  </li>
-                <li data-action="apri-scambi-classici">
-                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                    </span><span class="etichetta">Scambi Classici</span>
-                    
-                  </li>
-                <li data-action="apri-buste"
-                ><span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                  </span><span class="etichetta">Buste</span>
-                  
-                </li>
-                <li data-action="apri-appartenenze">
-                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
-                    </span><span class="etichetta">Appartenenza</span>
-                    
-                  </li>
+                  <ul>
+                    <li data-action="apri-mercato-svincola">
+                      <span class="icona">
+                        <img src="./Assets/image/iconGeneric.png"/>
+                      </span>
+                      <span class="etichetta">
+                        Svincola Giocatori
+                      </span>                  
+                    </li>
+                    <li data-action="apri-scambi-1-a-molti">
+                      <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                        </span><span class="etichetta">Scambi 1 a molti</span>
+                        
+                      </li>
+                    <li data-action="apri-scambi-classici">
+                      <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                        </span><span class="etichetta">Scambi Classici</span>
+                        
+                      </li>
+                    <li data-action="apri-buste"
+                    ><span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                      </span><span class="etichetta">Buste</span>
+                      
+                    </li>
+                    <li data-action="apri-appartenenze">
+                      <span class="icona"><img src="./Assets/image/iconGeneric.png"/>
+                        </span><span class="etichetta">Appartenenza</span>
+                        
+                      </li>
 
-                <li data-action="apri-da-svincolare">
-                  <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
-                  <span class="etichetta">Giocatori Da Svincolare</span>
+                    <li data-action="apri-da-svincolare">
+                      <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span>
+                      <span class="etichetta">Giocatori Da Svincolare</span>
+                    </li>
+                  </ul>
+                </li>
+                <li data-action="apri-login">
+                  <span class="icona">
+                    <img src="./Assets/image/iconGeneric.png"/>
+                  </span>
+                  <span class="etichetta">
+                    Scegli la tua squadra
+                  </span>
                 </li>
               </ul>
-            </li>
-            <li data-action="apri-login">
-              <span class="icona"><img src="./Assets/image/iconGeneric.png"/></span><span class="etichetta">Scegli la tua squadra</span>
-              
-            </li>
-          </ul>
-        </div>
-        </div>
-      </nav>
-    </header>
-    <main id="main">
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+      <main id="main">
       <div id="popup-caricamento">
         <div class="caricamento"> 
               <div>Caricamento Dati in corso ... </div>

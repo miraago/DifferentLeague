@@ -14,17 +14,19 @@ export const IMPOSTAZIONI = {
     GIR3: "BUNDESLIGA",
     GIR4: "LIGUE 1",
     GIR5: "SERIE A",
+    GIR6: "PRIMIERA LIGA",
     TUTTI: [
       "PREMIER LEAGUE",
       "LIGA SPAGNOLA",
       "BUNDESLIGA",
       "LIGUE 1",
       "SERIE A",
+      "PRIMIERA LIGA",
     ],
   },
   // 3. Regole di gioco
   REGOLE: {
-    NUMERO_SQUADRE: 100,
+    NUMERO_SQUADRE: 120,
     NUMERO_SQUADRE_A_GIRONE: 20,
     MAX_NUMERO_GIOCATORI_PER_SQUADRA: 25,
     MAX_P: 3,
@@ -32,7 +34,7 @@ export const IMPOSTAZIONI = {
     MAX_C: 8,
     MAX_A: 6,
     CARICAMENTO_FUORI_LISTA: false,
-    MAX_POSSEDUTO: 9, //traccia di quante squadre possono possedere un giocatore
+    MAX_POSSEDUTO: 11, //traccia di quante squadre possono possedere un giocatore
   },
 
   // 4. Valore Bonus/Malus di gioco
