@@ -23,6 +23,7 @@ function gestisciClickNavbar(event) {
     nav.classList.add("ridotto");
     //nascondiamo il bottone riduci
     bottoneCliccato.style.display = "none";
+    //VISTO CHE è STATO RIDOTTO AGGIUNGIAMO L'ICONA del menu
     bottoneApriChiudi.innerText = "≡";
   }
 

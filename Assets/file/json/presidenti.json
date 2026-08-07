@@ -1,0 +1,814 @@
+[
+    {
+        "id": 1,
+        "Nome": "Vincenzo Miranda",
+        "Squadra": "NEWCASTLE",
+        "user": "vincimir",
+        "girone": 1
+    },
+    {
+        "id": 2,
+        "Nome": "Davide Migliore",
+        "Squadra": "EVERTON",
+        "user": "userdav7231",
+        "girone": 1
+    },
+    {
+        "id": 3,
+        "Nome": "Francesco Annunziata",
+        "Squadra": "MAN UNITED",
+        "user": "mybeautyself",
+        "girone": 1
+    },
+    {
+        "id": 4,
+        "Nome": "Ignazio Consentino",
+        "Squadra": "ARSENAL",
+        "user": "fcignazio",
+        "girone": 1
+    },
+    {
+        "id": 5,
+        "Nome": "Francesco Miranda Grande",
+        "Squadra": "COVENTRY CITY",
+        "user": "cicciomira24",
+        "girone": 1
+    },
+    {
+        "id": 6,
+        "Nome": "Francesco Miranda Piccolo",
+        "Squadra": "SUNDERLAND",
+        "user": "kekkoglione8",
+        "girone": 1
+    },
+    {
+        "id": 7,
+        "Nome": "Giuliano Boccia",
+        "Squadra": "TOTTENHAM",
+        "user": "giulianoooo",
+        "girone": 1
+    },
+    {
+        "id": 8,
+        "Nome": "Giuseppe Ambrosio",
+        "Squadra": "MANCHESTER CITY",
+        "user": "fulmine26",
+        "girone": 1
+    },
+    {
+        "id": 9,
+        "Nome": "Giuseppe Annunziata",
+        "Squadra": "IPSWICH",
+        "user": "biondo1988",
+        "girone": 1
+    },
+    {
+        "id": 10,
+        "Nome": "Raffaele & Eugenio Boccia",
+        "Squadra": "BRENTFORD",
+        "user": "peppome91",
+        "girone": 1
+    },
+    {
+        "id": 11,
+        "Nome": "Pasquale Ambrosio",
+        "Squadra": "BOURNEMOUTH",
+        "user": "barbershop83",
+        "girone": 1
+    },
+    {
+        "id": 12,
+        "Nome": "Giuseppe Boccia",
+        "Squadra": "FULHAM",
+        "user": "giuseppe1971",
+        "girone": 1
+    },
+    {
+        "id": 13,
+        "Nome": "Raffaele e Antonio Urraro",
+        "Squadra": "ASTON VILLA",
+        "user": "raffaeleurra",
+        "girone": 1
+    },
+    {
+        "id": 14,
+        "Nome": "Giuseppe Sicignano",
+        "Squadra": "LIVERPOOL",
+        "user": "lewis44",
+        "girone": 1
+    },
+    {
+        "id": 15,
+        "Nome": "Francesco Franzese",
+        "Squadra": "HULL CITY",
+        "user": "fulmine26",
+        "girone": 1
+    },
+    {
+        "id": 16,
+        "Nome": "Davide Nappo",
+        "Squadra": "LEEDS",
+        "user": "Davide220391",
+        "girone": 1
+    },
+    {
+        "id": 17,
+        "Nome": "Alessandro Boccia",
+        "Squadra": "ATL MADRID",
+        "user": "napolibeach",
+        "girone": 2
+    },
+    {
+        "id": 18,
+        "Nome": "Antonio Pagano",
+        "Squadra": "REAL SOCIETAD",
+        "user": "tonypagano91",
+        "girone": 2
+    },
+    {
+        "id": 19,
+        "Nome": "Antonio Ambrosio",
+        "Squadra": "ALAVES",
+        "user": null,
+        "girone": 2
+    },
+    {
+        "id": 20,
+        "Nome": "Antonio Miranda",
+        "Squadra": "ESPANYOL",
+        "user": "miraant",
+        "girone": 2
+    },
+    {
+        "id": 21,
+        "Nome": "Francesco Raggio",
+        "Squadra": "CELTA VIGO",
+        "user": "ciccioraggio",
+        "girone": 2
+    },
+    {
+        "id": 22,
+        "Nome": "Claudio Ambrosio",
+        "Squadra": "OSASUNA",
+        "user": "claudinho87",
+        "girone": 2
+    },
+    {
+        "id": 23,
+        "Nome": "Marco Porro",
+        "Squadra": "REAL MADRID",
+        "user": null,
+        "girone": 2
+    },
+    {
+        "id": 24,
+        "Nome": "Aniello D'ascoli",
+        "Squadra": "ELCHE",
+        "user": "giovanni2023",
+        "girone": 2
+    },
+    {
+        "id": 25,
+        "Nome": "Francesco Guercia",
+        "Squadra": "MALAGA",
+        "user": "kekkoguercia",
+        "girone": 2
+    },
+    {
+        "id": 26,
+        "Nome": "Renato Ghezzi e Daniele",
+        "Squadra": "RACING",
+        "user": "fcleggendari",
+        "girone": 2
+    },
+    {
+        "id": 27,
+        "Nome": "Salvatore Ambrosio",
+        "Squadra": "ATLETICO BILBAO",
+        "user": "Salanto1991",
+        "girone": 2
+    },
+    {
+        "id": 28,
+        "Nome": "Gianluca Miranda",
+        "Squadra": "VALENCIA",
+        "user": "gianlucamir",
+        "girone": 2
+    },
+    {
+        "id": 29,
+        "Nome": "Luigi Duraccio",
+        "Squadra": "DEPORTIVO LA CORUNHA",
+        "user": "gigi987",
+        "girone": 2
+    },
+    {
+        "id": 30,
+        "Nome": "Michele Miranda",
+        "Squadra": "RAYO VALLECANO",
+        "user": "mirmik85",
+        "girone": 2
+    },
+    {
+        "id": 31,
+        "Nome": "Francesco DeVito",
+        "Squadra": "GETAFE",
+        "user": "mottin",
+        "girone": 2
+    },
+    {
+        "id": 32,
+        "Nome": "Giuseppe Miranda",
+        "Squadra": "VILLAREAL",
+        "user": "pinu 89",
+        "girone": 2
+    },
+    {
+        "id": 33,
+        "Nome": "Giuseppe Miranda",
+        "Squadra": "SIVIGLIA",
+        "user": "bradpippo",
+        "girone": 2
+    },
+    {
+        "id": 34,
+        "Nome": "Salvatore Ambrosio",
+        "Squadra": "BETIS",
+        "user": "sasavip",
+        "girone": 2
+    },
+    {
+        "id": 35,
+        "Nome": "Salvator Miranda",
+        "Squadra": "BARCELLONA",
+        "user": "onestissimo",
+        "girone": 2
+    },
+    {
+        "id": 36,
+        "Nome": "Umberto Di Mauro",
+        "Squadra": "LEVANTE",
+        "user": "umberto888",
+        "girone": 2
+    },
+    {
+        "id": 37,
+        "Nome": "Nicola Pasolini",
+        "Squadra": "AMBURGO",
+        "user": "nicopaso",
+        "girone": 3
+    },
+    {
+        "id": 38,
+        "Nome": "Giuseppe Innusa",
+        "Squadra": "AUGSBURG",
+        "user": "giuppydry82",
+        "girone": 3
+    },
+    {
+        "id": 39,
+        "Nome": "Eddy Brachini",
+        "Squadra": "BAYERN MONACO",
+        "user": "gusfring88",
+        "girone": 3
+    },
+    {
+        "id": 40,
+        "Nome": "Aliperti Umberto",
+        "Squadra": "COLONIA",
+        "user": "mbrt",
+        "girone": 3
+    },
+    {
+        "id": 41,
+        "Nome": "Carlo D'alpa",
+        "Squadra": "DORTMUND",
+        "user": "usercar1293",
+        "girone": 3
+    },
+    {
+        "id": 42,
+        "Nome": "Luciano D'avino",
+        "Squadra": "EINTRACHT",
+        "user": "luciano1999",
+        "girone": 3
+    },
+    {
+        "id": 43,
+        "Nome": "Guglielmo e Aldo Frizzi",
+        "Squadra": "ELVERSBERG",
+        "user": "FAF2016",
+        "girone": 3
+    },
+    {
+        "id": 44,
+        "Nome": "Giuseppe Ambrosio",
+        "Squadra": "FRIBURGO",
+        "user": "Cecatinho",
+        "girone": 3
+    },
+    {
+        "id": 45,
+        "Nome": "Antonio Francavilla",
+        "Squadra": "HOFFENHEIM",
+        "user": "franca85",
+        "girone": 3
+    },
+    {
+        "id": 46,
+        "Nome": "Luciano e Antonio Miranda",
+        "Squadra": "LEVERKUSEN",
+        "user": "luciano2010",
+        "girone": 3
+    },
+    {
+        "id": 47,
+        "Nome": "Marco Russo",
+        "Squadra": "LIPSIA",
+        "user": "marcus1979",
+        "girone": 3
+    },
+    {
+        "id": 48,
+        "Nome": "Alessio Dilisio",
+        "Squadra": "MAINZ",
+        "user": "Alexdls17",
+        "girone": 3
+    },
+    {
+        "id": 49,
+        "Nome": "Luigi Pizzella",
+        "Squadra": "MONCHENGLADBACH",
+        "user": "gigipiz",
+        "girone": 3
+    },
+    {
+        "id": 50,
+        "Nome": "Roberto Rendina",
+        "Squadra": "PADERBORN",
+        "user": "mrrendina",
+        "girone": 3
+    },
+    {
+        "id": 51,
+        "Nome": "Gabriele Mingotti",
+        "Squadra": "SHALKE 04",
+        "user": "gabry168",
+        "girone": 3
+    },
+    {
+        "id": 52,
+        "Nome": "Guido Decarlo e Nicola Fortunato",
+        "Squadra": "ST PAULI",
+        "user": "guidodec",
+        "girone": 3
+    },
+    {
+        "id": 53,
+        "Nome": "Daniele Coppola",
+        "Squadra": "STOCCARDA",
+        "user": "danielenap",
+        "girone": 3
+    },
+    {
+        "id": 54,
+        "Nome": "Daniele Olmetto",
+        "Squadra": "UNION BERLINO",
+        "user": "19tauro83",
+        "girone": 3
+    },
+    {
+        "id": 55,
+        "Nome": "Salvo Innusa",
+        "Squadra": "WERDER BREMA",
+        "user": "supericky19",
+        "girone": 3
+    },
+    {
+        "id": 56,
+        "Nome": "Davide Mina",
+        "Squadra": "WOLFSBURG",
+        "user": "dade46",
+        "girone": 3
+    },
+    {
+        "id": 57,
+        "Nome": "Alessio Boi",
+        "Squadra": "ANGERS",
+        "user": "alluccio",
+        "girone": 4
+    },
+    {
+        "id": 58,
+        "Nome": "Angelo Franzese & Giuseppe Mira",
+        "Squadra": "AUXERRE",
+        "user": "angelo889",
+        "girone": 4
+    },
+    {
+        "id": 59,
+        "Nome": "Luca Battello",
+        "Squadra": "BREST",
+        "user": "gioluca",
+        "girone": 4
+    },
+    {
+        "id": 60,
+        "Nome": "Annibale Mazzeo",
+        "Squadra": "LE HAVRE",
+        "user": "Santiambro",
+        "girone": 4
+    },
+    {
+        "id": 61,
+        "Nome": "Alessandro Amato",
+        "Squadra": "LENS",
+        "user": "amatomino",
+        "girone": 4
+    },
+    {
+        "id": 62,
+        "Nome": "Leonardo Pasquini e Andrea Melani",
+        "Squadra": "LILLE",
+        "user": "gattonero34",
+        "girone": 4
+    },
+    {
+        "id": 63,
+        "Nome": "Gabriele Micali",
+        "Squadra": "LIONE",
+        "user": "gabrimic",
+        "girone": 4
+    },
+    {
+        "id": 64,
+        "Nome": "Omer Feldi",
+        "Squadra": "LORIENT",
+        "user": "PARTENOPE19",
+        "girone": 4
+    },
+    {
+        "id": 65,
+        "Nome": "Raffaele Cervone",
+        "Squadra": "MARSIGLIA",
+        "user": "rafcervo",
+        "girone": 4
+    },
+    {
+        "id": 66,
+        "Nome": "Roberto Saverino",
+        "Squadra": "METZ",
+        "user": "goldenboy75",
+        "girone": 4
+    },
+    {
+        "id": 67,
+        "Nome": "Alberto Bernardi",
+        "Squadra": "MONACO",
+        "user": "Alba00",
+        "girone": 4
+    },
+    {
+        "id": 68,
+        "Nome": "Ettore Boccia",
+        "Squadra": "MONTEPELLIER",
+        "user": "ettoreboccia",
+        "girone": 4
+    },
+    {
+        "id": 69,
+        "Nome": "Paolo De Angelis",
+        "Squadra": "NANTES",
+        "user": "xxPaoxx",
+        "girone": 4
+    },
+    {
+        "id": 70,
+        "Nome": "Maurizio Beghi",
+        "Squadra": "NIZZA",
+        "user": "coachmao",
+        "girone": 4
+    },
+    {
+        "id": 71,
+        "Nome": "Davide Ricciutelli",
+        "Squadra": "PARIS FC",
+        "user": "ricciu82",
+        "girone": 4
+    },
+    {
+        "id": 72,
+        "Nome": "Benito Marino",
+        "Squadra": "PSG",
+        "user": "bennuzzu93",
+        "girone": 4
+    },
+    {
+        "id": 73,
+        "Nome": "Stefano Delli Castelli",
+        "Squadra": "REIMS",
+        "user": "ZAZZAA",
+        "girone": 4
+    },
+    {
+        "id": 74,
+        "Nome": "Vincenzo e Miky",
+        "Squadra": "RENNES",
+        "user": "michelenzo",
+        "girone": 4
+    },
+    {
+        "id": 75,
+        "Nome": "Manuel Massaro",
+        "Squadra": "STRASBURGO",
+        "user": "guizza",
+        "girone": 4
+    },
+    {
+        "id": 76,
+        "Nome": "Giampaolo Rizzuti",
+        "Squadra": "TOLOSA",
+        "user": "giampeau",
+        "girone": 4
+    },
+    {
+        "id": 77,
+        "Nome": "Claudio Ambrosio",
+        "Squadra": "SASSUOLO",
+        "user": "claudiopeppe",
+        "girone": 5
+    },
+    {
+        "id": 78,
+        "Nome": "Daniele Salsi",
+        "Squadra": "BOLOGNA",
+        "user": "rubendouglas",
+        "girone": 5
+    },
+    {
+        "id": 79,
+        "Nome": "Luciano Modugno",
+        "Squadra": "NAPOLI",
+        "user": "Ilmattone87",
+        "girone": 5
+    },
+    {
+        "id": 80,
+        "Nome": "Angelo Catrini",
+        "Squadra": "INTER",
+        "user": "mazzarino89",
+        "girone": 5
+    },
+    {
+        "id": 81,
+        "Nome": "Alberto Pisano",
+        "Squadra": "FIORENTINA",
+        "user": "wizard11",
+        "girone": 5
+    },
+    {
+        "id": 82,
+        "Nome": "Antonio Seggioli",
+        "Squadra": "ATALANTA",
+        "user": "seggiolia",
+        "girone": 5
+    },
+    {
+        "id": 83,
+        "Nome": "Carmine Altilio",
+        "Squadra": "COMO",
+        "user": "carmine1992",
+        "girone": 5
+    },
+    {
+        "id": 84,
+        "Nome": "Damiano Andalò",
+        "Squadra": "LAZIO",
+        "user": "demm93",
+        "girone": 5
+    },
+    {
+        "id": 85,
+        "Nome": "Flavio Del Monego",
+        "Squadra": "LECCE",
+        "user": "flapollon",
+        "girone": 5
+    },
+    {
+        "id": 86,
+        "Nome": "Mattia Danesin",
+        "Squadra": "CAGLIARI",
+        "user": "Dane98",
+        "girone": 5
+    },
+    {
+        "id": 87,
+        "Nome": "Fabrizio Amati",
+        "Squadra": "PARMA",
+        "user": "fabrigiuz",
+        "girone": 5
+    },
+    {
+        "id": 88,
+        "Nome": "Domenico Di Benedetto",
+        "Squadra": "ROMA",
+        "user": "budda95",
+        "girone": 5
+    },
+    {
+        "id": 89,
+        "Nome": "Fabrizio Chinaglia",
+        "Squadra": "UDINESE",
+        "user": "cm2707",
+        "girone": 5
+    },
+    {
+        "id": 90,
+        "Nome": "Gianluca Ristallo",
+        "Squadra": "TORINO",
+        "user": "Nalucagi78",
+        "girone": 5
+    },
+    {
+        "id": 91,
+        "Nome": "Lorenzo Ricci",
+        "Squadra": "VENEZIA",
+        "user": "mangiasterco",
+        "girone": 5
+    },
+    {
+        "id": 92,
+        "Nome": "Marco Russo e Ettore Boccia",
+        "Squadra": "FROSINONE",
+        "user": "lostrestigre",
+        "girone": 5
+    },
+    {
+        "id": 93,
+        "Nome": "Massimo Bufano",
+        "Squadra": "JUVENTUS",
+        "user": "maxbufano",
+        "girone": 5
+    },
+    {
+        "id": 94,
+        "Nome": "Michele Pasolini",
+        "Squadra": "MILAN",
+        "user": "pasomilaan",
+        "girone": 5
+    },
+    {
+        "id": 95,
+        "Nome": "Mario Morgani",
+        "Squadra": "GENOA",
+        "user": "mmaster85",
+        "girone": 5
+    },
+    {
+        "id": 96,
+        "Nome": "Marco Palazzolo",
+        "Squadra": "MONZA",
+        "user": "2marco2",
+        "girone": 5
+    },
+    {
+        "id": 97,
+        "Nome": "Armando Maglione",
+        "Squadra": "RIO AVE",
+        "user": "Mawerich",
+        "girone": 6
+    },
+    {
+        "id": 98,
+        "Nome": "Carlo D'Alpa",
+        "Squadra": "SPORTING LISBONA",
+        "user": "Carlitos",
+        "girone": 6
+    },
+    {
+        "id": 99,
+        "Nome": "Carlo Fortuna",
+        "Squadra": "ESTORIL",
+        "user": "taricon",
+        "girone": 6
+    },
+    {
+        "id": 100,
+        "Nome": "Christian La Malfa",
+        "Squadra": "GIL VICENTE",
+        "user": "chrispa99",
+        "girone": 6
+    },
+    {
+        "id": 101,
+        "Nome": "Pietro La Licata",
+        "Squadra": "AROUCA",
+        "user": "Ziopiero81",
+        "girone": 6
+    },
+    {
+        "id": 102,
+        "Nome": "Fabrizio Chinaglia",
+        "Squadra": "BOAVISTA",
+        "user": "sagitt71",
+        "girone": 6
+    },
+    {
+        "id": 103,
+        "Nome": "Roberto Marino",
+        "Squadra": "BENFICA",
+        "user": "robima93",
+        "girone": 6
+    },
+    {
+        "id": 104,
+        "Nome": "Riccardo Dainese",
+        "Squadra": "ESTRELA AMADORA",
+        "user": "dainefc",
+        "girone": 6
+    },
+    {
+        "id": 105,
+        "Nome": "Elio Mannino",
+        "Squadra": "VITORIA GUIMARAES",
+        "user": "eliomannino",
+        "girone": 6
+    },
+    {
+        "id": 106,
+        "Nome": "Luca La Bianca",
+        "Squadra": "MARITIMO",
+        "user": "lucalab99",
+        "girone": 6
+    },
+    {
+        "id": 107,
+        "Nome": "Luciano modugno",
+        "Squadra": "PORTO",
+        "user": "inazuma11",
+        "girone": 6
+    },
+    {
+        "id": 108,
+        "Nome": "Michele Morello",
+        "Squadra": "SANTA CLARA",
+        "user": "dentino12",
+        "girone": 6
+    },
+    {
+        "id": 109,
+        "Nome": "Piero Ponzo & Danilo Desi",
+        "Squadra": "CASA PIA",
+        "user": "123898",
+        "girone": 6
+    },
+    {
+        "id": 110,
+        "Nome": "Vincenzo Palagano",
+        "Squadra": "ACADEMICO VISEU",
+        "user": "PALAGANOTEAM",
+        "girone": 6
+    },
+    {
+        "id": 111,
+        "Nome": "Salvatore Innusa",
+        "Squadra": "BELENENSES",
+        "user": "supericky29",
+        "girone": 6
+    },
+    {
+        "id": 112,
+        "Nome": "Salvo Castrofilippo",
+        "Squadra": "FAMALICAO",
+        "user": "Butchery",
+        "girone": 6
+    },
+    {
+        "id": 113,
+        "Nome": "Samuele Gaudono",
+        "Squadra": "NACIONAL MADEIRA",
+        "user": "samuele91",
+        "girone": 6
+    },
+    {
+        "id": 114,
+        "Nome": "Sonny D'angelo",
+        "Squadra": "MOREIRENSE",
+        "user": "sonnyd27",
+        "girone": 6
+    },
+    {
+        "id": 115,
+        "Nome": "Vito Fiore",
+        "Squadra": "BRAGA",
+        "user": "yanky78",
+        "girone": 6
+    },
+    {
+        "id": 116,
+        "Nome": "Giuseppe Innusa",
+        "Squadra": "ALVERCA",
+        "user": "Peppedry82",
+        "girone": 6
+    }
+]
